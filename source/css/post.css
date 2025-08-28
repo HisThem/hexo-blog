@@ -1,0 +1,11 @@
+
+/* 图片阴影 */
+.keep-markdown-body img, .keep-markdown-body > .post img {
+    box-shadow: 0 0 0.5rem var(--shadow-color);
+}
+
+/* 图片对齐 */
+.keep-markdown-body > img, .keep-markdown-body > .post > img, .keep-markdown-body p > img, .keep-markdown-body > .post p > img {
+    margin: 1rem 0 0 0;
+}
+

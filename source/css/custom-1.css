@@ -1,0 +1,178 @@
+/* 字体样式 */
+
+:root {
+
+    --first-screen-font-size: 70px;
+    --first-screen-font-offset: -30px;
+
+    --home-post-hover-scale: 1.005;
+    --first-screen-display: block;
+    --code-foreground: #003d7a; /*行内代码前景色*/
+    --code-border-color: rgba(0, 0, 0, 0); /*行内代码边框色，此处设为透明*/
+}
+
+
+.keep-note {
+    margin-top: 1.5rem; /*上边距1rem*/
+    margin-bottom: 1.5rem; /*下边距1rem*/
+    padding: 0.8rem 1.8rem; /*边距：上下0.8rem，左右1.8rem*/
+    border-style: none;
+    border-width: 0.2rem;
+    border-radius: 0.7rem;
+}
+
+.highlight-container .code-tools-box {/*代码块未折叠状态*/
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+}
+
+.highlight-container .code-tools-box.folded {/*代码块完全折叠时*/
+    border-bottom-right-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;  /*注：此处bottom指工具栏的下边缘*/
+}
+
+.highlight {
+    border-bottom-right-radius: 0.7rem;/*代码块真正的下边缘*/
+    border-bottom-left-radius: 0.7rem;
+}
+
+.post-copyright-info-container {
+    border-radius: calc(var(--box-border-radius) * 0.6);/*版权信息容器圆角*/
+}
+
+.fa-copy:before {
+    margin-right: 0.45rem;
+} /*复制按钮图标右边距*/
+
+.post-page-container .post-content-container .post-content-bottom .post-header .avatar-box {
+    border: none;
+} /*去掉头像边框*/
+
+.post-page-container .post-content-container .post-content-bottom .post-header .avatar-box img {
+    background: none;
+} /*去掉头像背景*/
+
+code {/*行内代码*/
+    font-size: 0.95rem;
+    padding: 0.2rem 0.3rem; /*上下0.2rem，左右0.3rem*/
+    border-radius: 0.25rem;
+    background: #F6F6F7;
+    border: rgba(0, 0, 0, 0.05); 
+    color: #003d7a;
+}
+
+.keep-markdown-body p, .keep-markdown-body > .post p {
+    letter-spacing: 0.0rem; /*字间距*/
+    line-height: 1.8rem;
+}
+
+figure.highlight .shrink-line { /*代码块折叠线*/
+    background: linear-gradient(to bottom, var(--shrink-line-background-2), var(--shrink-line-background-2));
+
+}
+
+.reward-author-container .reward-btn {/*打赏按钮*/
+    font-weight: bold;
+    border-radius: 0.7rem;
+}
+.reward-author-container .reward-btn:hover {/*打赏按钮悬停*/
+    font-weight: bold;
+    -webkit-text-fill-color: transparent;
+    box-shadow: 0 0 12px var(--shadow-hover-color);
+    border-radius: 0.7rem;
+}
+
+.post-page-container .post-content-container .post-content-bottom .post-nav .prev-post, .post-page-container .post-content-container .post-content-bottom .post-nav .next-post {
+    border-radius: 0.7rem;
+}/*上一篇下一篇按钮*/
+
+
+/*搜索框（上面的一小条）*/
+.search-pop-overlay .search-popup .search-header {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+/*搜索框底板*/
+.search-pop-overlay.active .search-popup {
+    border-radius: 1rem;
+}
+
+/*引用框*/
+.keep-markdown-body blockquote, 
+.keep-markdown-body > .post blockquote {
+    margin: 0.8rem 0;
+    padding: 0.8rem 1.5rem;
+    color: var(--text-color-3);
+    background: var(--background-color-2);
+    border-left: 0.35rem solid var(--text-color-4);
+    /* border-top-left-radius: 0.2rem; */
+    /* border-bottom-left-radius: 0.2rem; */
+    border-radius: 0.7rem;
+}
+
+
+
+/*右下角工具栏圆角*/
+.side-tools-container .tools-item {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-color-3);
+    font-size: 1.25rem;
+    background: var(--background-color-1);
+    border-right: none;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.1rem 0.2rem var(--shadow-color);
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .side-tools-container .tools-item {
+        margin-right: 0.5rem;
+    }
+}
+
+
+/* 高亮行 */
+mark {
+    background-color: #fff9b7;
+    color: #100f0f;
+}
+
+/* 斜体 */
+.keep-markdown-body em, .keep-markdown-body > .post em {
+    color: #D78C00;
+}
+
+/* copyright */
+.post-copyright-info-container .copyright-info-content .copyright-info-top .copyright-post-title {
+    font-weight: bold;
+}
+
+
+
+
+/* 友链加粗 */
+.page-template-container .friends-link-list .friends-link-item .a-wrap .details .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* homepage文章图片 */
+.home-content-container .home-post-list .home-post-item .home-post-item-top .home-cover {
+    transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.2s;
+}
+
+.home-content-container .home-post-list .home-post-item .home-post-item-top .home-cover:hover {
+    transform: scale(1);
+}
+
+/*homepage文章标题和摘要行间距*/
+.home-content-container .home-post-list .home-post-item .home-post-item-bottom .home-post-content {
+    margin-top: 1rem;
+}
+
+
+
+

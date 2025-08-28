@@ -1,0 +1,69 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;1,300&display=swap'); */
+.post-page-container .post-content-container .post-content-bottom .post-header .avatar-box img {
+    display: none !important;
+}
+
+.post-page-container .post-content-container .post-content-bottom .post-header .avatar-box {
+    display: none!important;
+}
+
+.post-meta-info-container.post i.icon, .post-meta-info-container.post i.fas {
+    display: none!important;
+}
+
+.post-meta-info-container .post-meta-info .post-update-date {
+    display: none!important;
+}
+
+.post-meta-info-container .post-meta-info .post-category {
+    display: none!important;
+}
+.post-meta-info-container .post-meta-info .post-create-date {
+    display: var(--post-create-datetime)!important;
+    margin-left: 0!important;
+}
+
+.post-page-container .post-content-container .post-content-bottom {
+    padding: 5rem!important;
+}
+
+@media (max-width: 800px) {
+    .post-page-container .post-content-container .post-content-bottom {
+        padding: 3.5rem!important;
+    }
+}
+
+@media (max-width: 500px) {
+    .post-page-container .post-content-container .post-content-bottom {
+        padding: 1.8rem!important;
+    }
+}
+
+.post-meta-info-container.post i.icon, .post-meta-info-container.post i.fas {
+    font-size: 0.86rem!important;
+}
+
+.keep-markdown-body p, .keep-markdown-body > .post p {
+    font-family: 'Noto Serif SC', serif!important;
+    font-size: 18px!important;
+}
+
+.post-page-container .post-content-container .post-content-bottom .post-title {
+    font-family: 'Noto Serif SC', serif!important;
+    font-size: 35px!important;
+    font-weight: 700!important;
+    letter-spacing: 0.05rem!important;
+    display: block!important;
+}
+
+.post-page-container .post-content-container .post-content-bottom .post-header .info-box .author .name {
+    font-family: 'Noto Serif SC', serif!important;
+    padding: 4px!important;
+    line-height: 1rem!important;
+}
+
+.post-page-container .post-content-container .post-content-bottom.has-cover {
+    padding-top: 2rem!important;
+}
