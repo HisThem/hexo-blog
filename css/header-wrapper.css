@@ -1,0 +1,62 @@
+/*解决导航栏宽度问题，使得站名不会被导航栏挤压*/
+@media (max-width: 1000px) {
+    .header-wrapper .header-content {
+        width: var(--page-content-width-tablet);
+    }
+}
+@media (max-width: 1000px) {
+    html, body {
+        font-size: calc(var(--base-font-size)* 0.95) !important;
+        line-height: calc(var(--base-line-height)* 0.95) !important;
+    }
+}
+
+/*导航栏宽度缩减*/
+@media (max-width: 900px) {
+    .page-container .page-main-content .page-main-content-top {
+      height: calc(var(--header-height) * 0.9);
+    }
+  }
+
+
+/*导航栏折叠后的按钮出现*/
+@media (max-width: 900px) {
+  .header-wrapper .header-content .right .mobile .icon-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+/*导航栏左边的头像缩小*/
+@media (max-width: 900px) {
+    .header-wrapper .header-content .left .logo-image {
+      width: 2.412rem;
+      height: 2.412rem;
+    }
+  }
+/*导航栏左边的站名缩小*/
+@media (max-width: 900px) {
+    .header-wrapper .header-content .left .site-name {
+      font-size: calc(var(--header-title-font-size) * 0.9);
+    }
+  }
+
+/*导航栏右边的菜单隐藏*/
+@media (max-width: 900px) {
+.header-wrapper .header-content .right .pc .menu-list {
+    display: none;
+}
+}
+
+/*导航栏下拉菜单显示*/
+@media (max-width: 900px) {
+    .header-wrapper .header-drawer {
+      display: flex;
+    }
+  }
+  /*导航栏下拉菜单暗色遮罩*/
+  @media (max-width: 900px) {
+    .header-wrapper .window-mask {
+      display: block;
+    }
+  }

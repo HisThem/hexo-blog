@@ -1,0 +1,56 @@
+/*Comments字样*/
+.comments-container .comment-area-title {
+    width: 100%;
+    color: var(--text-color-3);
+    font-size: 1.38rem;
+    line-height: 2;
+    font-weight: 600;
+}
+
+/*评论框 未激活的发送按钮*/
+.twikoo .el-button--primary.is-disabled, .twikoo .el-button--primary.is-disabled:active, .twikoo .el-button--primary.is-disabled:focus, .twikoo .el-button--primary.is-disabled {
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+.twikoo .el-button--primary.is-disabled, .twikoo .el-button--primary.is-disabled:active, .twikoo .el-button--primary.is-disabled:focus, .twikoo .el-button--primary.is-disabled:hover {
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+/*评论框 激活的发送按钮*/
+.el-button+.el-button {
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+.el-button+.el-button:hover {
+    box-shadow: 0 0 8px var(--shadow-hover-color);
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+/*评论框 预览按钮*/
+.twikoo .el-button:not(.el-button--primary):not(.el-button--text) {
+    font-weight: bold;
+    border-radius: 0.5rem;
+}
+.twikoo .el-button:not(.el-button--primary):not(.el-button--text):hover {
+    box-shadow: 0 0 8px var(--shadow-hover-color);
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+/*评论框 输入框*/
+.twikoo-container #twikoo .tk-input textarea {
+    color: var(--text-color-3);
+    border-radius: 0.5rem;
+}
+
+/*信息栏 输入框*/
+.twikoo-container #twikoo .tk-meta-input .el-input input {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+}
+/*信息栏 输入框前缀*/
+.twikoo-container #twikoo .tk-meta-input .el-input .el-input-group__prepend {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    font-weight: bold;
+}

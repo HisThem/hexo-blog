@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en,zh-CN,default">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="He Junze">
+    
+    
+    <title>
+        
+            C++ 教程 | 2.C++ 对 C 的基本扩充 |
+        
+        晚亭新凉
+    </title>
+    
+<link rel="stylesheet" href="/hexo-blog/css/style.css?1795518992805">
+
+    
+        <link rel="shortcut icon" href="/hexo-blog/images/avatar_minisize.png">
+    
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/fontawesome.min.css?1795518992805">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/regular.min.css?1795518992805">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/solid.min.css?1795518992805">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/brands.min.css?1795518992805">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/hexo-blog/css/custom-1.css?1795518992805">
+<link rel="stylesheet" href="/hexo-blog/css/font.css?1795518992805">
+<link rel="stylesheet" href="/hexo-blog/css/header-wrapper.css?1795518992805">
+<link rel="stylesheet" href="/hexo-blog/css/gallery.css?1795518992805">
+<link rel="stylesheet" href="/hexo-blog/css/comments.css?1795518992805">
+<link rel="stylesheet" href="/hexo-blog/css/post.css?1795518992805">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"histhem.github.io","root":"/hexo-blog/","language":["en","zh-CN","default"],"path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"晚亭新凉","author":"He Junze","avatar":"/images/avatar_minisize.png","logo":"/images/avatar_minisize.png","favicon":"/images/avatar_minisize.png"},"menu":{"home":"/","archives":"/archives","library":{"children":[{"tags":"/tags || fa-solid fa-tags"},{"categories":"/categories || fa-solid fa-layer-group"}]},"links":"/links","gallery":"/gallery","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false,"enableTypewriter":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/HisThem","weixin":"img | /images/wechat.jpg","qq":"img | /images/qq.jpg","instagram":"https://www.instagram.com/beihe2656/profilecard/?igsh=ZnI2OXJoYzh5eGhq","500px":"https://500px.com.cn/4ae1d61984732bd4d26d1abf243175339?rs=4ae1d61984732bd4d26d1abf243175339","steam":"https://steamcommunity.com/profiles/76561199145331905/","email":"orlando.he@icloud.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm","created_datetime_icon":"fa-solid fa-file-circle-plus","updated_datetime_icon":"fa-solid fa-clock-rotate-left","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"/images/buymeacoffee.jpg","text":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"twikoo","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":"https://hejunze.netlify.app/.netlify/functions/twikoo","region":null,"version":"1.6.40"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2024,"word_count":true,"site_deploy":{"enable":true,"provider":"aliyun","url":"https://www.aliyun.com/"},"record":{"enable":true,"list":[{"code":"豫ICP备2024101982号-1","link":"https://beian.miit.gov.cn"}]}},"inject":{"enable":true,"css":[["/css/custom-1.css","/css/font.css","/css/header-wrapper.css","/css/gallery.css","/css/comments.css","/css/post.css"]],"js":[["/js/custom-1.js"]]},"root":"/hexo-blog","source_data":{"links":[{"title":"朋友们"},{"name":"悲伤虾滑蛋","link":"https://captainjack-ai.github.io/","description":"来自独一无二的B612星球","avatar":"/images/zcyavatar.jpg"}],"photos":[{"url":"https://i.postimg.cc/wvT2vYk0/DSC00941.jpg"},{"url":"https://i.postimg.cc/KjCDJkhH/DSC01202.jpg"},{"url":"https://i.postimg.cc/ZKyc0crt/DSC01209.jpg"},{"url":"https://i.postimg.cc/Wpy82Kqw/DSC01622.jpg"},{"url":"https://i.postimg.cc/9MRqN25n/20241114231518.jpg"},{"url":"https://i.postimg.cc/Yqwm8TXd/20241210163052.jpg"},{"url":"https://i.postimg.cc/J7XkNRQy/20241210163208.jpg"},{"url":"https://i.postimg.cc/2ynLrx5d/20241210163226.jpg"},{"url":"https://i.postimg.cc/9M6w6kcF/20241210163229.jpg"},{"url":"https://i.postimg.cc/fTjSP5pD/20241210163230.jpg"},{"url":"https://i.postimg.cc/0ykK1D1m/20241210163235.jpg"},{"url":"https://i.postimg.cc/DmV119qV/DSC02111.jpg"},{"url":"https://i.postimg.cc/kM2ZFWxw/DSC02255.jpg"},{"url":"https://i.postimg.cc/FFw6P1pv/DSC02344.jpg"},{"url":"https://i.postimg.cc/BQDVRs7K/DSC02423.jpg"},{"url":"https://i.postimg.cc/SxftNdhQ/DSC02438.jpg"},{"url":"https://i.postimg.cc/MGZ3cB67/DSC02484.jpg"},{"url":"https://i.postimg.cc/fbH2Yby6/DSC02558.jpg"},{"url":"https://i.postimg.cc/1tfWBZN4/DSC02588.jpg"},{"url":"https://i.postimg.cc/d1p5SS86/DSC02595.jpg"},{"url":"https://i.postimg.cc/FzSTtgp4/DSC02618.jpg"},{"url":"https://i.postimg.cc/9QZJgpMt/DSC00706.jpg"},{"url":"https://i.postimg.cc/sDtTJ8Vg/DSC00741.jpg"},{"url":"https://i.postimg.cc/xdQgwzNr/DSC00828.jpg"},{"url":"https://i.postimg.cc/q7GQ4v2N/DSC00841.jpg"},{"url":"https://i.postimg.cc/bwcRntTG/DSC01711.jpg"},{"url":"https://i.postimg.cc/k44NCFnH/DSC01756-3.jpg"},{"url":"https://i.postimg.cc/tTM34ZJ4/DSC02078.jpg"},{"url":"https://i.postimg.cc/0jKpMkKd/DSC02098.jpg"},{"url":"https://i.postimg.cc/XqPQm1dx/DSC00323.jpg"},{"url":"https://i.postimg.cc/HWvZrnR5/DSC00425.jpg"},{"url":"https://i.postimg.cc/SNXZCqbP/DSC00613.jpg"},{"url":"https://i.postimg.cc/gJSDLtSd/DSC00870.jpg"},{"url":"https://i.postimg.cc/yxDTmhtR/DSC00855.jpg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="晚亭新凉" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/hexo-blog/">
+                    <img src="/hexo-blog/images/avatar_minisize.png">
+                </a>
+            
+            <a class="site-name border-box" href="/hexo-blog/">
+               晚亭新凉
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                LIBRARY
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                TAGS
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                CATEGORIES
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/gallery">
+                                
+                                GALLERY
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                            LIBRARY
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        TAGS
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        CATEGORIES
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/gallery">
+                            
+                            GALLERY
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+
+
+
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                <!-- 
+                    <div class="post-title">
+                        C++ 教程 | 2.C++ 对 C 的基本扩充
+                    </div>
+                 -->
+                <div class="post-title">
+                    C++ 教程 | 2.C++ 对 C 的基本扩充
+                </div>
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/hexo-blog/images/avatar_minisize.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">He Junze</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;
+                <span class="datetime">2024-09-09 15:30</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-clock-rotate-left"></i>&nbsp;
+                    <span class="datetime" data-updated="Thu Dec 05 2024 19:28:26 GMT+0800">2024-12-05 19:28</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">C++高级程序设计</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/C/">C++</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>5.1k Words</span>
+            </span>
+        
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h2 id="C- 与 C 的关系">C++ 与 C 的关系</h2>
+<p>C++ 包含了 C 的所有成分。<br>
+C++ 在 C 的基础上增加了一些新的语言机制：</p>
+<ul class="lvl-0">
+<li class="lvl-2">更好地支持过程式编程，提高与类型相关的安全性。（C++ 对 C 的基本扩充）</li>
+<li class="lvl-2">支持面向对象编程。</li>
+<li class="lvl-2">支持泛型编程。</li>
+<li class="lvl-2">支持函数式编程。</li>
+</ul>
+<h2 id="基本扩充内容">基本扩充内容</h2>
+<ul class="lvl-0">
+<li class="lvl-2"><strong>局部变量的定义位置</strong>：
+<ul class="lvl-2">
+<li class="lvl-6">允许局部变量的定义可以加插在语句中</li>
+<li class="lvl-6">变量的使用点和定义点相距不至于太远，便于理解与维护</li>
+</ul>
+</li>
+<li class="lvl-2"><strong>常量定义</strong>：
+<ul class="lvl-2">
+<li class="lvl-6"><code>#define PI 3.1416</code> （编译前的预处理时会将 PI 替换为 3.1416）</li>
+<li class="lvl-6">C++ 补充了 const double PI = 3.1416，便于编译时进行类型检查</li>
+</ul>
+</li>
+<li class="lvl-2"><strong>表示条件的表达式</strong>：
+<ul class="lvl-2">
+<li class="lvl-6">值非 0 表示满足，0 表示不满足</li>
+<li class="lvl-6">bool 类型：true 表示满足，false 表示不满足（C++ 扩充的，便于理解）</li>
+</ul>
+</li>
+<li class="lvl-2"><strong>内联（inline）函数</strong>：编译时把函数体嵌入到函数的调用点，提高对小函数的调用效率</li>
+<li class="lvl-2">可以给函数的参数指定默认值</li>
+<li class="lvl-2"><strong>名空间（namespace）</strong>：不同模块可以有同名的全局实体，应对名冲突问题</li>
+<li class="lvl-2"><strong>标准库 </strong>：保留了 c 的标准库，将头文件名从<code>*.h</code> 改为 <code>c*</code>，如<code>stdio.h</code> 改为<code>cstdio</code></li>
+<li class="lvl-2"><strong>函数名重载 </strong>：<strong> 同一个作用域内 </strong> 功能相同、参数不同的函数取相同名字</li>
+<li class="lvl-2"><strong>动态变量的内存分配 </strong>：增加了新的操作符<code>new</code> 与<code>delete</code>，保证类型安全。</li>
+<li class="lvl-2"><strong>引用类型</strong>：具有指针的一些作用，但比指针更安全。</li>
+<li class="lvl-2"><strong>基于范围的 for 语句</strong>：自动遍历数组元素，防止数组下标越界</li>
+<li class="lvl-2"><strong>类型自动判断 auto</strong>：根据初始化的值自动判断变量的类型，方便某些类型变量的定义</li>
+<li class="lvl-2"><strong>结构化异常处理</strong>：把程序的正常处理与异常处理的代码分离开，使得程序容易理解与维护。</li>
+<li class="lvl-2"><strong>匿名函数（λ表达式）</strong>：把函数定义和使用合而为一，方便对一些临时函数的使用。</li>
+<li class="lvl-2"><strong>输入 / 输出</strong>：保证类型安全的输入输出（cin、cout 等）</li>
+</ul>
+<p>下面的函数会在 C++ 练习中频繁使用，在这里提前介绍：</p>
+<h3 id="输入输出">输入输出</h3>
+<p>对于下面的变量</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x; <span class="type">double</span> y;</span><br></pre></td></tr></table></figure>
+<p>输入：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d%lf&quot;</span>,&amp;x,&amp;y); <span class="comment">//C 语言做法，类型不安全！</span></span><br><span class="line">cin &gt;&gt; x &gt;&gt; y; <span class="comment">//C++ 扩充，自动判断输入数据的类型。</span></span><br><span class="line">    <span class="comment">//cin 为特殊类型的变量（对象），“&gt;&gt;”为重载的操作符</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d,%f\n&quot;</span>,x,y); <span class="comment">//C 语言做法，类型不安全！</span></span><br><span class="line">cout &lt;&lt; x &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; y; <span class="comment">//C++ 扩充，自动判断输出数据的类型。</span></span><br><span class="line">    <span class="comment">//cout 为特殊类型的变量（对象），“&lt;&lt;”为重载的操作符</span></span><br></pre></td></tr></table></figure>
+<h3 id="解决对小函数调用的低效问题：内联函数">解决对小函数调用的低效问题：内联函数</h3>
+<p>函数调用需要额外开销（保留返回地址、为局部变量和形参分配空间等），对只包含一两句的小函数，过于低效。解决办法：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>带参数的宏 如<code>#define max(a,b) (((a)&gt;(b)?(a):(b))</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">在编译前会将 <code>max(a,b)</code> 替换为 <code>(((a)&gt;(b)?(a):(b))</code>，效率比定义一个<code>max</code> 函数高</li>
+<li class="lvl-6">宏定义的不足之处：
+<ul class="lvl-4">
+<li class="lvl-10">要加上很多的括号以保证不出问题</li>
+<li class="lvl-10">有时会出现重复计算</li>
+<li class="lvl-10">替换时没有参数类型检查和转换</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>内联函数</strong>：定义函数时，在函数返回类型之前加上一个<code>inline</code> 如：</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Inline <span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;   <span class="keyword">return</span> a&gt;b?a:b;   &#125;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内联函数的作用是 <em> 建议编译程序把该函数的函数体展开到调用点</em>，函数调用时直接执行函数书写时：</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="built_in">max</span>(a,b)</span><br></pre></td></tr></table></figure>
+<p>编译时，编译器会自动将上述代码改为</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; (a&gt;b?a:b)</span><br></pre></td></tr></table></figure>
+<p>随后再进行编译。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内联函数形式上属于函数，遵守函数调用的规定</p>
+</li>
+<li class="lvl-2">
+<p>不是所有函数都能作为内联函数，比如递归函数无法内联</p>
+</li>
+<li class="lvl-2">
+<p>内联函数名具有 <em> 文件作用域</em></p>
+</li>
+</ul>
+<h3 id="带缺省的形式参数">带缺省的形式参数</h3>
+<p>在 C++ 中允许在声明函数时，为函数的某些参数指定默认值。例如，可以把函数 print 声明成：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> value, <span class="type">int</span> base=<span class="number">10</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>在对这些函数调用的地方，如果没有提供相应的实参，则相应的形参采用指定的默认值。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">f</span>(<span class="number">32</span>,<span class="number">2</span>); <span class="comment">//32 传给 value；2 传给 base</span></span><br><span class="line"><span class="built_in">f</span>(<span class="number">28</span>); <span class="comment">//28 传给 value；10 传给 base</span></span><br></pre></td></tr></table></figure>
+<p>在指定函数参数的默认值时，应注意下面几点：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>有默认值的形参应 <strong> 全处于形参表的右部</strong>。例如：</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b=<span class="number">1</span>, <span class="type">int</span> c=<span class="number">0</span>)</span></span>; <span class="comment">//OK</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b=<span class="number">1</span>, <span class="type">int</span> c)</span></span>; <span class="comment">//Error，c 没指定默认值</span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对参数指定默认值只在函数声明（包括定义性声明）处有意义，因为对函数调用的编译要用到它。</p>
+<ul class="lvl-2">
+<li class="lvl-6">在不同的源文件中，对同一个函数的声明可以对它的参数指定不同的默认值。</li>
+<li class="lvl-6">在同一个源文件中，对同一个函数的声明只能对它的每一个参数指定一次默认值。例如：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c=<span class="number">2</span>)</span></span>; <span class="comment">//Ok，函数 f 的声明</span></span><br><span class="line">......</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b=<span class="number">1</span>, <span class="type">int</span> c=<span class="number">0</span>)</span></span>;  <span class="comment">//Error，对参数 c 指定了两次默认值</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<h3 id="static 声明">static 声明</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>static 用在全局变量前，可使该变量只能在该文件内部使用，不能跨文件使用</p>
+</li>
+<li class="lvl-2">
+<p>用在局部变量前，可使该变量的寿命与全局变量相同</p>
+</li>
+<li class="lvl-2">
+<p>此外，static 还可用于声明静态成员，具体参考文章[[10. 常成员函数及静态成员]]</p>
+</li>
+</ul>
+<h3 id="名空间">名空间</h3>
+<p>对于一个由多个模块（源文件）构成的程序，有时会面临一个问题：在一个模块中要用到在另外两个模块中定义的不同全局程序实体（如：全局变量和函数），而这两个全局程序实体的名字相同。例如，在下面的模块 1 和和模块 2 中都定义了 x 和 f，模块 3 中如何分别使用它们？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模块 1</span></span><br><span class="line"><span class="type">int</span> x=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模块 2</span></span><br><span class="line"><span class="type">int</span> x=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; ......</span><br><span class="line">&#125;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模块 3</span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">int</span> x; <span class="comment">//?</span></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="type">void</span> <span class="title">f</span><span class="params">()</span></span>; <span class="comment">//?</span></span><br><span class="line">......</span><br><span class="line">... x,f ... <span class="comment">//?</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>C++ 提供了 <strong> 名空间</strong>（namespace）机制来解决上述的名冲突问题：可以把全局标识符定义在一个名空间中，其作用域为该名空间。当在一个名空间外部需要使用该名空间中定义的全局标识符时，需要用该名空间的名字来修饰或受限。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//fileq.h</span></span><br><span class="line"><span class="keyword">namespace</span> A</span><br><span class="line">&#123; <span class="type">int</span> x=<span class="number">1</span>;</span><br><span class="line"> <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; ...... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//file2.h</span></span><br><span class="line"><span class="keyword">namespace</span> B</span><br><span class="line">&#123; <span class="type">int</span> x=<span class="number">0</span>;</span><br><span class="line"> <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; ...... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;file1.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;file2.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可按下列 1、2、3 三种方式使用模块 1 和模块 2 中的实体</span></span><br><span class="line"><span class="comment">/* 1 */</span></span><br><span class="line">... A::x ...  <span class="comment">//A 中的 x </span></span><br><span class="line">A::<span class="built_in">f</span>();  <span class="comment">//A 中的 f</span></span><br><span class="line">... B::x ...  <span class="comment">//B 中的 x</span></span><br><span class="line">B::<span class="built_in">f</span>();  <span class="comment">//B 中的 f</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 2 */</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> A;</span><br><span class="line">... x ...  <span class="comment">//A 中的 x </span></span><br><span class="line"><span class="built_in">f</span>();  <span class="comment">//A 中的 f</span></span><br><span class="line">... B::x ...  <span class="comment">//B 中的 x</span></span><br><span class="line">B::<span class="built_in">f</span>();  <span class="comment">//B 中的 f</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 3 */</span></span><br><span class="line"><span class="keyword">using</span> A::f;</span><br><span class="line">... A::x ... <span class="comment">//A 中的 x </span></span><br><span class="line"><span class="built_in">f</span>(); <span class="comment">//A 中的 f</span></span><br><span class="line">... B::x ...  <span class="comment">//B 中的 x</span></span><br><span class="line">B::<span class="built_in">f</span>();  <span class="comment">//B 中的 f</span></span><br></pre></td></tr></table></figure>
+<p>由于 C++ 标准库中的全局实体（如 cin、cout）是定义在名空间 std 中的，因此，使用标准库中的全局实体时要用 <strong>std 受限</strong>。另外，具有文件作用域的标识符可以用<strong> 无名的名空间 </strong> 来定义。例如，对于下面用 static 说明的具有文件作用域的全局变量：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> x,y; <span class="comment">//C 语言的做法</span></span><br></pre></td></tr></table></figure>
+<p>可用下面的无名的名空间来代替：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> &#123;  </span><br><span class="line">	<span class="type">int</span> x,y; <span class="comment">//x 和 y 只能在本源文件中使用！</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，static 就可以只用于一个目的了：使得局部变量采用静态存储分配。</p>
+<h3 id="动态变量">动态变量</h3>
+<p>在 C 语言中，动态变量是用库函数来创建和撤销的。例如：下面创建一个 int 型动态变量，p1 指向之：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p1; <span class="comment">//p1 是个指针变量 </span></span><br><span class="line">p1 = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>)); <span class="comment">// 分配 sizeof(int) 大小的空间</span></span><br></pre></td></tr></table></figure>
+<p>下面创建一个由 n 个 int 型元素构成的动态数组，p2 指向其第一个元素：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p2; <span class="comment">//p2 是个指针变量</span></span><br><span class="line">p2 = (<span class="type">int</span> *)<span class="built_in">calloc</span>(n,<span class="keyword">sizeof</span>(<span class="type">int</span>)); <span class="comment">// 元素初始化为 0</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p2 = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>)*n);</span><br></pre></td></tr></table></figure>
+<p>下面撤销 p1 指向的 int 型动态变量和 p2 指向的动态数组：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">free</span>(p1);</span><br><span class="line"><span class="built_in">free</span>(p2);</span><br></pre></td></tr></table></figure>
+<p>在 C++ 语言中，增加了创建和撤销动态变量的两个操作符 <code>new</code> 和<code>delete</code>，提高类型安全性。例如，下面创建一个 int 型的动态变量，p1 指向之：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p1; <span class="comment">//p1 是个指针变量</span></span><br><span class="line">p1 = <span class="keyword">new</span> <span class="type">int</span>; <span class="comment">//C++ 扩充，空间大小自动确定</span></span><br></pre></td></tr></table></figure>
+<p>下面创建一个由 n 个 int 型元素构成的动态数组，p2 指向其第一个元素：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p2; <span class="comment">//p2 是个指针变量</span></span><br><span class="line">p2 = <span class="keyword">new</span> <span class="type">int</span>[n]; <span class="comment">//C++ 扩充</span></span><br></pre></td></tr></table></figure>
+<p>下面撤销 p1 指向的 int 型动态变量：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> p1;</span><br></pre></td></tr></table></figure>
+<p>下面撤销 p2 指向的 int 型动态数组：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> []p2;</span><br></pre></td></tr></table></figure>
+<p>一般来说，</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用 <code>new</code> 创建的动态变量需要用 <code>delete</code> 来撤销；</p>
+</li>
+<li class="lvl-2">
+<p>用 <code>malloc</code>（<code>calloc</code>）创建的动态变量则需要用<code>free</code> 撤销。对于普通的动态变量，C++ 与 C 的做法区别不大，但如果创建的是动态对象，则两者是有差别的：</p>
+</li>
+<li class="lvl-2">
+<p>除了为对象分配空间外，<code>new</code>还会去调用对象类的构造函数进行对象初始化，<code>malloc</code>（<code>calloc</code>）则不会。</p>
+</li>
+<li class="lvl-2">
+<p>除了收回为对象分配的空间外，<code>delete</code>还会去调用对象类的析构函数进行对象消亡后的清理，<code>free</code>则不会。<br>
+C/C++ 动态变量的问题：</p>
+</li>
+<li class="lvl-2">
+<p>没有自动废区收集功能，动态变量需要程序显式用 <code>free</code> 或<code>delete</code>撤销，否则会出现内存泄漏问题！</p>
+</li>
+</ul>
+<h3 id="引用类型">引用类型</h3>
+<p>引用类型是用来给一个变量取一个 <em> 别名</em>，通过该别名可以访问原来的变量。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x;</span><br><span class="line"><span class="type">int</span> &amp;y=x; <span class="comment">//y 为引用类型的变量，它是 x 的别名</span></span><br><span class="line">y = <span class="number">10</span>;  <span class="comment">// 通过 y 访问 x，效果上等价于：x = 10;</span></span><br></pre></td></tr></table></figure>
+<p>引用类型具有指针类型的一些效果，但语法不一样。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p=&amp;x; <span class="comment">//p 为指针类型的变量，它指向 x</span></span><br><span class="line">*p = <span class="number">20</span>; <span class="comment">// 通过 p 访问 x，效果上等价于：x = 20</span></span><br></pre></td></tr></table></figure>
+<p>引用主要用于函数的参数类型，实现指针类型参数的效果，但比指针类型抽象和安全。</p>
+<h4 id="用引用类型提高函数参数传递的效率">用引用类型提高函数参数传递的效率</h4>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">A</span></span><br><span class="line">&#123; <span class="type">int</span> i;</span><br><span class="line">   ......</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(A &amp;x)</span> <span class="comment">//x 使用实参 a 的内存空间，提高参数传递效率</span></span></span><br><span class="line"><span class="function"></span>&#123; ......</span><br><span class="line">   … x.i … <span class="comment">// 访问实参</span></span><br><span class="line">   ......</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; A a;</span><br><span class="line">   ......</span><br><span class="line">   <span class="built_in">f</span>(a); <span class="comment">// 把 a 传给函数 f</span></span><br><span class="line">   ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="用引用类型实现通过形参改变实参的值">用引用类型实现通过形参改变实参的值</h4>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> &amp;x, <span class="type">int</span> &amp;y)</span> <span class="comment">// 交换两个 int 型变量的值</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="type">int</span> t;</span><br><span class="line"> t = x;</span><br><span class="line"> x = y;</span><br><span class="line"> y = t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="type">int</span> a=<span class="number">0</span>,b=<span class="number">1</span>;</span><br><span class="line"> cout &lt;&lt; a &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; b &lt;&lt; endl; <span class="comment">// 结果为：0,1</span></span><br><span class="line"> <span class="built_in">swap</span>(a,b);</span><br><span class="line"> cout &lt;&lt; a &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; b &lt;&lt; endl; <span class="comment">// 结果为：1,0</span></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="引用类型的安全性">引用类型的安全性</h4>
+<p>引用类型能保证通过形参访问的永远是实参数据，比指针更加安全。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123; ... *p ... <span class="comment">// 访问的是实参 a</span></span><br><span class="line">   <span class="type">int</span> m;</span><br><span class="line">   p = &amp;m; <span class="comment">//OK</span></span><br><span class="line">   ... *p ... <span class="comment">// 访问的是 m，即通过 p 可以访问实参以外的数据</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">g</span><span class="params">(<span class="type">int</span> &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123; ... x ... <span class="comment">// 访问的是实参 a</span></span><br><span class="line">   <span class="type">int</span> m;</span><br><span class="line">   x = &amp;m; <span class="comment">//Error</span></span><br><span class="line">   … x … <span class="comment">// 访问的是 a ，即通过 x 只能访问实参数据</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="type">int</span> a;</span><br><span class="line">   <span class="built_in">f</span>(&amp;a);</span><br><span class="line">   <span class="built_in">g</span>(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，使用指针类型的常量也可以实现引用类型形参的这个效果：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> *<span class="type">const</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123; ... *p ... <span class="comment">// 通过 p 访问实参</span></span><br><span class="line">   <span class="type">int</span> m;</span><br><span class="line">   p = &amp;m; <span class="comment">//Error</span></span><br><span class="line">   ... *p ... <span class="comment">// 通过 p 只能访问实参</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="防止函数通过形参修改实参数据">防止函数通过形参修改实参数据</h5>
+<p>使用 const 声明，具体见下文代码示例。使用前：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123; cout &lt;&lt; *p; </span><br><span class="line">   *p = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">g</span><span class="params">(<span class="type">int</span> &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123; cout &lt;&lt; x;</span><br><span class="line">   x = <span class="number">30</span>;</span><br><span class="line">&#125;</span><br><span class="line">......</span><br><span class="line"><span class="type">int</span> a=<span class="number">10</span>;</span><br><span class="line"><span class="built_in">f</span>(&amp;a); <span class="comment">// 调用中输出：10；</span></span><br><span class="line">cout &lt;&lt; a; <span class="comment">// 调用后 a 的值变成：20</span></span><br><span class="line"><span class="built_in">g</span>(a);  <span class="comment">// 调用中输出：20；</span></span><br><span class="line">cout &lt;&lt; a; <span class="comment">// 调用后 a 的值变成：30</span></span><br></pre></td></tr></table></figure>
+<p>使用后：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">const</span> <span class="type">int</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123; cout &lt;&lt; *p; </span><br><span class="line">   *p = <span class="number">20</span>; <span class="comment">//Error</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">g</span><span class="params">(<span class="type">const</span> <span class="type">int</span> &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123; cout &lt;&lt; x;</span><br><span class="line">   x = <span class="number">30</span>; <span class="comment">//Error</span></span><br><span class="line">&#125;</span><br><span class="line">......</span><br><span class="line"><span class="type">int</span> a=<span class="number">10</span>;</span><br><span class="line"><span class="built_in">f</span>(&amp;a); <span class="comment">// 调用中输出：10；</span></span><br><span class="line">cout &lt;&lt; a; <span class="comment">// 调用后 a 的值不变，仍然为 10</span></span><br><span class="line"><span class="built_in">g</span>(a);  <span class="comment">// 调用中输出：10；</span></span><br><span class="line">cout &lt;&lt; a; <span class="comment">// 调用后 a 的值不变，仍然为 10</span></span><br></pre></td></tr></table></figure>
+<h4 id="函数引用类型">函数引用类型</h4>
+<p><strong>函数返回值 </strong> 可以为引用类型，其返回值具有特点：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">A</span></span><br><span class="line">&#123; <span class="type">int</span> n;</span><br><span class="line"> ......</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">A <span class="title">func1</span><span class="params">(<span class="type">const</span> A &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123; ...... </span><br><span class="line">   <span class="keyword">return</span> x; <span class="comment">// 把 x（也就是 a）复制一份返回</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function">A&amp; <span class="title">func2</span><span class="params">(<span class="type">const</span> A &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123; ...... </span><br><span class="line">   <span class="keyword">return</span> x; <span class="comment">// 把 x（也就是 a）返回</span></span><br><span class="line">&#125;</span><br><span class="line">......</span><br><span class="line">A a;</span><br><span class="line">a.n = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">func1</span>(a).n++; <span class="comment">//a.n 的值没变（为 0），因为修改的不是 a</span></span><br><span class="line"><span class="built_in">func2</span>(a).n++; <span class="comment">//a.n 的值变了（为 1），因为修改的是 a</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：不要把局部量的引用返回给调用者，因为函数返回后，局部量的内存空间已无效，后续操作中可能又分配给其它变量！</strong> 例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> &amp;<span class="title">f</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> i; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> &amp;<span class="title">g</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="type">int</span> j=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> j; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="type">int</span> x ;</span><br><span class="line">   x = <span class="built_in">f</span>()+<span class="built_in">g</span>();</span><br><span class="line">  cout &lt;&lt; x &lt;&lt; endl; <span class="comment">// 输出：1？// 可能是 2，因为 j 可能占用的是 i 的空间</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="引用类型的实现">引用类型的实现</h4>
+<p>引用类型一般作为指针类型来实现（有时又把引用类型称作隐蔽的指针，hidden pointer）对于下面的引用类型：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> &amp;m)</span> <span class="comment">//m 是引用类型</span></span></span><br><span class="line"><span class="function"></span>&#123; cout &lt;&lt; m &lt;&lt; <span class="string">&#x27;,&#x27;</span>   <span class="comment">// 输出 m 的值（实参的值）</span></span><br><span class="line">          &lt;&lt; &amp;m; <span class="comment">// 输出 m 的地址（实参的地址）</span></span><br><span class="line">&#125;</span><br><span class="line">......</span><br><span class="line"><span class="type">int</span> x=<span class="number">0</span>,y=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">f</span>(x);   <span class="comment">// f 中的输出是 x 的值和地址</span></span><br><span class="line"><span class="built_in">f</span>(y);   <span class="comment">// f 中的输出是 y 的值和地址</span></span><br><span class="line"><span class="type">int</span> &amp;z=x;   <span class="comment">//z 是引用类型</span></span><br><span class="line">z = <span class="number">1</span>; </span><br><span class="line">cout &lt;&lt; x &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; z; <span class="comment">// 1,1</span></span><br><span class="line">cout &lt;&lt; &amp;x &lt;&lt; &amp;z; <span class="comment">// 结果一样！</span></span><br></pre></td></tr></table></figure>
+<p>编译程序将按下面的指针类型来实现：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> *m)</span> <span class="comment">//m 是指针类型</span></span></span><br><span class="line"><span class="function"></span>&#123; cout &lt;&lt; *m &lt;&lt; <span class="string">&#x27;,&#x27;</span> <span class="comment">// 输出 m 指向的值（实参的值）</span></span><br><span class="line">          &lt;&lt; m;   <span class="comment">// 输出 m 的值（实参的地址）</span></span><br><span class="line">&#125;</span><br><span class="line">......</span><br><span class="line"><span class="type">int</span> x=<span class="number">0</span>,y=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">f</span>(&amp;x); <span class="comment">// f 中的输出是 x 的值和地址</span></span><br><span class="line"><span class="built_in">f</span>(&amp;y); <span class="comment">// f 中的输出是 y 的值和地址</span></span><br><span class="line"><span class="type">int</span> *z=&amp;x; <span class="comment">//z 是指针类型</span></span><br><span class="line">*z = <span class="number">1</span>; </span><br><span class="line">cout &lt;&lt; x &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; *z; <span class="comment">// 1,1</span></span><br><span class="line">cout &lt;&lt; &amp;x &lt;&lt; z;   <span class="comment">// 结果一样！</span></span><br></pre></td></tr></table></figure>
+<h3 id="函数名重载">函数名重载</h3>
+<p><strong>同一个作用域内 </strong>，对于一些<strong> 功能相同 </strong>、<em> 参数类型 </em> 或<em>个数 </em> 有所不同的函数，如果给它们取相同的名字有时会带来使用上的方便（便于理解和记忆）。</p>
+<p>例如，把下面不同的函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_int</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_double</span><span class="params">(<span class="type">double</span> d)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_char</span><span class="params">(<span class="type">char</span> c)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_A</span><span class="params">(A a)</span> </span>&#123; ...... &#125; <span class="comment">//A 为自定义类型</span></span><br></pre></td></tr></table></figure>
+<p>定义为同名的函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">double</span> d)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">char</span> c)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(A a)</span> </span>&#123; ...... &#125;</span><br></pre></td></tr></table></figure>
+<p>在相同的作用域中，可以用同一个名字定义多个不同的函数，这时，要求定义的这些函数应具有不同的参数（参数个数或类型要有所不同）</p>
+<h5 id="绑定">绑定</h5>
+<p>确定一个对重载函数的调用对应着哪一个重载函数定义的过程称为 <strong> 绑定 </strong>（binding，又称定联、联编、捆绑）。例如，print(1.0) 调用的是下面的哪一个重载函数？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">double</span> d)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">char</span> c)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(A a)</span> </span>&#123; ...... &#125;</span><br></pre></td></tr></table></figure>
+<p>对重载函数调用的绑定一般是 <mark> 在编译时刻 </mark> 由编译程序根据实参与形参的匹配情况来决定。</p>
+<h5 id="重载函数的绑定规则">重载函数的绑定规则</h5>
+<p>从形参个数与实参个数相同的重载函数中，按下面的次序选择一个：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>精确匹配</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">实参与形参的类型 <strong> 完全相同 </strong>，或者对实参进行“<em> 微小</em>”的类型转换（如数组转换为指针类型）后与形参类型相同：
+<ul class="lvl-4">
+<li class="lvl-10">数组变量名 -&gt; 数组第一个元素的内存地址</li>
+<li class="lvl-10">函数名 -&gt; 函数的内存首地址</li>
+<li class="lvl-10">......</li>
+</ul>
+</li>
+<li class="lvl-6">例如，对于下面的重载函数定义：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">char</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">char</span> *)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>下面的函数调用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">1</span>);  <span class="comment">// 绑定到函数： void print(int);</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">1.0</span>); <span class="comment">// 绑定到函数：void print(double);</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;a&#x27;</span>);  <span class="comment">// 绑定到函数：void print(char);</span></span><br><span class="line"><span class="type">char</span> s[<span class="number">10</span>]; <span class="comment">// 绑定到函数：void print(char *);</span></span><br><span class="line"><span class="built_in">print</span>(s);  </span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>提升匹配</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">先对实参进行下面的类型提升，然后进行精确匹配：
+<ul class="lvl-4">
+<li class="lvl-10">按整型提升规则提升实参类型</li>
+<li class="lvl-10">把 float 类型实参提升到 double</li>
+<li class="lvl-10">把 double 类型实参提升到 long double</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>标准转换匹配</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">先进行下面的标准转换，然后进行精确匹配：
+<ul class="lvl-4">
+<li class="lvl-10">任何算术类型可以互相转换</li>
+<li class="lvl-10">枚举类型可以转换成任何算术类型</li>
+<li class="lvl-10">零可以转换成任何算术类型或指针类型</li>
+<li class="lvl-10">任何类型的指针可以转换成 void *</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>自定义转换匹配</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong>匹配失败</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6"><mark>每个标准转换都是平等的，不存在哪个优先；如果存在多个标准转换后能精确匹配，则失败！（具有歧义）</mark></li>
+<li class="lvl-6">如果不存在匹配或存在多个匹配，则绑定失败。例如，对于下述的重载函数：<code>void print(char);</code><br>
+<code>void print(double);</code><br>
+根据标准转换匹配，下面的函数调用将会绑定失败：<br>
+<code>print(1);</code> <br>
+因为 1（属于 int 型）既可以转成 char，又可以转成 double</li>
+</ul>
+</li>
+</ul>
+<h3 id="变量初始化">变量初始化</h3>
+<p>C++11 引进了新的初始化语法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x&#123;<span class="number">5</span>&#125;; <span class="comment">// 或 int x(5);  </span></span><br><span class="line"><span class="type">int</span> p1=<span class="keyword">new</span> <span class="type">int</span>&#123;<span class="number">2</span>&#125;; <span class="comment">// 或 int p1=new int(2);      </span></span><br><span class="line"><span class="type">int</span> arr[<span class="number">5</span>]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span> &#123; <span class="type">int</span> x; <span class="type">int</span> y;&#125; point&#123;<span class="number">10</span>, <span class="number">20</span>&#125;;</span><br><span class="line"><span class="type">int</span> *p2=<span class="keyword">new</span> <span class="type">int</span>[<span class="number">5</span>] &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="基于范围的 for">基于范围的 for</h3>
+<p>C++ 语言注重程序的效率，运行时刻不对数组元素下标越界进行检查，从而造成下面错误代码的执行不会报错：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">10</span>],sum;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i&lt;=<span class="number">10</span>; i++) cin &gt;&gt; a[i];</span><br><span class="line">sum=<span class="number">0</span>; <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i&lt;=<span class="number">10</span>; i++) sum += a[i]; </span><br></pre></td></tr></table></figure>
+<p>为了方便、可靠地实现一些简单地对一维数组元素进行遍历的操作，在 C++ 新国际标准（C++11 以后）中提供了一种 <strong> 基于范围的 for 语句</strong>，它能自动遍历数组元素。例如，给一维数组每个元素输入一个值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> &amp;n: a) cin &gt;&gt; n; <span class="comment">// 可改变元素的值</span></span><br></pre></td></tr></table></figure>
+<p>再例如，对一维数组所有元素求和：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> n: a) sum += n; <span class="comment">// 不能改变元素的值</span></span><br></pre></td></tr></table></figure>
+<p>编译器会自动判断 for 函数的循环次数，无需人为确定。</p>
+<h3 id="自动判断类型">自动判断类型</h3>
+<p>在 C 语言中，关键词 auto 用来显式指示具有自动生存期的局部变量。在 C++ 新国际标准（C++11 以后）中，关键词 <strong>auto</strong> 有新的含义：定义一个变量时可以 <mark> 不指定 </mark> 它的类型，<mark>由编译器根据初始化的值自动确定它的类型</mark>。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> x=<span class="number">1</span><span class="number">+2</span>*<span class="number">3.4</span>; <span class="comment">// 编译程序自动确定 x 的类型为 double</span></span><br></pre></td></tr></table></figure>
+<p>再例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span> </span>&#123; ...... &#125;</span><br><span class="line">......</span><br><span class="line"><span class="keyword">auto</span> fp=f; <span class="comment">// 编译程序自动确定 fp 的类型为：int (*fp)(double)</span></span><br></pre></td></tr></table></figure>
+<p>因此，C++11 以后，自动生存期的局部变量不能再显式地用 auto 来指出了！（C 中的 cuto 不能再使用了）</p>
+<h3 id="字符串常量和字符指针">字符串常量和字符指针</h3>
+<p>按 C 语言，可以；按 C++ 语言，不可以！</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">char</span> *p)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">g</span><span class="params">(<span class="type">char</span> x[])</span> </span>&#123; ...... &#125;</span><br><span class="line">......</span><br><span class="line"><span class="type">char</span> *p=<span class="string">&quot;abcd&quot;</span>; <span class="comment">//Error</span></span><br><span class="line"><span class="built_in">f</span>(<span class="string">&quot;1234&quot;</span>); <span class="comment">//Error</span></span><br><span class="line"><span class="built_in">g</span>(<span class="string">&quot;1234&quot;</span>); <span class="comment">//Error</span></span><br></pre></td></tr></table></figure>
+<p>“1234”是一个常量，在运行过程中不可被改变，因此为了节省空间，在内存中只保存一份，而此时却将这个常量分给各种可以改变其值的变量，在 C++ 中不被允许。<br>
+<strong>解决方案：</strong><br>
+C++ 语言需要用指向常量的指针！</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *p)</span> </span>&#123; ...... &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">g</span><span class="params">(<span class="type">const</span> <span class="type">char</span> x[])</span> </span>&#123; ...... &#125;</span><br><span class="line">......</span><br><span class="line"><span class="type">const</span> <span class="type">char</span> *p=<span class="string">&quot;abcd&quot;</span>; <span class="comment">//OK</span></span><br><span class="line"><span class="built_in">f</span>(<span class="string">&quot;1234&quot;</span>); <span class="comment">//OK</span></span><br><span class="line"><span class="built_in">g</span>(<span class="string">&quot;1234&quot;</span>); <span class="comment">//OK</span></span><br></pre></td></tr></table></figure>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                C++ 教程 | 2.C++ 对 C 的基本扩充
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2024/09/09/cpp 教程/cpp2-cpp对c的基本扩充/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">He Junze</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2024-09-09 15:30</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/C/">C++</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    
+
+<div class="reward-author-container border-box flex-center">
+    <div class="reward-btn border-box flex-center tooltip tooltip-img"
+            data-tooltip-img-url="/images/buymeacoffee.jpg"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -6px;"
+    >
+        <i class="fa-solid fa-gift"></i>&nbsp;REWARD AUTHOR
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/hexo-blog/2024/09/09/cpp%20%E6%95%99%E7%A8%8B/cpp3-lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+                                   title="C++ 教程 | 3.lambda 表达式"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">C++ 教程 | 3.lambda 表达式</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/hexo-blog/2024/09/09/cpp%20%E6%95%99%E7%A8%8B/cpp1-Cpp%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%BF%B0/"
+                                   title="C++ 教程 | 1.C++ 课程概述"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">C++ 教程 | 1.C++ 课程概述</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="twikoo-container">
+        <div id="twikoo-comment"></div>
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/twikoo@1.6.40/dist/twikoo.all.min.js?1795518992805"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initTwikoo = () => {
+            if (window?.twikoo) {
+              twikoo.init({
+                el: '#twikoo-comment',
+                envId: 'https://hejunze.netlify.app/.netlify/functions/twikoo',
+                region: '',
+                lang: 'en,zh-CN,default' || 'zh-CN'
+              })
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initTwikoo()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initTwikoo()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initTwikoo)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%20%E4%B8%8E%20C%20%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">C++ 与 C 的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%89%A9%E5%85%85%E5%86%85%E5%AE%B9"><span class="nav-text">基本扩充内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%AF%B9%E5%B0%8F%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%9A%84%E4%BD%8E%E6%95%88%E9%97%AE%E9%A2%98%EF%BC%9A%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0"><span class="nav-text">解决对小函数调用的低效问题：内联函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E7%BC%BA%E7%9C%81%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8F%82%E6%95%B0"><span class="nav-text">带缺省的形式参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static%20%E5%A3%B0%E6%98%8E"><span class="nav-text">static 声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-text">名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%8F%98%E9%87%8F"><span class="nav-text">动态变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text">引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E6%8F%90%E9%AB%98%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E7%9A%84%E6%95%88%E7%8E%87"><span class="nav-text">用引用类型提高函数参数传递的效率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%AE%9E%E7%8E%B0%E9%80%9A%E8%BF%87%E5%BD%A2%E5%8F%82%E6%94%B9%E5%8F%98%E5%AE%9E%E5%8F%82%E7%9A%84%E5%80%BC"><span class="nav-text">用引用类型实现通过形参改变实参的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-text">引用类型的安全性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2%E5%87%BD%E6%95%B0%E9%80%9A%E8%BF%87%E5%BD%A2%E5%8F%82%E4%BF%AE%E6%94%B9%E5%AE%9E%E5%8F%82%E6%95%B0%E6%8D%AE"><span class="nav-text">防止函数通过形参修改实参数据</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text">函数引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">引用类型的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%90%8D%E9%87%8D%E8%BD%BD"><span class="nav-text">函数名重载</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A"><span class="nav-text">绑定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0%E7%9A%84%E7%BB%91%E5%AE%9A%E8%A7%84%E5%88%99"><span class="nav-text">重载函数的绑定规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">变量初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%8C%83%E5%9B%B4%E7%9A%84%20for"><span class="nav-text">基于范围的 for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E7%B1%BB%E5%9E%8B"><span class="nav-text">自动判断类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E6%8C%87%E9%92%88"><span class="nav-text">字符串常量和字符指针</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2024</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/hexo-blog/">He Junze</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://www.aliyun.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="Alibaba Cloud"><img src="/hexo-blog/images/brands/aliyun.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">22k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn"
+                        >
+                            豫ICP备2024101982号-1
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%20%E4%B8%8E%20C%20%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">C++ 与 C 的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%89%A9%E5%85%85%E5%86%85%E5%AE%B9"><span class="nav-text">基本扩充内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%AF%B9%E5%B0%8F%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%9A%84%E4%BD%8E%E6%95%88%E9%97%AE%E9%A2%98%EF%BC%9A%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0"><span class="nav-text">解决对小函数调用的低效问题：内联函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E7%BC%BA%E7%9C%81%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8F%82%E6%95%B0"><span class="nav-text">带缺省的形式参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static%20%E5%A3%B0%E6%98%8E"><span class="nav-text">static 声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-text">名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%8F%98%E9%87%8F"><span class="nav-text">动态变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text">引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E6%8F%90%E9%AB%98%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E7%9A%84%E6%95%88%E7%8E%87"><span class="nav-text">用引用类型提高函数参数传递的效率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%AE%9E%E7%8E%B0%E9%80%9A%E8%BF%87%E5%BD%A2%E5%8F%82%E6%94%B9%E5%8F%98%E5%AE%9E%E5%8F%82%E7%9A%84%E5%80%BC"><span class="nav-text">用引用类型实现通过形参改变实参的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-text">引用类型的安全性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2%E5%87%BD%E6%95%B0%E9%80%9A%E8%BF%87%E5%BD%A2%E5%8F%82%E4%BF%AE%E6%94%B9%E5%AE%9E%E5%8F%82%E6%95%B0%E6%8D%AE"><span class="nav-text">防止函数通过形参修改实参数据</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text">函数引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">引用类型的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%90%8D%E9%87%8D%E8%BD%BD"><span class="nav-text">函数名重载</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A"><span class="nav-text">绑定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0%E7%9A%84%E7%BB%91%E5%AE%9A%E8%A7%84%E5%88%99"><span class="nav-text">重载函数的绑定规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">变量初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%8C%83%E5%9B%B4%E7%9A%84%20for"><span class="nav-text">基于范围的 for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E7%B1%BB%E5%9E%8B"><span class="nav-text">自动判断类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E6%8C%87%E9%92%88"><span class="nav-text">字符串常量和字符指针</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/hexo-blog/js/utils.js?1795518992805"></script>
+
+<script src="/hexo-blog/js/header-shrink.js?1795518992805"></script>
+
+<script src="/hexo-blog/js/back2top.js?1795518992805"></script>
+
+<script src="/hexo-blog/js/toggle-theme.js?1795518992805"></script>
+
+<script src="/hexo-blog/js/code-block.js?1795518992805"></script>
+
+<script src="/hexo-blog/js/main.js?1795518992805"></script>
+
+<script src="/hexo-blog/js/libs/anime.min.js?1795518992805"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/hexo-blog/js/local-search.js?1795518992805"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/hexo-blog/js/lazyload.js?1795518992805"></script>
+
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/hexo-blog/js/post/post-helper.js?1795518992805"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/hexo-blog/js/post/toc.js?1795518992805"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/hexo-blog/js/post/copyright-info.js?1795518992805"></script>
+
+        
+
+        <!-- share -->
+        
+            
+<script src="/hexo-blog/js/post/share.js?1795518992805"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/hexo-blog/js/libs/pjax.min.js?1795518992805"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+            
+<script class="custom-inject-js" src="/hexo-blog/js/custom-1.js?1795518992805" data-pjax></script>
+
+        
+    
+
+</body>
+</html>

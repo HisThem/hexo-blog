@@ -1,0 +1,121 @@
+/* 图片方角 */
+.page-template-container .photo-album-box img.photo {
+    border-radius: 0rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease; /* 添加平滑过渡 */
+}
+.page-template-container .photo-album-box img.photo:hover {
+    transform: scale(1.01); /* 鼠标悬停时稍微放大 */
+    box-shadow: 0px 0px 20px 5px var(--shadow-color); /* 添加阴影 */
+}
+
+/* 图片放大遮罩 */
+.zoom-in-image-mask.show {
+    background: var(--background-color-1);
+    visibility: visible;
+}
+
+/* 图片动画 */
+.zoom-in-image-mask .zoom-in-image {
+    transition: transform 0.3s cubic-bezier(0.08, 0.93, 0.37, 0.99) !important;
+    will-change: transform;
+}
+
+
+
+/* 父容器样式 */
+.photo-album-header {
+    margin-top: 120px; /* 顶部间距 */
+    text-align: center; /* 内容居中 */
+    margin-bottom: 160px; /* 标题与图片之间的间距 */
+}
+
+/* 标题样式 */
+.gallery-title {
+    font-size: 48px; /* 字体大小 */
+    font-weight: 600; /* 字体加粗 */
+    font-family: 'NOTO_SERIF'; /* 字体样式 */
+    font-style: italic;
+    color: var(--text-color-1); /* 字体颜色 */
+    letter-spacing: 2px; /* 字间距 */
+    margin: 0; /* 去掉默认的外边距 */
+    line-height: 1.2; /* 行高 */
+}
+
+/* 副标题样式 */
+.gallery-subtitle {
+    font-size: 16px; /* 字体大小 */
+    font-weight: 400; /* 正常粗细 */
+    font-family: 'NOTO_SERIF'; /* 字体，可更换 */
+    font-style: italic;
+    color: #666; /* 字体颜色（灰色） */
+    margin: 6px 0 0; /* 与主标题间距 */
+    line-height: 1.5; /* 行高 */
+    text-transform: none; /* 保持正常大小写 */
+    letter-spacing: 0.5px; /* 字间距 */
+}
+
+@media (max-width: 800px) {
+    .photo-album-header {
+        margin-top: 80px; /* 顶部间距 */
+        text-align: center; /* 内容居中 */
+        margin-bottom: 120px; /* 标题与图片之间的间距 */
+    }
+    
+    /* 标题样式 */
+    .gallery-title {
+        font-size: 40px; /* 字体大小 */
+        font-weight: 600; /* 字体加粗 */
+        font-family: 'NOTO_SERIF'; /* 字体样式 */
+        font-style: italic;
+        color: #000000; /* 字体颜色 */
+        letter-spacing: 2px; /* 字间距 */
+        margin: 0; /* 去掉默认的外边距 */
+        line-height: 1.2; /* 行高 */
+    }
+    
+    /* 副标题样式 */
+    .gallery-subtitle {
+        font-size: 12px; /* 字体大小 */
+        font-weight: 400; /* 正常粗细 */
+        font-family: 'NOTO_SERIF'; /* 字体，可更换 */
+        font-style: italic;
+        color: #666; /* 字体颜色（灰色） */
+        margin: 6px 0 0; /* 与主标题间距 */
+        line-height: 1.5; /* 行高 */
+        text-transform: none; /* 保持正常大小写 */
+        letter-spacing: 0.5px; /* 字间距 */
+    }
+}
+
+@media (max-width: 500px) {
+    .photo-album-header {
+        margin-top: 50px; /* 顶部间距 */
+        text-align: center; /* 内容居中 */
+        margin-bottom: 70px; /* 标题与图片之间的间距 */
+    }
+    
+    /* 标题样式 */
+    .gallery-title {
+        font-size: 35px; /* 字体大小 */
+        font-weight: 600; /* 字体加粗 */
+        font-family: 'NOTO_SERIF'; /* 字体样式 */
+        font-style: italic;
+        color: #000000; /* 字体颜色 */
+        letter-spacing: 2px; /* 字间距 */
+        margin: 0; /* 去掉默认的外边距 */
+        line-height: 1.2; /* 行高 */
+    }
+    
+    /* 副标题样式 */
+    .gallery-subtitle {
+        font-size: 12px; /* 字体大小 */
+        font-weight: 400; /* 正常粗细 */
+        font-family: 'NOTO_SERIF'; /* 字体，可更换 */
+        font-style: italic;
+        color: #666; /* 字体颜色（灰色） */
+        margin: 6px 0 0; /* 与主标题间距 */
+        line-height: 1.5; /* 行高 */
+        text-transform: none; /* 保持正常大小写 */
+        letter-spacing: 0.5px; /* 字间距 */
+    }
+}
