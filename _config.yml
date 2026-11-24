@@ -109,8 +109,8 @@ theme: keep
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@139.224.217.121:/var/repo/hexoBlog.git
-  branch: master
+  repo: https://github.com/HisThem/hexo-blog.git
+  branch: gh-pages
 
 search:
   path: search.json
