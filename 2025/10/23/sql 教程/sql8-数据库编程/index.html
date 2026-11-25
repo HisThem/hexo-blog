@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en,zh-CN,default">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="He Junze">
+    
+    
+    <title>
+        
+            SQL 教程 | 8. 数据库编程 |
+        
+        晚亭新凉
+    </title>
+    
+<link rel="stylesheet" href="/hexo-blog/css/style.css?1795612674934">
+
+    
+        <link rel="shortcut icon" href="/hexo-blog/images/avatar_minisize.png">
+    
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/fontawesome.min.css?1795612674934">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/regular.min.css?1795612674934">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/solid.min.css?1795612674934">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/brands.min.css?1795612674934">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/hexo-blog/css/custom-1.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/font.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/header-wrapper.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/gallery.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/comments.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/post.css?1795612674934">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"histhem.github.io","root":"/hexo-blog/","language":["en","zh-CN","default"],"path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"晚亭新凉","author":"He Junze","avatar":"/images/avatar_minisize.png","logo":"/images/avatar_minisize.png","favicon":"/images/avatar_minisize.png"},"menu":{"home":"/","archives":"/archives","library":{"children":[{"tags":"/tags || fa-solid fa-tags"},{"categories":"/categories || fa-solid fa-layer-group"}]},"links":"/links","gallery":"/gallery","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false,"enableTypewriter":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/HisThem","weixin":"img | /images/wechat.jpg","qq":"img | /images/qq.jpg","instagram":"https://www.instagram.com/beihe2656/profilecard/?igsh=ZnI2OXJoYzh5eGhq","500px":"https://500px.com.cn/4ae1d61984732bd4d26d1abf243175339?rs=4ae1d61984732bd4d26d1abf243175339","steam":"https://steamcommunity.com/profiles/76561199145331905/","email":"orlando.he@icloud.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm","created_datetime_icon":"fa-solid fa-file-circle-plus","updated_datetime_icon":"fa-solid fa-clock-rotate-left","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"/images/buymeacoffee.jpg","text":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"twikoo","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":"https://hejunze.netlify.app/.netlify/functions/twikoo","region":null,"version":"1.6.40"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2024,"word_count":true,"site_deploy":{"enable":true,"provider":"aliyun","url":"https://www.aliyun.com/"},"record":{"enable":true,"list":[{"code":"豫ICP备2024101982号-1","link":"https://beian.miit.gov.cn"}]}},"inject":{"enable":true,"css":[["/css/custom-1.css","/css/font.css","/css/header-wrapper.css","/css/gallery.css","/css/comments.css","/css/post.css"]],"js":[["/js/custom-1.js"]]},"root":"/hexo-blog","source_data":{"links":[{"title":"朋友们"},{"name":"悲伤虾滑蛋","link":"https://captainjack-ai.github.io/","description":"来自独一无二的B612星球","avatar":"/images/zcyavatar.jpg"}],"photos":[{"url":"https://i.postimg.cc/wvT2vYk0/DSC00941.jpg"},{"url":"https://i.postimg.cc/KjCDJkhH/DSC01202.jpg"},{"url":"https://i.postimg.cc/ZKyc0crt/DSC01209.jpg"},{"url":"https://i.postimg.cc/Wpy82Kqw/DSC01622.jpg"},{"url":"https://i.postimg.cc/9MRqN25n/20241114231518.jpg"},{"url":"https://i.postimg.cc/Yqwm8TXd/20241210163052.jpg"},{"url":"https://i.postimg.cc/J7XkNRQy/20241210163208.jpg"},{"url":"https://i.postimg.cc/2ynLrx5d/20241210163226.jpg"},{"url":"https://i.postimg.cc/9M6w6kcF/20241210163229.jpg"},{"url":"https://i.postimg.cc/fTjSP5pD/20241210163230.jpg"},{"url":"https://i.postimg.cc/0ykK1D1m/20241210163235.jpg"},{"url":"https://i.postimg.cc/DmV119qV/DSC02111.jpg"},{"url":"https://i.postimg.cc/kM2ZFWxw/DSC02255.jpg"},{"url":"https://i.postimg.cc/FFw6P1pv/DSC02344.jpg"},{"url":"https://i.postimg.cc/BQDVRs7K/DSC02423.jpg"},{"url":"https://i.postimg.cc/SxftNdhQ/DSC02438.jpg"},{"url":"https://i.postimg.cc/MGZ3cB67/DSC02484.jpg"},{"url":"https://i.postimg.cc/fbH2Yby6/DSC02558.jpg"},{"url":"https://i.postimg.cc/1tfWBZN4/DSC02588.jpg"},{"url":"https://i.postimg.cc/d1p5SS86/DSC02595.jpg"},{"url":"https://i.postimg.cc/FzSTtgp4/DSC02618.jpg"},{"url":"https://i.postimg.cc/9QZJgpMt/DSC00706.jpg"},{"url":"https://i.postimg.cc/sDtTJ8Vg/DSC00741.jpg"},{"url":"https://i.postimg.cc/xdQgwzNr/DSC00828.jpg"},{"url":"https://i.postimg.cc/q7GQ4v2N/DSC00841.jpg"},{"url":"https://i.postimg.cc/bwcRntTG/DSC01711.jpg"},{"url":"https://i.postimg.cc/k44NCFnH/DSC01756-3.jpg"},{"url":"https://i.postimg.cc/tTM34ZJ4/DSC02078.jpg"},{"url":"https://i.postimg.cc/0jKpMkKd/DSC02098.jpg"},{"url":"https://i.postimg.cc/XqPQm1dx/DSC00323.jpg"},{"url":"https://i.postimg.cc/HWvZrnR5/DSC00425.jpg"},{"url":"https://i.postimg.cc/SNXZCqbP/DSC00613.jpg"},{"url":"https://i.postimg.cc/gJSDLtSd/DSC00870.jpg"},{"url":"https://i.postimg.cc/yxDTmhtR/DSC00855.jpg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="晚亭新凉" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/hexo-blog/">
+                    <img src="/hexo-blog/images/avatar_minisize.png">
+                </a>
+            
+            <a class="site-name border-box" href="/hexo-blog/">
+               晚亭新凉
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                LIBRARY
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                TAGS
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                CATEGORIES
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/gallery">
+                                
+                                GALLERY
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                            LIBRARY
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        TAGS
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        CATEGORIES
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/gallery">
+                            
+                            GALLERY
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+
+
+
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                <!-- 
+                    <div class="post-title">
+                        SQL 教程 | 8. 数据库编程
+                    </div>
+                 -->
+                <div class="post-title">
+                    SQL 教程 | 8. 数据库编程
+                </div>
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/hexo-blog/images/avatar_minisize.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">He Junze</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;
+                <span class="datetime">2025-10-23 14:47</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-clock-rotate-left"></i>&nbsp;
+                    <span class="datetime" data-updated="Wed Nov 25 2026 21:16:06 GMT+0800">2026-11-25 21:16</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/">数据管理基础</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/SQL/">SQL</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>4.5k Words</span>
+            </span>
+        
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <blockquote>
+<p>课程讲义 PDF 未随本文转载。</p>
+</blockquote>
+<p>SQL 语言的三种使用方式</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>交互式 SQL (Interactive SQL ‒ ISQL)</p>
+</li>
+<li class="lvl-2">
+<p>嵌入式 SQL (Embedded SQL ‒ ESQL)</p>
+</li>
+<li class="lvl-2">
+<p>过程化 SQL (Procedural Language SQL ‒ PL/SQL)</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-001.png"
+                         alt="课程笔记配图"
+                 >
+<h2 id="嵌入式 -SQL">嵌入式 SQL</h2>
+<p>SQL 语言提供了两种不同的使用方式：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>嵌入式 SQL（ESQL）</p>
+</li>
+<li class="lvl-2">
+<p>交互式 SQL（ISQL）</p>
+</li>
+</ul>
+<p>为什么要引入 ESQL？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>SQL 语言是非过程性语言</p>
+</li>
+<li class="lvl-2">
+<p>事务处理应用需要高级语言</p>
+</li>
+</ul>
+<p>这两种使用方式细节上有差别，在程序设计的环境下，SQL 语句要做必要的扩充</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如何区分 ESQL 与应用开发的程序设计语言</p>
+<ul class="lvl-2">
+<li class="lvl-6">语句的定界符</li>
+<li class="lvl-6">主变量 &amp; SQL 变量</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>数据交换</p>
+<ul class="lvl-2">
+<li class="lvl-6">SQL 通信区，游标(cursor)，select ... into ...</li>
+<li class="lvl-6">异常处理定义语句：WHENEVER ......</li>
+<li class="lvl-6">变量赋值，流程控制语句</li>
+</ul>
+</li>
+</ul>
+<h3 id="嵌入式 -SQL- 的处理过程">嵌入式 SQL 的处理过程</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>主语言</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">嵌入式 SQL 是将 SQL 语句嵌入程序设计语言中，被嵌入的程序设计语言，如 C、C++、Java，称为宿主语言，简称 <strong> 主语言</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A(含嵌入式 SQL 语句的主语言程序)</span><br><span class="line">    B(关系数据库管理系统预处理程序 &lt;br/&gt; 转换嵌入式 SQL 语句为函数调用)</span><br><span class="line">    C(转换后的主语言程序)</span><br><span class="line">    D(主语言编译程序编译处理)</span><br><span class="line">    E(目标语言程序)</span><br><span class="line"></span><br><span class="line">    A --&gt; B</span><br><span class="line">    B --&gt; C</span><br><span class="line">    C --&gt; D</span><br><span class="line">    D --&gt; E</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在使用嵌入式 SQL 进行数据库应用开发时，需要解决下面四个问题：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>主语言语句与嵌入式 SQL 语句的区别</p>
+</li>
+<li class="lvl-2">
+<p>主语言变量与 SQL 变量的区别</p>
+</li>
+<li class="lvl-2">
+<p>主语言程序与嵌入式 SQL 间的通讯</p>
+</li>
+<li class="lvl-2">
+<p>SQL 查询语句 与 主语言语句 的结果数据交换</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-002.png"
+                         alt="课程笔记配图"
+                 >
+<p>（在 C 语言中）嵌入式 SQL 语句</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>带有前缀 <code>EXEC SQL</code> 和后缀 <code>;</code></p>
+</li>
+<li class="lvl-2">
+<p>使用 into 子句 来获取结果元组值（<code>SELECT ... INTO ...</code> 或 <code>FETCH ... INTO ...</code>）</p>
+</li>
+<li class="lvl-2">
+<p>用主变量 <code>:&lt;host_var&gt;</code> 保存查询结果元组中的属性值</p>
+<ul class="lvl-2">
+<li class="lvl-6">通过前缀 <code>:</code> 来区分主变量和 SQL 语言中的表名或属性名（也被称为 SQL 变量）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">select</span> Sno, Sname, Sage</span><br><span class="line">		<span class="keyword">into</span> :hsno, :hsname, :hsage</span><br><span class="line">		<span class="keyword">from</span> Student</span><br><span class="line">		<span class="keyword">where</span> Sno <span class="operator">=</span> :givensno ;</span><br></pre></td></tr></table></figure>
+<h3 id="嵌入式 -SQL- 语句与主语言之间的通信">嵌入式 SQL 语句与主语言之间的通信</h3>
+<p>使用主变量进行通信</p>
+<h4 id="主变量">主变量</h4>
+<blockquote>
+<p>[!definition] 主变量嵌入式 SQL 语句中可以使用主语言的程序变量来输入或输出数据。在 SQL 语句中使用的主语言程序变量简称为主变量</p>
+</blockquote>
+<p>主变量的类型</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>输入主变量</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">由应用程序对其赋值，在 SQL 语句引用</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>输出主变量</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">由 SQL 语句对其赋值或设置状态信息，返回给应用程序</li>
+</ul>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-003.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="指示变量">指示变量</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>是一个整型变量，是一种特殊的“主变量”，用来“指示”相关主变量的值是否为“空值”</p>
+</li>
+<li class="lvl-2">
+<p>一个主变量可以附带一个指示变量</p>
+</li>
+<li class="lvl-2">
+<p>指示变量的用途：</p>
+<ul class="lvl-2">
+<li class="lvl-6">指示输入主变量是否为空值</li>
+<li class="lvl-6">检测输出变量是否为空值、值是否被截断等</li>
+</ul>
+</li>
+</ul>
+<p>指示变量的取值：</p>
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td>数据库中的值（非空）被赋给了主变量。</td>
+</tr>
+<tr>
+<td><strong>&gt; 0</strong></td>
+<td>数据库里的字符型数据被截断后赋给了主变量。</td>
+</tr>
+<tr>
+<td><strong>-1</strong></td>
+<td>数据库中的值为 null，主变量的值无效（没有有意义的值）。</td>
+</tr>
+</tbody>
+</table>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-004.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="主变量、指示变量的使用方法">主变量、指示变量的使用方法</h4>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-005.png"
+                         alt="课程笔记配图"
+                 >
+<p>指示变量的使用</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>指示变量也要加冒号。</p>
+</li>
+<li class="lvl-2">
+<p><strong>它一定是紧跟在自己对应的主变量后面</strong>（谁有可能接收空值，就跟个指示变量）。</p>
+</li>
+<li class="lvl-2">
+<p>中间用空格、或者用 indicator 关键字分开。常见写法有两种：</p>
+<ul class="lvl-2">
+<li class="lvl-6"><code>into :sname :sname_ind</code></li>
+<li class="lvl-6"><code>into :sname indicator :sname_ind</code></li>
+</ul>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">select</span> Sname <span class="keyword">into</span> :sname :sname_ind <span class="keyword">from</span> Student <span class="keyword">where</span> Sno <span class="operator">=</span> :sno;</span><br></pre></td></tr></table></figure>
+<h4 id="主变量、指示变量的声明">主变量、指示变量的声明</h4>
+<p>为了使用主语言变量，必须首先在 DECLARE SECTION 部分声明这些变量，Why？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">exec</span> <span class="keyword">sql</span> <span class="keyword">begin</span> <span class="keyword">declare</span> section;</span><br><span class="line"><span class="type">char</span> hsno[<span class="number">10</span>]，givensno[<span class="number">10</span>], hsname[<span class="number">21</span>];</span><br><span class="line"><span class="type">int</span> hsage;</span><br><span class="line"><span class="keyword">exec</span> <span class="keyword">sql</span> <span class="keyword">end</span> <span class="keyword">declare</span> section;</span><br><span class="line">......</span><br><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">select</span> Sno, Sname, Sage</span><br><span class="line"><span class="keyword">into</span> :hsno, :hsname, :hsage</span><br><span class="line"><span class="keyword">from</span> Student</span><br><span class="line"><span class="keyword">where</span> Sno <span class="operator">=</span> :givensno ;</span><br></pre></td></tr></table></figure>
+<h4 id="主变量声明的作用">主变量声明的作用</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在编译时对主语言变量与对应属性进行类型一致性检查</p>
+</li>
+<li class="lvl-2">
+<p>为接收从数据库返回的结果值而预先申请足够大的内存空间</p>
+<ul class="lvl-2">
+<li class="lvl-6">对于数值类型的属性，常见的主变量类型
+<ul class="lvl-4">
+<li class="lvl-10"><code>float cust_discnt;</code></li>
+<li class="lvl-10"><code>int cust_discnt;</code></li>
+</ul>
+</li>
+<li class="lvl-6">对于字符类型的属性
+<ul class="lvl-4">
+<li class="lvl-10"><code>in C: with null terminal character</code></li>
+<li class="lvl-10"><code>in DB: no terminator, fixed length</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>‘begin declare’ 和‘end declare’ 标志着主变量定义的开始与结束，<mark>只有在 declare section 中定义的主语言变量，才能被用在 ESQL 语句中，实现应用程序与数据库之间的数据交换</mark>。</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-006.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="游标">游标</h4>
+<p>为什么要使用游标？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>SQL 语言与主语言具有 <strong> 不同数据处理方式</strong>：非过程化 vs 面向过程。</p>
+</li>
+<li class="lvl-2">
+<p><strong>不同数据处理对象</strong>：SQL 语言是面向集合的，一条 SQL 语句原则上可以产生或处理多条记录；主语言是面向记录的，一组主变量一次只能存放一条记录。</p>
+</li>
+<li class="lvl-2">
+<p>仅使用主变量并不能完全满足 SQL 语句向应用程序输出数据的要求</p>
+</li>
+<li class="lvl-2">
+<p>嵌入式 SQL 引入了游标的概念，可用来协调这两种不同的处理方式</p>
+</li>
+</ul>
+<p><strong>游标（Cursor）</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>游标是系统为用户开设的一个数据缓冲区，用于存放 SQL 查询的执行结果</p>
+</li>
+<li class="lvl-2">
+<p>每个游标都有一个名字 -- 游标名</p>
+</li>
+<li class="lvl-2">
+<p>当游标被打开后，用户可以用 SQL 语句逐一从游标中获取结果记录，并赋给主变量，交由主语言进一步处理<br>
+(后面细讲 Cursor 的使用)</p>
+</li>
+</ul>
+<h4 id="建立和关闭数据库连接">建立和关闭数据库连接</h4>
+<p>（1）建立数据库连接</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">CONNECT</span> <span class="keyword">TO</span> target [<span class="keyword">AS</span> connection<span class="operator">-</span>name] [<span class="keyword">USER</span> <span class="keyword">user</span><span class="operator">-</span>name];</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>target 是要连接的数据库服务器</p>
+<ul class="lvl-2">
+<li class="lvl-6">可以是一个常见的服务器标识串，如 <code>&lt;dbname&gt;@&lt;hostname&gt;:&lt;port&gt;</code></li>
+<li class="lvl-6">可以是包含服务器标识的 SQL 串常量</li>
+<li class="lvl-6">也可以是 DEFAULT</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>connect-name 是可选的连接名，连接名必须是一个有效的标识符</p>
+</li>
+<li class="lvl-2">
+<p>在整个程序内只有一个连接时可以不指定连接名</p>
+</li>
+<li class="lvl-2">
+<p>程序运行过程中可以修改当前连接<br>
+<code>EXEC SQL SET CONNECTION connection-name | DEFAULT;</code></p>
+</li>
+</ul>
+<p>（2）关闭数据库连接</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">DISCONNECT</span> [connection<span class="operator">-</span>name];</span><br></pre></td></tr></table></figure>
+<h4 id="程序实例">程序实例</h4>
+<p><mark>[例 8.1]</mark> 依次检查某个系的学生记录，交互式更新某些学生年龄。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">EXEC SQL BEGIN DECLARE SECTION; <span class="comment">/* 主变量声明开始 */</span></span><br><span class="line">	<span class="type">char</span> Deptname[<span class="number">21</span>];</span><br><span class="line">	<span class="type">char</span> Hsno[<span class="number">10</span>];</span><br><span class="line">	<span class="type">char</span> Hsname[<span class="number">21</span>];</span><br><span class="line">	<span class="type">char</span> Hssex[<span class="number">3</span>];</span><br><span class="line">	<span class="type">int</span> HSage;</span><br><span class="line">	<span class="type">int</span> NEWAGE;</span><br><span class="line">EXEC SQL END DECLARE SECTION; <span class="comment">/* 主变量声明结束 */</span></span><br><span class="line"></span><br><span class="line"><span class="type">long</span> SQLCODE;</span><br><span class="line">EXEC SQL INCLUDE SQLCA; <span class="comment">/* 定义 SQL 通信区 */</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> <span class="comment">/*C 语言主程序开始 */</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="type">char</span> yn; <span class="comment">/* 变量 yn 代表 yes 或 no*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Please choose the department name(CS/MA/IS): &quot;</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,deptname); <span class="comment">/* 为主变量 deptname 赋值 */</span></span><br><span class="line">	EXEC SQL CONNECT TO TEST@localhost:<span class="number">54321</span> USER</span><br><span class="line">		<span class="string">&quot;SYSTEM&quot;</span>/<span class="string">&quot;MANAGER&quot;</span>; <span class="comment">/* 连接数据库 TEST*/</span></span><br><span class="line">	EXEC SQL DECLARE SX CURSOR FOR <span class="comment">/* 定义游标 SX*/</span></span><br><span class="line">		SELECT Sno,Sname,Ssex,Sage <span class="comment">/* 游标 SX 对应的查询语句 */</span></span><br><span class="line">		FROM Student</span><br><span class="line">		WHERE SDept = :deptname;</span><br><span class="line">	EXEC SQL OPEN SX;</span><br><span class="line">	<span class="comment">/* 打开游标 SX，执行游标对应的查询，并指向查询结果的第一行 */</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (; ;) <span class="comment">/* 用循环结构逐条处理结果集中的记录 */</span></span><br><span class="line">	&#123;</span><br><span class="line">		EXEC SQL FETCH SX INTO :HSno, :Hsname, :HSsex, :HSage;</span><br><span class="line">		<span class="comment">/* 推进游标，将当前数据放入主变量 */</span></span><br><span class="line">		<span class="keyword">if</span> (SQLCA.SQLCODE != <span class="number">0</span>) <span class="comment">/*SQLCODE != 0，表示操作不成功 */</span></span><br><span class="line">			<span class="keyword">break</span>; <span class="comment">/* 利用 SQLCA 中的状态信息决定何时退出循环 */</span></span><br><span class="line">		<span class="keyword">if</span> (count++ == <span class="number">0</span>) <span class="comment">/* 如果是第一行的话，先打出行头 */</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\n%-10s %-20s %-10s %-10s\n&quot;</span>, <span class="string">&quot;Sno&quot;</span>,<span class="string">&quot;Sname&quot;</span>,<span class="string">&quot;Ssex&quot;</span>,<span class="string">&quot;Sage&quot;</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%-10s %-20s %-10s %-10d\n &quot;</span>, HSno,Hsname,Hssex,HSage);</span><br><span class="line">		<span class="comment">/* 打印查询结果 */</span></span><br><span class="line">		<span class="built_in">printf</span>(“UPDATE AGE(y/n)?”); <span class="comment">/* 询问用户是否要更新该学生的年龄 */</span></span><br><span class="line">		<span class="keyword">do</span> &#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;yn);</span><br><span class="line">		&#125; <span class="keyword">while</span>(yn != <span class="string">&#x27;N&#x27;</span> &amp;&amp; yn != <span class="string">&#x27;n&#x27;</span> &amp;&amp; yn != <span class="string">&#x27;Y&#x27;</span> &amp;&amp; yn != <span class="string">&#x27;y&#x27;</span>);</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">if</span> (yn == <span class="string">&#x27;y&#x27;</span> || yn == <span class="string">&#x27;Y&#x27;</span>) <span class="comment">/* 如果选择更新操作 */</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;INPUT NEW AGE:&quot;</span>);</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;NEWAGE); <span class="comment">/* 用户输入新年龄到主变量中 */</span></span><br><span class="line">			EXEC SQL UPDATE Student <span class="comment">/* 嵌入式 SQL 更新语句 */</span></span><br><span class="line">			SET Sage = :NEWAGE</span><br><span class="line">			WHERE CURRENT OF SX;</span><br><span class="line">		&#125; <span class="comment">/* 对当前游标指向的学生年龄进行更新 */</span></span><br><span class="line">	&#125;</span><br><span class="line">	EXEC SQL CLOSE SX; <span class="comment">/* 关闭游标 SX，不再和查询结果对应 */</span></span><br><span class="line">	EXEC SQL COMMIT WORK; <span class="comment">/* 提交更新 */</span></span><br><span class="line">	EXEC SQL DISCONNECT TEST; <span class="comment">/* 断开数据库连接 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>[!question] 在例 8.1 的嵌入式 SQL 程序中，还存在什么 BUG？(P248~249)</p>
+<ul class="lvl-1">
+<li class="lvl-2">只在 EXEC SQL FETCH SX INTO ...... 语句之后检查了状态码 SQLCA.SQLCODE</li>
+<li class="lvl-2">在其他嵌入式 SQL 语句之后，都没有检查 SQL 语句的执行状态码！</li>
+</ul>
+</blockquote>
+<p>解决方案：在程序中添加关于异常处理 (Condition Handling) 的规则定义</p>
+<h4 id="异常处理">异常处理</h4>
+<p><code>whenever</code> 语句用于定义异常处理办法</p>
+<p>最常见的执行异常是：<code>sqlerror</code> 和 <code>not found</code></p>
+<p>最常用的异常处理办法是：用 goto 语句跳转到特定的语句标号处，进行异常处理</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-007.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="Whenever- 语句">Whenever 语句</h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">WHENEVER</span> <span class="operator">&lt;</span><span class="keyword">condition</span><span class="operator">&gt;</span> <span class="operator">&lt;</span>action<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>为 SQL 语句的执行设置一个‘异常捕捉’机制</p>
+</li>
+<li class="lvl-2">
+<p>预编译器在处理过程中，会根据 WHENEVER 语句的定义，在每一条嵌入式 SQL 语句之后添加下面的异常状态检查命令：<code>if (condition) &#123; action &#125;</code></p>
+</li>
+</ul>
+<p>CONDITIONS</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>SQLERROR</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">严重的 SQL 语句执行错误，出现这类异常系统将终止应用程序的执行。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>NOT FOUND</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">SQL 语句得到成功执行，但并没有访问到任何元组（Select, Fetch,Insert, Update, or Delete 等数据操纵语句）</li>
+<li class="lvl-6">出现 NOT FOUND 一般是因为所有需要筛选的元组都已经筛选完毕，没有漏掉的元组了（意味着查询可以结束了）</li>
+<li class="lvl-6">捕捉这类异常，通常用于结束循环（如 FOR、WHILE 等循环），或者改变程序的控制流程（如用于 IF、SWITCH 等语句）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>SQLWARNING</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">非严重但值得注意的异常, 通常不会影响到应用程序的执行</li>
+<li class="lvl-6">相关的 warning 信息被保存在 SQL 通讯区 SQLCA 中;</li>
+</ul>
+</li>
+</ul>
+<p>ACTIONS</p>
+<ol>
+<li class="lvl-3">
+<p><code>CONTINUE</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">忽略相关的异常，不改变程序的控制流程</li>
+<li class="lvl-6">也可用于撤消之前关于 condition 的异常处理定义</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><code>GOTO label</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">应用程序将跳转到标号 label 指定处，继续执行</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><code>STOP</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">立即终止应用程序的执行，同时回滚 (rollback) 当前事务并撤消与数据库的连接(disconnect)</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><code>DO function | BREAK | CONTINUE</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">可以用 DO function 调用一个 C 语言函数，函数执行结束后，控制将返回触发该异常的 SQL 语句之后继续执行；</li>
+<li class="lvl-6">也可以用 BREAK 或 CONTINUE 来改变触发该异常的 SQL 语句所在循环体的执行路径。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">exec sql whenever sqlerror <span class="keyword">goto</span> report_error;</span><br><span class="line">exec sql whenever not found <span class="keyword">goto</span> finish;</span><br><span class="line"><span class="keyword">while</span> (prompt(cid_prompt, <span class="number">1</span>, cust_id, <span class="number">4</span>) &gt;= <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">	exec sql select cname, discnt</span><br><span class="line">		into :cust_name, :cust_discnt</span><br><span class="line">		from customers</span><br><span class="line">		where cid = :cust_id;</span><br><span class="line">	exec sql commit work;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;CUSTOMER&#x27;S NAME IS %s AND DISCNT IS %5.1f\n&quot;</span>,</span><br><span class="line">	cust_name, cust_discnt);</span><br><span class="line">	<span class="keyword">continue</span>;</span><br><span class="line">	</span><br><span class="line">	notfound:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Can&#x27;t find customer %s, continuing\n&quot;</span>, cust_id);</span><br></pre></td></tr></table></figure>
+<h3 id="不使用游标的 -SQL- 语句">不使用游标的 SQL 语句</h3>
+<p>不用游标的 SQL 语句的种类</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><em>不需要返回结果、只需要知晓执行是否成功 </em> 的语句</p>
+<ul class="lvl-2">
+<li class="lvl-6">说明性语句</li>
+<li class="lvl-6">数据定义语句</li>
+<li class="lvl-6">数据控制语句</li>
+<li class="lvl-6">非 <code>CURRENT</code> 形式的 <code>INSERT</code>、<code>DELETE</code>、<code>UPDATE</code> 等增删改语句</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>查询结果为单记录的 <code>SELECT</code> 语句</p>
+</li>
+</ul>
+<h3 id="使用游标的 -SQL- 语句">使用游标的 SQL 语句</h3>
+<p><strong>必须 </strong> 使用游标的 SQL 语句</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>查询结果为多条记录的 <code>SELECT</code> 语句</p>
+</li>
+<li class="lvl-2">
+<p><code>CURRENT</code>形式的 <code>UPDATE</code> 语句</p>
+</li>
+<li class="lvl-2">
+<p><code>CURRENT</code>形式的 <code>DELETE</code> 语句</p>
+</li>
+</ul>
+<h4 id="什么是 -CURRENT- 形式？">什么是 <code>CURRENT</code> 形式？</h4>
+<p>在嵌入式 SQL（比如 ProC、嵌入式 C 等），有时候你会用游标 (Cursor) 来操作一组查询结果。<br>
+有些操作（一般用在 UPDATE 或 DELETE）可以指定对游标“当前位置”的数据进行处理。<br>
+这时你会看到这种写法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE Student   SET age = :newage WHERE CURRENT OF cursor_name;</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM Student WHERE CURRENT OF cursor_name;</span><br></pre></td></tr></table></figure>
+<p>这里的 <code>WHERE CURRENT OF cursor_name</code>，就叫做 CURRENT 形式。<br>
+它表示“操作当前游标指向的那一行”。</p>
+<h4 id="游标操作">游标操作</h4>
+<ol>
+<li class="lvl-3">
+<p><strong>声明游标</strong> declare a cursor</p>
+<ul class="lvl-2">
+<li class="lvl-6">为某一映像语句 (可能返回多个结果元组) 的结果集合定义一个命名的游标</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>打开游标</strong> open the cursor</p>
+<ul class="lvl-2">
+<li class="lvl-6">执行相应的映像语句并打开获得的结果集，此时游标处于活动状态并指向结果集合的第一条记录的前面</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>推进游标指针并取当前记录</strong> fetch a row by the cursor</p>
+<ul class="lvl-2">
+<li class="lvl-6">将游标推向结果集合中的下一条记录，读出游标所指向记录的值并赋给对应的主语言变量（One-Row-at-a-Time Principle）</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>关闭游标</strong> close the cursor</p>
+<ul class="lvl-2">
+<li class="lvl-6">关闭所使用的游标，释放相关的系统资源</li>
+</ul>
+</li>
+</ol>
+<h5 id="1- 声明游标">1. 声明游标</h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">DECLARE</span> <span class="keyword">cursor</span><span class="operator">-</span>name <span class="keyword">CURSOR</span> <span class="keyword">FOR</span></span><br><span class="line">	<span class="operator">&lt;</span>subquery<span class="operator">&gt;</span> <span class="comment">/* 子查询内容 */</span></span><br><span class="line">	[<span class="keyword">ORDER</span> <span class="keyword">BY</span> ...... ]</span><br><span class="line">	[<span class="keyword">FOR</span> &#123; READ <span class="keyword">ONLY</span> <span class="operator">|</span></span><br><span class="line">			<span class="keyword">UPDATE</span> [<span class="keyword">OF</span> columnname, ...... ] &#125; ] ;</span><br></pre></td></tr></table></figure>
+<p>这是一条说明性语句，这时数据库管理系统并不执行 SELECT 语句；</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>ORDER BY</code>: 使用该选项，当使用 fetch 推进游标时，游标将会按照 ORDER BY 指定的顺序推进</p>
+</li>
+<li class="lvl-2">
+<p><code>READ ONLY / UPDATE</code>：定义游标是只读还是可写</p>
+</li>
+</ul>
+<h5 id="2- 打开游标">2. 打开游标</h5>
+<p>打开游标实际上是 <strong> 执行 </strong> 相应的 SELECT 语句，把查询结果取到缓冲区中。这时游标处于活动状态，指针指向查询结果集中的第一条记录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">OPEN</span> <span class="keyword">cursor</span><span class="operator">-</span>name;</span><br></pre></td></tr></table></figure>
+<h5 id="3- 推进游标指针并取当前记录">3. 推进游标指针并取当前记录</h5>
+<p>推动游标指针至下一条记录，同时将缓冲区中当前游标指针指向的记录（即当前记录）取出来送至主变量供主语言进一步处理</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (TRUE) &#123; <span class="comment">/* loop to fetch rows */</span></span><br><span class="line">	exec sql fetch agent_dollars</span><br><span class="line">		into :agent_id, :dollar_sum;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%s %11.2f\n&quot;</span>, agent_id, dollar_sum);</span><br><span class="line">&#125; <span class="comment">/* end fetch loop */</span></span><br></pre></td></tr></table></figure>
+<h5 id="4- 结束游标循环">4. 结束游标循环</h5>
+<p>通过 whenever ... goto ... 定义循环结束方式</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">exec sql whenever not found <span class="keyword">goto</span> finish;</span><br><span class="line">......</span><br><span class="line"><span class="keyword">while</span> (TRUE) &#123;</span><br><span class="line">exec sql fetch ...... into ......;</span><br><span class="line">......</span><br><span class="line">&#125;</span><br><span class="line">......</span><br><span class="line">finish: EXEC SQL CLOSE agent_dollars;</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>游标一旦被声明(declare)，可以被重复使用(open-fetch-close)。每一次 open 一个游标，都将重新执行对应的 query，并生成新的结果集。</p>
+</li>
+<li class="lvl-2">
+<p>一个游标结果集只能被遍历一次，其中的结果元组被 fetch 顺序是随机的（若游标定义中无 order by 子句）。</p>
+</li>
+<li class="lvl-2">
+<p>应用程序可以通过‘游标状态变量’来了解一个游标的当前状态(是否处于打开状态、结果元组的个数、是否 fetch 到结果元组......)</p>
+</li>
+</ul>
+<h4 id="可滚动游标">可滚动游标</h4>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-008.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="CURRENT- 形式的 -UPDATE- 语句和 -DELETE- 语句">CURRENT 形式的 UPDATE 语句和 DELETE 语句</h4>
+<p>ppt 52</p>
+<h3 id="动态 -SQL">动态 SQL</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>静态嵌入式 SQL</p>
+<ul class="lvl-2">
+<li class="lvl-6">静态嵌入式 SQL 语句能够满足一般要求</li>
+<li class="lvl-6">但无法满足：到执行时才能够确定要提交的 SQL 语句、查询的条件</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>动态嵌入式 SQL</p>
+<ul class="lvl-2">
+<li class="lvl-6">在嵌入式 SQL 编程中，很多时候编程人员无法确定到底应该做什么工作，所使用的 SQL 语句也不能预先确定，需要根据程序的实际运行情况来决定，也就是根据实际情况来生成并调用 SQL 语句。这样的 SQL 语句被称为动态 SQL。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>动态 SQL 语句的可变性</p>
+<ul class="lvl-2">
+<li class="lvl-6">SQL 语句正文动态可变</li>
+<li class="lvl-6">变量个数动态可变</li>
+<li class="lvl-6">语句类型动态可变</li>
+<li class="lvl-6">SQL 语句引用对象动态可变</li>
+</ul>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-009.png"
+                         alt="课程笔记配图"
+                 >
+<p>在什么情况下需要使用动态 SQL？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>应用程序需要在执行过程中生成 SQL 语句；</p>
+</li>
+<li class="lvl-2">
+<p>SQL 语句用到的数据库对象在预编译时不存在；</p>
+</li>
+<li class="lvl-2">
+<p>希望 SQL 语句的执行能够根据执行时的数据库系统内部的统计信息来采用最优的访问策略。</p>
+</li>
+</ul>
+<p>（本节跳过）</p>
+<h3 id="嵌入式 -SQL- 总结">嵌入式 SQL 总结</h3>
+<ol>
+<li class="lvl-3">
+<p>主语言语句 与 SQL 语句 的区别？</p>
+<ul class="lvl-2">
+<li class="lvl-6">对嵌入在主语言中的 SQL 语句必须加前缀和后缀</li>
+<li class="lvl-6">当主语言是 C 语言时，前缀是 EXEC SQL，后缀是 END_EXEC 或 分号 ‘;’</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>主语言程序与 ESQL 间的通讯</p>
+<ul class="lvl-2">
+<li class="lvl-6">向主语言传递 SQL 语句的执行状态：SQL 通讯区 -- SQLCA</li>
+<li class="lvl-6">主语言向 SQL 语句提供参数：主变量(host variable)</li>
+<li class="lvl-6">将 SQL 语句的查询结果交换给主语言处理：游标 (cursor) + 主变量</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>主变量 与 SQL 变量 的区别？</p>
+<ul class="lvl-2">
+<li class="lvl-6">可以在嵌入式 SQL 语句中使用的主语言变量被称为‘主变量’；SQL 语句中的表名或属性名被称为‘SQL 变量’，SQL 变量只能在嵌入式 SQL 语句中使用。</li>
+<li class="lvl-6">在嵌入式 SQL 语句中，为了区分‘主变量’和‘SQL 变量’，需要在‘主变量’标识符的前面加上一个前缀‘:’，以便与表名或属性名等‘SQL 变量’区别开来。</li>
+<li class="lvl-6">可以通过‘主变量’在嵌入式 SQL 语句与主语言语句之间交换数据：可以通过主变量获取查询结果值，并用于主语言语句中；也可以将保存在主语言变量中的值用于 SQL 语句的执行。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>SQL 查询语句与主语言语句 的结果数据交换？</p>
+<ul class="lvl-2">
+<li class="lvl-6">单条结果元组的数据交换：SELECT ... INTO ... 或 游标</li>
+<li class="lvl-6">多条结果元组的数据交换：游标</li>
+</ul>
+</li>
+</ol>
+<h2 id="过程化 -SQL">过程化 SQL</h2>
+<p>为了能够在数据库中实现部分应用程序逻辑，需要在交互式 SQL 语言的基础上扩充部分过程式程序设计语言的成份，构成一个可编程的 SQL 语言，称为过程化 SQL，又被称为过程式 SQL、可编程 SQL。</p>
+<p>过程化 SQL 相对于嵌入式 SQL 的优势</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>可独立编程，不再需要区分 主变量 与 SQL 变量</p>
+</li>
+<li class="lvl-2">
+<p>不需要经历从预编译到编译的处理</p>
+</li>
+<li class="lvl-2">
+<p>在数据库服务器内部实现数据交换与处理</p>
+</li>
+</ul>
+<h4 id="过程化的块结构">过程化的块结构</h4>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch08/image-010.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="变量和常量的定义">变量和常量的定义</h4>
+<ol>
+<li class="lvl-3">
+<p>变量定义变量名 数据类型 [[NOT NULL] := 初值表达式]<br>
+变量名 数据类型 [[NOT NULL] 初值表达式]</p>
+</li>
+<li class="lvl-3">
+<p>常量定义常量名 数据类型 CONSTANT := 常量表达式<br>
+➢ 常量必须要给一个值，并且该值在存在期间或常量的作用域内不能改变。如果试图修改它，过程化 SQL 将返回一个异常。</p>
+</li>
+<li class="lvl-3">
+<p>赋值语句<br>
+➢ 变量名称 := 表达式</p>
+</li>
+</ol>
+<h3 id="T-SQL- 的基本语法">T-SQL 的基本语法</h3>
+<h2 id="存储过程和函数">存储过程和函数</h2>
+<h2 id="ODBC- 编程">ODBC 编程</h2>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                SQL 教程 | 8. 数据库编程
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2025/10/23/sql 教程/sql8-数据库编程/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">He Junze</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2025-10-23 14:47</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/SQL/">SQL</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    
+
+<div class="reward-author-container border-box flex-center">
+    <div class="reward-btn border-box flex-center tooltip tooltip-img"
+            data-tooltip-img-url="/images/buymeacoffee.jpg"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -6px;"
+    >
+        <i class="fa-solid fa-gift"></i>&nbsp;REWARD AUTHOR
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/hexo-blog/2025/10/30/sql%20%E6%95%99%E7%A8%8B/sql9-%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2/"
+                                   title="SQL 教程 | 附录：常用查询"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 附录：常用查询</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/hexo-blog/2025/10/16/sql%20%E6%95%99%E7%A8%8B/sql7-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"
+                                   title="SQL 教程 | 7. 数据库设计"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 7. 数据库设计</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="twikoo-container">
+        <div id="twikoo-comment"></div>
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/twikoo@1.6.40/dist/twikoo.all.min.js?1795612674934"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initTwikoo = () => {
+            if (window?.twikoo) {
+              twikoo.init({
+                el: '#twikoo-comment',
+                envId: 'https://hejunze.netlify.app/.netlify/functions/twikoo',
+                region: '',
+                lang: 'en,zh-CN,default' || 'zh-CN'
+              })
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initTwikoo()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initTwikoo()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initTwikoo)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%20-SQL"><span class="nav-text">嵌入式 SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%20-SQL-%20%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="nav-text">嵌入式 SQL 的处理过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%20-SQL-%20%E8%AF%AD%E5%8F%A5%E4%B8%8E%E4%B8%BB%E8%AF%AD%E8%A8%80%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-text">嵌入式 SQL 语句与主语言之间的通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8F%98%E9%87%8F"><span class="nav-text">主变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E7%A4%BA%E5%8F%98%E9%87%8F"><span class="nav-text">指示变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8F%98%E9%87%8F%E3%80%81%E6%8C%87%E7%A4%BA%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">主变量、指示变量的使用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8F%98%E9%87%8F%E3%80%81%E6%8C%87%E7%A4%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">主变量、指示变量的声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">主变量声明的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87"><span class="nav-text">游标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E5%92%8C%E5%85%B3%E9%97%AD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5"><span class="nav-text">建立和关闭数据库连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%AE%9E%E4%BE%8B"><span class="nav-text">程序实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Whenever-%20%E8%AF%AD%E5%8F%A5"><span class="nav-text">Whenever 语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%B8%B8%E6%A0%87%E7%9A%84%20-SQL-%20%E8%AF%AD%E5%8F%A5"><span class="nav-text">不使用游标的 SQL 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B8%B8%E6%A0%87%E7%9A%84%20-SQL-%20%E8%AF%AD%E5%8F%A5"><span class="nav-text">使用游标的 SQL 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%20-CURRENT-%20%E5%BD%A2%E5%BC%8F%EF%BC%9F"><span class="nav-text">什么是 CURRENT 形式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87%E6%93%8D%E4%BD%9C"><span class="nav-text">游标操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%20%E5%A3%B0%E6%98%8E%E6%B8%B8%E6%A0%87"><span class="nav-text">1. 声明游标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%20%E6%89%93%E5%BC%80%E6%B8%B8%E6%A0%87"><span class="nav-text">2. 打开游标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%20%E6%8E%A8%E8%BF%9B%E6%B8%B8%E6%A0%87%E6%8C%87%E9%92%88%E5%B9%B6%E5%8F%96%E5%BD%93%E5%89%8D%E8%AE%B0%E5%BD%95"><span class="nav-text">3. 推进游标指针并取当前记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%20%E7%BB%93%E6%9D%9F%E6%B8%B8%E6%A0%87%E5%BE%AA%E7%8E%AF"><span class="nav-text">4. 结束游标循环</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E6%BB%9A%E5%8A%A8%E6%B8%B8%E6%A0%87"><span class="nav-text">可滚动游标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CURRENT-%20%E5%BD%A2%E5%BC%8F%E7%9A%84%20-UPDATE-%20%E8%AF%AD%E5%8F%A5%E5%92%8C%20-DELETE-%20%E8%AF%AD%E5%8F%A5"><span class="nav-text">CURRENT 形式的 UPDATE 语句和 DELETE 语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%20-SQL"><span class="nav-text">动态 SQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%20-SQL-%20%E6%80%BB%E7%BB%93"><span class="nav-text">嵌入式 SQL 总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E5%8C%96%20-SQL"><span class="nav-text">过程化 SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E5%8C%96%E7%9A%84%E5%9D%97%E7%BB%93%E6%9E%84"><span class="nav-text">过程化的块结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">变量和常量的定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T-SQL-%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-text">T-SQL 的基本语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0"><span class="nav-text">存储过程和函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ODBC-%20%E7%BC%96%E7%A8%8B"><span class="nav-text">ODBC 编程</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2024</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/hexo-blog/">He Junze</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://www.aliyun.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="Alibaba Cloud"><img src="/hexo-blog/images/brands/aliyun.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">104.9k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn"
+                        >
+                            豫ICP备2024101982号-1
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%20-SQL"><span class="nav-text">嵌入式 SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%20-SQL-%20%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="nav-text">嵌入式 SQL 的处理过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%20-SQL-%20%E8%AF%AD%E5%8F%A5%E4%B8%8E%E4%B8%BB%E8%AF%AD%E8%A8%80%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-text">嵌入式 SQL 语句与主语言之间的通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8F%98%E9%87%8F"><span class="nav-text">主变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E7%A4%BA%E5%8F%98%E9%87%8F"><span class="nav-text">指示变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8F%98%E9%87%8F%E3%80%81%E6%8C%87%E7%A4%BA%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">主变量、指示变量的使用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8F%98%E9%87%8F%E3%80%81%E6%8C%87%E7%A4%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">主变量、指示变量的声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">主变量声明的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87"><span class="nav-text">游标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E5%92%8C%E5%85%B3%E9%97%AD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5"><span class="nav-text">建立和关闭数据库连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%AE%9E%E4%BE%8B"><span class="nav-text">程序实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Whenever-%20%E8%AF%AD%E5%8F%A5"><span class="nav-text">Whenever 语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%B8%B8%E6%A0%87%E7%9A%84%20-SQL-%20%E8%AF%AD%E5%8F%A5"><span class="nav-text">不使用游标的 SQL 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B8%B8%E6%A0%87%E7%9A%84%20-SQL-%20%E8%AF%AD%E5%8F%A5"><span class="nav-text">使用游标的 SQL 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%20-CURRENT-%20%E5%BD%A2%E5%BC%8F%EF%BC%9F"><span class="nav-text">什么是 CURRENT 形式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87%E6%93%8D%E4%BD%9C"><span class="nav-text">游标操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%20%E5%A3%B0%E6%98%8E%E6%B8%B8%E6%A0%87"><span class="nav-text">1. 声明游标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%20%E6%89%93%E5%BC%80%E6%B8%B8%E6%A0%87"><span class="nav-text">2. 打开游标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%20%E6%8E%A8%E8%BF%9B%E6%B8%B8%E6%A0%87%E6%8C%87%E9%92%88%E5%B9%B6%E5%8F%96%E5%BD%93%E5%89%8D%E8%AE%B0%E5%BD%95"><span class="nav-text">3. 推进游标指针并取当前记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%20%E7%BB%93%E6%9D%9F%E6%B8%B8%E6%A0%87%E5%BE%AA%E7%8E%AF"><span class="nav-text">4. 结束游标循环</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E6%BB%9A%E5%8A%A8%E6%B8%B8%E6%A0%87"><span class="nav-text">可滚动游标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CURRENT-%20%E5%BD%A2%E5%BC%8F%E7%9A%84%20-UPDATE-%20%E8%AF%AD%E5%8F%A5%E5%92%8C%20-DELETE-%20%E8%AF%AD%E5%8F%A5"><span class="nav-text">CURRENT 形式的 UPDATE 语句和 DELETE 语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%20-SQL"><span class="nav-text">动态 SQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%20-SQL-%20%E6%80%BB%E7%BB%93"><span class="nav-text">嵌入式 SQL 总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E5%8C%96%20-SQL"><span class="nav-text">过程化 SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E5%8C%96%E7%9A%84%E5%9D%97%E7%BB%93%E6%9E%84"><span class="nav-text">过程化的块结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">变量和常量的定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T-SQL-%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-text">T-SQL 的基本语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0"><span class="nav-text">存储过程和函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ODBC-%20%E7%BC%96%E7%A8%8B"><span class="nav-text">ODBC 编程</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/hexo-blog/js/utils.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/header-shrink.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/back2top.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/toggle-theme.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/code-block.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/main.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/libs/anime.min.js?1795612674934"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/hexo-blog/js/local-search.js?1795612674934"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/hexo-blog/js/lazyload.js?1795612674934"></script>
+
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/hexo-blog/js/post/post-helper.js?1795612674934"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/hexo-blog/js/post/toc.js?1795612674934"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/hexo-blog/js/post/copyright-info.js?1795612674934"></script>
+
+        
+
+        <!-- share -->
+        
+            
+<script src="/hexo-blog/js/post/share.js?1795612674934"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/hexo-blog/js/libs/pjax.min.js?1795612674934"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+            
+<script class="custom-inject-js" src="/hexo-blog/js/custom-1.js?1795612674934" data-pjax></script>
+
+        
+    
+
+</body>
+</html>

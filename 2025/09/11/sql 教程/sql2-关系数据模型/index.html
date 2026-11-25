@@ -1,0 +1,3202 @@
+<!DOCTYPE html>
+<html lang="en,zh-CN,default">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="He Junze">
+    
+    
+    <title>
+        
+            SQL 教程 | 2. 关系数据模型 |
+        
+        晚亭新凉
+    </title>
+    
+<link rel="stylesheet" href="/hexo-blog/css/style.css?1795612674937">
+
+    
+        <link rel="shortcut icon" href="/hexo-blog/images/avatar_minisize.png">
+    
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/fontawesome.min.css?1795612674937">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/regular.min.css?1795612674937">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/solid.min.css?1795612674937">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/brands.min.css?1795612674937">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/hexo-blog/css/custom-1.css?1795612674937">
+<link rel="stylesheet" href="/hexo-blog/css/font.css?1795612674937">
+<link rel="stylesheet" href="/hexo-blog/css/header-wrapper.css?1795612674937">
+<link rel="stylesheet" href="/hexo-blog/css/gallery.css?1795612674937">
+<link rel="stylesheet" href="/hexo-blog/css/comments.css?1795612674937">
+<link rel="stylesheet" href="/hexo-blog/css/post.css?1795612674937">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"histhem.github.io","root":"/hexo-blog/","language":["en","zh-CN","default"],"path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"晚亭新凉","author":"He Junze","avatar":"/images/avatar_minisize.png","logo":"/images/avatar_minisize.png","favicon":"/images/avatar_minisize.png"},"menu":{"home":"/","archives":"/archives","library":{"children":[{"tags":"/tags || fa-solid fa-tags"},{"categories":"/categories || fa-solid fa-layer-group"}]},"links":"/links","gallery":"/gallery","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false,"enableTypewriter":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/HisThem","weixin":"img | /images/wechat.jpg","qq":"img | /images/qq.jpg","instagram":"https://www.instagram.com/beihe2656/profilecard/?igsh=ZnI2OXJoYzh5eGhq","500px":"https://500px.com.cn/4ae1d61984732bd4d26d1abf243175339?rs=4ae1d61984732bd4d26d1abf243175339","steam":"https://steamcommunity.com/profiles/76561199145331905/","email":"orlando.he@icloud.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm","created_datetime_icon":"fa-solid fa-file-circle-plus","updated_datetime_icon":"fa-solid fa-clock-rotate-left","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"/images/buymeacoffee.jpg","text":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"twikoo","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":"https://hejunze.netlify.app/.netlify/functions/twikoo","region":null,"version":"1.6.40"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2024,"word_count":true,"site_deploy":{"enable":true,"provider":"aliyun","url":"https://www.aliyun.com/"},"record":{"enable":true,"list":[{"code":"豫ICP备2024101982号-1","link":"https://beian.miit.gov.cn"}]}},"inject":{"enable":true,"css":[["/css/custom-1.css","/css/font.css","/css/header-wrapper.css","/css/gallery.css","/css/comments.css","/css/post.css"]],"js":[["/js/custom-1.js"]]},"root":"/hexo-blog","source_data":{"links":[{"title":"朋友们"},{"name":"悲伤虾滑蛋","link":"https://captainjack-ai.github.io/","description":"来自独一无二的B612星球","avatar":"/images/zcyavatar.jpg"}],"photos":[{"url":"https://i.postimg.cc/wvT2vYk0/DSC00941.jpg"},{"url":"https://i.postimg.cc/KjCDJkhH/DSC01202.jpg"},{"url":"https://i.postimg.cc/ZKyc0crt/DSC01209.jpg"},{"url":"https://i.postimg.cc/Wpy82Kqw/DSC01622.jpg"},{"url":"https://i.postimg.cc/9MRqN25n/20241114231518.jpg"},{"url":"https://i.postimg.cc/Yqwm8TXd/20241210163052.jpg"},{"url":"https://i.postimg.cc/J7XkNRQy/20241210163208.jpg"},{"url":"https://i.postimg.cc/2ynLrx5d/20241210163226.jpg"},{"url":"https://i.postimg.cc/9M6w6kcF/20241210163229.jpg"},{"url":"https://i.postimg.cc/fTjSP5pD/20241210163230.jpg"},{"url":"https://i.postimg.cc/0ykK1D1m/20241210163235.jpg"},{"url":"https://i.postimg.cc/DmV119qV/DSC02111.jpg"},{"url":"https://i.postimg.cc/kM2ZFWxw/DSC02255.jpg"},{"url":"https://i.postimg.cc/FFw6P1pv/DSC02344.jpg"},{"url":"https://i.postimg.cc/BQDVRs7K/DSC02423.jpg"},{"url":"https://i.postimg.cc/SxftNdhQ/DSC02438.jpg"},{"url":"https://i.postimg.cc/MGZ3cB67/DSC02484.jpg"},{"url":"https://i.postimg.cc/fbH2Yby6/DSC02558.jpg"},{"url":"https://i.postimg.cc/1tfWBZN4/DSC02588.jpg"},{"url":"https://i.postimg.cc/d1p5SS86/DSC02595.jpg"},{"url":"https://i.postimg.cc/FzSTtgp4/DSC02618.jpg"},{"url":"https://i.postimg.cc/9QZJgpMt/DSC00706.jpg"},{"url":"https://i.postimg.cc/sDtTJ8Vg/DSC00741.jpg"},{"url":"https://i.postimg.cc/xdQgwzNr/DSC00828.jpg"},{"url":"https://i.postimg.cc/q7GQ4v2N/DSC00841.jpg"},{"url":"https://i.postimg.cc/bwcRntTG/DSC01711.jpg"},{"url":"https://i.postimg.cc/k44NCFnH/DSC01756-3.jpg"},{"url":"https://i.postimg.cc/tTM34ZJ4/DSC02078.jpg"},{"url":"https://i.postimg.cc/0jKpMkKd/DSC02098.jpg"},{"url":"https://i.postimg.cc/XqPQm1dx/DSC00323.jpg"},{"url":"https://i.postimg.cc/HWvZrnR5/DSC00425.jpg"},{"url":"https://i.postimg.cc/SNXZCqbP/DSC00613.jpg"},{"url":"https://i.postimg.cc/gJSDLtSd/DSC00870.jpg"},{"url":"https://i.postimg.cc/yxDTmhtR/DSC00855.jpg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="晚亭新凉" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/hexo-blog/">
+                    <img src="/hexo-blog/images/avatar_minisize.png">
+                </a>
+            
+            <a class="site-name border-box" href="/hexo-blog/">
+               晚亭新凉
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                LIBRARY
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                TAGS
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                CATEGORIES
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/gallery">
+                                
+                                GALLERY
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                            LIBRARY
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        TAGS
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        CATEGORIES
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/gallery">
+                            
+                            GALLERY
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+
+
+
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                <!-- 
+                    <div class="post-title">
+                        SQL 教程 | 2. 关系数据模型
+                    </div>
+                 -->
+                <div class="post-title">
+                    SQL 教程 | 2. 关系数据模型
+                </div>
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/hexo-blog/images/avatar_minisize.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">He Junze</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;
+                <span class="datetime">2025-09-11 14:47</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-clock-rotate-left"></i>&nbsp;
+                    <span class="datetime" data-updated="Wed Nov 25 2026 21:16:06 GMT+0800">2026-11-25 21:16</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/">数据管理基础</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/SQL/">SQL</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>13.7k Words</span>
+            </span>
+        
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <blockquote>
+<p>课程讲义 PDF 未随本文转载。</p>
+</blockquote>
+<h2 id="本章知识框架">本章知识框架</h2>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-001.png"
+                         alt="课程笔记配图"
+                 >
+说明：关系模型理论只讲 ‘关系代数’，对 ‘关系演算’ 不作要求。
+<h2 id="关系数据库中名词术语之间的对应关系">关系数据库中名词术语之间的对应关系</h2>
+<table>
+<thead>
+<tr>
+<th><strong>关系模型理论</strong></th>
+<th><strong>关系数据库管理系统 (SQL)</strong></th>
+<th><strong>文件系统</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关系 (relation)</td>
+<td>表 (table)</td>
+<td>文件 (set of records)</td>
+</tr>
+<tr>
+<td>属性 (attribute)</td>
+<td>列 (column)</td>
+<td>字段 (field)</td>
+</tr>
+<tr>
+<td>元组 (tuple)</td>
+<td>行 (row)</td>
+<td>记录 (record)</td>
+</tr>
+<tr>
+<td>关系模式 (schema)</td>
+<td>表头 (table heading)</td>
+<td>记录型 (type of record)</td>
+</tr>
+<tr>
+<td>码 (key)</td>
+<td>主码 (primary key)</td>
+<td></td>
+</tr>
+<tr>
+<td>候选码 (candidate key)</td>
+<td>唯一码 (unique)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1- 关系数据结构及其形式化定义">1. 关系数据结构及其形式化定义</h2>
+<p>关系模型 仅有单一的数据结构 -- <strong>关系</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>现实世界中的实体以及实体间的各种联系均用关系来表示关系模型 的逻辑结构 -- <strong>二维表</strong></p>
+</li>
+<li class="lvl-2">
+<p>从用户角度，关系模型中数据的逻辑结构是一张二维表关系模型 是建立在 <strong> 集合代数 </strong> 的基础上</p>
+</li>
+</ul>
+<p>要理解关系数据模型，首先需要理解下述三个概念</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>域 (Domain)</p>
+</li>
+<li class="lvl-2">
+<p>笛卡尔积 (Cartesian Product)</p>
+</li>
+<li class="lvl-2">
+<p>关系 (Relation)</p>
+</li>
+</ul>
+<h3 id="基本概念">基本概念</h3>
+<h4 id="域（Domain）">域（Domain）</h4>
+<blockquote>
+<p>[!Note] 域<br>
+<strong>‘域’是一组具有相同数据类型的值的集合。</strong></p>
+</blockquote>
+<p>例:</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>整数，实数</p>
+</li>
+<li class="lvl-2">
+<p>介于某个取值范围的整数：[18,60]</p>
+</li>
+<li class="lvl-2">
+<p>指定长度的字符串集合：char(25)</p>
+</li>
+<li class="lvl-2">
+<p>枚举数据类型：{‘男’, ‘女’}<br>
+每一个域有一个‘域名’，用来区分不同的域。例如：</p>
+</li>
+<li class="lvl-2">
+<p>$D_1$ = SUPERVISOR = {张清玫，刘逸}</p>
+</li>
+<li class="lvl-2">
+<p>$D_2$ = SPECIALITY = {计算机专业，信息专业}</p>
+</li>
+<li class="lvl-2">
+<p>$D_3$ = POSTGRADUATE = {李勇，刘晨，王敏}<br>
+<strong>$D_1$</strong> = SUPERVISOR = {张清玫，刘逸} 中，$D_1$ 是域名，SUPERVISOR 是该域的标签或属性名.<br>
+同一个域中的元素互不相同！</p>
+</li>
+</ul>
+<h4 id="笛卡尔积">笛卡尔积</h4>
+<h5 id="笛卡尔积的定义">笛卡尔积的定义</h5>
+<p>设有两个域 <strong>A</strong> 和 <strong>B</strong>，那么它们的笛卡尔积，记作 <strong>A × B</strong>，是由所有形式为 (a, b) 的有序对组成的域，其中 <strong>a</strong> 属于域 <strong>A</strong>，<strong>b</strong> 属于域 <strong>B</strong>。<br>
+<strong>数学表达式</strong>：<br>
+$$A \times B = {(a, b) | a \in A, b \in B }$$</p>
+<p><strong>笛卡尔积的例子</strong><br>
+假设有两个域：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>A = {1, 2}</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong>B = {x, y}</strong><br>
+那么，<strong>A × B</strong> 的笛卡尔积就是将域合 A 中的每一个元素与域 B 中的每一个元素配对，得到的结果是：<br>
+$$A \times B = {(1, x), (1, y), (2, x), (2, y) }$$<br>
+即域 A 和域 B 之间的所有可能的有序对。</p>
+</li>
+</ul>
+<h5 id="元组（Tuple）">元组（Tuple）</h5>
+<p>笛卡尔积中每一个元素（$d_1, d_2, …, d_n$）叫作一个 ‘n 元组’ (n-tuple) 或 ‘n 元有序组’ ，简称 ‘元组’</p>
+<p>例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>(张清玫，计算机专业，李勇)</p>
+</li>
+<li class="lvl-2">
+<p>(张清玫，计算机专业，刘晨)</p>
+</li>
+</ul>
+<h5 id="分量（Component）">分量（Component）</h5>
+<p>笛卡尔积元素（$d_1, d_2, …, d_n$）中的每一个值 $d_i$ 叫作一个 ‘分量’</p>
+<p>例如：张清玫、计算机专业、李勇、刘晨等</p>
+<p>一个 ‘n 元组’ 含有 n 个 ‘分量’，按照书写顺序建立 ‘分量’ 与 ‘域’ 的 对应关系，即：$d_i ∈ D_i \ (i = 1,2,…, n)$</p>
+<h5 id="基数（Cardinal-number）">基数（Cardinal number）</h5>
+<p>一个域允许的不同取值个数称为这个域的‘基数’<br>
+若 $D_i \ (\ i＝1, 2, …, n)$ 都为有限集，基数分别为 $m_i \ (i＝1, 2, … , n)$，则 $D_1×D_2×…×D_n$ 的基数 M 为：$M=m_1​×m_2​×⋯×m_n​$</p>
+<h5 id="笛卡尔积的结果表示方法">笛卡尔积的结果表示方法</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>集合表示</strong>：列举出结果集中的所有元组</p>
+</li>
+<li class="lvl-2">
+<p><strong>二维表表示</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">将笛卡尔积的运算结果表示为一张二维表</li>
+<li class="lvl-6">表中的每一行对应一个元组，每一列对应一个域</li>
+<li class="lvl-6">为了区分每一列所对应的域，需要在二维表中添加一个 ‘表头’ (<em>table heading ——二维表第一行</em> )，用于显示每一列对应域的域名</li>
+</ul>
+</li>
+</ul>
+<h5 id="笛卡尔积计算与表示实例">笛卡尔积计算与表示实例</h5>
+<p>假设我们有两个域：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>D1</strong>：学生姓名集合 = {张明, 李华}</p>
+</li>
+<li class="lvl-2">
+<p><strong>D2</strong>：课程集合 = {数学, 英语}<br>
+我们将进行笛卡尔积运算，即 <strong>D1 × D2</strong>，这个操作会生成所有可能的学生和课程组合。<br>
+<strong>基数 </strong> 为 $M = 2 \times 2 = 4$</p>
+</li>
+</ul>
+<p><strong>集合表示</strong>：<br>
+$$D_1 \times D_2 = {(张明, 数学), (张明, 英语), (李华, 数学), (李华, 英语)}$$<br>
+<strong>二维表表示</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>学生</th>
+<th>课程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>张明</td>
+<td>数学</td>
+</tr>
+<tr>
+<td>张明</td>
+<td>英语</td>
+</tr>
+<tr>
+<td>李华</td>
+<td>数学</td>
+</tr>
+<tr>
+<td>李华</td>
+<td>英语</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-1- 关系">1.1 关系</h3>
+<h4 id="关系">关系</h4>
+<blockquote>
+<p>[!Note] 关系（Relation）给定一个域的序列 $D_1, D_2 ,…, D_n$ (其中可能存在相同的域)，笛卡尔积 $D_1 × D_2 × … × D_n$ 的 <strong> 子集 </strong> 叫做在域 $D_1, D_2 ,…, D_n$ 上的 <strong> 关系</strong>，表示为 $R(D_1, D_2, …, D_n)$ （ 或简写为关系 R）</p>
+</blockquote>
+<p>其中：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>R 是关系名，用于区分不同的关系</p>
+</li>
+<li class="lvl-2">
+<p>n 是关系的 ‘目’ 或 ‘度’（Degree）</p>
+<ul class="lvl-2">
+<li class="lvl-6">当 n = 1 时，称该关系为 <strong> 单元关系 </strong>(Unary relation) 或 ** 一元关系 **</li>
+<li class="lvl-6">当 n = 2 时，称该关系为 <strong> 二元关系</strong>(Binary relation)</li>
+<li class="lvl-6">当 n &gt; 2 时，称该关系为 <strong>n 元关系</strong> 或<strong>多元关系</strong><br>
+因此，在域 $D_1, D_2 ,…, D_n$ 上的关系 R 也是一个 n 元有序组的集合，并且是其笛卡尔积的一个子集：$R ⊆ D_1\ , D_2\ ,…\ , D_n$</li>
+</ul>
+</li>
+</ul>
+<h4 id="属性">属性</h4>
+<p><strong>属性（Attribute）</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系也可以被表示为一张‘二维表’，表中的每一‘行’（不包括第一行）对应关系中的一个‘元组’，表中的每一‘列’对应一个‘域’。</p>
+</li>
+<li class="lvl-2">
+<p>在一个关系中，不同列可以对应相同的域。为了加以区分，关系所对应的二维表中的每一列，被称为是该关系中的一个‘<strong>属性</strong>’。</p>
+</li>
+<li class="lvl-2">
+<p>关系中的每一个属性都有一个名字，称为‘<strong>属性名 </strong>’。<mark> 在同一个关系中，属性名互不相同</mark>。</p>
+</li>
+<li class="lvl-2">
+<p>在关系对应的二维表中，表中的第一行被称为是二维表的‘<strong>表头 </strong>’， 里面填写的是<mark> 各个属性的属性名</mark>。除第一行表头外，其他的每一行都是关系中的一个元组。</p>
+</li>
+<li class="lvl-2">
+<p>n 目关系必有 n 个属性</p>
+</li>
+</ul>
+<h4 id="关系的表示">关系的表示</h4>
+<p>在域 $D_1, D_2 ,…, D_n$ 上的 n 目关系 R 可以被表示为 $R(A_1, A_2, …, A_n)$, 其中：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>R 是关系名</p>
+</li>
+<li class="lvl-2">
+<p>$A_1, A_2, …, A_n$ 是属性名</p>
+</li>
+<li class="lvl-2">
+<p>例如：<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-002.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+</ul>
+<h4 id="元组分量的表示">元组分量的表示</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>若 t 是关系 R 中的一个元组，那么用 $t[A_i]$ 表示元组 t 在属性 $A_i$ 上的取 值, 且 $t[A_i] ∈ D_i (i = 1, 2, …, n)$（元组分量也被称为 <strong> 属性值</strong>）</p>
+</li>
+<li class="lvl-2">
+<p>或者，用 $t[i]$ 表示元组 t 在第 i 列上的取值, 且 $t[i] ∈ D_i (i = 1, 2, …, n)$</p>
+</li>
+</ul>
+<h4 id="码 -Key-、候选码 -Candidate-key">码(Key)、候选码 (Candidate key)</h4>
+<p>若关系中的某一 <strong> 属性组 </strong>（可以是一个属性，也可以是多个属性的组合）的值能唯一地标识一个元组，<mark> 而其所有的真子集都不能 </mark>，则称该属性组为关系的 ‘<strong> 候选码 </strong>’，简称 ‘<strong> 码</strong>’。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>简单的情况：一个候选码只包含一个属性；</p>
+</li>
+<li class="lvl-2">
+<p>最极端的情况：由关系中的所有属性构成的属性组是这个关系的候选码，称为 ‘全码’（All-key）。</p>
+</li>
+<li class="lvl-2">
+<p>每一个关系中都存在‘候选码’</p>
+</li>
+<li class="lvl-2">
+<p>候选码是语义范畴的概念，是现实世界中普遍存在的客观规律，不能仅根据当前关系中的元组集合来确定其候选码的组成。</p>
+</li>
+</ul>
+<h5 id="例">例</h5>
+<p>假设我们有一个数据库中的 <strong>学生表</strong>，包含以下属性（列）：</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>出生日期</th>
+<th>手机号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>张明</td>
+<td>2000-01-01</td>
+<td>13800000001</td>
+</tr>
+<tr>
+<td>002</td>
+<td>李华</td>
+<td>1999-12-12</td>
+<td>13800000002</td>
+</tr>
+<tr>
+<td>003</td>
+<td>王敏</td>
+<td>2000-02-28</td>
+<td>13800000003</td>
+</tr>
+<tr>
+<td>004</td>
+<td>张明</td>
+<td>2000-01-01</td>
+<td>13800000004</td>
+</tr>
+</tbody>
+</table>
+<p>在这个表中，假设我们要找出 <strong>候选码</strong>，即能够唯一标识每个学生的属性组合。</p>
+<h6 id="单一属性候选码">单一属性候选码</h6>
+<p>首先，我们可以看一下每个属性是否可以单独作为候选码。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>学号 </strong>：学号在这个表中是唯一的（每个学生都有不同的学号），因此，学号可以唯一标识每个学生。所以 <strong> 学号</strong> 是一个候选码。</p>
+</li>
+<li class="lvl-2">
+<p><strong>手机号 </strong>：手机号也是唯一的，每个学生有不同的手机号，所以 <strong> 手机号 </strong> 也可以唯一标识每个学生。因此，<strong> 手机号</strong> 也是一个候选码。</p>
+</li>
+</ul>
+<h6 id="组合属性候选码">组合属性候选码</h6>
+<p>接下来，我们考虑是否有属性的组合可以作为候选码。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>姓名 + 出生日期 </strong>：注意到 <strong> 张明 </strong> 同时在表中有两条记录（学号分别为 001 和 004），这意味着 <strong> 姓名 + 出生日期</strong> 不能唯一标识每个学生，因此这不是一个候选码。</p>
+</li>
+</ul>
+<h6 id="全码（All-key）">全码（All-key）</h6>
+<p>假设我们将表中的所有属性组合在一起，如 <strong>学号 + 姓名 + 出生日期 + 手机号 </strong>。这种组合也能唯一标识每个学生，但它不是最小的候选码，因为我们已经知道 <strong> 学号 </strong> 和 <strong> 手机号 </strong> 都能单独唯一标识每个学生。所以 <strong> 学号 + 姓名 + 出生日期 + 手机号 </strong> 被称为 <strong> 全码（All-key）</strong>，但它并不是候选码，因为它包含了冗余的属性。</p>
+<h4 id="主码">主码</h4>
+<p><strong>主码（Primary key）</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在一个关系中，可以选择一个候选码作为该关系的 ‘主码’。</p>
+</li>
+<li class="lvl-2">
+<p>‘主码’ 是关系数据库管理系统（SQL）中才有的概念。当我们在创建关系对应的 ‘基表’ 时，可以为基表定义‘主码’也可以不定义‘主码’。在一张基表中，最多只能定义一个主码。</p>
+</li>
+<li class="lvl-2">
+<p>在关系模型理论中，只有 ‘候选码’，不需要为关系定义 ‘主码’。</p>
+</li>
+</ul>
+<h4 id="主属性与非主属性 - 非码属性">主属性与非主属性 / 非码属性</h4>
+<p><strong>主属性与非主属性 / 非码属性</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在一个关系中，候选码中的诸属性称为该关系的 ‘主属性’（Prime attribute）</p>
+</li>
+<li class="lvl-2">
+<p>不包含在任何侯选码中的属性称为该关系的 ‘非主属性’（Non- Prime attribute）或 ‘非码属性’（Non-key attribute）</p>
+</li>
+</ul>
+<h4 id="关系的类别">关系的类别</h4>
+<p>关系可以有三种类型</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>基本关系</strong>（基本表 或 基表）：实际存在的表，是实际存储数据的逻辑表示。</p>
+</li>
+<li class="lvl-2">
+<p><strong>查询表</strong>：查询结果对应的表，结果数据不需要持久存储。</p>
+</li>
+<li class="lvl-2">
+<p><strong>视图表</strong>：由基本表或其他视图表导出的表，是虚表，结果数据也不需要持久存储。</p>
+<ul class="lvl-2">
+<li class="lvl-6"><em>查询表与视图表的区别</em>：两者都有对应的数据库查询操作，但查询表对应的查询请求不需要保存在数据库中，而视图表对应的查询请求需要持久保存在数据库中。</li>
+<li class="lvl-6">举例：
+<ul class="lvl-4">
+<li class="lvl-10">如果你有一个数据库，<em>查询表 </em> 可能是你执行某次 <code>SELECT</code> 查询时得到的结果，比如查询特定课程的学生。</li>
+<li class="lvl-10"><em>视图表 </em> 则是你定义的一个“虚拟表”，比如你可以创建一个视图：显示所有年龄大于 20 岁的学生，并且该视图的定义会永久保存下来，每次你查询它时，数据库会根据这个定义动态计算数据。说明：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li class="lvl-3">
+<p>‘表’（包括基本表、基表、查询表、视图表）的概念，一般只在 <em> 关系数据库管理系统</em>（即 SQL 语言）中使用；</p>
+</li>
+<li class="lvl-3">
+<p>关系模型是一种逻辑数据模型，不涉及数据的物理存储，在关系模型理论中，其数据结构只有 ‘关系’；</p>
+</li>
+<li class="lvl-3">
+<p>在关系模型上进行数据操纵，其操作结果也构成一个‘关系’（也可以通俗地称为 ‘结果关系’、‘临时关系’ 或 ‘中间关系’）。</p>
+</li>
+</ol>
+<h4 id="关系的性质">关系的性质</h4>
+<p>若只按照之前的定义，则关系可以是一个无限集合，且定义关系的笛卡尔积不满足交换律。</p>
+<p>当使用‘关系’来作为关系数据模型的数据结构时，需要添加以下 的约束：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>必须是一个有限子集</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong>笛卡尔积满足交换律</strong>（或者说：关系中的列 / 属性满足‘无序性’）</p>
+<ul class="lvl-2">
+<li class="lvl-6">给定一组域 $D_1, D_2 ,…, D_n$，不论以何种顺序来计算它们的笛卡尔积，其结果是等价的
+<ul class="lvl-4">
+<li class="lvl-10">即：$D_1×...×D_i×D_{i+1}×...×D_n$ 和 $D_1×...×D_{i+1}×D_i×...×D_n$ 等价，且等价具有传递性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>经过以上约定和扩充后，关系模型数据结构‘关系’具有以下性质：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>列是同质的</strong>（Homogeneous）</p>
+<ul class="lvl-2">
+<li class="lvl-6">每一列中的分量是同一类型的数据，来自同一个域</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>不同的列可出自同一个域</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">其中的每一列称为一个属性；</li>
+<li class="lvl-6">不同的属性要给予不同的属性名。（属性名的唯一性）</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>列的无序性（属性的无序性）</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">列的排列顺序无所谓，列与列之间的次序可以任意交换；</li>
+<li class="lvl-6">可通过属性名指定需要访问的列。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>行的唯一性（元组的唯一性）</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">任意两个元组在‘候选码’属性上的取值不能相同。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>行的无序性（元组的无序性）</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">行的排列顺序无所谓，行与行之间的次序可以任意交换；</li>
+<li class="lvl-6">可通过指定行在列上的取值来确定需要访问的行。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>分量必须取原子值</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">原子值就是单一的数据项，它不能被进一步拆分或分解成更小的部分</li>
+</ul>
+</li>
+</ol>
+<p>在关系模型理论中，每一个关系都必须满足前述的 6 个条件。或者说，只有同时满足这 6 个条件的二维表才能被称为 ‘关系’。</p>
+<p>但是，在许多实际关系数据库产品中，基本表并不完全具有这 6 条性质。例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>有些数据库产品仍然区分属性顺序和元组顺序</p>
+</li>
+<li class="lvl-2">
+<p>有些数据库产品可以根据行号 (rowid) 来访问元组</p>
+</li>
+<li class="lvl-2">
+<p>有些数据库产品支持非规范化关系（如对象关系数据库等）<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-003.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+</ul>
+<p>尽管在关系、二维表、数据文件三者之间有类似之处，但它们又有区 别。严格地说，<strong>关系是一种规范化了的二维表</strong>。</p>
+<p>在关系数据模型中，对关系作了下列规范性限制：</p>
+<ol>
+<li class="lvl-3">
+<p>关系中每一个属性值都是不可分解的（<em>属性的原子性</em>），也不允许出现重复组（多值属性）；</p>
+</li>
+<li class="lvl-3">
+<p>关系中不允许出现相同的元组（<em>元组的唯一性</em>）；</p>
+</li>
+<li class="lvl-3">
+<p>关系是一个集合，因此不考虑元组间的顺序（<em>元组的无序性</em>）；</p>
+</li>
+<li class="lvl-3">
+<p>元组中的属性理论上也是无序的（<em>属性的无序性</em>），但使用时按习惯考虑列的顺序。</p>
+</li>
+</ol>
+<h3 id="1-2- 关系模式">1.2 关系模式</h3>
+<p>关系的型与值</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系是元组的集合</p>
+</li>
+<li class="lvl-2">
+<p><strong>关系模式是关系的 ‘型’，元组集合是关系的 ‘值’</strong></p>
+</li>
+</ul>
+<h4 id="关系模式（Relation-Schema）">关系模式（Relation Schema）</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系模式是对关系的描述</p>
+</li>
+<li class="lvl-2">
+<p><em>元组集合的结构</em></p>
+<ul class="lvl-2">
+<li class="lvl-6">属性构成（<em>关系模式的核心</em>）</li>
+<li class="lvl-6">属性来自的域</li>
+<li class="lvl-6">属性与域之间的映象关系</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><em>完整性约束条件</em>：关系中的元组分量和元组需要满足的约束条件</p>
+</li>
+</ul>
+<p>关系的关系模式一般是稳定不变的，但关系的值通常会随着时间 的变化而变化。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系中一个确定的元组集合被称为是该关系的一个‘值’，也被称为 是一个‘关系实例’(relation instance)，它描述了关系在某个确定时刻的取值。</p>
+</li>
+<li class="lvl-2">
+<p>例如：南京大学所有在读本科生构成学生关系 students</p>
+<ul class="lvl-2">
+<li class="lvl-6">students 是关系名，其属性构成在创建之后一般不会再变化</li>
+<li class="lvl-6">所有在校就读本科生对应的元组集合，构成当前 students 实例</li>
+<li class="lvl-6">每年的毕业季结束后，会从 students 关系中删除所有已毕业学生所对应的元组，得到新的 students 实例</li>
+<li class="lvl-6">每年秋季新生报道结束后，所有新生元组被加入到 students 关系中，得到另一个新的 students 实例</li>
+</ul>
+</li>
+</ul>
+<h4 id="关系模式的形式化表示">关系模式的形式化表示</h4>
+<p>关系模式的形式化表示：R(U, D, DOM, F)</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>R ：关系名</p>
+</li>
+<li class="lvl-2">
+<p>U ：组成该关系的属性名集合</p>
+</li>
+<li class="lvl-2">
+<p>D ： U 中属性所来自的域</p>
+</li>
+<li class="lvl-2">
+<p>DOM ：属性向域的映象集合（描述各个属性对应的域）</p>
+</li>
+<li class="lvl-2">
+<p>F ：属性间数据的依赖关系的集合（关系上的完整性约束条件）</p>
+</li>
+</ul>
+<p>关系模式通常可以简记为 R (U) 或 $R (A_1，A_2，…，A_n)$</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>R 是关系名， U 是属性名的集合</p>
+</li>
+<li class="lvl-2">
+<p>A1，A2，…，An 是关系中所有属性的属性名</p>
+</li>
+<li class="lvl-2">
+<p>注：域名及属性向域的映象常常直接说明为属性的类型、长度等</p>
+</li>
+</ul>
+<h4 id="关系模式与关系">关系模式与关系</h4>
+<p>关系模式</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对关系的描述</p>
+</li>
+<li class="lvl-2">
+<p>静态的、稳定的关系</p>
+</li>
+<li class="lvl-2">
+<p>关系模式在某一时刻的状态或内容</p>
+</li>
+<li class="lvl-2">
+<p>动态的、随时间不断变化的 <mark> 关系模式和关系往往笼统称为关系，通过上下文加以区别</mark></p>
+</li>
+</ul>
+<h3 id="1-3- 关系数据库">1.3 关系数据库</h3>
+<p><strong>关系数据库</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在一个给定的应用领域中，所有关系的集合构成一个关系数据库<br>
+<strong>关系数据库的型与值</strong></p>
+</li>
+<li class="lvl-2">
+<p><em>关系数据库的型</em></p>
+<ul class="lvl-2">
+<li class="lvl-6">关系数据库模式，是对关系数据库的描述</li>
+<li class="lvl-6">包括所有关系的关系模式，以及所有其他数据库对象的定义信息</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><em>关系数据库的值</em></p>
+<ul class="lvl-2">
+<li class="lvl-6">关系模式在某一时刻对应的关系的集合，通常称为关系数据库</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4- 关系模型的存储结构">1.4 关系模型的存储结构</h3>
+<p>关系模型的物理组织</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>有的关系数据库管理系统中一张表对应一个操作系统文件，将物理数据组织交给操作系统完成</p>
+</li>
+<li class="lvl-2">
+<p>有的关系数据库管理系统从操作系统那里申请若干个大的文件，自己划分文件空间，组织表、索引等存储结构，并进行存储管理关系模型是一种逻辑数据模型，不涉及数据的物理存储组织。因 此，在本门课程以及大学初级数据库课程中，一般不会过多介绍 数据库物理存储实现。</p>
+</li>
+</ul>
+<h2 id="2- 关系操作">2. 关系操作</h2>
+<h3 id="2-1- 基本的关系操作">2.1 基本的关系操作</h3>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-004.png"
+                         alt="课程笔记配图"
+                 >
+- 左边是向用户提供的两大类、共四种类型的数据操纵功能
+- 右边是用来实现或表示用户的数据操纵请求的关系操作（符）
+- 选择、投影、并、差、笛卡尔积是 5 种基本操作
+- 关系操作的特点：操作的对象和结果都是关系（集合）
+<h3 id="2-2- 对关系操作的总结">2.2 对关系操作的总结</h3>
+<p>对关系操作的总结</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>操作对象是关系</p>
+</li>
+<li class="lvl-2">
+<p>操作结果也构成一个关系</p>
+</li>
+<li class="lvl-2">
+<p>关系模型上的五种基本关系操作</p>
+<ul class="lvl-2">
+<li class="lvl-6">（元组）选择</li>
+<li class="lvl-6">（属性）投影</li>
+<li class="lvl-6">（两个关系的）笛卡尔积</li>
+<li class="lvl-6">（两个关系的）并</li>
+<li class="lvl-6">（两个关系的）差<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-005.png"
+                         alt="课程笔记配图" width="200"
+                 ></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3- 关系模型上的数据操纵功能">2.3 关系模型上的数据操纵功能</h3>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-006.png"
+                         alt="课程笔记配图"
+                 >
+<h3 id="2-4- 关系数据语言的分类">2.4 关系数据语言的分类</h3>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-007.png"
+                         alt="课程笔记配图"
+                 >
+<h2 id="3- 关系的完整性">3. 关系的完整性</h2>
+<p><strong>关系的三类完整性约束 </strong>：关系的完整性是对关系的某种约束条件，是关系的<strong> 值</strong>及其随时间变化时应该满足的一些约束条件。关系在任何时刻都要满足这些约束要求。</p>
+<p>在关系模型中，可以定义三类完整性约束：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>实体完整性</strong></p>
+</li>
+<li class="lvl-3">
+<p><strong>参照完整性</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">实体完整性和参照完整性是关系模型必须满足的完整性约束条件，被称作是“关系的两个不变性”，由关系系统自动支持。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>用户定义的完整性</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">用户定义的完整性是特定应用领域需要遵循的约束条件，体现了具体领域中的语义约束。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-1- 实体完整性">3.1 实体完整性</h3>
+<blockquote>
+<p>[!Note] 实体完整性规则</p>
+<ul class="lvl-1">
+<li class="lvl-2">实体完整性（Entity Integrity）是指关系中元组（二维表中的行）的唯一性。</li>
+<li class="lvl-2">在关系数据库管理系统中，实体完整性规则是指：<strong>若属性 A 是基本关系（基表）的主码中的属性，则属性 A 不能取‘空值’(null)</strong></li>
+<li class="lvl-2">在关系模型理论中，关系的性质④（行的唯一性）表明，关系满足实体完整性约束</li>
+<li class="lvl-2">在关系数据库管理系统中，创建基表时可以定义主码也可以不定义主码。
+<ul class="lvl-3">
+<li class="lvl-4">如果没有为基表定义主码，那么就允许在基表中出现重复的行（元组），这样的基表就不满足实体完整性约束；</li>
+<li class="lvl-4">如果为基表定义主码，DBMS 将自动保证“主码中的所有属性都不能取空值”以及“主码值的唯一性”。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="空值">空值</h4>
+<p>空值就是“不知道”或“不存在”或“无意义”的值</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>比如学生有没有考驾照？在学生资料表中的“驾驶证号”，没有考驾照的学生就是空值</p>
+</li>
+<li class="lvl-2">
+<p>大类招生时，大一学生的“专业”一栏是空值</p>
+</li>
+</ul>
+<h4 id="实体完整性约束的例子">实体完整性约束的例子</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>学生（学号，姓名，性别，专业号，年龄）</p>
+<ul class="lvl-2">
+<li class="lvl-6">“学号”是学生关系的主码</li>
+<li class="lvl-6">在学生关系中，学号属性上不允许出现空值</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>选修（学号，课程号，成绩）</p>
+<ul class="lvl-2">
+<li class="lvl-6">“学号、课程号”是选修关系的主码</li>
+<li class="lvl-6">在选修关系中，“学号”和“课程号”两个属性都不能取空值</li>
+</ul>
+</li>
+</ul>
+<h4 id="实体完整性规则的说明">实体完整性规则的说明</h4>
+<ol>
+<li class="lvl-3">
+<p>实体完整性规则是针对基本关系（表）而言的。一个基本表通常对应现实世界中的一个实体集。</p>
+</li>
+<li class="lvl-3">
+<p>现实世界中的实体是可区分的，即它们具有某种唯一性标识。</p>
+</li>
+<li class="lvl-3">
+<p>在关系数据库管理系统中，以‘主码’作为基本表中元组（实体）的唯一性标识。</p>
+</li>
+<li class="lvl-3">
+<p>主码中的属性不能取空值。</p>
+<ul class="lvl-2">
+<li class="lvl-6">主码中的属性取空值，就说明存在某个不可标识的实体，即存在不可区分的实体，这与第 2 点相矛盾，因此这个规则称为‘实体完整性’。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-2- 参照完整性">3.2 参照完整性</h3>
+<h4 id="关系间的引用">关系间的引用</h4>
+<p><strong>关系间的引用</strong><br>
+在关系模型中，实体及实体间的联系都是用关系来描述的，自然存在着 <mark> 关系与关系间的引用</mark>。</p>
+<h5 id="例 1- 实体之间的关系引用">例 1 实体之间的关系引用</h5>
+<p>学生实体、专业实体以及专业与学生间的 <em> 一对多 </em> 联系，<mark>学生 </mark> 关系引用了专业关系的主码“<mark>专业号</mark>”。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>学生（学号，姓名，性别，<em>专业号</em>，年龄）</p>
+</li>
+<li class="lvl-2">
+<p>专业（<em>专业号</em>，专业名）</p>
+</li>
+</ul>
+<h5 id="例 2- 联系与相关实体之间的关系引用">例 2 联系与相关实体之间的关系引用</h5>
+<p>学生、课程、学生与课程之间的 <em> 多对多联系 </em>，<mark> 选修 </mark> 关系引用了学生关系的主码“<mark>学号 </mark>”和课程关系的主码“<mark> 课程号</mark>”。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>学生（<em>学号</em>，姓名，性别，专业号，年龄）</p>
+</li>
+<li class="lvl-2">
+<p>课程（<em>课程号</em>，课程名，学分）</p>
+</li>
+<li class="lvl-2">
+<p>选修（<em>学号 </em>，<em> 课程号</em>，成绩）</p>
+</li>
+</ul>
+<h5 id="例 3- 实体集内部的关系引用">例 3 实体集内部的关系引用</h5>
+<p>学生实体及其内部的领导联系 (一对多)，<mark> 学生 </mark> 关系引用了自身的主码“<mark>学号</mark>”<br>
+Ø学生（<em>学号 </em>，姓名，性别，专业号，年龄，<em> 班长</em>）</p>
+<h4 id="外码（Foreign-Key）">外码（Foreign Key）</h4>
+<p><strong>定义</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>设 F 是基本关系 R 的一个或一组属性，但 F 不是 R 的码。</p>
+</li>
+<li class="lvl-2">
+<p>如果 F 对应基本关系 S 的主码 $K_s$，则称 F 为 R 的 <strong> 外码</strong>（Foreign Key）。</p>
+</li>
+<li class="lvl-2">
+<p>其中，基本关系 R 称为 <strong> 参照关系 </strong>（Referencing Relation），基本关系 S 称为<strong> 被参照关系 </strong>（Referenced Relation）或<strong> 目标关系</strong>（Target Relation）。</p>
+</li>
+</ul>
+<p>约束和规则</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系 R 和 S 可以是同一个关系，即外码可以引用同一个表中的主键（如自引用）。</p>
+</li>
+<li class="lvl-2">
+<p>外码 F 和被参照关系 S 的主码 K 必须定义在相同的域上，保证数据类型一致。</p>
+</li>
+<li class="lvl-2">
+<p>外码名称不一定要与主码名称相同，但通常取相同的名字以便识别和理解。</p>
+</li>
+</ul>
+<p>在例 1 中, 学生关系的“专业号”与专业关系的主码“专业号”相对应</p>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>学生（学号，姓名，性别，<em>专业号</em>，年龄)</p>
+</li>
+<li class="lvl-2">
+<p>专业（<em>专业号</em>，专业名）</p>
+</li>
+</ul>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>“专业号”属性是学生关系的外码</p>
+</li>
+<li class="lvl-2">
+<p>专业关系是被参照关系，学生关系为参照关系<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-008.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+</ul>
+<p>例 2 中，选修关系的“学号”与学生关系的主码“学号”相对应，选修关系的“课程号”与课程关系的主码“课程号”相对应</p>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>学生（<em>学号</em>，姓名，性别，专业号，年龄）</p>
+</li>
+<li class="lvl-2">
+<p>课程（<em>课程号</em>，课程名，学分）</p>
+</li>
+<li class="lvl-2">
+<p>选修（<em>学号 </em>，<em> 课程号</em>，成绩）</p>
+</li>
+</ul>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>“学号”和“课程号”是选修关系的外码</p>
+</li>
+<li class="lvl-2">
+<p>学生关系和课程关系均为被参照关系</p>
+</li>
+<li class="lvl-2">
+<p>选修关系为参照关系<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-009.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+</ul>
+<p>例 3 中，“班长”与本身的主码“学号”相对应</p>
+<blockquote>
+<p>学生（学号，姓名，性别，专业号，年龄，班长）</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>“班长”是外码</p>
+</li>
+<li class="lvl-2">
+<p>学生关系既是参照关系也是被参照关系<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-010.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+</ul>
+<h4 id="参照完整性规则">参照完整性规则</h4>
+<p>若属性(或属性组)F 是基本关系 R 的外码，它与基本关系 S 的主码 $K_s$ 相对应(基本关系 R 和 S 不一定是不同的关系)，则对于 R 中每个元组在 F 上的值必须为:</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>要么取空值(F 的每个属性值均为空值)</p>
+</li>
+<li class="lvl-2">
+<p>要么等于 S 中某个元组的主码值</p>
+</li>
+</ul>
+<p>例 1 中，学生关系中每个元组的“专业号”属性只取两类值：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>空值，表示尚未给该学生分配专业</p>
+</li>
+<li class="lvl-2">
+<p>非空值，这时该值必须是专业关系中某个元组的“专业号”值，表示该学生不可能分配一个不存在的专业<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-011.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+</ul>
+<p>例 2 中，选修（学号，课程号，成绩）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>“学号”和“课程号”可能的取值 ：</p>
+<ul class="lvl-2">
+<li class="lvl-6">选修关系中的主属性，不能取空值</li>
+<li class="lvl-6">只能取相应被参照关系中已经存在的主码值<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-012.png"
+                         alt="课程笔记配图"
+                 ></li>
+</ul>
+</li>
+</ul>
+<p>例 3 中，学生（学号，姓名，性别，专业号，年龄，班长）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>这是学生关系内部的引用，外码“班长”属性值可以取两类值：</p>
+<ul class="lvl-2">
+<li class="lvl-6">空值，表示该学生所在班级尚未选出班长</li>
+<li class="lvl-6">非空值，该值必须是本关系中某个元组的学号值</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3- 用户定义的完整性">3.3 用户定义的完整性</h3>
+<p>定义</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用户定义的完整性是指 <strong> 针对具体的关系数据库 </strong> 所制定的 <strong> 约束条件</strong>，确保数据满足特定应用的语义要求。</p>
+</li>
+<li class="lvl-2">
+<p><strong>关系模型 </strong> 应<strong>提供机制 </strong> 来定义和检验这些约束，而不是依赖应用程序来保证数据的正确性。</p>
+</li>
+</ul>
+<p>例：课程（课程号，课程名，学分）在该关系中，我们可以定义如下的用户完整性约束：</p>
+<ol>
+<li class="lvl-4">
+<p><em>唯一性约束</em></p>
+<ul class="lvl-2">
+<li class="lvl-6">课程号必须唯一，不能重复。
+<ul class="lvl-4">
+<li class="lvl-10">如果课程号已经被定义为主键（Primary Key），则不需要额外添加唯一性约束。</li>
+</ul>
+</li>
+<li class="lvl-6">如果某个非主属性（如某个候选码）需要唯一性，可以使用 UNIQUE 约束。</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><em>非空约束</em></p>
+<ul class="lvl-2">
+<li class="lvl-6">课程名不能取空值（NULL），必须有具体值。</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><em>取值范围约束</em></p>
+<ul class="lvl-2">
+<li class="lvl-6">学分只能取 {1, 2, 3, 4}，不能超出这个范围。<br>
+SQL 实现实例：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 课程 (</span><br><span class="line">    课程号 <span class="type">CHAR</span>(<span class="number">10</span>) <span class="keyword">PRIMARY</span> KEY,  <span class="comment">-- 主键，保证唯一性</span></span><br><span class="line">    课程名 <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,   <span class="comment">-- 非空约束</span></span><br><span class="line">    学分 <span class="type">INT</span> <span class="keyword">CHECK</span> (学分 <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))  <span class="comment">-- 取值范围约束</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="3-4- 数据完整性约束（示例）">3.4 数据完整性约束（示例）</h3>
+<p>学生(学号, 姓名, 性别, 身份证号, 院系代码, 专业代码, 录取大类代码)</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>实体完整性</strong>：主码：学号</p>
+</li>
+<li class="lvl-2">
+<p><strong>参照完整性</strong>：3 个外码：院系代码，专业代码，录取大类代码</p>
+</li>
+<li class="lvl-2">
+<p><strong>用户定义的完整性</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6"><em>唯一性约束</em>：身份证号</li>
+<li class="lvl-6"><em>非空约束</em>
+<ul class="lvl-4">
+<li class="lvl-10">主属性：身份证号</li>
+<li class="lvl-10">非主属性：姓名，性别，录取大类代码</li>
+<li class="lvl-10">主码属性自带非空约束，其他属性（没有定义非空约束的院系代码和专业代码）允许取空值</li>
+</ul>
+</li>
+<li class="lvl-6"><em>取值范围约束</em>
+<ul class="lvl-4">
+<li class="lvl-10">‘性别’属性的取值范围是 男，女</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4- 关系代数">4. 关系代数</h2>
+<blockquote>
+<p>课程讲义 PDF 未随本文转载。</p>
+</blockquote>
+<h3 id="4-1- 关系代数概述">4.1 关系代数概述</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系代数</p>
+</li>
+<li class="lvl-2">
+<p>关系操作 与 关系运算</p>
+<ul class="lvl-2">
+<li class="lvl-6">集合运算 与 专门的关系运算</li>
+<li class="lvl-6">基本运算 与 扩充运算</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>使用的记号</p>
+</li>
+</ul>
+<h4 id="关系代数">关系代数</h4>
+<p><strong>关系代数</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>是一种抽象的查询语言，它用关系运算来表达对关系的操作。</p>
+</li>
+<li class="lvl-2">
+<p>在关系代数中，运算对象是‘关系’，运算结果亦为‘关系’</p>
+</li>
+</ul>
+<p><strong>关系代数的运算符 </strong> 有两类：<strong>集合运算符 </strong> 和 <strong> 专门的关系运算符</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>传统的集合运算是从关系的“水平”方向，即行的角度进行</p>
+</li>
+<li class="lvl-2">
+<p>专门的关系运算不仅涉及行而且涉及列</p>
+</li>
+</ul>
+<p><strong>关系代数表达式</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>以关系为运算对象，使用关系运算经有限次复合后形成的表达式称为 关系代数</p>
+</li>
+<li class="lvl-2">
+<p>可以用关系代数表达式来表示关系模型上的数据操纵（包括数据查询、数据插入、删除和修改操作）</p>
+</li>
+</ul>
+<p><strong>常用的关系操作</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>集合操作：并、交、差、笛卡尔积</p>
+</li>
+<li class="lvl-2">
+<p>专门的关系操作</p>
+<ul class="lvl-2">
+<li class="lvl-6">选择、投影</li>
+<li class="lvl-6">连接（包括 θ- 连接，自然连接，外连接等）</li>
+<li class="lvl-6">除</li>
+</ul>
+</li>
+</ul>
+<p>选择、投影、并、差、笛卡尔积是 5 种 <strong> 基本操作</strong></p>
+<p>关系操作的特点：<strong>集合操作</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>操作对象和操作结果都是关系（关系是元组的集合）</p>
+</li>
+</ul>
+<h4 id="关系运算">关系运算</h4>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-013.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="基本运算与扩充运算">基本运算与扩充运算</h4>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-014.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="关系操纵的表示">关系操纵的表示</h4>
+<p>对于关系代数中的每一种运算符，都需要从以下两个方面去掌握：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>运算的执行条件</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">对关系运算的正确使用，确保关系代数表达式可以合法计算</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>运算的执行结果</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">结果关系的关系模式是什么？</li>
+<li class="lvl-6">结果关系中的元组是什么？</li>
+<li class="lvl-6">结果关系的关系模式和结果元组的语义是否准确反映了用户的访问要求？不论是哪一个关系（被访问的访问对象、访问结果，或者是访问过程中所生成的中间关系），都需要明确其‘<strong>关系模式 </strong>’和‘<strong> 元组集合</strong>’是什么。</li>
+</ul>
+</li>
+</ol>
+<h4 id="关系代数中使用的记号">关系代数中使用的记号</h4>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-015.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-016.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-017.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="象集">象集</h5>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-018.png"
+                         alt="课程笔记配图"
+                 >
+<p>举例：<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-019.png"
+                         alt="课程笔记配图"
+                 ></p>
+<h3 id="4-2- 关系代数的基本运算">4.2 关系代数的基本运算</h3>
+<h4 id="关系模式的语义">关系模式的语义</h4>
+<p>在关系模型理论中</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一般通过属性名来确定一个属性的语义</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>同名同义</strong>：‘属性名相同’表示具有‘相同的属性域和相同的语义’</li>
+<li class="lvl-6"><strong>异名异义</strong>：‘属性名不同’表示具有‘不同的属性域或不同的语义’</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>在后续的关系代数表示中，均采用“<strong>同名同义、异名异义</strong>”的约定</p>
+</li>
+<li class="lvl-2">
+<p>但是，属性名也仅仅是用于标识关系中某一列的标识符。在不同关系之间，也有可能存在属性的‘<strong>同名异义 </strong>’和‘<strong> 同义异名</strong>’现象，这个时候可以通过赋值运算对关系中的属性进行重命名，使其符合“同名同义、异名异义”的要求。</p>
+</li>
+</ul>
+<p>有如下所示的五个关系，其中：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>R 与 S_1 具有相同的关系模式（相同的目 n 、相应的属性 ‘同名同义’）</p>
+</li>
+<li class="lvl-2">
+<p>R 与 S_2 具有不同的关系模式（属性 A 的 ‘同名异义’）</p>
+</li>
+<li class="lvl-2">
+<p>R 与 S_3 具有相同的关系模式（列的无序性）</p>
+</li>
+<li class="lvl-2">
+<p>R 与 S_4 可以被认为是不同的关系模式（属性的 ‘异名异义’），也可以被作为相同的关系模式（相同的目 n、相应列对应相同的域<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-020.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+</ul>
+<h4 id="赋值运算">赋值运算</h4>
+<h5 id="关系代数中的 -‘赋值’- 运算">关系代数中的 ‘赋值’ 运算</h5>
+<p>赋值运算的一般表示方法：<br>
+$R(A_1,\ A_2,\ \dots,\ A_n) \ := \ <expression>$</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>:=</code>是赋值运算符</p>
+</li>
+<li class="lvl-2">
+<p>右边的 <code>&lt;expression&gt;</code> 是一个关系代数表达式（用于表示在关系数据库上的数据操纵请求），或者是一个当前存在的关系；</p>
+</li>
+<li class="lvl-2">
+<p>左边的 $R(A_1,\ A_2,\ \dots,\ A_n)$ 是 <code>&lt;expression&gt;</code> 的计算结果（即数据操纵返回的结果关系）</p>
+</li>
+</ul>
+<p>上述的赋值表达式可以理解为：</p>
+<ol>
+<li class="lvl-3">
+<p>为右边的数据操纵请求定义了一个查询关系，用以保存其操纵结果；</p>
+</li>
+<li class="lvl-3">
+<p>R 是该查询关系的关系名，𝐴1, 𝐴2, …, 𝐴𝑛 是查询关系的属性名；</p>
+</li>
+<li class="lvl-3">
+<p>查询关系也可以被作为访问对象，参与后续关系代数表达式的表示。</p>
+</li>
+</ol>
+<h5 id="赋值运算的使用方式">赋值运算的使用方式</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>方式一：$R(A_1,\ A_2,\ \dots,\ A_n) \ := \ <expression>$</p>
+<ul class="lvl-2">
+<li class="lvl-6">计算右边的关系代数表达式 $<expression>$，并将其结果关系保存下来形成临时的查询关系 R</li>
+<li class="lvl-6">查询关系中的属性名，可以采用它们在右边表达式中的原属性名，也可以对查询关系中的部分属性进行重命名，但必须保证在查询关系 R 中不会出现属性同名现象。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>方式二：$R\ := \ <expression>$</p>
+<ul class="lvl-2">
+<li class="lvl-6">将右边的关系代数表达式 $<expression>$ 的计算结果保存下来形成临时的查询关系 R</li>
+<li class="lvl-6">R 是查询关系的关系名，其属性名直接沿用它们在右边表达式中的原属性名，但必须保证在查询关系中不会出现属性同名现象</li>
+</ul>
+</li>
+</ul>
+<h5 id="赋值运算的用途">赋值运算的用途</h5>
+<p>对一个关系及关系中的属性进行重命名 (alias)，以方便‘关系的自联接’或者复杂查询的表示。</p>
+<p>表的赋值：$S \ := \ R$</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>简单的“表的赋值”操作，可用于为关系 R 另起一个别名 (alias)，或者理解为：定义了一个与关系 R “完全相同”的中间关系 S （<strong>关系名不同，但具有相同的关系模式和元组集合</strong>）</p>
+</li>
+<li class="lvl-2">
+<p>也可以在赋值表达式中，对生成的中间关系 S 中的属性进行重命名（类似于前一页的“方式一”）</p>
+</li>
+<li class="lvl-2">
+<p>通常用于“<strong>关系自联接</strong>”的表示，或者有目的地对关系中的某些属性进行重命名！</p>
+</li>
+</ul>
+<p>赋值运算也可以用来保存计算的‘中间结果’，方便某些复杂查询的表示。</p>
+<h4 id="算术比较运算与逻辑运算">算术比较运算与逻辑运算</h4>
+<h5 id="算术比较运算">算术比较运算</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>大于＞, 大于等于≥, 小于＜, 小于等于≤, 等于＝, 不等于 &lt;&gt;</p>
+</li>
+<li class="lvl-2">
+<p>也可以用≠来表示不等比较 &lt;&gt;</p>
+</li>
+</ul>
+<h5 id="逻辑运算">逻辑运算</h5>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-021.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="关系代数基本运算">关系代数基本运算</h4>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-022.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="“并”运算">“并”运算</h5>
+<p>并（Union）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>R 和 S</p>
+<ul class="lvl-2">
+<li class="lvl-6">具有相同的目 n（即两个关系都有 n 个属性）</li>
+<li class="lvl-6">相应的属性取自同一个域</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>$R \cup S$ 的运算结果</p>
+<ul class="lvl-2">
+<li class="lvl-6">仍为 n 目关系，由属于 R 或属于 S 的元组组成</li>
+<li class="lvl-6">$R \cup S = {t \mid t \in R \vee t \in S}$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>并运算满足交换律和结合律</p>
+<ul class="lvl-2">
+<li class="lvl-6">交换律：$R \cup S = S \cup R$</li>
+<li class="lvl-6">结合律：$(R \cup S) \cup T = R \cup (S \cup T)$</li>
+</ul>
+</li>
+</ul>
+<p>the set of tuples in the relation 𝑇 = $R \cup S = {t \mid t \in R \vee t \in S}$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/* 首先将关系𝑅中的元组加入结果关系𝑇 */</span><br><span class="line">𝑻 ∶= 𝑹</span><br><span class="line">for each tuple 𝒕_𝒔 ∈ 𝑺</span><br><span class="line">&#123;</span><br><span class="line">	/* 确保结果关系𝑇中元组的唯一性 */</span><br><span class="line">	if (𝒕_𝒔 ∉ 𝑹)</span><br><span class="line">	then add tuple 𝒕_𝒔 into 𝑻</span><br><span class="line">&#125;</span><br><span class="line">return 𝑻</span><br></pre></td></tr></table></figure>
+<h5 id="“差”运算">“差”运算</h5>
+<p>差（Difference）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>R 和 S</p>
+<ul class="lvl-2">
+<li class="lvl-6">具有相同的目 n（即两个关系都有 n 个属性）</li>
+<li class="lvl-6">相应的属性取自同一个域</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>R - S 的运算结果</p>
+<ul class="lvl-2">
+<li class="lvl-6">仍为 n 目关系，由属于 R 但不属于 S 的所有元组组成</li>
+<li class="lvl-7">$R - S = {t \mid t \in R \wedge t \notin S}$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>差运算不满足交换律和结合律</p>
+<ul class="lvl-2">
+<li class="lvl-6">交换律：$R - S \neq S - R$</li>
+<li class="lvl-6">结合律：$(R - S) - T \neq R - (S - T)$</li>
+</ul>
+</li>
+</ul>
+<p>计算 $T = R - S =  {t \mid t \in R \wedge t \notin S}$ 的元组集合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/* 将结果关系𝑇初始化为空集 */</span><br><span class="line">T := &#123; &#125;</span><br><span class="line">for each tuple t ∈ R</span><br><span class="line">&#123;</span><br><span class="line">    /* 仅由属于关系 R 但不属于关系 S 的元组组成结果关系 T */</span><br><span class="line">    if (t ∉ S)</span><br><span class="line">    then add tuple t into T</span><br><span class="line">&#125;</span><br><span class="line">return T</span><br></pre></td></tr></table></figure>
+<p>并运算、差运算的对比：<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-023.png"
+                         alt="课程笔记配图"
+                 ></p>
+<h5 id="笛卡尔积 -2">笛卡尔积</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>严格地讲应该是广义的笛卡尔（Extended Cartesian Product）</p>
+</li>
+<li class="lvl-2">
+<p>设有两个关系：</p>
+<ul class="lvl-2">
+<li class="lvl-6">R: n 目关系，$k_1$ 个元组</li>
+<li class="lvl-6">S: m 目关系，$k_2$ 个元组</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>笛卡尔积 R × S</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>结果关系的关系模式：(n + m) 列</strong>
+<ul class="lvl-4">
+<li class="lvl-10">前𝑛列来自于关系𝑅，后𝑚列来自于关系𝑆</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>结果关系中的行：(n + m)- 元组</strong>（即有 n+m 个分量的元组，如 3- 元组是有三个分量的元组），共有 𝑘1 × 𝑘2 个结果元组
+<ul class="lvl-4">
+<li class="lvl-10">结果元组的前𝑛列来自于关系𝑅的一个元组</li>
+<li class="lvl-10">结果元组的后𝑚列来自于关系𝑆的一个元组</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>可符号化表示为：<br>
+$$R \times S = \left{\overset{\frown}{t_r t_s} \mid t_r \in R \wedge t_s \in S \right}</p>
+</li>
+</ul>
+<p>= \left{(t_r, t_s) \mid t_r \in R \wedge t_s \in S \right}$$</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>任意两个关系，都可以进行笛卡尔积运算</p>
+<ul class="lvl-2">
+<li class="lvl-6">设：𝑅是𝑛目关系，𝑆是𝑚目关系</li>
+<li class="lvl-6">笛卡尔积𝑅 × 𝑆 的计算结果是一个(𝑛 + 𝑚) 目关系（假设为𝑇）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* 将结果关系𝑇初始化为空集 ∗/</span><br><span class="line">𝑻 ∶= &#123; &#125;</span><br><span class="line">for each tuple 𝒕_𝒓 ∈ 𝑹</span><br><span class="line">&#123;</span><br><span class="line">	for each tuple 𝒕_𝒔 ∈ 𝑺</span><br><span class="line">	&#123;</span><br><span class="line">		add tuple (𝒕_𝒓, 𝒕_𝒔) into 𝑻</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">return 𝑻</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>笛卡尔积满足交换律和结合律</p>
+<ul class="lvl-2">
+<li class="lvl-6">𝑅 × 𝑆 = 𝑆 × 𝑅</li>
+<li class="lvl-6">(𝑅 × 𝑆) × 𝑇 = 𝑅 × (𝑆 × 𝑇)</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>如果在关系 R 和 S 中存在同名的属性，在执行它们之间的笛卡尔积运算时，将被认为是两个不同的属性。</p>
+</li>
+<li class="lvl-2">
+<p>在笛卡尔积的结果关系中，对每一对同名属性，必须至少对其中的一个进行换名（确保在结果关系中，属性名是互不相同的）。</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-024.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="选择">选择</h5>
+<p>选择（Selection）又称为 限制（Restriction）</p>
+<p><strong>选择运算符的表示形式</strong>：$\sigma_F(R)$</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在关系 R 中选择满足条件 F 的元组。</p>
+</li>
+<li class="lvl-2">
+<p>结果是一个新的关系，仅包含符合选择条件的元组。</p>
+</li>
+</ul>
+<p><strong>数学定义：</strong><br>
+$$\sigma_F(R) = {t \mid t \in R \land F(t) = \text{true} }$$<br>
+其中：<strong>F 是选择条件</strong>，即一个逻辑表达式，其取值为 true（逻辑真） 或 false（逻辑假）。</p>
+<ol>
+<li class="lvl-3">
+<p><em>基本形式</em>：$X_1 \ \theta \ Y_1$</p>
+<ul class="lvl-2">
+<li class="lvl-6">$X_1$ 和 $Y_1$ 是关系 R 中的属性名或常量（但不能都是常量）。</li>
+<li class="lvl-6">$\theta$ 是比较运算符，包括：
+<ul class="lvl-4">
+<li class="lvl-10">大小比较：&gt;, $\geq$, &lt;, $\leq$</li>
+<li class="lvl-10">等值 / 不等比较：=, $\neq$（或 &lt;&gt; 表示不等）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><em>复合形式</em></p>
+<ul class="lvl-2">
+<li class="lvl-6">由多个基本选择条件通过逻辑运算符组合形成：
+<ul class="lvl-4">
+<li class="lvl-10">与（AND，∧）</li>
+<li class="lvl-10">或（OR，∨）</li>
+<li class="lvl-10">非（NOT，¬）</li>
+<li class="lvl-10">例如：$\sigma_{(学分 &gt; 2) \land (课程号 = C1)}(课程)$ 选择学分大于 2 且 课程号为 C1 的元组。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>选择运算是从关系𝑅中选取使逻辑表达式𝐹为真的元组，是从行的角度进行的运算<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-025.png"
+                         alt="课程笔记配图"
+                 ><br>
+在关系 R 中，带有阴影背景的元组，代入到选择条件 F 中成立，其他元组被代入到选择条件 F 中不成立。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>选择：𝜎𝐹(𝑅)</p>
+<ul class="lvl-2">
+<li class="lvl-6">结果关系模式：与关系 R 相同</li>
+<li class="lvl-6">结果关系元组：能够使选择条件 F 成立的关系 R 中的元组</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">𝑻 ∶= &#123; &#125; /* 初始化结果元组集合 */</span><br><span class="line">for each tuple 𝒕 ∈ 𝑹</span><br><span class="line">&#123;</span><br><span class="line">	/* 将元组𝒕的属性值代入到条件表达式𝑭中进行计算 */</span><br><span class="line">	if 𝑭(𝒕) = 𝒕𝒓𝒖𝒆</span><br><span class="line">	then add tuple 𝒕 into 𝑻</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return 𝑻</span><br></pre></td></tr></table></figure>
+<h5 id="投影">投影</h5>
+<p><strong>投影（Projection）</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>从𝑅中选择出若干属性 <strong> 列</strong>组成新的关系（𝐴是𝑅中的属性组）$\pi_A(R) = {t[A] | t \in R }$</p>
+</li>
+<li class="lvl-2">
+<p>投影操作主要是从列的角度进行运算<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-026.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+<li class="lvl-2">
+<p>投影之后不仅过滤了原关系中的某些列，而且还 <strong> 可能产生重复的投影结果元组</strong>（需要消除那些重复出现的行）</p>
+</li>
+</ul>
+<p>这里是整理过后的内容：</p>
+<p>投影操作</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>表示：投影操作通常写作：$\pi_A(R)$</p>
+<ul class="lvl-2">
+<li class="lvl-6">也可以表示为：$R[A]$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>运算描述：</p>
+<ul class="lvl-2">
+<li class="lvl-6">投影运算是通过略去关系 R 中的某些列，并重新排列结果关系中列的顺序来进行的。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>定义：</p>
+<ul class="lvl-2">
+<li class="lvl-6">设关系 R 有 n 个属性 $A_1, A_2, \dots, A_n$，从中选择 m 个属性 $A_{i1}, A_{i2}, \dots, A_{im}$，投影可以表示为：$\pi_{A_{i1}, A_{i2}, \dots, A_{im}}(R)$
+<ul class="lvl-4">
+<li class="lvl-10">或者表示为：$R[A_{i1}, A_{i2}, \dots, A_{im}]$</li>
+</ul>
+</li>
+<li class="lvl-6">其中：$A_{ij} \in {A_1, A_2, \dots, A_n} (j = 1, 2, \dots, m)$。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>投影运算的结果</p>
+<ul class="lvl-2">
+<li class="lvl-6">投影的结果是一个由 $A_{i1}, A_{i2}, \dots, A_{im}$ 所组成的 m 元关系。</li>
+<li class="lvl-7">关系 R 中的每个元组 t 在 $A_{i1}, A_{i2}, \dots, A_{im}$ 这 m 个属性上的取值构成结果关系中的一个元组</li>
+<li class="lvl-6">集合表示法：
+<ul class="lvl-4">
+<li class="lvl-10">使用集合表示法可以写作：$\pi_{A_{i1}, A_{i2}, \dots, A_{im}}(R) = {t[A_{i1}, A_{i2}, \dots, A_{im}] \mid t \in R }$<br>
+结果关系模式：仅含有属性组𝐴中的属性结果关系元组：由关系𝑅中的元组投影而成</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">𝑻 ∶= &#123; &#125; /* 初始化结果元组集合 */</span><br><span class="line">for each tuple 𝒕 ∈ 𝑹</span><br><span class="line">&#123;</span><br><span class="line">	/* 投影过程中可能产生重复的结果元组𝑡[𝐴] */</span><br><span class="line">	if 𝒕[𝑨] ∉ 𝑻</span><br><span class="line">	then add tuple 𝒕[𝑨] into 𝑻</span><br><span class="line">&#125;</span><br><span class="line">return 𝑻</span><br></pre></td></tr></table></figure>
+<p>可以结合使用投影和选择运算来实现单张表中的数据查询操作：<br>
+$$\pi_A(\sigma_F(R))$$</p>
+<ol>
+<li class="lvl-3">
+<p>先根据选择条件 F 对关系 R 进行选择运算</p>
+<ul class="lvl-2">
+<li class="lvl-6">选出符合条件的元组</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>再对选择运算的结果关系进行投影运算</p>
+<ul class="lvl-2">
+<li class="lvl-6">确定最终结果关系的关系模式</li>
+<li class="lvl-6">对符合选择条件的元组执行投影运算，得到最终的结果元组<br>
+<strong>可以简写为</strong>： $\pi_A \sigma_F(R)$<br>
+在没有括号的情况下，其运算顺序为：<strong>从右向左</strong></li>
+</ul>
+</li>
+</ol>
+<h5 id="基本运算总结">基本运算总结</h5>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-027.png"
+                         alt="课程笔记配图"
+                 >
+<h3 id="4-3- 关系代数基本运算的应用">4.3 关系代数基本运算的应用</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>MyCAP 数据库</p>
+</li>
+<li class="lvl-2">
+<p>基本运算的查询语义</p>
+</li>
+<li class="lvl-2">
+<p>使用基本运算的查询表示</p>
+</li>
+</ul>
+<p><strong>请细看 ppt 中的思考题与举例，有非常重要的内容</strong></p>
+<p>总结：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>$\sigma$ 查询的是满足某个条件的对象，$\pi$ 查询的是对象的特定属性</p>
+<ul class="lvl-2">
+<li class="lvl-6">先用 $\sigma$ 筛选出对象，再用 $\pi$ 查询出对象的属性</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>属性不一致的两个对象不能用 $\cup$ 连接。</p>
+</li>
+<li class="lvl-2">
+<p>笛卡尔积用于查询对象 A 与对象 B 的对应关系，如查询位于同一个城市的顾客和代理商：$\sigma_{customer.city=agent.city}(customer \times  agent)$ 其中，需要一个相等条件将对象 A 与对象 B 联系起来。</p>
+</li>
+<li class="lvl-2">
+<p>进行差运算的时候，被减数和减数 <strong> 都应该含有码</strong>，否则会出现缺项等。（查看 ppt89 页问题 5）</p>
+</li>
+</ul>
+<h3 id="4-4- 基本运算小结">4.4 基本运算小结</h3>
+<p>关系代数的基本运算</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>并，差，笛卡尔积，选择，投影</p>
+<ul class="lvl-2">
+<li class="lvl-6">每个运算的运算提前、运算结果（结果关系模式和结果元组）关系代数基本运算的应用</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>如何正确书写关系代数表达式</p>
+</li>
+<li class="lvl-2">
+<p>熟悉每一种运算符的使用场景和需要注意的重点</p>
+<ul class="lvl-2">
+<li class="lvl-6">并、差运算的使用前提</li>
+<li class="lvl-6">单个关系上的数据查询：选择与投影运算的调用顺序</li>
+<li class="lvl-6">何时需要使用笛卡尔积？笛卡尔积的运算结果是什么？</li>
+<li class="lvl-6">何时需要使用差运算？在使用差运算时需要注意什么？</li>
+</ul>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-028.png"
+                         alt="课程笔记配图"
+                 > 
+<h3 id="4-5- 关系代数的扩充运算">4.5 关系代数的扩充运算</h3>
+<blockquote>
+<p>课程讲义 PDF 未随本文转载。</p>
+</blockquote>
+<p>在关系代数中，除了五个基本运算外，还引入了其他扩充运算，方便对关系操作的表示。</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-029.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="关系代数的扩充运算">关系代数的扩充运算</h4>
+<h5 id="交">交</h5>
+<p>交（Intersection）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>R 和 S</p>
+<ul class="lvl-2">
+<li class="lvl-6">具有相同的目 n</li>
+<li class="lvl-6">响应的属性取自同一个域</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>$R \cap S$ 的运算结果</p>
+<ul class="lvl-2">
+<li class="lvl-6">仍为 n 目关系，由既属于 R 又属于 S 的元组组成</li>
+<li class="lvl-6">$R \cap S = {t\ |\ t \in R \land t \in S}$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>交运算 <strong> 满足交换律和结合律</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">交换律：$R \cap S$</li>
+<li class="lvl-6">结合律：$(R \cap S) \cap T = R \cap (S \cap T)$</li>
+</ul>
+</li>
+</ul>
+<p>the set of tuples in the relation T = R ∩ S</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">T ∶= &#123; &#125;</span><br><span class="line">for each tuple t ∈ R</span><br><span class="line">&#123;</span><br><span class="line">	/* 由既属于关系 R 、又属于关系 S 的元组组成结果关系 */</span><br><span class="line">	if (t ∈ S)</span><br><span class="line">	then add tuple t into T</span><br><span class="line">&#125;</span><br><span class="line">return T</span><br></pre></td></tr></table></figure>
+<p>交不是一个基本运算符，其功能可以用差运算来实现：<br>
+$R \cap S = R − (R − S) = S − (S − R)$</p>
+<p>例：<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-030.png"
+                         alt="课程笔记配图"
+                 ></p>
+<h6 id="比较：并、差、交">比较：并、差、交</h6>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-031.png"
+                         alt="课程笔记配图"
+                 >
+<p>“<strong>同类关系</strong>”的定义：</p>
+<ol>
+<li class="lvl-3">
+<p>具有相同的目 n</p>
+</li>
+<li class="lvl-3">
+<p>相应的属性来自同一个域</p>
+</li>
+</ol>
+<p>并运算 和 交运算 满足 交换律 和 结合律，差运算不满足。</p>
+<h5 id="θ- 连接">θ- 连接</h5>
+<p>连接’ 运算又称 ‘theta- 连接’ 或 ‘θ- 连接’，用于将关系 R 和关系 S 根据连接条件 F 合并为一个关系，可形式化表示为：$R \underset{F}{\bowtie} S$</p>
+<p>连接运算是一种扩充关系运算，其功能可以用基本关系运算‘笛卡尔积 + 选择’来实现，可表示为：<br>
+$$R \underset{F}{\bowtie} S = \sigma_F(R \times S)$$</p>
+<h6 id="常见的连接运算">常见的连接运算</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>theta- 连接</p>
+</li>
+<li class="lvl-2">
+<p>等值连接</p>
+</li>
+<li class="lvl-2">
+<p>自然连接</p>
+</li>
+<li class="lvl-2">
+<p>外连接</p>
+</li>
+</ul>
+<h6 id="连接运算的含义">连接运算的含义</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>从两个关系的笛卡尔积中选取属性间满足一定条件的元组 $R \underset{A \theta B}{\bowtie} S = {(t_r\ ,\ t_s)\ |\ t_r \in R \land t_s \in S \land (t_r[A] \ \theta  \ t_s[B])}$</p>
+<ul class="lvl-2">
+<li class="lvl-6">A 和 B：分别为 R 和 S 上读书相等且可比的属性组</li>
+<li class="lvl-6">$\theta$：比较运算符</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>连接运算从 R 和 S 的广义笛卡尔积 R × S 中选取 R 关系在 A 属性组上的值与 S 关系在 B 属性组上的值满足比较关系θ的元组。</p>
+</li>
+</ul>
+<h6 id="结果关系的关系模式">结果关系的关系模式</h6>
+<p>用 <strong>Head(R)</strong> 来表示关系 R 的所有属性构成的集合（即关系 R 的关系模式）在关系 R 和 S 之间执行连接运算，结果关系为 T<br>
+$$T := R \underset{A \theta B}{\bowtie} S$$</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>结果关系 T 的关系模式</p>
+<ul class="lvl-2">
+<li class="lvl-6">$Head(T) = Head(R) \cup_{all} Head(S)$</li>
+<li class="lvl-6">不必消除它们之间的同名属性，但在结果关系中必须对同名属性进行换名</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>结果关系 T 的元组集合</p>
+<ul class="lvl-2">
+<li class="lvl-6">从关系 R 和 S 中分别任取一个元组 $t_r$ 和 $t_s$，如果元组 $t_r$ 和元组 $t_s$ 的值能够使得 $A \theta B$ 成立，那么 $(t_r, \ t_s)$ 就构成一条结果元组。即：$$R \underset{A \theta B}{\bowtie} S = {(t_r\ ,\ t_s)\ |\ t_r \in R \land t_s \in S \land (t_r[A] \ \theta  \ t_s[B])}$$</li>
+</ul>
+</li>
+</ul>
+<h6 id="连接条件的表示">连接条件的表示</h6>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-032.png"
+                         alt="课程笔记配图"
+                 >
+<p>与“选择”的连接条件一致</p>
+<h6 id="例 -2">例</h6>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-033.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="等值连接">等值连接</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>θ为“＝”的连接运算称为等值连接</p>
+</li>
+<li class="lvl-2">
+<p>从关系 R 与 S 的广义笛卡尔积中选取 A、B 属性值相等的那些元组，即等值连接为：<br>
+$R \underset{A = B}{\bowtie} S = {(t_r\ ,\ t_s)\ |\ t_r \in R \land t_s \in S \land (t_r[A] = t_s[B])}$<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-034.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+</ul>
+<h5 id="自然连接">自然连接</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一种特殊的等值连接 $R \ {\bowtie}\ S$</p>
+<ul class="lvl-2">
+<li class="lvl-6">两个关系中进行比较的分量必须是相同的属性组</li>
+<li class="lvl-6">在结果中把重复的属性列去掉</li>
+</ul>
+</li>
+</ul>
+<h6 id="自然连接的含义">自然连接的含义</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>R 和 S 含有相同的属性组 B<br>
+$$R \ {\bowtie}\ S = {\overset{\frown}{t_r t_s}[U-B]\ |\ t_r \in R \land t_s \in S \land (t_r[B] = t_s[B])}$$</p>
+</li>
+<li class="lvl-2">
+<p>其中：U 是两个关系所有属性的并集（包括相同的属性组 B ）</p>
+</li>
+</ul>
+<p>一般的连接操作是从行的角度进行运算。自然连接还需要取消重复列，所以是 <em> 同时从行和列的角度 </em> 进行运算。</p>
+<h6 id="自然连接运算">自然连接运算</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>功能</strong>：根据两个关系中的同名属性（公共属性）进行等值连接</p>
+</li>
+<li class="lvl-2">
+<p><strong>运算条件</strong>：关系 R 和关系 S 中存在同名的公共属性。即：$Head(R) \cap Head(S)$ 不是空集</p>
+</li>
+<li class="lvl-2">
+<p><strong>运算结果</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">结果关系的关系模式：$Head(R) \cup Head(S)$</li>
+<li class="lvl-6">结果关系中的元组：
+<ul class="lvl-4">
+<li class="lvl-10">从关系 R 和关系 S 中分别任取一个元组 r 和 s，如果元组 r 和元组 s 在 它们的同名属性上的取值都相等，那么可以由 r 和 s 合并构成结果关系中的一个元组</li>
+<li class="lvl-10">同名属性在结果关系中只保留一份</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="自然连接运算的推导公式">自然连接运算的推导公式</h6>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-035.png"
+                         alt="课程笔记配图"
+                 >
+<h6 id="例 -3">例</h6>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-036.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="外连接">外连接</h5>
+<p><strong>悬浮元组（Dangling tuple）</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>两个关系 R 和 S 在做自然连接时，关系 R 中某些元组有可能在 S 中不存在公共属性上值相等的元组，从而造成 R 中这些元组在操作时被舍弃了，这些被舍弃的元组称为悬浮元组。<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-037.png"
+                         alt="课程笔记配图"
+                 ><br>
+悬浮元组：关系 R 中的元组 $(a_2, b_4, 12)$，关系 S 中的元组 $(b_5, 2)$</p>
+</li>
+</ul>
+<p><strong>外连接（Outer Join）</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果把悬浮元组也保存在结果关系中，而在其他属性上设置为空值(Null)，就叫做外连接</p>
+</li>
+<li class="lvl-2">
+<p><em>左外连接</em>（LEFT OUTER JOIN 或 LEFT JOIN）</p>
+<ul class="lvl-2">
+<li class="lvl-6">R left join S ：只保留左边关系 R 中的悬浮元组</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><em>右外连接</em>（RIGHT OUTER JOIN 或 RIGHT JOIN）</p>
+<ul class="lvl-2">
+<li class="lvl-6">R right join S ：只保留右边关系 S 中的悬浮元组</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><em>外连接</em>（OUTER JOIN）</p>
+<ul class="lvl-2">
+<li class="lvl-6">R outer join S ：同时保留左右两边关系 R 和 S 中的悬浮元组</li>
+</ul>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-038.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-039.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="除">除</h5>
+<p><strong>除运算（Division）</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>给定关系 R (X, Y) 和 S (Y, Z)，其中 X, Y, Z 为属性组。</p>
+</li>
+<li class="lvl-2">
+<p>R 中的 Y 与 S 中的 Y 可以有不同的属性名，但必须出自相同的域集。</p>
+</li>
+<li class="lvl-2">
+<p>R 与 S 的除运算得到一个新的关系 P(X)，P 是 R 中满足下列条件的元组在 X 属性列上的投影：</p>
+<ul class="lvl-2">
+<li class="lvl-6"><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">| t_r\in R \land \pi_Y(S) \subseteq Y_x}$$</label></li>
+<li class="lvl-6">其中：$Y_x$ 是 x 在 R 中的象集，$x = t_r[X]$</li>
+</ul>
+</li>
+</ul>
+<h6 id="例 -4">例</h6>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-040.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-041.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="综合举例">综合举例</h5>
+<p>参考 ppt 36 页开始（前面的例子可以不看）</p>
+<h5 id="扩充运算小结">扩充运算小结</h5>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-042.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="除运算的推导">除运算的推导</h4>
+<h5 id="为什么要引入除运算？">为什么要引入除运算？</h5>
+<p>为了方便表示某类查询：“选修过所有课程的学生”</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-043.png"
+                         alt="课程笔记配图" width="200"
+                 >
+<p>请比较下述查询的区别:</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>选修过 1 号课程的学生学号；</p>
+<ul class="lvl-2">
+<li class="lvl-6">单表查询：$\pi_{Sno}(\sigma_{Cno=1}(SC))$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>查询至少选修 1 号课程和 3 号课程的学生学号；</p>
+<ul class="lvl-2">
+<li class="lvl-6">法 1：使用交运算
+<ul class="lvl-4">
+<li class="lvl-10">$\pi_{Sno}(\sigma_{Cno=1}(SC)) \cap \pi_{Sno}(\sigma_{Cno=3}(SC))$</li>
+</ul>
+</li>
+<li class="lvl-6">法 2：使用θ- 连接
+<ul class="lvl-4">
+<li class="lvl-10">令 X:=SC</li>
+<li class="lvl-10">$\pi_{SC.Sno(SC \underset{SC.Sno = X.Sno \land SC.Cno=1 \land X.cno=3}{\bowtie} X))}$</li>
+</ul>
+</li>
+<li class="lvl-6">法 3：使用自然连接
+<ul class="lvl-4">
+<li class="lvl-10">令 X（Sno,xCno,xGreade):=SC</li>
+<li class="lvl-10">$\pi_{Sno}(\sigma_{Cno=1 \land xCno=3}(SC \bowtie X))$</li>
+</ul>
+</li>
+<li class="lvl-6">法 4：使用除运算</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>选修过课程关系中的所有课程的学生学号；</p>
+<ul class="lvl-2">
+<li class="lvl-6">只能使用除运算来简化查询的表示</li>
+</ul>
+</li>
+</ul>
+<h5 id="除运算的推导 -2">除运算的推导</h5>
+<p>除运算： R $\div$ S</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用 Head(R) 表示关系 R 的关系模式</p>
+</li>
+<li class="lvl-2">
+<p>假设关系 R 和 S 的关系模式分别为：</p>
+<ul class="lvl-2">
+<li class="lvl-6">$Head(R) = {A_1, A_2, …, A_n, B_1, B_2, …, B_m}$</li>
+<li class="lvl-6">$Head(S) = {B_1, B_2, …, B_m}$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>其中：</p>
+<ul class="lvl-2">
+<li class="lvl-6">R 被称为 ‘被除数关系’</li>
+<li class="lvl-6">S 被称为 ‘除数关系’</li>
+<li class="lvl-6">R $\div$ S 的结果关系 被称为 ‘商’</li>
+</ul>
+</li>
+</ul>
+<p>结果关系:<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-044.png"
+                         alt="课程笔记配图"
+                 ></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>结果关系的关系模式<br>
+$Head(T) = Head(R) - Head(S) = {A_1, A_2, \dots, A_n} = X$</p>
+</li>
+<li class="lvl-2">
+<p>结果关系中的元组</p>
+<ul class="lvl-2">
+<li class="lvl-6">满足条件的元组 $t_r$ 在 X 属性列上的投影：<strong>元组 $t_r$ 在 X 上分量值 x 的象集 $Y_x$ 包含 S 在 Y 上投影的集合</strong></li>
+<li class="lvl-6">根据前一页的假设，在除数关系 S 中只有属性组 Y 即 head(S)，“S 在 Y 上投影的集合” 就是关系 S</li>
+<li class="lvl-6">即：<strong>假设 x 是结果关系 T 中的一个元组 (x ∈ T)，则对于除数关系 S 中的每一个元组 y 都有 (x, y) ∈ R</strong></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>由所有符合上述条件的元组 x 构成结果关系 T 的元组集合。</p>
+</li>
+</ul>
+<h6 id="例 -5">例</h6>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-045.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-046.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-047.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-048.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-049.png"
+                         alt="课程笔记配图"
+                 >
+<p><strong>例：找出修读课程关系 C 中的所有课程的学生的学号</strong><br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-050.png"
+                         alt="课程笔记配图"
+                 ></p>
+<h5 id="除运算与笛卡尔积的关系">除运算与笛卡尔积的关系</h5>
+<p>在“被除数关系”完全包含“除数关系”中的所有属性的前提下，“除”运算与“笛卡尔积”运算存在如下的相关性：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果 $R=T \times S$，那么有：</p>
+<ul class="lvl-2">
+<li class="lvl-6">$T=R\div S$</li>
+<li class="lvl-6">$S=R\div T$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>如果 $T=R\div S$，那么有：</p>
+<ul class="lvl-2">
+<li class="lvl-6">$T \times S \subseteq R$</li>
+</ul>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-051.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-052.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="除运算的推导公式">除运算的推导公式</h5>
+<p>除运算是关系代数中的一个扩充运算, 它的推导公式如下：设关系 R 的属性集为 ${A_1,\dots , A_n , B_1 , \dots, B_n}$，关系 S 的属性集为 ${B_1 , \dots, B_n}$，则：</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-053.png"
+                         alt="课程笔记配图"
+                 >
+<p>其推导过程如下:</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-054.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-055.png"
+                         alt="课程笔记配图"
+                 >
+<p>如果在被除数关系中增加一个属性 G，那么除法的结果语义就会产生改变！<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-056.png"
+                         alt="课程笔记配图"
+                 ></p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch02/image-057.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="扩充运算的应用">扩充运算的应用</h4>
+<p><strong>请细看 ppt 60 页后的内容！</strong></p>
+<h4 id="关系代数小结">关系代数小结</h4>
+<h5 id="差运算的使用方法">差运算的使用方法</h5>
+<p>当查询条件带有‘否定’语义，或者具有明显的‘排它性’的时候，通常需要使用两个子查询之间的‘差’运算<br>
+‘差’运算的运算对象（关系）中，通常需要包含其关键字</p>
+<h5 id="“笛卡尔积 -θ- 连接 - 自然连接”的使用方法">“笛卡尔积 /θ- 连接 / 自然连接”的使用方法</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>都是关系的合并运算</p>
+<ul class="lvl-2">
+<li class="lvl-6">笛卡尔积是基本运算，θ- 连接和自然连接则是扩充运算</li>
+<li class="lvl-6">请注意三者的结果关系的关系模式之间的区别</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>笛卡尔积</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">是实现跨不同关系表进行数据访问的基础</li>
+<li class="lvl-6">在笛卡尔积的结果关系中，<mark>存在着很多无意义的结果元组</mark>，通常需要通过后续的选择运算过滤掉</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>θ- 连接</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">相邻的“笛卡尔积 + 选择运算”可以合并为一个θ- 连接</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>自然连接</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">如果连接条件是基于“两张表中的所有同名属性的相等比较”，可以将θ- 连接进一步简写为自然连接</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>一般方法：笛卡尔积 + 选择 or θ- 连接</p>
+<ul class="lvl-2">
+<li class="lvl-6">不存在同名属性，或者连接条件不是基于同名属性的相等比较</li>
+<li class="lvl-6">在结果关系中可能存在同名属性，需要加以区别</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>常用方法：自然连接</p>
+<ul class="lvl-2">
+<li class="lvl-6">连接条件是隐含的（所有同名属性的相等比较）</li>
+<li class="lvl-6">如果在 <mark> 两个关系之间存在多对‘同名属性’</mark>，而本次查询又不需要‘所有’的同名属性都相等，此时有两种选择：
+<ol>
+<li class="lvl-11">采用前述的一般方法来实现关系的合并</li>
+<li class="lvl-11"><strong>先对其中的一个关系执行投影运算，过滤掉其中不需要相等的那些同名属性</strong>，然后再使用自然连接运算</li>
+</ol>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>难点：关系的自连接</p>
+<ul class="lvl-2">
+<li class="lvl-6">使用赋值运算定义‘同质不同名’的两个中间关系(元组集合相同，但关系名不同)，当然也可以对中间关系中的属性进行重命名</li>
+<li class="lvl-6">然后再使用前述的一般方法实现两个中间关系的合并</li>
+</ul>
+</li>
+</ul>
+<h5 id="“除”的使用方法">“除”的使用方法</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>‘除’ 运算与‘连接’运算的区别</p>
+<ul class="lvl-2">
+<li class="lvl-6">我们将查询的结果关系称为‘目标对象’，用于定义查询条件的关系称为‘条件对象’</li>
+<li class="lvl-6">在决定某个元组 t 是否属于结果关系时，
+<ul class="lvl-4">
+<li class="lvl-10">如果只需要从条件对象中找到一个元组 c 并使得查询条件成立，那么就直接使用‘连接’运算（包括笛卡尔积、θ- 连接和自然连接）</li>
+<li class="lvl-10">如果需要条件对象集中的所有元组都能使得查询条件成立，那么就使用‘除’运算</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>‘除’ 运算表达式的表示方法</p>
+<ul class="lvl-2">
+<li class="lvl-6">被除数关系中必须包含目标对象和条件对象的关键字</li>
+<li class="lvl-6">除数关系中只含条件对象的关键字</li>
+<li class="lvl-6">被除数和除数关系中不能含其它‘不必要’的多余属性</li>
+</ul>
+</li>
+</ul>
+<h2 id="关系演算（不讲）">关系演算（不讲）</h2>
+<h2 id="小结">小结</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系数据库系统是目前使用最广泛的数据库系统，关系模型、基于关系模型的关系数据库系统是本门课程的重点。</p>
+</li>
+<li class="lvl-2">
+<p>关系数据库系统与其他非关系数据库系统的区别，就是关系数据库系统只有‘关系’（或‘表’、‘二维表’）这一种数据结构。</p>
+</li>
+<li class="lvl-2">
+<p>数据模型是区分不同类型数据库管理系统的依据。要学习关系数据库，首先要学懂弄通什么是关系数据模型。</p>
+</li>
+<li class="lvl-2">
+<p>本课件重点讲解关系模型的基本概念，核心知识点包括：</p>
+<ul class="lvl-2">
+<li class="lvl-6">关系模型的数据结构、关系操作、关系的完整性</li>
+<li class="lvl-6">关系、关系模式、关系数据库 以及三者之间的联系和区别</li>
+<li class="lvl-6">‘关系’和‘二维表’（表）的联系和区别</li>
+</ul>
+</li>
+</ul>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                SQL 教程 | 2. 关系数据模型
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2025/09/11/sql 教程/sql2-关系数据模型/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">He Junze</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2025-09-11 14:47</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/SQL/">SQL</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    
+
+<div class="reward-author-container border-box flex-center">
+    <div class="reward-btn border-box flex-center tooltip tooltip-img"
+            data-tooltip-img-url="/images/buymeacoffee.jpg"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -6px;"
+    >
+        <i class="fa-solid fa-gift"></i>&nbsp;REWARD AUTHOR
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/hexo-blog/2025/09/18/sql%20%E6%95%99%E7%A8%8B/sql3-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80%20SQL/"
+                                   title="SQL 教程 | 3. 关系数据库标准语言 SQL"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 3. 关系数据库标准语言 SQL</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/hexo-blog/2025/09/04/sql%20%E6%95%99%E7%A8%8B/sql1-%E7%BB%AA%E8%AE%BA%20%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"
+                                   title="SQL 教程 | 1. 绪论 数据库的基本概念"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 1. 绪论 数据库的基本概念</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="twikoo-container">
+        <div id="twikoo-comment"></div>
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/twikoo@1.6.40/dist/twikoo.all.min.js?1795612674937"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initTwikoo = () => {
+            if (window?.twikoo) {
+              twikoo.init({
+                el: '#twikoo-comment',
+                envId: 'https://hejunze.netlify.app/.netlify/functions/twikoo',
+                region: '',
+                lang: 'en,zh-CN,default' || 'zh-CN'
+              })
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initTwikoo()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initTwikoo()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initTwikoo)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E7%AB%A0%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6"><span class="nav-text">本章知识框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%90%8D%E8%AF%8D%E6%9C%AF%E8%AF%AD%E4%B9%8B%E9%97%B4%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">关系数据库中名词术语之间的对应关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%20%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E5%85%B6%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1. 关系数据结构及其形式化定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%9F%EF%BC%88Domain%EF%BC%89"><span class="nav-text">域（Domain）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF"><span class="nav-text">笛卡尔积</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">笛卡尔积的定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%83%E7%BB%84%EF%BC%88Tuple%EF%BC%89"><span class="nav-text">元组（Tuple）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E9%87%8F%EF%BC%88Component%EF%BC%89"><span class="nav-text">分量（Component）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%EF%BC%88Cardinal-number%EF%BC%89"><span class="nav-text">基数（Cardinal number）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E7%9A%84%E7%BB%93%E6%9E%9C%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">笛卡尔积的结果表示方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E8%AE%A1%E7%AE%97%E4%B8%8E%E8%A1%A8%E7%A4%BA%E5%AE%9E%E4%BE%8B"><span class="nav-text">笛卡尔积计算与表示实例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%20%E5%85%B3%E7%B3%BB"><span class="nav-text">1.1 关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-text">关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">关系的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E5%88%86%E9%87%8F%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">元组分量的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%81%20-Key-%E3%80%81%E5%80%99%E9%80%89%E7%A0%81%20-Candidate-key"><span class="nav-text">码(Key)、候选码 (Candidate key)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B"><span class="nav-text">例</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8D%95%E4%B8%80%E5%B1%9E%E6%80%A7%E5%80%99%E9%80%89%E7%A0%81"><span class="nav-text">单一属性候选码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E5%B1%9E%E6%80%A7%E5%80%99%E9%80%89%E7%A0%81"><span class="nav-text">组合属性候选码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%A8%E7%A0%81%EF%BC%88All-key%EF%BC%89"><span class="nav-text">全码（All-key）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E7%A0%81"><span class="nav-text">主码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%B1%9E%E6%80%A7%E4%B8%8E%E9%9D%9E%E4%B8%BB%E5%B1%9E%E6%80%A7%20-%20%E9%9D%9E%E7%A0%81%E5%B1%9E%E6%80%A7"><span class="nav-text">主属性与非主属性 &#x2F; 非码属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E7%9A%84%E7%B1%BB%E5%88%AB"><span class="nav-text">关系的类别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-text">关系的性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%20%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F"><span class="nav-text">1.2 关系模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%EF%BC%88Relation-Schema%EF%BC%89"><span class="nav-text">关系模式（Relation Schema）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E8%A1%A8%E7%A4%BA"><span class="nav-text">关系模式的形式化表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%85%B3%E7%B3%BB"><span class="nav-text">关系模式与关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%20%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">1.3 关系数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%20%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-text">1.4 关系模型的存储结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%20%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C"><span class="nav-text">2. 关系操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%20%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C"><span class="nav-text">2.1 基本的关系操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%20%E5%AF%B9%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%9A%84%E6%80%BB%E7%BB%93"><span class="nav-text">2.2 对关系操作的总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%20%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E4%B8%8A%E7%9A%84%E6%95%B0%E6%8D%AE%E6%93%8D%E7%BA%B5%E5%8A%9F%E8%83%BD"><span class="nav-text">2.3 关系模型上的数据操纵功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%20%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E8%AF%AD%E8%A8%80%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">2.4 关系数据语言的分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%20%E5%85%B3%E7%B3%BB%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3. 关系的完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%20%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3.1 实体完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E5%80%BC"><span class="nav-text">空值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-text">实体完整性约束的例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E8%A7%84%E5%88%99%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="nav-text">实体完整性规则的说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%20%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3.2 参照完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8"><span class="nav-text">关系间的引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B%201-%20%E5%AE%9E%E4%BD%93%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%BC%95%E7%94%A8"><span class="nav-text">例 1 实体之间的关系引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B%202-%20%E8%81%94%E7%B3%BB%E4%B8%8E%E7%9B%B8%E5%85%B3%E5%AE%9E%E4%BD%93%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%BC%95%E7%94%A8"><span class="nav-text">例 2 联系与相关实体之间的关系引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B%203-%20%E5%AE%9E%E4%BD%93%E9%9B%86%E5%86%85%E9%83%A8%E7%9A%84%E5%85%B3%E7%B3%BB%E5%BC%95%E7%94%A8"><span class="nav-text">例 3 实体集内部的关系引用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%96%E7%A0%81%EF%BC%88Foreign-Key%EF%BC%89"><span class="nav-text">外码（Foreign Key）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7%E8%A7%84%E5%88%99"><span class="nav-text">参照完整性规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%20%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3.3 用户定义的完整性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%20%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%EF%BC%88%E7%A4%BA%E4%BE%8B%EF%BC%89"><span class="nav-text">3.4 数据完整性约束（示例）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="nav-text">4. 关系代数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E6%A6%82%E8%BF%B0"><span class="nav-text">4.1 关系代数概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="nav-text">关系代数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97"><span class="nav-text">关系运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E4%B8%8E%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97"><span class="nav-text">基本运算与扩充运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%93%8D%E7%BA%B5%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">关系操纵的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AE%B0%E5%8F%B7"><span class="nav-text">关系代数中使用的记号</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B1%A1%E9%9B%86"><span class="nav-text">象集</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97"><span class="nav-text">4.2 关系代数的基本运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AF%AD%E4%B9%89"><span class="nav-text">关系模式的语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97"><span class="nav-text">赋值运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%20-%E2%80%98%E8%B5%8B%E5%80%BC%E2%80%99-%20%E8%BF%90%E7%AE%97"><span class="nav-text">关系代数中的 ‘赋值’ 运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-text">赋值运算的使用方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%9A%84%E7%94%A8%E9%80%94"><span class="nav-text">赋值运算的用途</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E4%B8%8E%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="nav-text">算术比较运算与逻辑运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97"><span class="nav-text">算术比较运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="nav-text">逻辑运算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97"><span class="nav-text">关系代数基本运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%80%9C%E5%B9%B6%E2%80%9D%E8%BF%90%E7%AE%97"><span class="nav-text">“并”运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%80%9C%E5%B7%AE%E2%80%9D%E8%BF%90%E7%AE%97"><span class="nav-text">“差”运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%20-2"><span class="nav-text">笛卡尔积</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%89%E6%8B%A9"><span class="nav-text">选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%95%E5%BD%B1"><span class="nav-text">投影</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93"><span class="nav-text">基本运算总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">4.3 关系代数基本运算的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%20%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E5%B0%8F%E7%BB%93"><span class="nav-text">4.4 基本运算小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E7%9A%84%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97"><span class="nav-text">4.5 关系代数的扩充运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E7%9A%84%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97"><span class="nav-text">关系代数的扩充运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%A4"><span class="nav-text">交</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%EF%BC%9A%E5%B9%B6%E3%80%81%E5%B7%AE%E3%80%81%E4%BA%A4"><span class="nav-text">比较：并、差、交</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%CE%B8-%20%E8%BF%9E%E6%8E%A5"><span class="nav-text">θ- 连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97"><span class="nav-text">常见的连接运算</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-text">连接运算的含义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%85%B3%E7%B3%BB%E7%9A%84%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F"><span class="nav-text">结果关系的关系模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">连接条件的表示</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%8B%20-2"><span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="nav-text">等值连接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5"><span class="nav-text">自然连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-text">自然连接的含义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97"><span class="nav-text">自然连接运算</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97%E7%9A%84%E6%8E%A8%E5%AF%BC%E5%85%AC%E5%BC%8F"><span class="nav-text">自然连接运算的推导公式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%8B%20-3"><span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-text">外连接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%A4"><span class="nav-text">除</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%8B%20-4"><span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E4%B8%BE%E4%BE%8B"><span class="nav-text">综合举例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97%E5%B0%8F%E7%BB%93"><span class="nav-text">扩充运算小结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%A4%E8%BF%90%E7%AE%97%E7%9A%84%E6%8E%A8%E5%AF%BC"><span class="nav-text">除运算的推导</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BC%95%E5%85%A5%E9%99%A4%E8%BF%90%E7%AE%97%EF%BC%9F"><span class="nav-text">为什么要引入除运算？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%A4%E8%BF%90%E7%AE%97%E7%9A%84%E6%8E%A8%E5%AF%BC%20-2"><span class="nav-text">除运算的推导</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%8B%20-5"><span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%A4%E8%BF%90%E7%AE%97%E4%B8%8E%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">除运算与笛卡尔积的关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%A4%E8%BF%90%E7%AE%97%E7%9A%84%E6%8E%A8%E5%AF%BC%E5%85%AC%E5%BC%8F"><span class="nav-text">除运算的推导公式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">扩充运算的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E5%B0%8F%E7%BB%93"><span class="nav-text">关系代数小结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%AE%E8%BF%90%E7%AE%97%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">差运算的使用方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%80%9C%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%20-%CE%B8-%20%E8%BF%9E%E6%8E%A5%20-%20%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5%E2%80%9D%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">“笛卡尔积 &#x2F;θ- 连接 &#x2F; 自然连接”的使用方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%80%9C%E9%99%A4%E2%80%9D%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">“除”的使用方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%BC%94%E7%AE%97%EF%BC%88%E4%B8%8D%E8%AE%B2%EF%BC%89"><span class="nav-text">关系演算（不讲）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2024</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/hexo-blog/">He Junze</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://www.aliyun.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="Alibaba Cloud"><img src="/hexo-blog/images/brands/aliyun.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">104.9k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn"
+                        >
+                            豫ICP备2024101982号-1
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E7%AB%A0%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6"><span class="nav-text">本章知识框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%90%8D%E8%AF%8D%E6%9C%AF%E8%AF%AD%E4%B9%8B%E9%97%B4%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">关系数据库中名词术语之间的对应关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%20%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E5%85%B6%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1. 关系数据结构及其形式化定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%9F%EF%BC%88Domain%EF%BC%89"><span class="nav-text">域（Domain）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF"><span class="nav-text">笛卡尔积</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">笛卡尔积的定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%83%E7%BB%84%EF%BC%88Tuple%EF%BC%89"><span class="nav-text">元组（Tuple）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E9%87%8F%EF%BC%88Component%EF%BC%89"><span class="nav-text">分量（Component）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%EF%BC%88Cardinal-number%EF%BC%89"><span class="nav-text">基数（Cardinal number）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E7%9A%84%E7%BB%93%E6%9E%9C%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">笛卡尔积的结果表示方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E8%AE%A1%E7%AE%97%E4%B8%8E%E8%A1%A8%E7%A4%BA%E5%AE%9E%E4%BE%8B"><span class="nav-text">笛卡尔积计算与表示实例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%20%E5%85%B3%E7%B3%BB"><span class="nav-text">1.1 关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-text">关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">关系的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E5%88%86%E9%87%8F%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">元组分量的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%81%20-Key-%E3%80%81%E5%80%99%E9%80%89%E7%A0%81%20-Candidate-key"><span class="nav-text">码(Key)、候选码 (Candidate key)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B"><span class="nav-text">例</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8D%95%E4%B8%80%E5%B1%9E%E6%80%A7%E5%80%99%E9%80%89%E7%A0%81"><span class="nav-text">单一属性候选码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E5%B1%9E%E6%80%A7%E5%80%99%E9%80%89%E7%A0%81"><span class="nav-text">组合属性候选码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%A8%E7%A0%81%EF%BC%88All-key%EF%BC%89"><span class="nav-text">全码（All-key）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E7%A0%81"><span class="nav-text">主码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%B1%9E%E6%80%A7%E4%B8%8E%E9%9D%9E%E4%B8%BB%E5%B1%9E%E6%80%A7%20-%20%E9%9D%9E%E7%A0%81%E5%B1%9E%E6%80%A7"><span class="nav-text">主属性与非主属性 &#x2F; 非码属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E7%9A%84%E7%B1%BB%E5%88%AB"><span class="nav-text">关系的类别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-text">关系的性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%20%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F"><span class="nav-text">1.2 关系模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%EF%BC%88Relation-Schema%EF%BC%89"><span class="nav-text">关系模式（Relation Schema）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E8%A1%A8%E7%A4%BA"><span class="nav-text">关系模式的形式化表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%85%B3%E7%B3%BB"><span class="nav-text">关系模式与关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%20%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">1.3 关系数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%20%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-text">1.4 关系模型的存储结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%20%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C"><span class="nav-text">2. 关系操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%20%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C"><span class="nav-text">2.1 基本的关系操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%20%E5%AF%B9%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%9A%84%E6%80%BB%E7%BB%93"><span class="nav-text">2.2 对关系操作的总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%20%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E4%B8%8A%E7%9A%84%E6%95%B0%E6%8D%AE%E6%93%8D%E7%BA%B5%E5%8A%9F%E8%83%BD"><span class="nav-text">2.3 关系模型上的数据操纵功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%20%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E8%AF%AD%E8%A8%80%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">2.4 关系数据语言的分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%20%E5%85%B3%E7%B3%BB%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3. 关系的完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%20%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3.1 实体完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E5%80%BC"><span class="nav-text">空值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-text">实体完整性约束的例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E8%A7%84%E5%88%99%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="nav-text">实体完整性规则的说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%20%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3.2 参照完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8"><span class="nav-text">关系间的引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B%201-%20%E5%AE%9E%E4%BD%93%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%BC%95%E7%94%A8"><span class="nav-text">例 1 实体之间的关系引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B%202-%20%E8%81%94%E7%B3%BB%E4%B8%8E%E7%9B%B8%E5%85%B3%E5%AE%9E%E4%BD%93%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%BC%95%E7%94%A8"><span class="nav-text">例 2 联系与相关实体之间的关系引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B%203-%20%E5%AE%9E%E4%BD%93%E9%9B%86%E5%86%85%E9%83%A8%E7%9A%84%E5%85%B3%E7%B3%BB%E5%BC%95%E7%94%A8"><span class="nav-text">例 3 实体集内部的关系引用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%96%E7%A0%81%EF%BC%88Foreign-Key%EF%BC%89"><span class="nav-text">外码（Foreign Key）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7%E8%A7%84%E5%88%99"><span class="nav-text">参照完整性规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%20%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3.3 用户定义的完整性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%20%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%EF%BC%88%E7%A4%BA%E4%BE%8B%EF%BC%89"><span class="nav-text">3.4 数据完整性约束（示例）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="nav-text">4. 关系代数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E6%A6%82%E8%BF%B0"><span class="nav-text">4.1 关系代数概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="nav-text">关系代数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97"><span class="nav-text">关系运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E4%B8%8E%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97"><span class="nav-text">基本运算与扩充运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%93%8D%E7%BA%B5%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">关系操纵的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AE%B0%E5%8F%B7"><span class="nav-text">关系代数中使用的记号</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B1%A1%E9%9B%86"><span class="nav-text">象集</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97"><span class="nav-text">4.2 关系代数的基本运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AF%AD%E4%B9%89"><span class="nav-text">关系模式的语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97"><span class="nav-text">赋值运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%20-%E2%80%98%E8%B5%8B%E5%80%BC%E2%80%99-%20%E8%BF%90%E7%AE%97"><span class="nav-text">关系代数中的 ‘赋值’ 运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-text">赋值运算的使用方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%9A%84%E7%94%A8%E9%80%94"><span class="nav-text">赋值运算的用途</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E4%B8%8E%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="nav-text">算术比较运算与逻辑运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97"><span class="nav-text">算术比较运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="nav-text">逻辑运算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97"><span class="nav-text">关系代数基本运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%80%9C%E5%B9%B6%E2%80%9D%E8%BF%90%E7%AE%97"><span class="nav-text">“并”运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%80%9C%E5%B7%AE%E2%80%9D%E8%BF%90%E7%AE%97"><span class="nav-text">“差”运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%20-2"><span class="nav-text">笛卡尔积</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%89%E6%8B%A9"><span class="nav-text">选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%95%E5%BD%B1"><span class="nav-text">投影</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93"><span class="nav-text">基本运算总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">4.3 关系代数基本运算的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%20%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E5%B0%8F%E7%BB%93"><span class="nav-text">4.4 基本运算小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%20%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E7%9A%84%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97"><span class="nav-text">4.5 关系代数的扩充运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E7%9A%84%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97"><span class="nav-text">关系代数的扩充运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%A4"><span class="nav-text">交</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%EF%BC%9A%E5%B9%B6%E3%80%81%E5%B7%AE%E3%80%81%E4%BA%A4"><span class="nav-text">比较：并、差、交</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%CE%B8-%20%E8%BF%9E%E6%8E%A5"><span class="nav-text">θ- 连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97"><span class="nav-text">常见的连接运算</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-text">连接运算的含义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%85%B3%E7%B3%BB%E7%9A%84%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F"><span class="nav-text">结果关系的关系模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">连接条件的表示</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%8B%20-2"><span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="nav-text">等值连接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5"><span class="nav-text">自然连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-text">自然连接的含义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97"><span class="nav-text">自然连接运算</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97%E7%9A%84%E6%8E%A8%E5%AF%BC%E5%85%AC%E5%BC%8F"><span class="nav-text">自然连接运算的推导公式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%8B%20-3"><span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-text">外连接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%A4"><span class="nav-text">除</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%8B%20-4"><span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E4%B8%BE%E4%BE%8B"><span class="nav-text">综合举例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97%E5%B0%8F%E7%BB%93"><span class="nav-text">扩充运算小结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%A4%E8%BF%90%E7%AE%97%E7%9A%84%E6%8E%A8%E5%AF%BC"><span class="nav-text">除运算的推导</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BC%95%E5%85%A5%E9%99%A4%E8%BF%90%E7%AE%97%EF%BC%9F"><span class="nav-text">为什么要引入除运算？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%A4%E8%BF%90%E7%AE%97%E7%9A%84%E6%8E%A8%E5%AF%BC%20-2"><span class="nav-text">除运算的推导</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%8B%20-5"><span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%A4%E8%BF%90%E7%AE%97%E4%B8%8E%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">除运算与笛卡尔积的关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%A4%E8%BF%90%E7%AE%97%E7%9A%84%E6%8E%A8%E5%AF%BC%E5%85%AC%E5%BC%8F"><span class="nav-text">除运算的推导公式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%85%85%E8%BF%90%E7%AE%97%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">扩充运算的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E5%B0%8F%E7%BB%93"><span class="nav-text">关系代数小结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%AE%E8%BF%90%E7%AE%97%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">差运算的使用方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%80%9C%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%20-%CE%B8-%20%E8%BF%9E%E6%8E%A5%20-%20%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5%E2%80%9D%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">“笛卡尔积 &#x2F;θ- 连接 &#x2F; 自然连接”的使用方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%80%9C%E9%99%A4%E2%80%9D%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">“除”的使用方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%BC%94%E7%AE%97%EF%BC%88%E4%B8%8D%E8%AE%B2%EF%BC%89"><span class="nav-text">关系演算（不讲）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/hexo-blog/js/utils.js?1795612674937"></script>
+
+<script src="/hexo-blog/js/header-shrink.js?1795612674937"></script>
+
+<script src="/hexo-blog/js/back2top.js?1795612674937"></script>
+
+<script src="/hexo-blog/js/toggle-theme.js?1795612674937"></script>
+
+<script src="/hexo-blog/js/code-block.js?1795612674937"></script>
+
+<script src="/hexo-blog/js/main.js?1795612674937"></script>
+
+<script src="/hexo-blog/js/libs/anime.min.js?1795612674937"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/hexo-blog/js/local-search.js?1795612674937"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/hexo-blog/js/lazyload.js?1795612674937"></script>
+
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/hexo-blog/js/post/post-helper.js?1795612674937"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/hexo-blog/js/post/toc.js?1795612674937"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/hexo-blog/js/post/copyright-info.js?1795612674937"></script>
+
+        
+
+        <!-- share -->
+        
+            
+<script src="/hexo-blog/js/post/share.js?1795612674937"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/hexo-blog/js/libs/pjax.min.js?1795612674937"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+            
+<script class="custom-inject-js" src="/hexo-blog/js/custom-1.js?1795612674937" data-pjax></script>
+
+        
+    
+
+</body>
+</html>

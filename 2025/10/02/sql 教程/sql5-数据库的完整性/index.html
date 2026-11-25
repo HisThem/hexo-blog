@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en,zh-CN,default">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="He Junze">
+    
+    
+    <title>
+        
+            SQL 教程 | 5. 数据库的完整性 |
+        
+        晚亭新凉
+    </title>
+    
+<link rel="stylesheet" href="/hexo-blog/css/style.css?1795612674935">
+
+    
+        <link rel="shortcut icon" href="/hexo-blog/images/avatar_minisize.png">
+    
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/fontawesome.min.css?1795612674935">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/regular.min.css?1795612674935">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/solid.min.css?1795612674935">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/brands.min.css?1795612674935">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/hexo-blog/css/custom-1.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/font.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/header-wrapper.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/gallery.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/comments.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/post.css?1795612674935">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"histhem.github.io","root":"/hexo-blog/","language":["en","zh-CN","default"],"path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"晚亭新凉","author":"He Junze","avatar":"/images/avatar_minisize.png","logo":"/images/avatar_minisize.png","favicon":"/images/avatar_minisize.png"},"menu":{"home":"/","archives":"/archives","library":{"children":[{"tags":"/tags || fa-solid fa-tags"},{"categories":"/categories || fa-solid fa-layer-group"}]},"links":"/links","gallery":"/gallery","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false,"enableTypewriter":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/HisThem","weixin":"img | /images/wechat.jpg","qq":"img | /images/qq.jpg","instagram":"https://www.instagram.com/beihe2656/profilecard/?igsh=ZnI2OXJoYzh5eGhq","500px":"https://500px.com.cn/4ae1d61984732bd4d26d1abf243175339?rs=4ae1d61984732bd4d26d1abf243175339","steam":"https://steamcommunity.com/profiles/76561199145331905/","email":"orlando.he@icloud.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm","created_datetime_icon":"fa-solid fa-file-circle-plus","updated_datetime_icon":"fa-solid fa-clock-rotate-left","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"/images/buymeacoffee.jpg","text":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"twikoo","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":"https://hejunze.netlify.app/.netlify/functions/twikoo","region":null,"version":"1.6.40"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2024,"word_count":true,"site_deploy":{"enable":true,"provider":"aliyun","url":"https://www.aliyun.com/"},"record":{"enable":true,"list":[{"code":"豫ICP备2024101982号-1","link":"https://beian.miit.gov.cn"}]}},"inject":{"enable":true,"css":[["/css/custom-1.css","/css/font.css","/css/header-wrapper.css","/css/gallery.css","/css/comments.css","/css/post.css"]],"js":[["/js/custom-1.js"]]},"root":"/hexo-blog","source_data":{"links":[{"title":"朋友们"},{"name":"悲伤虾滑蛋","link":"https://captainjack-ai.github.io/","description":"来自独一无二的B612星球","avatar":"/images/zcyavatar.jpg"}],"photos":[{"url":"https://i.postimg.cc/wvT2vYk0/DSC00941.jpg"},{"url":"https://i.postimg.cc/KjCDJkhH/DSC01202.jpg"},{"url":"https://i.postimg.cc/ZKyc0crt/DSC01209.jpg"},{"url":"https://i.postimg.cc/Wpy82Kqw/DSC01622.jpg"},{"url":"https://i.postimg.cc/9MRqN25n/20241114231518.jpg"},{"url":"https://i.postimg.cc/Yqwm8TXd/20241210163052.jpg"},{"url":"https://i.postimg.cc/J7XkNRQy/20241210163208.jpg"},{"url":"https://i.postimg.cc/2ynLrx5d/20241210163226.jpg"},{"url":"https://i.postimg.cc/9M6w6kcF/20241210163229.jpg"},{"url":"https://i.postimg.cc/fTjSP5pD/20241210163230.jpg"},{"url":"https://i.postimg.cc/0ykK1D1m/20241210163235.jpg"},{"url":"https://i.postimg.cc/DmV119qV/DSC02111.jpg"},{"url":"https://i.postimg.cc/kM2ZFWxw/DSC02255.jpg"},{"url":"https://i.postimg.cc/FFw6P1pv/DSC02344.jpg"},{"url":"https://i.postimg.cc/BQDVRs7K/DSC02423.jpg"},{"url":"https://i.postimg.cc/SxftNdhQ/DSC02438.jpg"},{"url":"https://i.postimg.cc/MGZ3cB67/DSC02484.jpg"},{"url":"https://i.postimg.cc/fbH2Yby6/DSC02558.jpg"},{"url":"https://i.postimg.cc/1tfWBZN4/DSC02588.jpg"},{"url":"https://i.postimg.cc/d1p5SS86/DSC02595.jpg"},{"url":"https://i.postimg.cc/FzSTtgp4/DSC02618.jpg"},{"url":"https://i.postimg.cc/9QZJgpMt/DSC00706.jpg"},{"url":"https://i.postimg.cc/sDtTJ8Vg/DSC00741.jpg"},{"url":"https://i.postimg.cc/xdQgwzNr/DSC00828.jpg"},{"url":"https://i.postimg.cc/q7GQ4v2N/DSC00841.jpg"},{"url":"https://i.postimg.cc/bwcRntTG/DSC01711.jpg"},{"url":"https://i.postimg.cc/k44NCFnH/DSC01756-3.jpg"},{"url":"https://i.postimg.cc/tTM34ZJ4/DSC02078.jpg"},{"url":"https://i.postimg.cc/0jKpMkKd/DSC02098.jpg"},{"url":"https://i.postimg.cc/XqPQm1dx/DSC00323.jpg"},{"url":"https://i.postimg.cc/HWvZrnR5/DSC00425.jpg"},{"url":"https://i.postimg.cc/SNXZCqbP/DSC00613.jpg"},{"url":"https://i.postimg.cc/gJSDLtSd/DSC00870.jpg"},{"url":"https://i.postimg.cc/yxDTmhtR/DSC00855.jpg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="晚亭新凉" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/hexo-blog/">
+                    <img src="/hexo-blog/images/avatar_minisize.png">
+                </a>
+            
+            <a class="site-name border-box" href="/hexo-blog/">
+               晚亭新凉
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                LIBRARY
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                TAGS
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                CATEGORIES
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/gallery">
+                                
+                                GALLERY
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                            LIBRARY
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        TAGS
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        CATEGORIES
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/gallery">
+                            
+                            GALLERY
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+
+
+
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                <!-- 
+                    <div class="post-title">
+                        SQL 教程 | 5. 数据库的完整性
+                    </div>
+                 -->
+                <div class="post-title">
+                    SQL 教程 | 5. 数据库的完整性
+                </div>
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/hexo-blog/images/avatar_minisize.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">He Junze</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;
+                <span class="datetime">2025-10-02 14:47</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-clock-rotate-left"></i>&nbsp;
+                    <span class="datetime" data-updated="Wed Nov 25 2026 21:16:06 GMT+0800">2026-11-25 21:16</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/">数据管理基础</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/SQL/">SQL</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>5.5k Words</span>
+            </span>
+        
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <blockquote>
+<p>课程讲义 PDF 未随本文转载。</p>
+</blockquote>
+<h2 id="数据库的完整性">数据库的完整性</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>数据的正确性</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">是指数据是符合现实世界语义，反映了当前实际状况的</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>数据的相容性</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">是指数据库同一对象在不同关系表中的数据是符合逻辑的</li>
+</ul>
+</li>
+</ul>
+<p>例如，</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>学生的学号必须唯一</p>
+</li>
+<li class="lvl-2">
+<p>性别只能是男或女</p>
+</li>
+<li class="lvl-2">
+<p>本科学生年龄的取值范围为 14~50 的整数</p>
+</li>
+<li class="lvl-2">
+<p>学生所选的课程必须是学校开设的课程，学生所在的院系必须是学校已成立的院系</p>
+</li>
+</ul>
+<h2 id="完整性 -vs- 安全性">完整性 vs. 安全性</h2>
+<p>数据的完整性和安全性是两个不同概念</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据的完整性</p>
+<ul class="lvl-2">
+<li class="lvl-6">防止数据库中存在不符合语义的数据，也就是防止数据库中存在不正确的数据</li>
+<li class="lvl-6">防范对象：不合语义的、不正确的数据</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>数据的安全性</p>
+<ul class="lvl-2">
+<li class="lvl-6">保护数据库，防止恶意的破坏和非法的存取</li>
+<li class="lvl-6">防范对象：非法用户和非法操作</li>
+</ul>
+</li>
+</ul>
+<h2 id="完整性机制">完整性机制</h2>
+<ol>
+<li class="lvl-3">
+<p><strong>提供定义完整性约束条件的机制</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">完整性约束条件也称为完整性规则，是数据库中的数据必须满足的语义约束条件</li>
+<li class="lvl-6">SQL 标准使用了一系列概念来描述完整性，包括关系模型的实体完整性、参照完整性和用户定义完整性</li>
+<li class="lvl-6">完整性约束条件的定义，一般由 SQL 的数据定义语句来实现</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p>提供完整性检查的方法</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据库管理系统中检查数据是否满足完整性约束条件的机制称为完整性检查。</li>
+<li class="lvl-6">一般在 INSERT、UPDATE、DELETE 语句执行后开始检查，也可以在事务提交时检查</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>违约处理</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据库管理系统若发现用户的操作违背了完整性约束条件，就采取一定的动作
+<ul class="lvl-4">
+<li class="lvl-10"><strong>拒绝（NO ACTION）</strong> 执行该操作</li>
+<li class="lvl-10"><strong>级连（CASCADE）</strong> 执行其他操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="完整性约束定义的分类">完整性约束定义的分类</h2>
+<h3 id="按照定义对象分类">按照定义对象分类</h3>
+<p>按照定义对象可分为三种类型：与表有关的约束、域（Domain）约束、断言（Assertion）</p>
+<ol>
+<li class="lvl-3">
+<p><strong>与表有关的约束</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">在 CREATE TABLE 命令中定义的完整性约束，是单张表中的数据取值约束，包括 PRIMARY KEY、FOREIGN KEY、UNIQUE、NOT NULL、CHECK 约束、DEFAULT(缺省值)约束。</li>
+<li class="lvl-6">定义方式可分为：列约束（作为列的定义成分）和表约束（作为表定义的组成成分单独定义）</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>域（Domain）约束</strong>：在域定义中被定义的一种约束。</p>
+</li>
+<li class="lvl-3">
+<p><strong>断言（Assertion）</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">一个断言就是一个谓词表达式, 它表达了希望数据库总能满足的条件</li>
+<li class="lvl-6">断言可以与一个或多个表关联，可以理解为能应用于多个表的 check 约束</li>
+<li class="lvl-6">因此，必须在表定义之外独立创建断言</li>
+</ul>
+</li>
+</ol>
+<h3 id="按照约束状态分类">按照约束状态分类</h3>
+<p>按照约束状态分类:</p>
+<ol>
+<li class="lvl-3">
+<p><strong>静态约束</strong>: 要求数据库在任何时候都要满足的约束</p>
+</li>
+<li class="lvl-3">
+<p><strong>动态约束</strong>: 在数据库改变状态时要满足的约束</p>
+</li>
+</ol>
+<p>SQL 支持如下几种约束:</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>静态约束</p>
+<ul class="lvl-2">
+<li class="lvl-6">与表有关的约束，域约束</li>
+<li class="lvl-6">断言（请谨慎使用）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>动态约束：触发器</p>
+<ul class="lvl-2">
+<li class="lvl-6">触发器可以细分引起完整性约束检查的条件</li>
+<li class="lvl-6">触发器不仅可以检查数据完整性，还可以进行数据处理、实现某些业务处理逻辑。</li>
+</ul>
+</li>
+</ul>
+<h3 id="SQL 语言对完整性约束规则的支持">SQL 语言对完整性约束规则的支持</h3>
+<p>创建基表命令 （CREATE TABLE）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>需要定义的内容</p>
+<ul class="lvl-2">
+<li class="lvl-6">模式名 &amp; 表名</li>
+<li class="lvl-6">列的定义
+<ul class="lvl-4">
+<li class="lvl-10">列名 &amp; 数据类型</li>
+<li class="lvl-10">列的缺省值定义：<code>DEFAULT &#123; default_constant | NULL &#125;</code></li>
+<li class="lvl-10">列级约束的定义：单个列上的数据完整性约束定义</li>
+</ul>
+</li>
+<li class="lvl-6">表级约束的定义：多个列之间的数据完整性约束定义</li>
+</ul>
+</li>
+</ul>
+<p>Basic SQL Syntax for Create Table</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> [schema_name.]table_name (relational_properties);</span><br><span class="line"></span><br><span class="line">relational_properties:</span><br><span class="line">column_name datatype [<span class="keyword">DEFAULT</span> expr ] &#123; col_constraint &#125;</span><br><span class="line">&#123; , column_name datatype [<span class="keyword">DEFAULT</span> expr ] &#123; col_constraint &#125; &#125;</span><br><span class="line"><span class="operator">|</span> [, table_constraint &#123; , table_constraint &#125;]</span><br></pre></td></tr></table></figure>
+<p>基于‘单个列’的取值约束(可作为列定义的组成成分)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line">[<span class="keyword">CONSTRAINT</span> constraint_name ]</span><br><span class="line">	<span class="keyword">UNIQUE</span></span><br><span class="line">	<span class="operator">|</span> <span class="keyword">PRIMARY</span> KEY</span><br><span class="line">	<span class="operator">|</span> <span class="keyword">CHECK</span> (search_condition)</span><br><span class="line">	<span class="operator">|</span> <span class="keyword">REFERENCES</span> table_name [( column_name) ]</span><br><span class="line">		[<span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="operator">|</span> RESTRICT <span class="operator">|</span> <span class="keyword">SET</span> <span class="keyword">NULL</span> ]</span><br><span class="line">		[<span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE <span class="operator">|</span> RESTRICT <span class="operator">|</span> <span class="keyword">SET</span> <span class="keyword">NULL</span> ] &#125;</span><br></pre></td></tr></table></figure>
+<p>基于‘多个列’的取值约束（作为表级约束，需另起一行单独定义）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">CONSTRAINT</span> constraint_name ]</span><br><span class="line">&#123; <span class="keyword">UNIQUE</span> (colname &#123; , colname ... &#125;)</span><br><span class="line"><span class="operator">|</span> <span class="keyword">PRIMARY</span> KEY (colname &#123; , colname ... &#125;)</span><br><span class="line"><span class="operator">|</span> <span class="keyword">CHECK</span> (search_condition)</span><br><span class="line"><span class="operator">|</span> <span class="keyword">FOREIGN</span> KEY (colname &#123; , colname ... &#125;)</span><br><span class="line">	<span class="keyword">REFERENCES</span> table_name [( colname &#123; ,colname... &#125;) ]</span><br><span class="line">	[<span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="operator">|</span> RESTRICT <span class="operator">|</span> <span class="keyword">SET</span> <span class="keyword">NULL</span> ]</span><br><span class="line">	[<span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE<span class="operator">|</span>RESTRICT<span class="operator">|</span><span class="keyword">SET</span> <span class="keyword">NULL</span> ] &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1- 实体完整性">1. 实体完整性</h2>
+<h3 id="1-1- 实体完整性定义">1.1 实体完整性定义</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系模型的实体完整性定义</p>
+<ul class="lvl-2">
+<li class="lvl-6">在 CREATE TABLE 命令中 <strong> 用 PRIMARY KEY 定义主码 </strong>，或者<strong> 用 UNIQUE + NOT NULL 定义唯一码</strong></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>单列构成的码有两种说明方法</p>
+<ul class="lvl-2">
+<li class="lvl-6">定义为 <strong> 列级约束条件</strong>（作为某一列的定义成分）</li>
+<li class="lvl-6">定义为 <strong> 表级约束条件</strong>（作为表的定义成分）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>对多个列构成的码只有一种说明方法</p>
+<ul class="lvl-2">
+<li class="lvl-6">定义为表级约束条件</li>
+</ul>
+</li>
+</ul>
+<p>[例 5.1] 将 Student 表中的 Sno 列定义为码在列级定义主码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Student (</span><br><span class="line">Sno <span class="type">CHAR</span>(<span class="number">9</span>) <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">Sname <span class="type">CHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Ssex <span class="type">CHAR</span>(<span class="number">2</span>),</span><br><span class="line">Sage <span class="type">SMALLINT</span>,</span><br><span class="line">Sdept <span class="type">CHAR</span>(<span class="number">20</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>在表级定义主码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Student (</span><br><span class="line">Sno <span class="type">CHAR</span>(<span class="number">9</span>),</span><br><span class="line">Sname <span class="type">CHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Ssex <span class="type">CHAR</span>(<span class="number">2</span>),</span><br><span class="line">Sage <span class="type">SMALLINT</span>,</span><br><span class="line">Sdept <span class="type">CHAR</span>(<span class="number">20</span>),</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (Sno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>[例 5.2] 将 SC 表中的 Sno，Cno 列组定义为码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> SC (</span><br><span class="line">Sno <span class="type">CHAR</span>(<span class="number">9</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Cno <span class="type">CHAR</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Grade <span class="type">SMALLINT</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (Sno,Cno) <span class="comment">/* 只能在表级定义主码 */</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="1-2- 实体完整性检查和违约处理">1.2 实体完整性检查和违约处理</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>插入或对主码列进行更新操作时，关系数据库管理系统按照实体完整性规则自动进行检查。包括：</p>
+<ul class="lvl-2">
+<li class="lvl-6">检查主码值是否唯一，如果不唯一则拒绝插入或修改</li>
+<li class="lvl-6">检查主码的各个列是否为空，只要有一个为空就拒绝插入或修改</li>
+</ul>
+</li>
+</ul>
+<p><strong>检查记录中主码值是否唯一 </strong> 的一种方法是进行 <strong> 全表扫描</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>依次判断表中每一条记录的主码值与将插入记录上的主码值（或者修改的新主码值）是否相同</p>
+</li>
+<li class="lvl-2">
+<p>缺点：十分耗时<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch05/image-001.png"
+                         alt="课程笔记配图"
+                 ></p>
+</li>
+</ul>
+<p>为避免对基本表进行全表扫描，RDBMS 核心一般都 <strong> 在主码上自动建立一个索引</strong>，如 B+ 树索引<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch05/image-002.png"
+                         alt="课程笔记配图" width="350"
+                 ><br>
+例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>新插入记录的主码值是 25</p>
+</li>
+<li class="lvl-2">
+<p>通过主码索引，从 B+ 树的根结点开始查找</p>
+</li>
+<li class="lvl-2">
+<p>读取 3 个结点：</p>
+<ul class="lvl-2">
+<li class="lvl-6">根结点（51）</li>
+<li class="lvl-6">中间结点（12 30）</li>
+<li class="lvl-6">叶结点（15 20 25）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>该主码值已经存在，不能插入这条主码值为 25 的新记录</p>
+</li>
+</ul>
+<h2 id="2- 参照完整性">2. 参照完整性</h2>
+<h3 id="2-1- 参照完整性定义">2.1 参照完整性定义</h3>
+<p>在 <code>CREATE TABLE</code> 命令中用 <code>FOREIGN KEY</code> 短语定义外码，用 <code>REFERENCES</code> 短语指明这些外码参照哪些表的主码</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>单列构成的外码，既可以作为列级约束、也可以作为表级约束来说明</p>
+</li>
+<li class="lvl-2">
+<p>多列构成的外码，只能作为表级约束来说明</p>
+</li>
+</ul>
+<p>[例 5.3] 定义 SC 中的参照完整性</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> SC (</span><br><span class="line">Sno <span class="type">CHAR</span>(<span class="number">9</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">REFERENCES</span> Student(Sno),</span><br><span class="line"><span class="comment">/* 在列级定义参照完整性 - 外码 Sno */</span></span><br><span class="line">Cno <span class="type">CHAR</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Grade <span class="type">SMALLINT</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (Sno, Cno),</span><br><span class="line"><span class="comment">/* 在表级定义实体完整性 - 主码 (Sno,Cno) */</span></span><br><span class="line"><span class="keyword">FOREIGN</span> KEY (Cno) <span class="keyword">REFERENCES</span> Course(Cno)</span><br><span class="line"><span class="comment">/* 在表级定义参照完整性 - 外码 Cno */</span></span><br><span class="line">);</span><br><span class="line"><span class="comment">/* 单列构成的主码和外码，可以作为列级约束、也可以作为表级约束进行说明 */</span></span><br><span class="line"><span class="comment">/* 多列构成的主码和外码，只能作为表级约束进行说明 */</span></span><br></pre></td></tr></table></figure>
+<p>例如，对参照表 SC 和被参照表 Student，有四种可能破坏参照完整性的情况 :</p>
+<ol>
+<li class="lvl-3">
+<p>在参照表 SC 中增加一个元组，该元组的 Sno 列的值 v 在被参照表 Student 中不存在（找不到一个 Student 元组，其 Sno 列的值与 v 相等）</p>
+</li>
+<li class="lvl-3">
+<p>修改参照表 SC 中的一个元组，修改后该元组的 Sno 列的值 new_v 在被参照表 Student 中不存在（找不到一个 Student 元组，其 Sno 列的值与 new_v 相等)</p>
+</li>
+<li class="lvl-3">
+<p>从被参照表 Student 中删除一个元组，造成参照表 SC 中某些元组的 Sno 列的值在被参照表 Student 中不存在</p>
+</li>
+<li class="lvl-3">
+<p>修改被参照表 Student 中一个元组的 Sno 列，造成参照表 SC 中某些元组的 Sno 列的值在被参照表 Student 中不存在</p>
+</li>
+</ol>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch05/image-003.png"
+                         alt="课程笔记配图"
+                 >
+<h3 id="2-2- 参照完整性检查和违约处理">2.2 参照完整性检查和违约处理</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一个参照完整性将两个表中的相应元组联系起来</p>
+</li>
+<li class="lvl-2">
+<p>对被参照表和参照表进行增删改操作时有可能破坏参照完整性，必须进行参照完整性检查</p>
+</li>
+</ul>
+<p>参照完整性违约处理</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>拒绝（NO ACTION）执行</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">不允许该操作执行。该策略一般设置为默认策略</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>级联（CASCADE）操作</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">当删除或修改被参照表（Student）的一个元组造成了与参照表（SC）的不一致，则删除或修改参照表中的所有造成不一致的元组</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>设置为空值（SET-NULL）</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">当删除或修改被参照表的一个元组时造成了不一致，则将参照表中的所有造成不一致的元组的对应列设置为空值。</li>
+<li class="lvl-6">对于参照完整性，除了应该定义外码，还应定义 <strong> 外码列是否允许空值</strong></li>
+</ul>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch05/image-004.png"
+                         alt="课程笔记配图"
+                 >
+<p>例如，有下面 2 个关系</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>学生（学号，姓名，性别，专业号（外码），年龄）</p>
+</li>
+<li class="lvl-2">
+<p>专业（专业号，专业名）</p>
+<ul class="lvl-2">
+<li class="lvl-6">假设专业表中某个元组被删除，专业号为 12</li>
+<li class="lvl-6">按照设置为空值的策略，就要把学生表中专业号 =12 的所有元组的专业号设置为空值</li>
+<li class="lvl-6">对应语义：某个专业删除了，该专业的所有学生专业未定，等待重新分配专业</li>
+</ul>
+</li>
+</ul>
+<p>[例 5.4] 显式说明参照完整性的违约处理示例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> SC (</span><br><span class="line">Sno <span class="type">CHAR</span>(<span class="number">9</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>，</span><br><span class="line">Cno <span class="type">CHAR</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>，</span><br><span class="line">Grade <span class="type">SMALLINT</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY(Sno,Cno)，</span><br><span class="line"><span class="keyword">FOREIGN</span> KEY (Sno) <span class="keyword">REFERENCES</span> Student(Sno)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="comment">/* 级联删除 SC 表中相应的元组 */</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE, <span class="comment">/* 级联更新 SC 表中相应的元组 */</span></span><br><span class="line"><span class="keyword">FOREIGN</span> KEY (Cno) <span class="keyword">REFERENCES</span> Course(Cno)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">NO</span> ACTION</span><br><span class="line"><span class="comment">/* 当删除 course 表中的元组造成了与 SC 表不一致时拒绝删除 */</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE</span><br><span class="line"><span class="comment">/* 当更新 course 表中的 cno 时，级联更新 SC 表中相应的元组 */</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="总结：在定义列级约束时需要考虑的内容">总结：在定义列级约束时需要考虑的内容</h2>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line">[<span class="keyword">CONSTRAINT</span> constraint_name ]</span><br><span class="line">	<span class="keyword">UNIQUE</span></span><br><span class="line">	<span class="operator">|</span> <span class="keyword">PRIMARY</span> KEY</span><br><span class="line">	<span class="operator">|</span> <span class="keyword">CHECK</span> (search_condition)</span><br><span class="line">	<span class="operator">|</span> <span class="keyword">REFERENCES</span> table_name [( column_name) ]</span><br><span class="line">		[<span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="operator">|</span> RESTRICT <span class="operator">|</span> <span class="keyword">SET</span> <span class="keyword">NULL</span> ]</span><br><span class="line">		[<span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE <span class="operator">|</span> RESTRICT <span class="operator">|</span> <span class="keyword">SET</span> <span class="keyword">NULL</span> ] &#125;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>NOT NULL vs. DEFAULT NULL</p>
+</li>
+<li class="lvl-2">
+<p>Constraint name</p>
+<ul class="lvl-2">
+<li class="lvl-6">对某个数据约束条件进行命名（可选项）</li>
+<li class="lvl-6">以利于以后使用 ALTER TABLE 命令来修改表中的数据约束定义</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>UNIQUE vs. NOT NULL</p>
+<ul class="lvl-2">
+<li class="lvl-6">UNIQUE 列可以取空值</li>
+<li class="lvl-6">候选码(candidate key)：UNIQUE+NOT NULL</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>PRIMARY KEY vs. NOT NULL</p>
+<ul class="lvl-2">
+<li class="lvl-6">主码定义自动隐含着‘非空’约束要求</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>REFERENCES</p>
+<ul class="lvl-2">
+<li class="lvl-6">FOREIGN KEY（外码） vs. PRIMARY KEY（主码）</li>
+<li class="lvl-6">外码上的取值约束及其一致性的保证措施：CASCADE | RESTRICT | SET NULL</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>CHECK</p>
+<ul class="lvl-2">
+<li class="lvl-6">其他任意的单个列上的取值约束</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结：Forengn-Key- 约束">总结：Forengn Key 约束</h2>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FOREIGN</span> KEY (colname &#123; , colname ... &#125;)</span><br><span class="line"><span class="keyword">REFERENCES</span> table_name [( colname &#123; ,colname... &#125;) ]</span><br><span class="line">[<span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="operator">|</span> RESTRICT <span class="operator">|</span> <span class="keyword">SET</span> <span class="keyword">NULL</span> ]</span><br><span class="line">[<span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE <span class="operator">|</span> RESTRICT <span class="operator">|</span> <span class="keyword">SET</span> <span class="keyword">NULL</span> ] &#125;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>foreign key ...... references ......</p>
+<ul class="lvl-2">
+<li class="lvl-6">定义主码、外码之间的引用关系。当对参照表中的外码进行赋值时，需要检查外码值的正确性。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>on delete ...... / on update ......</p>
+<ul class="lvl-2">
+<li class="lvl-6">当在被参照表中删除元组或修改主码值时，需要维护参照表中外码值的正确性，具体方式如下：</li>
+</ul>
+<ol>
+<li class="lvl-7">cascade：同步做连带删除 / 更新</li>
+<li class="lvl-7">restrict：如果在参照表中存在与被删除或修改的主码相关的元组，则拒绝本次对被参照表的 delete/update 操作 (缺省的维护模式)</li>
+<li class="lvl-7">set null：如果在参照表中存在与被删除或修改的主码相关的元组，则自动地将相关元组上的外码值置为空(NULL)</li>
+</ol>
+</li>
+</ul>
+<h2 id="3- 用户定义的完整性">3. 用户定义的完整性</h2>
+<p>用户定义的完整性是：针对某一具体应用的数据必须满足的语义要求</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>列级约束</strong>：单个列上的约束条件</p>
+</li>
+<li class="lvl-2">
+<p><strong>表级约束</strong>：元组上的约束条件（涉及单个或多个列）</p>
+<ul class="lvl-2">
+<li class="lvl-6">同单个列上的列级约束相比，表级约束可以设置不同列之间的取值的相互约束条件</li>
+</ul>
+</li>
+</ul>
+<p>关系数据库管理系统提供了定义和检验用户定义完整性的机制，不必由应用程序承担</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>插入元组或修改列的值时，关系数据库管理系统检查约束条件是否被满足</p>
+</li>
+<li class="lvl-2">
+<p>如果不满足则操作被拒绝执行</p>
+</li>
+</ul>
+<p>在执行 CREATE TABLE 命令时，给出用户定义的完整性的定义</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>列上的约束条件</p>
+<ul class="lvl-2">
+<li class="lvl-6">列值非空：NOT NULL</li>
+<li class="lvl-6">列值唯一：UNIQUE</li>
+<li class="lvl-6">定义列值应该满足的条件：<code>CHECK &lt; 条件表达式 &gt;</code>
+<ul class="lvl-4">
+<li class="lvl-10">&lt; 条件表达式 &gt; 仅涉及到当前的单个列</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>元组上的约束条件</p>
+<ul class="lvl-2">
+<li class="lvl-6">列值唯一：<code>UNIQUE(&lt; 列名 &gt; [, &lt; 列名 &gt;]...)</code></li>
+<li class="lvl-6">定义列值应该满足的条件：<code>CHECK &lt; 条件表达式 &gt;</code>
+<ul class="lvl-4">
+<li class="lvl-10">&lt; 条件表达式 &gt; 可能涉及单个或多个列</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>[例 5.5] 在定义 SC 表时，说明 Sno、Cno、Grade 列不允许取空值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> SC (</span><br><span class="line">Sno <span class="type">CHAR</span>(<span class="number">9</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Cno <span class="type">CHAR</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Grade <span class="type">SMALLINT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (Sno, Cno),</span><br><span class="line">…</span><br><span class="line"><span class="comment">/* 在表级定义了实体完整性，Sno 和 Cno 作为主码的组成成分，</span></span><br><span class="line"><span class="comment">自动隐含着不允许取空值的约束，因此，这两个列上的列级</span></span><br><span class="line"><span class="comment">NOT NULL 约束可以不写 * /</span></span><br><span class="line"><span class="comment">);</span></span><br></pre></td></tr></table></figure>
+<p>[例 5.6] 建立部门表 DEPT，要求部门名称 Dname 列取值唯一，部门编号 Deptno 列为主码。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> DEPT (</span><br><span class="line">Deptno <span class="type">NUMERIC</span>(<span class="number">2</span>),</span><br><span class="line">Dname <span class="type">CHAR</span>(<span class="number">9</span>) <span class="keyword">UNIQUE</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>，</span><br><span class="line"><span class="comment">/* 要求 Dname 列值唯一</span></span><br><span class="line"><span class="comment">, 并且不能取空值 */</span></span><br><span class="line">Location <span class="type">CHAR</span>(<span class="number">10</span>),</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (Deptno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>用 CHECK 短语指定列值应该满足的条件<br>
+[例 5.7] Student 表的 Ssex 只允许取“男”或“女”</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Student (</span><br><span class="line">Sno <span class="type">CHAR</span>(<span class="number">9</span>) <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">Sname <span class="type">CHAR</span>(<span class="number">8</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Ssex <span class="type">CHAR</span>(<span class="number">2</span>) <span class="keyword">CHECK</span> (Ssex <span class="keyword">IN</span> (‘男’,’女’)),</span><br><span class="line"><span class="comment">/* 性别列 Ssex 只允许取 &#x27; 男 &#x27; 或 &#x27; 女 &#x27; */</span></span><br><span class="line">。</span><br><span class="line">Sage <span class="type">SMALLINT</span>,</span><br><span class="line">Sdept <span class="type">CHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>(待补两个例子，ppt41 42)</p>
+<h2 id="4- 完整性约束命名子句">4. 完整性约束命名子句</h2>
+<p>完整性约束的定义与修改</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在 CREATE TABLE 语句中定义完整性约束</p>
+</li>
+<li class="lvl-2">
+<p>在定义完整性约束时，可以对完整性约束进行命名</p>
+</li>
+<li class="lvl-2">
+<p>使用 ALTER TABLE 语句来修改表中的完整性约束的定义，包括：</p>
+<ul class="lvl-2">
+<li class="lvl-6">定义新的完整性约束</li>
+<li class="lvl-6">删除现有的 (命名) 完整性约束</li>
+</ul>
+</li>
+</ul>
+<p>完整性约束命名子句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CONSTRAINT</span> <span class="operator">&lt;</span>完整性约束条件名 <span class="operator">&gt;</span> <span class="operator">&lt;</span> 完整性约束条件<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 完整性约束条件 &gt; 包括 NOT NULL、UNIQUE、PRIMARY KEY 短语、FOREIGN KEY 短语、CHECK 短语等</p>
+<h2 id="5- 域中的完整性限制">5. 域中的完整性限制</h2>
+<p>在用 CREATE DOMAIN 语句定义域时，可以定义域上的完整性约束，即该域中的值应该满足的约束条件。可以方便对所有使用相同‘域’的列的完整性约束的统一定义例 5.15 至 例 5.17</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DOMAIN GenderDomain <span class="type">CHAR</span>(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">CONSTRAINT</span> GD <span class="keyword">CHECK</span>(<span class="keyword">VALUE</span> <span class="keyword">IN</span> (‘男’,‘女’)) ;</span><br><span class="line"><span class="keyword">ALTER</span> DOMAIN GenderDomain <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> GD ;</span><br><span class="line"><span class="keyword">ALTER</span> DOMAIN GenderDomain</span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> GDD <span class="keyword">CHECK</span>(<span class="keyword">VALUE</span> <span class="keyword">IN</span> (‘<span class="number">1</span>’,‘<span class="number">0</span>’)) ;</span><br></pre></td></tr></table></figure>
+<h2 id="6- 断言">6. 断言</h2>
+<p>SQL 中，可以使用 CREATE ASSERTION 语句，通过声明性断言来指定更具一般性的约束。</p>
+<p>可以定义 <strong> 涉及多个表 </strong> 的或 <strong> 聚集操作 </strong> 的比较复杂的完整性约束。</p>
+<p>断言创建以后，任何对断言中所涉及的关系的操作都会触发关系数据库管理系统对断言的检查，任何使断言不为真值的操作都会被拒绝执行。</p>
+<p>如果断言很复杂，则系统在检测和维护断言的开销较高，这是在使用断言时应该注意的。</p>
+<p><strong>创建断言的语句格式</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> ASSERTION <span class="operator">&lt;</span>断言名<span class="operator">&gt;</span> <span class="operator">&lt;</span><span class="keyword">CHECK</span> 子句<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
+<p>每个断言都被赋予一个名字，&lt;CHECK 子句 &gt; 中的约束条件与 WHERE 子句的条件表达式类似。</p>
+<p><strong>删除断言的语句格式为</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> ASSERTION <span class="operator">&lt;</span>断言名<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
+<p><mark>[例 5.18]</mark> 限制数据库课程最多 60 名学生选修</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> ASSERTION ASSE_SC_DB_NUM</span><br><span class="line"><span class="keyword">CHECK</span> (<span class="number">60</span> <span class="operator">&gt;=</span> (<span class="keyword">Select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="comment">/* 此断言的谓词涉及聚集操作 count*/</span></span><br><span class="line"><span class="keyword">From</span> Course, SC</span><br><span class="line"><span class="keyword">Where</span> SC.Cno <span class="operator">=</span> Course.Cno <span class="keyword">and</span></span><br><span class="line">Course.Cname <span class="operator">=</span><span class="string">&#x27; 数据库 &#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><mark>[例 5.19]</mark> 限制每一门课程最多 60 名学生选修</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> ASSERTION ASSE_SC_CNUM1</span><br><span class="line"><span class="keyword">CHECK</span> (<span class="number">60</span> <span class="operator">&gt;=</span> <span class="keyword">ALL</span> (<span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">by</span> Cno )</span><br><span class="line">);</span><br><span class="line"><span class="comment">/* 此断言的谓词，涉及使用到聚集操作 count 和分组函数 group by</span></span><br><span class="line"><span class="comment">的 SQL 语句 */</span></span><br></pre></td></tr></table></figure>
+<p>存在语法错误！</p>
+<p>[例 5.20] 限制每个学期每一门课程最多 60 名学生选修。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>首先需要修改 SC 表的模式，增加一个“学期(TERM)”列</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> SC <span class="keyword">ADD</span> TERM <span class="type">DATE</span>;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>然后，定义断言</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> ASSERTION ASSE_SC_CNUM2</span><br><span class="line"><span class="keyword">CHECK</span> (<span class="number">60</span> <span class="operator">&gt;=</span> <span class="keyword">ALL</span> (<span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">by</span> cno, TERM )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>存在语法错误！</p>
+<h2 id="7- 触发器">7. 触发器</h2>
+<p>触发器（Trigger）是用户定义在关系表上的一类由事件驱动的特殊过程</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>触发器保存在数据库服务器中</p>
+</li>
+<li class="lvl-2">
+<p>任何用户对表的增、删、改操作均由服务器自动激活相应的触发器</p>
+</li>
+<li class="lvl-2">
+<p>触发器可以实施更为复杂的检查和操作，具有更精细和更强大的数据控制能力</p>
+</li>
+</ul>
+<p>不同的 RDBMS 产品实现的触发器语法各不相同、互不兼容。</p>
+<h3 id="定义触发器">定义触发器</h3>
+<p>CREATE TRIGGER 语法格式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> <span class="operator">&lt;</span>触发器名 <span class="operator">&gt;</span></span><br><span class="line">&#123; BEFORE <span class="operator">|</span> AFTER &#125; <span class="operator">&lt;</span> 触发事件 <span class="operator">&gt;</span> <span class="keyword">ON</span> <span class="operator">&lt;</span> 表名 <span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">REFERENCING</span> <span class="keyword">NEW</span> <span class="operator">|</span> <span class="keyword">OLD</span> <span class="type">ROW</span> <span class="keyword">AS</span> <span class="operator">&lt;</span> 变量 <span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> &#123; <span class="type">ROW</span> <span class="operator">|</span> STATEMENT &#125;</span><br><span class="line">[<span class="keyword">WHEN</span> <span class="operator">&lt;</span> 触发条件 <span class="operator">&gt;</span>] <span class="operator">&lt;</span> 触发动作体<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+<p>触发器又叫做‘事件 - 条件 - 动作’（event-condition-action）规则。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>当特定的系统事件‘&lt; 触发事件 &gt; ON &lt; 表名 &gt;’发生时，对规则的 &lt; 触发条件 &gt; 进行检查，如果 &lt; 触发条件 &gt; 成立则执行规则中的动作‘&lt; 触发动作体 &gt;’，否则不执行该动作。</p>
+</li>
+<li class="lvl-2">
+<p>规则中的 &lt; 触发动作体 &gt; 可以很复杂，通常是一段 SQL 存储过程。</p>
+</li>
+</ul>
+<p>详细的触发器定义命令<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch05/image-005.png"
+                         alt="课程笔记配图"
+                 ></p>
+<p><strong>表的拥有者才可以在表上创建触发器</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>&lt; 触发器名 &gt;</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">触发器名可以包含模式名，也可以不包含模式名</li>
+<li class="lvl-6">同一模式下，触发器名必须是唯一的</li>
+<li class="lvl-6">触发器名和表名必须在同一模式下</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>{BEFORE | AFTER} &lt; 触发事件 &gt; ON &lt; 表名 &gt;</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">触发器只能定义在基本表上，不能定义在视图上</li>
+<li class="lvl-6">当基本表的数据发生变化时，将激活定义在该表上相应触发事件的触发器</li>
+<li class="lvl-6">触发事件可以是 <code>INSERT</code>、<code>DELETE</code> 或<code>UPDATE</code>，也可以是这几个事件的组合</li>
+<li class="lvl-6">触发事件也可以是<code>UPDATE OF &lt; 列名 &gt;[, &lt; 列名 &gt;]...</code>，即进一步指明修改哪些列时激活触发器</li>
+<li class="lvl-6">AFTER/BEFORE 是触发的时机
+<ul class="lvl-4">
+<li class="lvl-10">AFTER 表示在触发事件的操作执行之后激活触发器</li>
+<li class="lvl-10">BEFORE 表示在触发事件的操作执行之前激活触发器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>触发器类型</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">行级触发器（<strong>FOR EACH ROW</strong>）</li>
+<li class="lvl-6">语句级触发器（<strong>FOR EACH STATEMENT</strong>）</li>
+</ul>
+</li>
+</ul>
+<p><strong>触发条件</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>触发器被激活时，只有当 &lt; 触发条件 &gt; 为真时才执行 &lt; 触发动作体 &gt;；否则 &lt; 触发动作体 &gt; 不执行。</p>
+</li>
+<li class="lvl-2">
+<p>如果省略 ‘WHEN &lt; 触发条件 &gt;’，则 &lt; 触发动作体 &gt; 在触发器激活后立即执行。</p>
+</li>
+</ul>
+<p><strong>触发动作体</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>触发动作体可以是一个匿名 PL/SQL 过程块, 也可以是对已创建存储过程的调用</p>
+</li>
+<li class="lvl-2">
+<p>如果是行级触发器，用户可以在过程体中使用 NEW 和 OLD 引用事件之后的新值和事件之前的旧值</p>
+</li>
+<li class="lvl-2">
+<p>如果是语句级触发器，则不能在触发动作体中使用 NEW 或 OLD 进行引用</p>
+</li>
+<li class="lvl-2">
+<p>如果触发动作体执行失败，激活触发器的事件就会终止执行，触发器的目标表或触发器可能影响的其他对象不发生任何变化</p>
+</li>
+</ul>
+<p>例如，先在例 5.11 的 TEACHER 表上创建一个 AFTER UPDATE 触发器，触发事件是 UPDATE 语句。然后执行下述 UPDATE 操作：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> TEACHER <span class="keyword">SET</span> Deptno<span class="operator">=</span><span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<p>假设在表 TEACHER 有 1000 行，在执行完上述的 UPDATE 语句后</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果是语句级触发器，则触发动作只被执行一次</p>
+</li>
+<li class="lvl-2">
+<p>如果是行级触发器，则触发动作将被执行 1000 次（操作结果相同）</p>
+</li>
+</ul>
+<p>[例 5.21]当对表 SC 的 Grade 列进行修改时，若分数增加了 10% 则将此次操作记录到表 SC_U(Sno,Cno,Oldgrade,Newgrade)中去。其中：<br>
+Oldgrade 是修改前的分数，Newgrade 是修改后的分数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> SC_T</span><br><span class="line">AFTER <span class="keyword">UPDATE</span> <span class="keyword">OF</span> Grade <span class="keyword">ON</span> SC</span><br><span class="line"><span class="keyword">REFERENCING</span></span><br><span class="line">	<span class="keyword">OLD</span> <span class="type">row</span> <span class="keyword">AS</span> OldTuple,</span><br><span class="line">	<span class="keyword">NEW</span> <span class="type">row</span> <span class="keyword">AS</span> NewTuple</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span></span><br><span class="line"><span class="keyword">WHEN</span> (NewTuple.Grade <span class="operator">&gt;=</span> <span class="number">1.1</span><span class="operator">*</span>OldTuple.Grade)</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> SC_U(Sno,Cno,OldGrade,NewGrade)</span><br><span class="line"><span class="keyword">VALUES</span>(OldTuple.Sno, OldTuple.Cno, OldTuple.Grade, NewTuple.Grade);</span><br></pre></td></tr></table></figure>
+<p>[例 5.22] 将每次对表 Student 的插入操作所增加的学生人数记录到表 StudentInsertLog 中。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> Student_Count</span><br><span class="line">AFTER <span class="keyword">INSERT</span> <span class="keyword">ON</span> Student</span><br><span class="line"><span class="comment">/* 指明触发器激活的时间是在执行 INSERT 后 */</span></span><br><span class="line"><span class="keyword">REFERENCING</span> <span class="keyword">NEW</span> <span class="keyword">TABLE</span> <span class="keyword">AS</span> DELTA</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> STATEMENT</span><br><span class="line"><span class="comment">/* 语句级触发器，即执行完 INSERT 语句后，对应的触发动作体只 </span></span><br><span class="line"><span class="comment"> 执行一次 */</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> StudentInsertLog (Numbers)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> DELTA ;</span><br></pre></td></tr></table></figure>
+<p>[例 5.23] 定义一个 BEFORE 行级触发器，为教师表 Teacher 定义完整性规则“教授的工资不得低于 4000 元，如果低于 4000 元，自动改为 4000 元”。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> Insert_Or_Update_Sal</span><br><span class="line">BEFORE <span class="keyword">INSERT</span> <span class="keyword">OR</span> <span class="keyword">UPDATE</span> <span class="keyword">ON</span> Teacher</span><br><span class="line"><span class="comment">/* 触发事件是插入或更新操作 */</span></span><br><span class="line"><span class="keyword">REFERENCING</span> <span class="keyword">NEW</span> <span class="type">ROW</span> <span class="keyword">AS</span> newTuple</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span> <span class="comment">/* 行级触发器 */</span></span><br><span class="line"><span class="keyword">BEGIN</span> <span class="comment">/* 定义触发动作体，是一个 PL/SQL 过程块 */</span></span><br><span class="line">	IF (newTuple.Job <span class="operator">=</span> <span class="string">&#x27; 教授 &#x27;</span>) <span class="keyword">AND</span> (newTuple.Sal <span class="operator">&lt;</span> <span class="number">4000</span>)</span><br><span class="line">	<span class="keyword">THEN</span> newTuple.Sal :<span class="operator">=</span> <span class="number">4000</span>;</span><br><span class="line">	<span class="keyword">END</span> IF;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="删除触发器">删除触发器</h3>
+<p>删除触发器的 SQL 语法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TRIGGER</span> <span class="operator">&lt;</span>触发器名 <span class="operator">&gt;</span> <span class="keyword">ON</span> <span class="operator">&lt;</span> 表名<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
+<p>触发器必须是一个已经创建的触发器，并且只能由具有相应权限的用户删除。</p>
+<h2 id="断言与触发器的区别">断言与触发器的区别</h2>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch05/image-006.png"
+                         alt="课程笔记配图"
+                 >
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                SQL 教程 | 5. 数据库的完整性
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2025/10/02/sql 教程/sql5-数据库的完整性/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">He Junze</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2025-10-02 14:47</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/SQL/">SQL</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    
+
+<div class="reward-author-container border-box flex-center">
+    <div class="reward-btn border-box flex-center tooltip tooltip-img"
+            data-tooltip-img-url="/images/buymeacoffee.jpg"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -6px;"
+    >
+        <i class="fa-solid fa-gift"></i>&nbsp;REWARD AUTHOR
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/hexo-blog/2025/10/09/sql%20%E6%95%99%E7%A8%8B/sql6-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E7%90%86%E8%AE%BA/"
+                                   title="SQL 教程 | 6. 关系数据理论"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 6. 关系数据理论</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/hexo-blog/2025/09/25/sql%20%E6%95%99%E7%A8%8B/sql4-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7/"
+                                   title="SQL 教程 | 4. 数据库的安全性"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 4. 数据库的安全性</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="twikoo-container">
+        <div id="twikoo-comment"></div>
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/twikoo@1.6.40/dist/twikoo.all.min.js?1795612674935"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initTwikoo = () => {
+            if (window?.twikoo) {
+              twikoo.init({
+                el: '#twikoo-comment',
+                envId: 'https://hejunze.netlify.app/.netlify/functions/twikoo',
+                region: '',
+                lang: 'en,zh-CN,default' || 'zh-CN'
+              })
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initTwikoo()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initTwikoo()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initTwikoo)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">数据库的完整性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%20-vs-%20%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-text">完整性 vs. 安全性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E6%9C%BA%E5%88%B6"><span class="nav-text">完整性机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E5%AE%9A%E4%B9%89%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">完整性约束定义的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB"><span class="nav-text">按照定义对象分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E7%BA%A6%E6%9D%9F%E7%8A%B6%E6%80%81%E5%88%86%E7%B1%BB"><span class="nav-text">按照约束状态分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%20%E8%AF%AD%E8%A8%80%E5%AF%B9%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E8%A7%84%E5%88%99%E7%9A%84%E6%94%AF%E6%8C%81"><span class="nav-text">SQL 语言对完整性约束规则的支持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%20%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">1. 实体完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%20%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1 实体完整性定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%20%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A3%80%E6%9F%A5%E5%92%8C%E8%BF%9D%E7%BA%A6%E5%A4%84%E7%90%86"><span class="nav-text">1.2 实体完整性检查和违约处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%20%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">2. 参照完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%20%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7%E5%AE%9A%E4%B9%89"><span class="nav-text">2.1 参照完整性定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%20%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A3%80%E6%9F%A5%E5%92%8C%E8%BF%9D%E7%BA%A6%E5%A4%84%E7%90%86"><span class="nav-text">2.2 参照完整性检查和违约处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9C%A8%E5%AE%9A%E4%B9%89%E5%88%97%E7%BA%A7%E7%BA%A6%E6%9D%9F%E6%97%B6%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-text">总结：在定义列级约束时需要考虑的内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9AForengn-Key-%20%E7%BA%A6%E6%9D%9F"><span class="nav-text">总结：Forengn Key 约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%20%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3. 用户定义的完整性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%20%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E5%91%BD%E5%90%8D%E5%AD%90%E5%8F%A5"><span class="nav-text">4. 完整性约束命名子句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%20%E5%9F%9F%E4%B8%AD%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7%E9%99%90%E5%88%B6"><span class="nav-text">5. 域中的完整性限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%20%E6%96%AD%E8%A8%80"><span class="nav-text">6. 断言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%20%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">7. 触发器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">定义触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">删除触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%AD%E8%A8%80%E4%B8%8E%E8%A7%A6%E5%8F%91%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">断言与触发器的区别</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2024</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/hexo-blog/">He Junze</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://www.aliyun.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="Alibaba Cloud"><img src="/hexo-blog/images/brands/aliyun.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">104.9k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn"
+                        >
+                            豫ICP备2024101982号-1
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">数据库的完整性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%20-vs-%20%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-text">完整性 vs. 安全性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E6%9C%BA%E5%88%B6"><span class="nav-text">完整性机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E5%AE%9A%E4%B9%89%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">完整性约束定义的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB"><span class="nav-text">按照定义对象分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E7%BA%A6%E6%9D%9F%E7%8A%B6%E6%80%81%E5%88%86%E7%B1%BB"><span class="nav-text">按照约束状态分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%20%E8%AF%AD%E8%A8%80%E5%AF%B9%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E8%A7%84%E5%88%99%E7%9A%84%E6%94%AF%E6%8C%81"><span class="nav-text">SQL 语言对完整性约束规则的支持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%20%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">1. 实体完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%20%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1 实体完整性定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%20%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A3%80%E6%9F%A5%E5%92%8C%E8%BF%9D%E7%BA%A6%E5%A4%84%E7%90%86"><span class="nav-text">1.2 实体完整性检查和违约处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%20%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">2. 参照完整性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%20%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7%E5%AE%9A%E4%B9%89"><span class="nav-text">2.1 参照完整性定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%20%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A3%80%E6%9F%A5%E5%92%8C%E8%BF%9D%E7%BA%A6%E5%A4%84%E7%90%86"><span class="nav-text">2.2 参照完整性检查和违约处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9C%A8%E5%AE%9A%E4%B9%89%E5%88%97%E7%BA%A7%E7%BA%A6%E6%9D%9F%E6%97%B6%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-text">总结：在定义列级约束时需要考虑的内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9AForengn-Key-%20%E7%BA%A6%E6%9D%9F"><span class="nav-text">总结：Forengn Key 约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%20%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">3. 用户定义的完整性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%20%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E5%91%BD%E5%90%8D%E5%AD%90%E5%8F%A5"><span class="nav-text">4. 完整性约束命名子句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%20%E5%9F%9F%E4%B8%AD%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7%E9%99%90%E5%88%B6"><span class="nav-text">5. 域中的完整性限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%20%E6%96%AD%E8%A8%80"><span class="nav-text">6. 断言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%20%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">7. 触发器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">定义触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">删除触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%AD%E8%A8%80%E4%B8%8E%E8%A7%A6%E5%8F%91%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">断言与触发器的区别</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/hexo-blog/js/utils.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/header-shrink.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/back2top.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/toggle-theme.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/code-block.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/main.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/libs/anime.min.js?1795612674935"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/hexo-blog/js/local-search.js?1795612674935"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/hexo-blog/js/lazyload.js?1795612674935"></script>
+
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/hexo-blog/js/post/post-helper.js?1795612674935"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/hexo-blog/js/post/toc.js?1795612674935"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/hexo-blog/js/post/copyright-info.js?1795612674935"></script>
+
+        
+
+        <!-- share -->
+        
+            
+<script src="/hexo-blog/js/post/share.js?1795612674935"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/hexo-blog/js/libs/pjax.min.js?1795612674935"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+            
+<script class="custom-inject-js" src="/hexo-blog/js/custom-1.js?1795612674935" data-pjax></script>
+
+        
+    
+
+</body>
+</html>

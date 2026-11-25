@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en,zh-CN,default">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="He Junze">
+    
+    
+    <title>
+        
+            SQL 教程 | 4. 数据库的安全性 |
+        
+        晚亭新凉
+    </title>
+    
+<link rel="stylesheet" href="/hexo-blog/css/style.css?1795612674935">
+
+    
+        <link rel="shortcut icon" href="/hexo-blog/images/avatar_minisize.png">
+    
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/fontawesome.min.css?1795612674935">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/regular.min.css?1795612674935">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/solid.min.css?1795612674935">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/brands.min.css?1795612674935">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/hexo-blog/css/custom-1.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/font.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/header-wrapper.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/gallery.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/comments.css?1795612674935">
+<link rel="stylesheet" href="/hexo-blog/css/post.css?1795612674935">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"histhem.github.io","root":"/hexo-blog/","language":["en","zh-CN","default"],"path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"晚亭新凉","author":"He Junze","avatar":"/images/avatar_minisize.png","logo":"/images/avatar_minisize.png","favicon":"/images/avatar_minisize.png"},"menu":{"home":"/","archives":"/archives","library":{"children":[{"tags":"/tags || fa-solid fa-tags"},{"categories":"/categories || fa-solid fa-layer-group"}]},"links":"/links","gallery":"/gallery","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false,"enableTypewriter":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/HisThem","weixin":"img | /images/wechat.jpg","qq":"img | /images/qq.jpg","instagram":"https://www.instagram.com/beihe2656/profilecard/?igsh=ZnI2OXJoYzh5eGhq","500px":"https://500px.com.cn/4ae1d61984732bd4d26d1abf243175339?rs=4ae1d61984732bd4d26d1abf243175339","steam":"https://steamcommunity.com/profiles/76561199145331905/","email":"orlando.he@icloud.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm","created_datetime_icon":"fa-solid fa-file-circle-plus","updated_datetime_icon":"fa-solid fa-clock-rotate-left","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"/images/buymeacoffee.jpg","text":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"twikoo","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":"https://hejunze.netlify.app/.netlify/functions/twikoo","region":null,"version":"1.6.40"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2024,"word_count":true,"site_deploy":{"enable":true,"provider":"aliyun","url":"https://www.aliyun.com/"},"record":{"enable":true,"list":[{"code":"豫ICP备2024101982号-1","link":"https://beian.miit.gov.cn"}]}},"inject":{"enable":true,"css":[["/css/custom-1.css","/css/font.css","/css/header-wrapper.css","/css/gallery.css","/css/comments.css","/css/post.css"]],"js":[["/js/custom-1.js"]]},"root":"/hexo-blog","source_data":{"links":[{"title":"朋友们"},{"name":"悲伤虾滑蛋","link":"https://captainjack-ai.github.io/","description":"来自独一无二的B612星球","avatar":"/images/zcyavatar.jpg"}],"photos":[{"url":"https://i.postimg.cc/wvT2vYk0/DSC00941.jpg"},{"url":"https://i.postimg.cc/KjCDJkhH/DSC01202.jpg"},{"url":"https://i.postimg.cc/ZKyc0crt/DSC01209.jpg"},{"url":"https://i.postimg.cc/Wpy82Kqw/DSC01622.jpg"},{"url":"https://i.postimg.cc/9MRqN25n/20241114231518.jpg"},{"url":"https://i.postimg.cc/Yqwm8TXd/20241210163052.jpg"},{"url":"https://i.postimg.cc/J7XkNRQy/20241210163208.jpg"},{"url":"https://i.postimg.cc/2ynLrx5d/20241210163226.jpg"},{"url":"https://i.postimg.cc/9M6w6kcF/20241210163229.jpg"},{"url":"https://i.postimg.cc/fTjSP5pD/20241210163230.jpg"},{"url":"https://i.postimg.cc/0ykK1D1m/20241210163235.jpg"},{"url":"https://i.postimg.cc/DmV119qV/DSC02111.jpg"},{"url":"https://i.postimg.cc/kM2ZFWxw/DSC02255.jpg"},{"url":"https://i.postimg.cc/FFw6P1pv/DSC02344.jpg"},{"url":"https://i.postimg.cc/BQDVRs7K/DSC02423.jpg"},{"url":"https://i.postimg.cc/SxftNdhQ/DSC02438.jpg"},{"url":"https://i.postimg.cc/MGZ3cB67/DSC02484.jpg"},{"url":"https://i.postimg.cc/fbH2Yby6/DSC02558.jpg"},{"url":"https://i.postimg.cc/1tfWBZN4/DSC02588.jpg"},{"url":"https://i.postimg.cc/d1p5SS86/DSC02595.jpg"},{"url":"https://i.postimg.cc/FzSTtgp4/DSC02618.jpg"},{"url":"https://i.postimg.cc/9QZJgpMt/DSC00706.jpg"},{"url":"https://i.postimg.cc/sDtTJ8Vg/DSC00741.jpg"},{"url":"https://i.postimg.cc/xdQgwzNr/DSC00828.jpg"},{"url":"https://i.postimg.cc/q7GQ4v2N/DSC00841.jpg"},{"url":"https://i.postimg.cc/bwcRntTG/DSC01711.jpg"},{"url":"https://i.postimg.cc/k44NCFnH/DSC01756-3.jpg"},{"url":"https://i.postimg.cc/tTM34ZJ4/DSC02078.jpg"},{"url":"https://i.postimg.cc/0jKpMkKd/DSC02098.jpg"},{"url":"https://i.postimg.cc/XqPQm1dx/DSC00323.jpg"},{"url":"https://i.postimg.cc/HWvZrnR5/DSC00425.jpg"},{"url":"https://i.postimg.cc/SNXZCqbP/DSC00613.jpg"},{"url":"https://i.postimg.cc/gJSDLtSd/DSC00870.jpg"},{"url":"https://i.postimg.cc/yxDTmhtR/DSC00855.jpg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="晚亭新凉" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/hexo-blog/">
+                    <img src="/hexo-blog/images/avatar_minisize.png">
+                </a>
+            
+            <a class="site-name border-box" href="/hexo-blog/">
+               晚亭新凉
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                LIBRARY
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                TAGS
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                CATEGORIES
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/gallery">
+                                
+                                GALLERY
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                            LIBRARY
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        TAGS
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        CATEGORIES
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/gallery">
+                            
+                            GALLERY
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+
+
+
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                <!-- 
+                    <div class="post-title">
+                        SQL 教程 | 4. 数据库的安全性
+                    </div>
+                 -->
+                <div class="post-title">
+                    SQL 教程 | 4. 数据库的安全性
+                </div>
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/hexo-blog/images/avatar_minisize.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">He Junze</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;
+                <span class="datetime">2025-09-25 14:47</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-clock-rotate-left"></i>&nbsp;
+                    <span class="datetime" data-updated="Wed Nov 25 2026 21:16:06 GMT+0800">2026-11-25 21:16</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/">数据管理基础</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/SQL/">SQL</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>6.5k Words</span>
+            </span>
+        
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <blockquote>
+<p>课程讲义 PDF 未随本文转载。</p>
+</blockquote>
+<p>问题的提出</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据库的一大特点是 <strong> 数据可以共享</strong></p>
+</li>
+<li class="lvl-2">
+<p>数据共享必然带来数据库的安全性问题</p>
+</li>
+<li class="lvl-2">
+<p>数据库系统中的数据共享不能是无条件的共享</p>
+<ul class="lvl-2">
+<li class="lvl-6">军事秘密、国家机密、新产品实验数据、市场需求分析、市场营销策略、销售计划、客户档案、医疗档案、银行储蓄数据</li>
+</ul>
+</li>
+</ul>
+<p><strong>数据库的安全性是指保护数据库以防止不合法使用所造成的数据泄露、更改或破坏</strong>。系统安全保护措施是否有效是数据库系统主要的性能指标之一。</p>
+<p>一般来说，对数据库的破坏来自以下四个方面：<strong>非法用户、非法数据、各种故障或误操作、多用户的并发访问 </strong>。针对以上四种可能情况，数据库管理系统分别采取以下措施对数据库实施保护：<strong> 安全性保护（权限管理）、完整性保护、故障恢复、并发控制</strong>。</p>
+<h2 id="1- 数据库安全性概述">1. 数据库安全性概述</h2>
+<h3 id="1-1- 数据库的不安全因素">1.1 数据库的不安全因素</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>非授权用户对数据库的恶意存取和破坏</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">一些黑客（Hacker）和犯罪分子在用户存取数据库时猎取用户名和用户口令，然后假冒合法用户偷取、修改甚至破坏用户数据。</li>
+<li class="lvl-6">数据库管理系统提供的安全措施主要包括用户身份鉴别、存取控制和视图等技术。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>数据库中重要或敏感的数据被泄露</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">黑客和敌对分子千方百计盗窃数据库中的重要数据，一些机密信息被暴露。</li>
+<li class="lvl-6">数据库管理系统提供的主要技术有强制存取控制、数据加密存储和加密传输等。</li>
+<li class="lvl-6">审计日志分析</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>安全环境的脆弱性</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">数据库的安全性与计算机系统的安全性紧密联系
+<ul class="lvl-4">
+<li class="lvl-10">计算机硬件、操作系统、网络系统等的安全性</li>
+</ul>
+</li>
+<li class="lvl-6">建立一套可信（Trusted）计算机系统的概念和标准</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-2- 安全标准简介">1.2 安全标准简介</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>1985 年美国国防部（DoD）正式颁布《DoD 可信计算机系统评估准则》（简称 TCSEC 或 DoD85）</p>
+</li>
+<li class="lvl-2">
+<p>不同国家建立在 TCSEC 概念上的评估准则</p>
+<ul class="lvl-2">
+<li class="lvl-6">欧洲的信息技术安全评估准则（ITSEC）</li>
+<li class="lvl-6">加拿大的可信计算机产品评估准则（CTCPEC）</li>
+<li class="lvl-6">美国的信息技术安全联邦标准（FC）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>1993 年，CTCPEC、FC、TCSEC 和 ITSEC 联合行动，解决原标准中概念和技术上的差异，称为 CC（Common Criteria）项目</p>
+</li>
+<li class="lvl-2">
+<p>1999 年 CC V2.1 版被 ISO 采用为国际标准，2001 年 CC V2.1 版被我国采用为国家标准</p>
+</li>
+<li class="lvl-2">
+<p>目前 CC 已基本取代了 TCSEC，成为评估信息产品安全性的主要标准</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch04/image-001.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="TCSEC-TDI 安全级别划分">TCSEC/TDI 安全级别划分</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>按系统可靠或可信程度逐渐增高</p>
+</li>
+<li class="lvl-2">
+<p>各安全级别之间具有一种偏序向下兼容的关系</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>安全级别</strong></th>
+<th><strong>名称</strong></th>
+<th><strong>含义说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>验证设计（Verified Design）</td>
+<td>验证设计，即提供 B3 级保护的同时给出系统的形式化设计说明和验证以确信各安全保护真正实现。</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>安全域（Security Domains）</td>
+<td>- 安全域<br>- 该级的 TCB 必须满足访问监控器的要求，审计跟踪能力更强，并提供系统恢复过程</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>结构化保护（Structural Protection）</td>
+<td>结构化保护 <br> 建立形式化的安全策略模型并对系统内的所有主体和客体实施 DAC 和 MAC</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>标记安全保护（Labeled Security Protection）</td>
+<td>- 标记安全保护。“安全”（Security）或“可信的” （Trusted）产品。<br>- 对系统的数据加以标记，对标记的主体和客体实施强制存取控制（MAC）、审计等安全机制</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>受控的存取保护（Controlled Access Protection）</td>
+<td>- 安全产品的最低档次<br>- 提供受控的存取保护，将 C1 级的 DAC 进一步细化，以个人身份注册负责，并实施审计和资源隔离<br>- 达到 C2 级的产品在其名称中往往不突出<br>“安全”（Security）这一特色</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>自主安全保护（Discretionary Security Protection）</td>
+<td>- 非常初级的自主安全保护<br>- 能够实现对用户和数据的分离，进行自主存取控制（DAC），保护或限制用户权限的传播。<br>- 现有的商业系统稍作改进即可满足</td>
+</tr>
+<tr>
+<td>D</td>
+<td>最小保护（Minimal Protection）</td>
+<td>将一切不符合更高标准的系统均归于 D 组。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3- 中国计算机安全标准制订历史">1.3 中国计算机安全标准制订历史</h3>
+<p>GB 17859-1999：计算机信息系统安全保护等级划分准则</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>参照美国的 TCSEC 标准来制订等级划分标准</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch04/image-002.png"
+                         alt="课程笔记配图" width="400"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch04/image-003.png"
+                         alt="课程笔记配图" width="400"
+                 >
+<h2 id="2- 数据库安全性控制">2. 数据库安全性控制</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>非法使用数据库的情况</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">编写合法程序绕过数据库管理系统及其授权机制</li>
+<li class="lvl-6">直接或编写应用程序执行非授权操作</li>
+<li class="lvl-6">通过多次合法查询数据库从中推导出一些保密数据</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>计算机系统中，安全措施是一级一级层层设置</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">系统根据用户标识鉴定用户身份，合法用户才准许进入计算机系统</li>
+<li class="lvl-6">数据库管理系统还要进行存取控制，只允许用户执行合法操作</li>
+<li class="lvl-6">操作系统有自己的保护措施</li>
+<li class="lvl-6">数据以密码形式存储到数据库中</li>
+</ul>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch04/image-004.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch04/image-005.png"
+                         alt="课程笔记配图"
+                 >
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>存取控制的流程</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">首先，数据库管理系统对提出 SQL 访问请求的数据库用户进行身份鉴别，防止不可信用户使用系统。</li>
+<li class="lvl-6">然后，在 SQL 处理层进行自主存取控制和强制存取控制，进一步可以进行推理控制。</li>
+<li class="lvl-6">还可以对用户访问行为和系统关键操作进行审计，对异常用户行为进行简单入侵检测。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>数据库安全性控制的常用方法</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">用户标识和鉴定</li>
+<li class="lvl-6">存取控制</li>
+<li class="lvl-6">视图</li>
+<li class="lvl-6">审计</li>
+<li class="lvl-6">数据加密</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-1- 用户身份鉴别">2.1 用户身份鉴别</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>用户身份鉴别</strong>（Identification &amp; Authentication）</p>
+<ul class="lvl-2">
+<li class="lvl-6">系统提供的最外层安全保护措施</li>
+<li class="lvl-6"><strong>用户标识 </strong>：由<strong> 用户名 </strong> 和<strong>用户标识号 </strong> 组成（用户标识号在系统整个生命周期内 <strong> 唯一</strong>）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>用户身份鉴别的方法</strong></p>
+<ol>
+<li class="lvl-7"><strong>静态口令鉴别</strong>：静态口令一般由用户自己设定，这些口令是静态不变的</li>
+<li class="lvl-7"><strong>动态口令鉴别</strong>：口令是动态变化的，每次鉴别时均需使用动态产生的新口令登录数据库管理系统，即采用一次一密的方法</li>
+<li class="lvl-7"><strong>生物特征鉴别</strong>：通过生物特征进行认证的技术，生物特征如指纹、虹膜和掌纹等</li>
+<li class="lvl-7"><strong>智能卡鉴别</strong>：智能卡是一种不可复制的硬件，内置集成电路的芯片，具有硬件加密功能</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-2- 存取控制">2.2 存取控制</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>存取控制机制组成</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>定义用户权限</strong>，并将用户权限登记到数据字典中
+<ul class="lvl-4">
+<li class="lvl-10">用户对某一数据对象的操作权力称为权限</li>
+<li class="lvl-10">DBMS 提供适当的语言来定义用户权限，存放在数据字典中，称做安全规则或授权规则</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>合法权限检查</strong>
+<ul class="lvl-4">
+<li class="lvl-10">用户发出存取数据库操作请求</li>
+<li class="lvl-10">DBMS 查找数据字典，进行合法权限检查</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>定义用户权限和合法权限检查机制一起组成了数据库管理系统的存取控制子系统常用存取控制方法</p>
+<h4 id="常用存取控制方法">常用存取控制方法</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>自主存取控制</strong>（Discretionary Access Control ，简称 DAC）</p>
+<ul class="lvl-2">
+<li class="lvl-6">C2 级</li>
+<li class="lvl-6">由资源的拥有者（比如文件的创建者）决定谁可以访问该资源，以及可以访问到什么程度（读、写、执行等）。
+<ul class="lvl-4">
+<li class="lvl-10">举个例子：你在电脑上创建了一个文件，你可以选择让谁来读它、改它或执行它。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>强制存取控制</strong>（Mandatory Access Control，简称 MAC）</p>
+<ul class="lvl-2">
+<li class="lvl-6">B1 级</li>
+<li class="lvl-6">由系统的安全策略（由管理员来确定）统一决定，用户自己不能更改访问权限。每个用户和资源都有安全级别，系统根据规则自动判断是否允许访问。
+<ul class="lvl-4">
+<li class="lvl-10">比如在军队或国家安全系统中，不同的人有不同的保密等级，低等级的人不能访问高等级的信息，无论是谁创建的文件。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3- 自主存取控制方法">2.3 自主存取控制方法</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>通过 SQL 的 <code>GRANT</code>语句（授权） 和 <code>REVOKE</code>语句（取消授权） 实现</p>
+</li>
+<li class="lvl-2">
+<p>用户权限的组成要素</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>数据库对象</strong></li>
+<li class="lvl-6"><strong>操作类型</strong></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>定义用户的存取权限</p>
+<ul class="lvl-2">
+<li class="lvl-6">定义一个 <strong> 用户 </strong> 可以在哪些 <strong> 数据库对象 </strong> 上进行哪些类型的 <strong> 操作</strong></li>
+<li class="lvl-6">定义用户的存取权限称为 ‘<strong>授权管理 </strong>’，包括向用户‘<strong> 授予 </strong>’或‘<strong> 收回</strong>’对数据的操作权限。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>用户存取权限的定义</strong></p>
+<ol>
+<li class="lvl-7">一个客体（客体：数据库的访问者）的 ‘属主’ <strong>自动拥有 </strong> 该客体上的 <strong> 所有 </strong> 操作权限；
+<ul class="lvl-4">
+<li class="lvl-10">客体的创建者即客体的属主 (Owner)</li>
+<li class="lvl-10">系统应该控制客体所有权的转移</li>
+</ul>
+</li>
+<li class="lvl-7">拥有权限的用户可以自主地将他所拥有的权限 <strong> 传授 </strong> 给其它任意在数据库系统中注册的用户；</li>
+<li class="lvl-7">用户 <strong> 只能通过上述两种方式</strong>（或之一）来获得在一个客体上的存取权限。</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p><strong>访问控制</strong></p>
+<ol>
+<li class="lvl-7">在用户登录时进行用户的身份鉴别</li>
+<li class="lvl-7">在用户访问数据库时执行访问控制检查</li>
+</ol>
+</li>
+</ul>
+<p>对于用户提交的每一条数据访问命令，系统将按照如下图所示的流程进行权限检查：</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch04/image-006.png"
+                         alt="课程笔记配图" width="300"
+                 >
+<h4 id="2-3-1- 授权：授予与收回">2.3.1 授权：授予与收回</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>SQL 中的授权机制</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">数据库管理员：
+<ul class="lvl-4">
+<li class="lvl-10">拥有所有对象的所有权限</li>
+<li class="lvl-10">根据实际情况不同的权限授予不同的用户</li>
+</ul>
+</li>
+<li class="lvl-6">用户：
+<ul class="lvl-4">
+<li class="lvl-10">拥有自己建立的对象的全部的操作权限</li>
+<li class="lvl-10">可以使用<code>GRANT</code>，把权限授予其他用户</li>
+</ul>
+</li>
+<li class="lvl-6">被授权的用户
+<ul class="lvl-4">
+<li class="lvl-10">如果具有“继续授权”的许可，可以把获得的权限再授予其他用户</li>
+<li class="lvl-10">所有授予出去的权力在必要时又都可用 <code>REVOKE</code>语句 收回</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="GRANT">GRANT</h5>
+<p>GRANT 语句的一般格式：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="operator">&lt;</span>权限 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 权限 <span class="operator">&gt;</span>] ...</span><br><span class="line"><span class="keyword">ON</span> <span class="operator">&lt;</span> 对象类型 <span class="operator">&gt;</span> <span class="operator">&lt;</span> 对象名 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 对象类型 <span class="operator">&gt;</span> <span class="operator">&lt;</span> 对象名 <span class="operator">&gt;</span>]…</span><br><span class="line"><span class="keyword">TO</span> <span class="operator">&lt;</span> 用户 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 用户<span class="operator">&gt;</span>] ...</span><br><span class="line">[<span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION];</span><br></pre></td></tr></table></figure>
+<p><strong>语义</strong>：将对指定操作对象的指定操作权限授予指定的用户</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>授权用户 </strong>（发出或执行<code>GRANT</code> 语句的用户）</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据库管理员</li>
+<li class="lvl-6">数据库对象的创建者（即数据库对象的属主 Owner）</li>
+<li class="lvl-6">拥有该权限的用户</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>被授权用户</strong>（接受权限的用户）</p>
+<ul class="lvl-2">
+<li class="lvl-6">一个或多个具体用户</li>
+<li class="lvl-6">一个或多个用户组（角色 ROLE）</li>
+<li class="lvl-6"><code>PUBLIC</code>（即全体用户）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>WITH GRANT OPTION 子句</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">在 <code>GRANT</code> 命令中，如果使用了 <code>WITH GRANT OPTION</code> 选项，那么 <mark> 被授权用户可以将接受到的权限再授予其他用户</mark>，否则，被授权用户不能把接受到的权限再转授给其他用户。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>不允许循环授权</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch04/image-007.png"
+                         alt="课程笔记配图" width="300"
+                 >
+</li>
+</ul>
+</li>
+</ul>
+<p>==[例 4.1]== 把查询 Student 表权限授给用户 U1。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">TO</span> U1;</span><br></pre></td></tr></table></figure>
+<p>==[例 4.2]== 把对 Student 表和 Course 表的全部权限授予用户 U2 和 U3。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILIGES</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student, Course</span><br><span class="line"><span class="keyword">TO</span> U2, U3;</span><br></pre></td></tr></table></figure>
+<p>==[例 4.3]== 把对表 SC 的查询权限授予所有用户。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> SC</span><br><span class="line"><span class="keyword">TO</span> PUBLIC;</span><br></pre></td></tr></table></figure>
+<p>==[例 4.4]== 把查询 Student 表和修改学生学号的权限授给用户 U4。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">UPDATE</span>(Sno), <span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">TO</span> U4;</span><br></pre></td></tr></table></figure>
+<p><strong>对属性列的授权，必须明确指出相应属性列名</strong></p>
+<p>[例 4.5]把对表 SC 的 INSERT 权限授予 U5 用户，并允许他再将此权限授予其他用户。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> SC</span><br><span class="line"><span class="keyword">TO</span> U5</span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
+<p>执行例 4.5 后，U5 不仅拥有了对表 SC 的 INSERT 权限，还可以传播此权限。</p>
+<p>==[例 4.6]== 用户 U5 可以执行下述命令，将之前获得的表 SC 的 INSERT 权限及传播权限授予用户 U6。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> SC</span><br><span class="line"><span class="keyword">TO</span> U6</span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
+<p>==[例 4.7]== 同样，U6 还可以将此权限授予 U7，但 U7 不能再传播此权限。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> SC</span><br><span class="line"><span class="keyword">TO</span> U7;</span><br></pre></td></tr></table></figure>
+<h5 id="REVOKE">REVOKE</h5>
+<p>授予的权限可以由数据库管理员或其他授权者用 <code>REVOKE</code> 语句收回</p>
+<p>REVOKE 语句的一般格式为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="operator">&lt;</span>权限 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 权限 <span class="operator">&gt;</span>] ...</span><br><span class="line"><span class="keyword">ON</span> <span class="operator">&lt;</span> 对象类型 <span class="operator">&gt;</span> <span class="operator">&lt;</span> 对象名 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 对象类型 <span class="operator">&gt;</span> <span class="operator">&lt;</span> 对象名 <span class="operator">&gt;</span>]…</span><br><span class="line"><span class="keyword">FROM</span> <span class="operator">&lt;</span> 用户 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 用户<span class="operator">&gt;</span>] ... [CASCADE <span class="operator">|</span> RESTRICT];</span><br></pre></td></tr></table></figure>
+<p>注：（有 GRANT 权限的用户）只能回收自己授予他人的权限，不能回收别人授予他的权限。</p>
+<table>
+<thead>
+<tr>
+<th><strong>你有</strong> WITH GRANT OPTION</th>
+<th><strong>你可以 GRANT 给别人</strong></th>
+<th><strong>你可以 REVOKE 吗？</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ 是</td>
+<td>✅ 可以</td>
+<td>✅ 可以撤销 <strong> 你自己授权的权限</strong></td>
+</tr>
+<tr>
+<td>❌ 否（普通权限）</td>
+<td>❌ 不可以</td>
+<td>❌ 没有撤销权</td>
+</tr>
+<tr>
+<td>✅ 是但权限不是你授的</td>
+<td>✅ 可以继续授</td>
+<td>❌ 无法撤销别人授的权限</td>
+</tr>
+</tbody>
+</table>
+<p>[例 4.8]把用户 U4 修改学生学号的权限收回。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">UPDATE</span>(Sno)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">FROM</span> U4;</span><br></pre></td></tr></table></figure>
+<p>[例 4.9]收回所有用户对表 SC 的查询权限。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> SC</span><br><span class="line"><span class="keyword">FROM</span> PUBLIC;</span><br></pre></td></tr></table></figure>
+<p>[例 4.10]把用户 U5 对 SC 表的 INSERT 权限收回。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> SC</span><br><span class="line"><span class="keyword">FROM</span> U5 CASCADE ;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>将用户 U5 的 INSERT 权限收回的时候使用<code>CASCADE</code>，则同时收回 U6 或 U7 的 INSERT 权限，否则拒绝执行该语句。</p>
+</li>
+<li class="lvl-2">
+<p>如果 U6 或 U7 还从其他用户处获得对 SC 表的 <code>INSERT</code> 权限，则他们仍具有此权限，系统只收回直接或间接从 U5 处获得的权限。</p>
+</li>
+</ul>
+<h5 id="创建数据库模式的权限">创建数据库模式的权限</h5>
+<p>由数据库管理员在创建用户时，进行有关创建数据库模式的授权</p>
+<p>CREATE USER 语句格式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="operator">&lt;</span>username<span class="operator">&gt;</span> [<span class="keyword">WITH</span>] [DBA <span class="operator">|</span> RESOURCE <span class="operator">|</span> <span class="keyword">CONNECT</span>];</span><br></pre></td></tr></table></figure>
+<p>注：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>CREATE USER 不是 SQL 标准，各个系统的实现相差甚远</p>
+</li>
+<li class="lvl-2">
+<p>只有系统的超级用户才有权创建一个新的数据库用户</p>
+</li>
+</ul>
+<p>新创建的数据库用户，可以被授予以下三种权限之一</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>CONNECT</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">如没有指定创建的新用户的权限，默认该用户拥有 <code>CONNECT</code> 权限；</li>
+<li class="lvl-6">拥有 <code>CONNECT</code> 权限的用户不能创建新用户，不能创建模式，也不能创建基本表，<strong>只能登录数据库</strong>（甚至不能查询数据）。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>RESOURCE</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">拥有 <code>RESOURCE</code> 权限的用户能创建基本表和视图，成为所创建对象的属主；</li>
+<li class="lvl-6">但不能创建模式，不能创建新的用户。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>DBA</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">拥有 <code>DBA</code> 权限的用户是系统中的超级用户，可以创建新的用户、创建模式、创建基本表和视图等；</li>
+<li class="lvl-6"><code>DBA</code>拥有对所有数据库对象的存取权限，还可以把这些权限授予一般用户。</li>
+</ul>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch04/image-008.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="2-3-2- 数据库角色">2.3.2 数据库角色</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据库角色：被命名的一组与数据库操作相关的权限</p>
+</li>
+<li class="lvl-2">
+<p>角色是权限的集合</p>
+</li>
+<li class="lvl-2">
+<p>可以为一组具有相同权限的用户创建一个角色</p>
+</li>
+<li class="lvl-2">
+<p>简化授权的过程</p>
+</li>
+</ul>
+<p><strong>角色的创建</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> ROLE <span class="operator">&lt;</span>角色名<span class="operator">&gt;</span> ;</span><br></pre></td></tr></table></figure>
+<p><strong>给角色授权</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="operator">&lt;</span>权限 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 权限 <span class="operator">&gt;</span>]…</span><br><span class="line"><span class="keyword">ON</span> <span class="operator">&lt;</span> 对象类型 <span class="operator">&gt;</span> <span class="operator">&lt;</span> 对象名 <span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">TO</span> <span class="operator">&lt;</span> 角色 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 角色<span class="operator">&gt;</span>]…</span><br></pre></td></tr></table></figure>
+<p><strong>将一个角色授予其他的角色或用户</strong>:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="operator">&lt;</span>角色 <span class="number">1</span><span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 角色 <span class="number">2</span><span class="operator">&gt;</span>] …</span><br><span class="line"><span class="keyword">TO</span> <span class="operator">&lt;</span> 角色 <span class="number">3</span><span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 用户<span class="number">1</span><span class="operator">&gt;</span>] …</span><br><span class="line">[<span class="keyword">WITH</span> ADMIN OPTION ] ;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>该语句把角色授予某用户，或授予另一个角色</p>
+</li>
+<li class="lvl-2">
+<p>授予者是角色的创建者或拥有在这个角色上的<code>ADMIN OPTION</code></p>
+</li>
+<li class="lvl-2">
+<p>指定了 <code>WITH ADMIN OPTION</code> 则获得某种权限的角色或用户还可以把这种权限授予其他角色或用户</p>
+</li>
+</ul>
+<p><strong>WITH GRANT OPTION 与 WITH ADMIN OPTION 的区别</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>特点</strong></th>
+<th>WITH GRANT OPTION</th>
+<th>WITH ADMIN OPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用于哪些权限？</td>
+<td>对象权限（如 SELECT, INSERT）</td>
+<td>系统权限（如 CREATE TABLE）</td>
+</tr>
+<tr>
+<td>能授权给别人？</td>
+<td>✅ 是</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td>能取消别人权限？</td>
+<td>🟡 只能取消自己授予别人的权限</td>
+<td>✅ 是（管理员能力）</td>
+</tr>
+<tr>
+<td>常见使用对象</td>
+<td>表、视图、存储过程</td>
+<td>用户管理、表空间、资源等</td>
+</tr>
+<tr>
+<td>类比</td>
+<td>副卡：能授权但不能管理别人</td>
+<td>管理员卡：能授权还能管理别人</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一个角色的权限</strong>：被直接授予这个角色的全部权限，加上通过其他角色授予这个角色的全部权限</p>
+<p><strong>角色权限的收回</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="operator">&lt;</span>权限 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 权限 <span class="operator">&gt;</span>]…</span><br><span class="line"><span class="keyword">ON</span> <span class="operator">&lt;</span> 对象类型 <span class="operator">&gt;</span> <span class="operator">&lt;</span> 对象名 <span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="operator">&lt;</span> 角色 <span class="operator">&gt;</span> [, <span class="operator">&lt;</span> 角色<span class="operator">&gt;</span>]…</span><br></pre></td></tr></table></figure>
+<p>用户可以回收角色的权限，从而修改角色拥有的权限</p>
+<p>REVOKE 执行者是</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>角色的创建者，或者是</p>
+</li>
+<li class="lvl-2">
+<p>拥有在这个（些）角色上的 ADMIN OPTION</p>
+</li>
+</ul>
+<p>如果使用 CASCADE 执行权限的回收操作时，系统权限不会被级联回收，而对象权限则需要级联回收。</p>
+<p><mark>[例 4.11]</mark> 通过角色来实现将一组权限授予一个用户。步骤如下：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>首先创建一个角色 R1<br>
+<code>CREATE ROLE R1;</code></p>
+</li>
+<li class="lvl-2">
+<p>然后使用 GRANT 语句，使角色 R1 拥有 Student 表的 SELECT、UPDATE、INSERT 权限</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, <span class="keyword">UPDATE</span>, <span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">TO</span> R1;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>将这个角色授予王平，张明，赵玲。使他们具有角色 R1 所包含的全部权限</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> R1 <span class="keyword">TO</span> 王平, 张明, 赵玲;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>可以一次性通过 R1 来回收王平的这 3 个权限</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> R1 <span class="keyword">FROM</span> 王平;</span><br></pre></td></tr></table></figure>
+<p><mark>[例 4.12]</mark> 角色的权限修改</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">DELETE</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">TO</span> R1;</span><br></pre></td></tr></table></figure>
+<p>使角色 R1 在原来的基础上增加了 Student 表的 DELETE 权限</p>
+<p>[例 4.13] 使 R1 减少了 SELECT 权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">FROM</span> R1;</span><br></pre></td></tr></table></figure>
+<p><strong>自主存取控制缺点</strong><br>
+可能存在数据的“无意泄露”</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>原因：这种机制仅仅通过对数据的存取权限来进行安全控制，而数据本身并无安全性标记</p>
+</li>
+<li class="lvl-2">
+<p>解决：对系统控制下的所有主客体实施强制存取控制策略</p>
+</li>
+</ul>
+<h3 id="2-4- 强制存取控制方法">2.4 强制存取控制方法</h3>
+<p>强制存取控制（Mandatory Access Control，简称 MAC）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>B1 级，保证更高程度的安全性</p>
+</li>
+<li class="lvl-2">
+<p>每一个数据对象被标以一定的密级</p>
+</li>
+<li class="lvl-2">
+<p>每一个用户也被授予某一个级别的许可证</p>
+</li>
+<li class="lvl-2">
+<p>对于任意一个对象，只有具有合法许可证的用户才可以存取</p>
+</li>
+<li class="lvl-2">
+<p>用户不能直接感知或进行控制</p>
+</li>
+<li class="lvl-2">
+<p>适用于对数据有严格而固定密级分类的部门，如：</p>
+<ul class="lvl-2">
+<li class="lvl-6">军事部门</li>
+<li class="lvl-6">政府部门</li>
+</ul>
+</li>
+</ul>
+<h4 id="实体">实体</h4>
+<p>在强制存取控制中，数据库管理系统所管理的全部实体被分为 <strong> 主体 </strong> 和<strong>客体 </strong> 两大类</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>主体是系统中的活动实体</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据库管理系统所管理的实际用户</li>
+<li class="lvl-6">代表用户的各进程</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>客体是系统中的被动实体，受主体操纵</p>
+<ul class="lvl-2">
+<li class="lvl-6">文件、基本表、索引、视图</li>
+</ul>
+</li>
+</ul>
+<h4 id="敏感度标记">敏感度标记</h4>
+<p><strong>敏感度标记（Label）</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对于主体和客体，DBMS 为它们每个实例（值）指派一个 <strong> 敏感度标记</strong></p>
+</li>
+<li class="lvl-2">
+<p>敏感度标记分成若干级别</p>
+<ul class="lvl-2">
+<li class="lvl-6">绝密（Top Secret，TS）</li>
+<li class="lvl-6">机密（Secret，S）</li>
+<li class="lvl-6">可信（Confidential，C）</li>
+<li class="lvl-6">公开（Public，P）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>敏感度标记的次序为 TS ≥ S ≥ C ≥ P</p>
+</li>
+</ul>
+<p>主体的敏感度标记称为 <strong> 许可证级别</strong>（Clearance Level）</p>
+<p>客体的敏感度标记称为 <strong> 密级</strong>（Classification Level）</p>
+<h4 id="强制存取控制规则">强制存取控制规则</h4>
+<ol>
+<li class="lvl-3">
+<p><strong>（下读）</strong> 仅当主体的许可证级别大于或等于客体的密级时，该主体才能读取相应的客体</p>
+</li>
+<li class="lvl-3">
+<p><strong>（上写）</strong> 仅当主体的许可证级别小于或等于客体的密级时，该主体才能写相应的客体</p>
+<ul class="lvl-2">
+<li class="lvl-6">如果向低级文件写数据，相当于把机密数据泄露给了下级。</li>
+<li class="lvl-6">向上写 $\neq$ 向上编辑，“上写”的意思是提交 <strong> 新信息 </strong> 给上级，而不能编辑和查看已有信息。</li>
+</ul>
+</li>
+</ol>
+<p>强制存取控制（MAC）是对数据本身进行密级标记，无论数据如何复制，标记与数据是一个不可分的整体，只有符合密级标记要求的用户才可以操纵数据。</p>
+<h3 id="DAC-MAC">DAC + MAC</h3>
+<p>实现强制存取控制时要首先实现自主存取控制</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>原因：较高安全性级别提供的安全保护要包含较低级别的所有保护</p>
+</li>
+</ul>
+<p>自主存取控制与强制存取控制共同构成数据库管理系统的安全机制，先进行自主存取控制检查，通过自主存取控制检查的数据对象再由系统进行强制存取控制检查，只有通过强制存取控制检查的数据对象方可存取。</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch04/image-009.png"
+                         alt="课程笔记配图" width="300"
+                 >
+<h2 id="3- 视图机制">3. 视图机制</h2>
+<p>把要保密的数据对无权存取这些数据的用户隐藏起来，对数据提供一定程度的安全保护</p>
+<p>间接地实现支持存取谓词的用户权限定义</p>
+<p><mark>[例 4.14]</mark> 建立计算机系学生的视图，把对该视图的 SELECT 权限授于王平，把该视图上的所有操作权限授于张明。</p>
+<p>先建立计算机系学生的视图 CS_Student</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> CS_Student</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sdept <span class="operator">=</span> <span class="string">&#x27;CS&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>在视图上进一步定义存取权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">ON</span> CS_Student</span><br><span class="line"><span class="keyword">TO</span> 王平;</span><br><span class="line"></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILIGES</span><br><span class="line"><span class="keyword">ON</span> CS_Student</span><br><span class="line"><span class="keyword">TO</span> 张明;</span><br></pre></td></tr></table></figure>
+<h2 id="4- 审计（Audit）">4. 审计（Audit）</h2>
+<p>审计</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>启用一个专用的审计日志（Audit Log）将用户对数据库的所有操作记录在上面</p>
+</li>
+<li class="lvl-2">
+<p>审计员利用审计日志监控数据库中的各种行为，找出非法存取数据的人、时间和内容</p>
+</li>
+<li class="lvl-2">
+<p>C2 以上安全级别的 DBMS 必须具有审计功能</p>
+</li>
+</ul>
+<p><strong>审计功能的可选性</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>审计很费时间和空间</p>
+</li>
+<li class="lvl-2">
+<p>DBA 可以根据应用对安全性的要求，灵活地打开或关闭审计功能</p>
+</li>
+<li class="lvl-2">
+<p>审计功能主要用于安全性要求较高的部门</p>
+</li>
+</ul>
+<h3 id="审计事件">审计事件</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>服务器事件</p>
+<ul class="lvl-2">
+<li class="lvl-6">审计数据库服务器发生的事件，包括数据库服务器的启停、配置文件的重新加载等</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>系统权限</p>
+<ul class="lvl-2">
+<li class="lvl-6">对系统拥有的结构或模式对象进行操作的审计</li>
+<li class="lvl-6">执行相关操作需要的权限是通过系统权限获得的</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>语句事件</p>
+<ul class="lvl-2">
+<li class="lvl-6">对 SQL 语句的审计，如对 DDL、DML、DQL 及 DCL 语句的审计</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>模式对象事件</p>
+<ul class="lvl-2">
+<li class="lvl-6">对特定模式对象上进行的 SELECT 或 DML 操作的审计</li>
+<li class="lvl-6">模式对象主要包括表、视图、存储过程 / 函数，但不包括表上的索引、约束、触发器等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="审计功能">审计功能</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>基本功能：提供多种审计查阅方式</p>
+</li>
+<li class="lvl-2">
+<p>多套审计规则：一般在数据库初始化时设定</p>
+</li>
+<li class="lvl-2">
+<p>提供审计分析和报表功能</p>
+</li>
+<li class="lvl-2">
+<p>审计日志管理功能</p>
+<ul class="lvl-2">
+<li class="lvl-6">防止审计员误删审计记录，审计日志必须先转储后删除；</li>
+<li class="lvl-6">对转储的审计记录文件提供完整性和保密性保护；</li>
+<li class="lvl-6">只允许审计员查阅和转储审计记录，不允许任何用户新增和修改审计记录等。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>提供查询审计设置及审计记录信息的专门视图</p>
+</li>
+</ul>
+<h3 id="审计级别">审计级别</h3>
+<p>用户级审计</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>任何用户可设置的审计</p>
+</li>
+<li class="lvl-2">
+<p>主要是用户针对自己创建的数据库表和视图进行审计系统级审计</p>
+</li>
+<li class="lvl-2">
+<p>只能由数据库管理员设置</p>
+</li>
+<li class="lvl-2">
+<p>监测成功或失败的登录要求、监测授权和收回操作以及其他数据库级权限下的操作</p>
+</li>
+</ul>
+<h3 id="审计语句">审计语句</h3>
+<p><strong>AUDIT 语句 和 NOAUDIT 语句</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>AUDIT 语句：设置审计功能</p>
+</li>
+<li class="lvl-2">
+<p>NOAUDIT 语句：取消审计功能</p>
+</li>
+</ul>
+<p><mark>[例 4.15]</mark> 对修改 SC 表结构或修改 SC 表数据的操作进行审计</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AUDIT <span class="keyword">ALTER</span>, <span class="keyword">UPDATE</span></span><br><span class="line"><span class="keyword">ON</span> SC;</span><br></pre></td></tr></table></figure>
+<p><mark>[例 4.16]</mark> 取消对 SC 表上的 ALTER 和 UPDATE 操作的审计</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NOAUDIT <span class="keyword">ALTER</span>, <span class="keyword">UPDATE</span></span><br><span class="line"><span class="keyword">ON</span> SC;</span><br></pre></td></tr></table></figure>
+<h2 id="5- 数据加密">5. 数据加密</h2>
+<p><strong>数据加密</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>防止数据库中数据在存储和传输中失密的有效手段</p>
+</li>
+</ul>
+<p><strong>加密的基本思想</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>根据一定的算法将原始数据—明文（Plain text）变换为不可直接识别的格式—密文（Cipher text）</p>
+</li>
+</ul>
+<p><strong>加密方法</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>存储加密</p>
+</li>
+<li class="lvl-2">
+<p>传输加密</p>
+</li>
+</ul>
+<h3 id="存储加密">存储加密</h3>
+<p>透明存储加密</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内核级加密保护方式，对用户完全透明</p>
+</li>
+<li class="lvl-2">
+<p>将数据在写到磁盘时对数据进行加密，授权用户读取数据时再对其进行解密</p>
+</li>
+<li class="lvl-2">
+<p>数据库的应用程序不需要做任何修改，只需在创建表语句中说明需加密的字段即可</p>
+</li>
+<li class="lvl-2">
+<p>内核级加密方法: 性能较好，安全完备性较高</p>
+</li>
+</ul>
+<p>非透明存储加密</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>通过多个加密函数实现</p>
+</li>
+</ul>
+<h3 id="传输加密">传输加密</h3>
+<p>链路加密</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在链路层进行加密</p>
+</li>
+<li class="lvl-2">
+<p>传输信息由报头和报文两部分组成</p>
+</li>
+<li class="lvl-2">
+<p>报文和报头均加密</p>
+</li>
+</ul>
+<p>端到端加密</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在发送端加密，接收端解密</p>
+</li>
+<li class="lvl-2">
+<p>只加密报文不加密报头</p>
+</li>
+<li class="lvl-2">
+<p>所需密码设备数量相对较少，容易被非法监听者发现并从中获取敏感信息</p>
+</li>
+</ul>
+<h2 id="6- 其他安全性保护">6. 其他安全性保护</h2>
+<p>推理控制</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>避免用户利用能够访问的数据推知更高密级的数据</p>
+</li>
+</ul>
+<p>隐蔽信道</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>间接数据传递</p>
+</li>
+</ul>
+<p>数据隐私保护</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>描述个人控制其不愿他人知道或他人不便知道的个人数据的能力</p>
+</li>
+<li class="lvl-2">
+<p>范围很广：数据收集、数据存储、数据处理和数据发布等各个阶段</p>
+</li>
+</ul>
+<h2 id="7- 小结">7. 小结</h2>
+<p>数据的共享日益加强，数据的安全保密越来越重要。</p>
+<p>数据库管理系统是管理数据的核心，因而其自身必须具有一整套完整而有效的安全性机制。</p>
+<p>实现数据库系统安全性的技术和方法</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用户身份鉴别</p>
+</li>
+<li class="lvl-2">
+<p>存取控制技术：自主存取控制 &amp; 强制存取控制</p>
+</li>
+<li class="lvl-2">
+<p>视图技术</p>
+</li>
+<li class="lvl-2">
+<p>审计技术</p>
+</li>
+<li class="lvl-2">
+<p>数据加密存储和加密传输</p>
+</li>
+</ul>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                SQL 教程 | 4. 数据库的安全性
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2025/09/25/sql 教程/sql4-数据库的安全性/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">He Junze</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2025-09-25 14:47</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/SQL/">SQL</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    
+
+<div class="reward-author-container border-box flex-center">
+    <div class="reward-btn border-box flex-center tooltip tooltip-img"
+            data-tooltip-img-url="/images/buymeacoffee.jpg"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -6px;"
+    >
+        <i class="fa-solid fa-gift"></i>&nbsp;REWARD AUTHOR
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/hexo-blog/2025/10/02/sql%20%E6%95%99%E7%A8%8B/sql5-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7/"
+                                   title="SQL 教程 | 5. 数据库的完整性"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 5. 数据库的完整性</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/hexo-blog/2025/09/18/sql%20%E6%95%99%E7%A8%8B/sql3-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80%20SQL/"
+                                   title="SQL 教程 | 3. 关系数据库标准语言 SQL"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 3. 关系数据库标准语言 SQL</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="twikoo-container">
+        <div id="twikoo-comment"></div>
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/twikoo@1.6.40/dist/twikoo.all.min.js?1795612674935"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initTwikoo = () => {
+            if (window?.twikoo) {
+              twikoo.init({
+                el: '#twikoo-comment',
+                envId: 'https://hejunze.netlify.app/.netlify/functions/twikoo',
+                region: '',
+                lang: 'en,zh-CN,default' || 'zh-CN'
+              })
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initTwikoo()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initTwikoo()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initTwikoo)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E6%80%A7%E6%A6%82%E8%BF%B0"><span class="nav-text">1. 数据库安全性概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%8D%E5%AE%89%E5%85%A8%E5%9B%A0%E7%B4%A0"><span class="nav-text">1.1 数据库的不安全因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%20%E5%AE%89%E5%85%A8%E6%A0%87%E5%87%86%E7%AE%80%E4%BB%8B"><span class="nav-text">1.2 安全标准简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCSEC-TDI%20%E5%AE%89%E5%85%A8%E7%BA%A7%E5%88%AB%E5%88%92%E5%88%86"><span class="nav-text">TCSEC&#x2F;TDI 安全级别划分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%20%E4%B8%AD%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8%E6%A0%87%E5%87%86%E5%88%B6%E8%AE%A2%E5%8E%86%E5%8F%B2"><span class="nav-text">1.3 中国计算机安全标准制订历史</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E6%80%A7%E6%8E%A7%E5%88%B6"><span class="nav-text">2. 数据库安全性控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%20%E7%94%A8%E6%88%B7%E8%BA%AB%E4%BB%BD%E9%89%B4%E5%88%AB"><span class="nav-text">2.1 用户身份鉴别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%20%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6"><span class="nav-text">2.2 存取控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="nav-text">常用存取控制方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%20%E8%87%AA%E4%B8%BB%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="nav-text">2.3 自主存取控制方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-%20%E6%8E%88%E6%9D%83%EF%BC%9A%E6%8E%88%E4%BA%88%E4%B8%8E%E6%94%B6%E5%9B%9E"><span class="nav-text">2.3.1 授权：授予与收回</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GRANT"><span class="nav-text">GRANT</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#REVOKE"><span class="nav-text">REVOKE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%9D%83%E9%99%90"><span class="nav-text">创建数据库模式的权限</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%92%E8%89%B2"><span class="nav-text">2.3.2 数据库角色</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%20%E5%BC%BA%E5%88%B6%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="nav-text">2.4 强制存取控制方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93"><span class="nav-text">实体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%8F%E6%84%9F%E5%BA%A6%E6%A0%87%E8%AE%B0"><span class="nav-text">敏感度标记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%88%B6%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6%E8%A7%84%E5%88%99"><span class="nav-text">强制存取控制规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAC-MAC"><span class="nav-text">DAC + MAC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%20%E8%A7%86%E5%9B%BE%E6%9C%BA%E5%88%B6"><span class="nav-text">3. 视图机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%20%E5%AE%A1%E8%AE%A1%EF%BC%88Audit%EF%BC%89"><span class="nav-text">4. 审计（Audit）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E4%BA%8B%E4%BB%B6"><span class="nav-text">审计事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="nav-text">审计功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E7%BA%A7%E5%88%AB"><span class="nav-text">审计级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E8%AF%AD%E5%8F%A5"><span class="nav-text">审计语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%20%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86"><span class="nav-text">5. 数据加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%8A%A0%E5%AF%86"><span class="nav-text">存储加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%8A%A0%E5%AF%86"><span class="nav-text">传输加密</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%20%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E6%80%A7%E4%BF%9D%E6%8A%A4"><span class="nav-text">6. 其他安全性保护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%20%E5%B0%8F%E7%BB%93"><span class="nav-text">7. 小结</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2024</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/hexo-blog/">He Junze</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://www.aliyun.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="Alibaba Cloud"><img src="/hexo-blog/images/brands/aliyun.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">104.9k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn"
+                        >
+                            豫ICP备2024101982号-1
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E6%80%A7%E6%A6%82%E8%BF%B0"><span class="nav-text">1. 数据库安全性概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%8D%E5%AE%89%E5%85%A8%E5%9B%A0%E7%B4%A0"><span class="nav-text">1.1 数据库的不安全因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%20%E5%AE%89%E5%85%A8%E6%A0%87%E5%87%86%E7%AE%80%E4%BB%8B"><span class="nav-text">1.2 安全标准简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCSEC-TDI%20%E5%AE%89%E5%85%A8%E7%BA%A7%E5%88%AB%E5%88%92%E5%88%86"><span class="nav-text">TCSEC&#x2F;TDI 安全级别划分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%20%E4%B8%AD%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8%E6%A0%87%E5%87%86%E5%88%B6%E8%AE%A2%E5%8E%86%E5%8F%B2"><span class="nav-text">1.3 中国计算机安全标准制订历史</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E6%80%A7%E6%8E%A7%E5%88%B6"><span class="nav-text">2. 数据库安全性控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%20%E7%94%A8%E6%88%B7%E8%BA%AB%E4%BB%BD%E9%89%B4%E5%88%AB"><span class="nav-text">2.1 用户身份鉴别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%20%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6"><span class="nav-text">2.2 存取控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="nav-text">常用存取控制方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%20%E8%87%AA%E4%B8%BB%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="nav-text">2.3 自主存取控制方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-%20%E6%8E%88%E6%9D%83%EF%BC%9A%E6%8E%88%E4%BA%88%E4%B8%8E%E6%94%B6%E5%9B%9E"><span class="nav-text">2.3.1 授权：授予与收回</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GRANT"><span class="nav-text">GRANT</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#REVOKE"><span class="nav-text">REVOKE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%9D%83%E9%99%90"><span class="nav-text">创建数据库模式的权限</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%92%E8%89%B2"><span class="nav-text">2.3.2 数据库角色</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%20%E5%BC%BA%E5%88%B6%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="nav-text">2.4 强制存取控制方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93"><span class="nav-text">实体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%8F%E6%84%9F%E5%BA%A6%E6%A0%87%E8%AE%B0"><span class="nav-text">敏感度标记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%88%B6%E5%AD%98%E5%8F%96%E6%8E%A7%E5%88%B6%E8%A7%84%E5%88%99"><span class="nav-text">强制存取控制规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAC-MAC"><span class="nav-text">DAC + MAC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%20%E8%A7%86%E5%9B%BE%E6%9C%BA%E5%88%B6"><span class="nav-text">3. 视图机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%20%E5%AE%A1%E8%AE%A1%EF%BC%88Audit%EF%BC%89"><span class="nav-text">4. 审计（Audit）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E4%BA%8B%E4%BB%B6"><span class="nav-text">审计事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="nav-text">审计功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E7%BA%A7%E5%88%AB"><span class="nav-text">审计级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E8%AF%AD%E5%8F%A5"><span class="nav-text">审计语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%20%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86"><span class="nav-text">5. 数据加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%8A%A0%E5%AF%86"><span class="nav-text">存储加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%8A%A0%E5%AF%86"><span class="nav-text">传输加密</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%20%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E6%80%A7%E4%BF%9D%E6%8A%A4"><span class="nav-text">6. 其他安全性保护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%20%E5%B0%8F%E7%BB%93"><span class="nav-text">7. 小结</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/hexo-blog/js/utils.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/header-shrink.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/back2top.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/toggle-theme.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/code-block.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/main.js?1795612674935"></script>
+
+<script src="/hexo-blog/js/libs/anime.min.js?1795612674935"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/hexo-blog/js/local-search.js?1795612674935"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/hexo-blog/js/lazyload.js?1795612674935"></script>
+
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/hexo-blog/js/post/post-helper.js?1795612674935"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/hexo-blog/js/post/toc.js?1795612674935"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/hexo-blog/js/post/copyright-info.js?1795612674935"></script>
+
+        
+
+        <!-- share -->
+        
+            
+<script src="/hexo-blog/js/post/share.js?1795612674935"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/hexo-blog/js/libs/pjax.min.js?1795612674935"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+            
+<script class="custom-inject-js" src="/hexo-blog/js/custom-1.js?1795612674935" data-pjax></script>
+
+        
+    
+
+</body>
+</html>

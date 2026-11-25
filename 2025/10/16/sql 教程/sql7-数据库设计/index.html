@@ -1,0 +1,2680 @@
+<!DOCTYPE html>
+<html lang="en,zh-CN,default">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="He Junze">
+    
+    
+    <title>
+        
+            SQL 教程 | 7. 数据库设计 |
+        
+        晚亭新凉
+    </title>
+    
+<link rel="stylesheet" href="/hexo-blog/css/style.css?1795612674934">
+
+    
+        <link rel="shortcut icon" href="/hexo-blog/images/avatar_minisize.png">
+    
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/fontawesome.min.css?1795612674934">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/regular.min.css?1795612674934">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/solid.min.css?1795612674934">
+
+    
+<link rel="stylesheet" href="/hexo-blog/font/css/brands.min.css?1795612674934">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/hexo-blog/css/custom-1.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/font.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/header-wrapper.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/gallery.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/comments.css?1795612674934">
+<link rel="stylesheet" href="/hexo-blog/css/post.css?1795612674934">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"histhem.github.io","root":"/hexo-blog/","language":["en","zh-CN","default"],"path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"晚亭新凉","author":"He Junze","avatar":"/images/avatar_minisize.png","logo":"/images/avatar_minisize.png","favicon":"/images/avatar_minisize.png"},"menu":{"home":"/","archives":"/archives","library":{"children":[{"tags":"/tags || fa-solid fa-tags"},{"categories":"/categories || fa-solid fa-layer-group"}]},"links":"/links","gallery":"/gallery","about":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false,"enableTypewriter":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/HisThem","weixin":"img | /images/wechat.jpg","qq":"img | /images/qq.jpg","instagram":"https://www.instagram.com/beihe2656/profilecard/?igsh=ZnI2OXJoYzh5eGhq","500px":"https://500px.com.cn/4ae1d61984732bd4d26d1abf243175339?rs=4ae1d61984732bd4d26d1abf243175339","steam":"https://steamcommunity.com/profiles/76561199145331905/","email":"orlando.he@icloud.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm","created_datetime_icon":"fa-solid fa-file-circle-plus","updated_datetime_icon":"fa-solid fa-clock-rotate-left","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"/images/buymeacoffee.jpg","text":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"twikoo","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":"https://hejunze.netlify.app/.netlify/functions/twikoo","region":null,"version":"1.6.40"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2024,"word_count":true,"site_deploy":{"enable":true,"provider":"aliyun","url":"https://www.aliyun.com/"},"record":{"enable":true,"list":[{"code":"豫ICP备2024101982号-1","link":"https://beian.miit.gov.cn"}]}},"inject":{"enable":true,"css":[["/css/custom-1.css","/css/font.css","/css/header-wrapper.css","/css/gallery.css","/css/comments.css","/css/post.css"]],"js":[["/js/custom-1.js"]]},"root":"/hexo-blog","source_data":{"links":[{"title":"朋友们"},{"name":"悲伤虾滑蛋","link":"https://captainjack-ai.github.io/","description":"来自独一无二的B612星球","avatar":"/images/zcyavatar.jpg"}],"photos":[{"url":"https://i.postimg.cc/wvT2vYk0/DSC00941.jpg"},{"url":"https://i.postimg.cc/KjCDJkhH/DSC01202.jpg"},{"url":"https://i.postimg.cc/ZKyc0crt/DSC01209.jpg"},{"url":"https://i.postimg.cc/Wpy82Kqw/DSC01622.jpg"},{"url":"https://i.postimg.cc/9MRqN25n/20241114231518.jpg"},{"url":"https://i.postimg.cc/Yqwm8TXd/20241210163052.jpg"},{"url":"https://i.postimg.cc/J7XkNRQy/20241210163208.jpg"},{"url":"https://i.postimg.cc/2ynLrx5d/20241210163226.jpg"},{"url":"https://i.postimg.cc/9M6w6kcF/20241210163229.jpg"},{"url":"https://i.postimg.cc/fTjSP5pD/20241210163230.jpg"},{"url":"https://i.postimg.cc/0ykK1D1m/20241210163235.jpg"},{"url":"https://i.postimg.cc/DmV119qV/DSC02111.jpg"},{"url":"https://i.postimg.cc/kM2ZFWxw/DSC02255.jpg"},{"url":"https://i.postimg.cc/FFw6P1pv/DSC02344.jpg"},{"url":"https://i.postimg.cc/BQDVRs7K/DSC02423.jpg"},{"url":"https://i.postimg.cc/SxftNdhQ/DSC02438.jpg"},{"url":"https://i.postimg.cc/MGZ3cB67/DSC02484.jpg"},{"url":"https://i.postimg.cc/fbH2Yby6/DSC02558.jpg"},{"url":"https://i.postimg.cc/1tfWBZN4/DSC02588.jpg"},{"url":"https://i.postimg.cc/d1p5SS86/DSC02595.jpg"},{"url":"https://i.postimg.cc/FzSTtgp4/DSC02618.jpg"},{"url":"https://i.postimg.cc/9QZJgpMt/DSC00706.jpg"},{"url":"https://i.postimg.cc/sDtTJ8Vg/DSC00741.jpg"},{"url":"https://i.postimg.cc/xdQgwzNr/DSC00828.jpg"},{"url":"https://i.postimg.cc/q7GQ4v2N/DSC00841.jpg"},{"url":"https://i.postimg.cc/bwcRntTG/DSC01711.jpg"},{"url":"https://i.postimg.cc/k44NCFnH/DSC01756-3.jpg"},{"url":"https://i.postimg.cc/tTM34ZJ4/DSC02078.jpg"},{"url":"https://i.postimg.cc/0jKpMkKd/DSC02098.jpg"},{"url":"https://i.postimg.cc/XqPQm1dx/DSC00323.jpg"},{"url":"https://i.postimg.cc/HWvZrnR5/DSC00425.jpg"},{"url":"https://i.postimg.cc/SNXZCqbP/DSC00613.jpg"},{"url":"https://i.postimg.cc/gJSDLtSd/DSC00870.jpg"},{"url":"https://i.postimg.cc/yxDTmhtR/DSC00855.jpg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="晚亭新凉" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/hexo-blog/">
+                    <img src="/hexo-blog/images/avatar_minisize.png">
+                </a>
+            
+            <a class="site-name border-box" href="/hexo-blog/">
+               晚亭新凉
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                LIBRARY
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                TAGS
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                CATEGORIES
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/links">
+                                
+                                LINKS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/gallery">
+                                
+                                GALLERY
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/hexo-blog/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                            LIBRARY
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        TAGS
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/hexo-blog/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        CATEGORIES
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/links">
+                            
+                            LINKS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/gallery">
+                            
+                            GALLERY
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/hexo-blog/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+
+
+
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                <!-- 
+                    <div class="post-title">
+                        SQL 教程 | 7. 数据库设计
+                    </div>
+                 -->
+                <div class="post-title">
+                    SQL 教程 | 7. 数据库设计
+                </div>
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/hexo-blog/images/avatar_minisize.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">He Junze</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;
+                <span class="datetime">2025-10-16 14:47</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-clock-rotate-left"></i>&nbsp;
+                    <span class="datetime" data-updated="Wed Nov 25 2026 21:16:06 GMT+0800">2026-11-25 21:16</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/hexo-blog/categories/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/">数据管理基础</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/hexo-blog/tags/SQL/">SQL</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>10.7k Words</span>
+            </span>
+        
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <blockquote>
+<p>课程讲义 PDF 未随本文转载。</p>
+</blockquote>
+<p>‘数据库设计’是指 对于一个给定的应用环境，构造（设计）优化的数据库 <strong> 逻辑模式 </strong> 和<strong>物理结构 </strong>，并<strong> 据此建立数据库及其应用系统</strong>，使之能够有效地存储和管理数据，满足各种用户的应用需求，包括信息管理要求和数据操作要求。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>信息管理要求</strong>：在数据库中应该存储和管理哪些数据对象。</p>
+</li>
+<li class="lvl-2">
+<p><strong>数据操作要求</strong>：对数据对象需要进行哪些操作，如查询、增、删、改、统计等操作。</p>
+</li>
+</ul>
+<p>数据库设计的目标是为用户和各种应用系统提供一个 <strong> 信息基础设施 </strong> 和<strong>高效率的运行环境</strong>。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>高效率的运行环境</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据库数据的存取效率高</li>
+<li class="lvl-6">数据库存储空间的利用率高</li>
+<li class="lvl-6">数据库系统运行管理的效率高</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-1- 数据库设计概述">7.1 数据库设计概述</h2>
+<h3 id="7-1-1- 数据库设计的特点">7.1.1 数据库设计的特点</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>数据库建设的基本规律：</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">“三分技术，七分管理，十二分基础数据” 这句话是业界经验的总结，强调了各个方面的重要性。
+<ul class="lvl-4">
+<li class="lvl-10"><strong>管理 (Management):</strong>
+<ul class="lvl-6">
+<li class="lvl-14">包括数据库建设项目的管理。</li>
+<li class="lvl-14">也包括企业（即应用部门）自身的业务流程管理。</li>
+</ul>
+</li>
+<li class="lvl-10"><strong>基础数据 (Basic Data):</strong>
+<ul class="lvl-6">
+<li class="lvl-14">指的是数据的收集、整理、组织，并且要持续进行更新维护。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>结构（数据）设计和行为（处理）设计相结合：</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">现代数据库设计强调将数据库的 <strong> 结构设计 </strong>（关注数据如何组织）与<strong> 数据处理设计</strong>（关注数据如何操作和使用，即行为）紧密地结合起来。</li>
+<li class="lvl-6"><strong>过去存在结构和行为分离设计的问题：</strong>
+<ul class="lvl-4">
+<li class="lvl-10"><strong>传统软件工程：更侧重行为设计 (Heavy on Behavior Design):</strong>
+<ul class="lvl-6">
+<li class="lvl-14">往往忽视了对应用中数据内在含义（语义）的分析和抽象。</li>
+<li class="lvl-14">只要有可能，就尽量推迟数据结构设计的决策。</li>
+</ul>
+</li>
+<li class="lvl-10"><strong>早期数据库设计：更侧重结构设计 (Heavy on Structure Design):</strong>
+<ul class="lvl-6">
+<li class="lvl-14">集中于研究数据模型和数据库建模方法。</li>
+<li class="lvl-14">相对忽视了用户行为（即数据处理需求）对数据库结构设计应有的影响。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-1-2- 数据库设计方法">7.1.2 数据库设计方法</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>大型数据库设计 (Large-Scale Database Design):</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">是一项涉及多学科的综合性技术，可以看作一个庞大的工程项目。</li>
+<li class="lvl-6">要求设计者具备多方面的知识和技术，主要包括：
+<ul class="lvl-4">
+<li class="lvl-10">计算机的基础知识</li>
+<li class="lvl-10">软件工程的原理和方法</li>
+<li class="lvl-10">程序设计的方法和技巧</li>
+<li class="lvl-10">数据库的基本知识</li>
+<li class="lvl-10">数据库设计技术</li>
+<li class="lvl-10">相关应用领域的知识</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>数据库设计方法</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>手工试凑法:</strong> (结合手工操作与个人经验)
+<ul class="lvl-4">
+<li class="lvl-10">设计质量与设计人员的经验和水平有直接关系。</li>
+<li class="lvl-10">缺乏科学理论和工程方法的支持，使得工程的质量难以保证。</li>
+<li class="lvl-10">数据库运行一段时间后，常常会不同程度地发现各种问题，这增加了后续的维护代价。</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>规范设计法:</strong> (基本思想：过程迭代和逐步求精)
+<ul class="lvl-4">
+<li class="lvl-10">新奥尔良（New Orleans）方法</li>
+<li class="lvl-10">基于 E-R 模型（实体 - 关系模型）的数据库设计方法</li>
+<li class="lvl-10">基于 3NF（第三范式）的设计方法</li>
+<li class="lvl-10">面向对象的数据库设计方法</li>
+<li class="lvl-10">统一建模语言（UML）方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-1-3- 数据库设计的基本步骤">7.1.3 数据库设计的基本步骤</h3>
+<p>数据库设计分 6 个阶段：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>需求分析</p>
+</li>
+<li class="lvl-2">
+<p>概念结构设计</p>
+</li>
+<li class="lvl-2">
+<p>逻辑结构设计</p>
+</li>
+<li class="lvl-2">
+<p>物理结构设计</p>
+</li>
+<li class="lvl-2">
+<p>数据库实施</p>
+</li>
+<li class="lvl-2">
+<p>数据库运行和维护</p>
+</li>
+</ul>
+<p>需求分析和概念设计独立于任何数据库管理系统</p>
+<p>逻辑设计和物理设计与选用的数据库管理系统密切相关</p>
+<p>图例：数据库设计步骤</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-001.png"
+                         alt="课程笔记配图"
+                 >
+<ol>
+<li class="lvl-3">
+<p>需求分析阶段</p>
+<ul class="lvl-2">
+<li class="lvl-6">是否充分与准确，决定了构建数据库的速度和质量</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>概念结构设计阶段</p>
+<ul class="lvl-2">
+<li class="lvl-6">通过对用户需求进行综合、归纳与抽象，形成一个独立于具体数据库管理系统的概念模型</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>逻辑结构设计阶段</p>
+<ul class="lvl-2">
+<li class="lvl-6">将概念结构转换为某个数据库管理系统所支持的数据模型，并对其进行优化</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>物理结构设计阶段</p>
+<ul class="lvl-2">
+<li class="lvl-6">为逻辑数据结构选取一个最适合应用环境的物理结构，包括存储结构和存取方法</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>数据库实施阶段</p>
+<ul class="lvl-2">
+<li class="lvl-6">根据逻辑设计和物理设计的结果构建数据库</li>
+<li class="lvl-6">编写与调试应用程序</li>
+<li class="lvl-6">组织数据入库并进行试运行</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>数据库运行和维护阶段</p>
+<ul class="lvl-2">
+<li class="lvl-6">经过试运行后即可投入正式运行</li>
+<li class="lvl-6">在运行过程中必须不断对其进行评估、调整与修改</li>
+</ul>
+</li>
+</ol>
+<p>设计一个完善的数据库应用系统 往往是上述 6 个阶段的不断反复；</p>
+<p>这个设计步骤既是数据库设计的过程，也包括了数据库应用系统的设计过程；</p>
+<p>把数据库的设计和对数据库中数据处理的设计紧密结合起来，将这两个方面的需求分析、抽象、设计、实现在各个阶段同时进行，相互参照，相互补充，以完善两方面的设计。</p>
+<p>我们主要学习在 <strong> 逻辑设计阶段 </strong> 的内容。</p>
+<h2 id="7-2- 需求分析">7.2 需求分析</h2>
+<h3 id="7-2-1- 需求分析的任务">7.2.1 需求分析的任务</h3>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p><strong>数据库设计定义:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8">针对特定应用环境，构造优化的数据库逻辑模式和物理结构。</li>
+<li class="lvl-8">建立数据库及其应用系统，以有效存储和管理数据。</li>
+<li class="lvl-8">满足用户信息管理要求（存储哪些数据对象）和数据操作要求（如何操作数据）。</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>数据库设计的目标:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8">为用户和应用系统提供信息基础设施。</li>
+<li class="lvl-8">创造高效率的运行环境，包括：
+<ul class="lvl-4">
+<li class="lvl-12">数据存取效率高。</li>
+<li class="lvl-12">存储空间利用率高。</li>
+<li class="lvl-12">系统运行管理效率高。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>7.1.1 数据库设计的特点:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8"><strong>基本规律:</strong> &quot; 三分技术，七分管理，十二分基础数据 &quot;。强调管理和基础数据（收集、整理、组织、更新）的重要性。</li>
+<li class="lvl-8"><strong>结构（数据）设计和行为（处理）设计相结合:</strong>
+<ul class="lvl-4">
+<li class="lvl-12">需将数据库结构设计与数据处理设计紧密结合。</li>
+<li class="lvl-12">传统软件工程偏重行为设计，早期数据库设计偏重结构设计，现代观点是两者结合。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>7.1.2 数据库设计方法:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8"><strong>知识要求:</strong> 计算机基础、软件工程原理、编程技巧、数据库知识、数据库设计技术、应用领域知识。</li>
+<li class="lvl-8"><strong>手工试凑法:</strong>
+<ul class="lvl-4">
+<li class="lvl-12">质量依赖设计者经验。</li>
+<li class="lvl-12">缺乏科学理论和工程方法支持，质量难保证。</li>
+<li class="lvl-12">易导致后期问题，增加维护代价。</li>
+</ul>
+</li>
+<li class="lvl-8"><strong>规范设计法 (基本思想：过程迭代和逐步求精):</strong>
+<ul class="lvl-4">
+<li class="lvl-12">新奥尔良（New Orleans）方法</li>
+<li class="lvl-12">基于 E-R 模型的设计方法</li>
+<li class="lvl-12">基于 3NF（第三范式）的设计方法</li>
+<li class="lvl-12">面向对象的数据库设计方法</li>
+<li class="lvl-12">统一建模语言（UML）方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>7.1.3 数据库设计的基本步骤 (6 个阶段):</strong></p>
+<ol>
+<li class="lvl-8"><strong>需求分析:</strong> 核心是准确收集用户在数据和处理上的需求，形成需求说明书。独立于 DBMS。</li>
+<li class="lvl-8"><strong>概念结构设计:</strong> 将需求抽象为独立于 DBMS 的概念模型（如 E-R 图）。</li>
+<li class="lvl-8"><strong>逻辑结构设计:</strong> 将概念模型转换为特定 DBMS 支持的数据模型（如关系模型），并优化。与 DBMS 相关。</li>
+<li class="lvl-8"><strong>物理结构设计:</strong> 为逻辑模型选择合适的物理结构（存储结构、存取方法）。与 DBMS 相关。</li>
+<li class="lvl-8"><strong>数据库实施:</strong> 建立数据库、编程调试、数据入库、试运行。</li>
+<li class="lvl-8"><strong>数据库运行和维护:</strong> 评价、调整、修改。</li>
+</ol>
+<ul class="lvl-2">
+<li class="lvl-8">这是一个迭代反复的过程，数据库设计与应用系统设计紧密结合。</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>参与数据库设计的人员:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8">系统分析人员、数据库设计人员 (全程, 决定质量)</li>
+<li class="lvl-8">数据库管理员 (DBA)、用户代表 (需求分析, 运行维护)</li>
+<li class="lvl-8">应用开发人员 (程序员、操作员) (实施阶段)</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>7.1.4 数据库设计过程中的各级模式:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8"><strong>需求分析阶段:</strong> 综合用户应用需求。</li>
+<li class="lvl-8"><strong>概念设计阶段:</strong> 形成概念模式 (如 E-R 图)，独立于 DBMS。</li>
+<li class="lvl-8"><strong>逻辑设计阶段:</strong> 形成数据库逻辑模式 (如关系模式) 和外模式 (视图)。</li>
+<li class="lvl-8"><strong>物理设计阶段:</strong> 形成数据库内模式 (物理存储安排、索引)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-2- 需求分析 -2">7.2 需求分析</h2>
+<p><strong>定义:</strong> 分析用户要求，是设计的起点，准确性至关重要。</p>
+<h3 id="7-2-1- 需求分析的任务 -2">7.2.1 需求分析的任务</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>调查现实世界处理对象。</p>
+</li>
+<li class="lvl-2">
+<p>了解原系统工作概况。</p>
+</li>
+<li class="lvl-2">
+<p>明确用户各种需求：</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>信息要求:</strong> 需要什么信息，导出需要存储哪些数据。</li>
+<li class="lvl-6"><strong>处理要求:</strong> 需要完成哪些处理功能，性能要求。</li>
+<li class="lvl-6"><strong>安全性与完整性要求。</strong></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>确定新系统功能，并考虑未来扩展。</p>
+</li>
+<li class="lvl-2">
+<p><strong>确定需求的难点:</strong> 用户不熟悉计算机，设计人员不熟悉业务。</p>
+</li>
+<li class="lvl-2">
+<p><strong>解决方法:</strong> 设计人员与用户深入交流。</p>
+</li>
+</ul>
+<h3 id="7-2-2- 需求分析的方法">7.2.2 需求分析的方法</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>调查用户需求的步骤:</strong></p>
+<ol>
+<li class="lvl-7">调查组织机构情况、各部门职责。</li>
+<li class="lvl-7">调查各部门业务活动（输入、加工、输出数据）。</li>
+<li class="lvl-7">协助用户明确新系统要求。</li>
+<li class="lvl-7">确定新系统边界（哪些功能由计算机完成，哪些由人工完成）。</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p><strong>常用调查方法:</strong> 跟班作业、开调查会、请专人介绍、询问、设计调查表、查阅记录。</p>
+</li>
+<li class="lvl-2">
+<p><strong>分析与表达:</strong> 常用结构化分析方法 (SA 方法，自顶向下、逐层分解)。需求分析报告需用户认可。</p>
+</li>
+</ul>
+<h3 id="7-2-3- 数据字典">7.2.3 数据字典</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据字典是关于数据库中数据的描述，即 <strong> 元数据</strong>，不是数据本身。</p>
+</li>
+<li class="lvl-2">
+<p>数据字典在需求分析阶段建立，并不断完善。</p>
+</li>
+<li class="lvl-2">
+<p>数据字典是进行详细的数据收集和数据分析所获得的主要结果。</p>
+</li>
+<li class="lvl-2">
+<p><strong>数据字典的内容:</strong>（了解即可）</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>数据项:</strong> 最小数据单位。描述 ={名称, 含义, 别名, 类型, 长度, 取值范围, 取值含义, 与其他数据项关系, 数据项间联系}。</li>
+<li class="lvl-6"><strong>数据结构:</strong> 数据间的组合关系。描述 ={名称, 含义, 组成 (数据项 / 数据结构)}。</li>
+<li class="lvl-6"><strong>数据流:</strong> 数据结构在系统内传输路径。描述 ={名称, 说明, 来源, 去向, 组成, 平均 / 高峰期流量}。</li>
+<li class="lvl-6"><strong>数据存储:</strong> 数据结构停留或保存处。描述 ={名称, 说明, 编号, 输入 / 输出数据流, 组成, 数据量, 存取频度 / 方式}。</li>
+<li class="lvl-6"><strong>处理过程:</strong> 用判定表 / 树描述具体逻辑。数据字典描述 ={处理过程名, 说明, 输入 / 输出数据流, 处理简要说明 (功能, 处理要求如频度 / 响应时间)}。</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-3- 概念结构设计">7.3 概念结构设计</h2>
+<blockquote>
+<p>课程讲义 PDF 未随本文转载。</p>
+</blockquote>
+<p>将需求分析得到的用户需求抽象为信息结构（即概念模型）的过程就是概念结构设计。</p>
+<h3 id="7-3-1- 概念模型的特点">7.3.1 概念模型的特点</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>真实充分反映现实世界。</p>
+</li>
+<li class="lvl-2">
+<p>易于理解 (方便与用户交流)。</p>
+</li>
+<li class="lvl-2">
+<p>易于更改和扩充。</p>
+</li>
+<li class="lvl-2">
+<p>易于向各种数据模型转换。</p>
+</li>
+<li class="lvl-2">
+<p>常用工具: <strong>E-R 模型</strong>。</p>
+</li>
+</ul>
+<h3 id="7-3-2-E-R 模型 - 实体 - 关系模型">7.3.2 E-R 模型 (实体 - 关系模型)</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>回顾基本概念：</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>实体 (Entity):</strong>
+<ul class="lvl-4">
+<li class="lvl-10">客观存在并可相互区别的事物称为实体。可以是具体的人、事、物或抽象的概念。</li>
+<li class="lvl-10">每一个实体有一个“<em>实体名</em>”，同类实体具有相同的实体名。</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>属性 (Attribute):</strong>
+<ul class="lvl-4">
+<li class="lvl-10">实体具有的某一特性。每一个属性有一个‘<em>属性名</em>’，在同一个实体内属性名互不相同。</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>码 (Key):</strong>
+<ul class="lvl-4">
+<li class="lvl-10">唯一标识实体的属性集。</li>
+<li class="lvl-10">在一个实体集中，可以通过‘码’的取值来区分不同的实体。</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>实体型 (Entity Type):</strong>
+<ul class="lvl-4">
+<li class="lvl-10">用实体名及其所有属性名的集合来抽象和刻画同类实体</li>
+<li class="lvl-10">实体的实体名及其所有属性名的集合，称为该实体的‘<em>实体型</em>’</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>实体值 (Entity Value):</strong>
+<ul class="lvl-4">
+<li class="lvl-10">实体中的属性可以有值，一个实体的所有属性值的集合被称为该实体的‘实体值’。（也被称为‘<em>实体实例</em>’，Entity Instance）</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>实体集 (Entity Set):</strong>
+<ul class="lvl-4">
+<li class="lvl-10">同一实体型的实体集合。</li>
+<li class="lvl-10">同一个实体集中的所有实体，具有相同的实体型但实体值互不相同。</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>联系 (Relationship):</strong>
+<ul class="lvl-4">
+<li class="lvl-10">现实世界中事物内部以及事物之间的联系，在信息世界中反映为实体（型）内部的联系和实体（型）之间的联系。</li>
+<li class="lvl-10">每一个联系有一个‘<em>联系名</em>’</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="实体与联系">实体与联系</h4>
+<p>实体 &amp; 实体名实体型 &amp; 实体值实体集：一组具有相同实体型的实体的集合</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>每一个实体集也有一个名字，实体的实体名，通常也被作为对应实体集的名字</p>
+</li>
+</ul>
+<p><strong>实体型是模板，实体值是实例，实体集是一堆实例的集合。</strong></p>
+<h4 id="联系的分类">联系的分类</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>二元联系</strong>：两个实体型（实体集）间的联系</p>
+<ul class="lvl-2">
+<li class="lvl-6">一对一 (1:1)</li>
+<li class="lvl-6">一对多 (1:n)</li>
+<li class="lvl-6">多对多 (m:n)</li>
+<li class="lvl-6">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-002.png"
+                         alt="课程笔记配图"
+                 >
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>多元联系</strong>（两个以上实体型）也存在 1:1, 1:n, m:n。</p>
+<ul class="lvl-2">
+<li class="lvl-6">一门课程可以有若干个教师讲授、使用若干本参考书，而每一个教师只讲授一门课程，每一本参考书只供一门课程使用，则课程与教师、参考书之间是一对多的联系。
+<ul class="lvl-4">
+<li class="lvl-10">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-003.png"
+                         alt="课程笔记配图" width="200"
+                 >
+</li>
+</ul>
+</li>
+<li class="lvl-6">一个供应商可以向多个项目供应多种零件，每个项目可以使用多个供应商供应的多种零件，每种零件可由不同供应商供给多个项目，供应商、项目、零件三者之间是多对多的联系。
+<ul class="lvl-4">
+<li class="lvl-10">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-004.png"
+                         alt="课程笔记配图" width="200"
+                 >
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>一元联系</strong>（单个实体型内）也存在 1:1, 1:n, m:n。</p>
+<ul class="lvl-2">
+<li class="lvl-6">例如，职工实体型内部具有领导与被领导的联系，即某一职工（干部）“领导”若干名职工，而一个职工仅被另外一个职工直接领导，因此这是一对多的联系。
+<ul class="lvl-4">
+<li class="lvl-10">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-005.png"
+                         alt="课程笔记配图" width="100"
+                 >
+</li>
+<li class="lvl-10"><em>注：“领导”是关系名，一元联系中的实体只有职工</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="联系的度">联系的度</h4>
+<p>联系的度：参与联系的实体型的数目</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>2 个实体型之间的联系度为 2，也称为二元联系</p>
+</li>
+<li class="lvl-2">
+<p>3 个实体型之间的联系度为 3，称为三元联系</p>
+</li>
+<li class="lvl-2">
+<p>N 个实体型之间的联系度为 N，也称为 N 元联系</p>
+</li>
+</ul>
+<p>参与到一个练习中的实体的个数，被称为联系的“度”</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>“领导”联系：一元联系，联系的度是 2</p>
+</li>
+</ul>
+<h4 id="E-R- 图">E-R 图</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>E-R 图表示法:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">实体型: 矩形。</li>
+<li class="lvl-6">属性: 椭圆形 (用无向边连接到实体型)。
+<ul class="lvl-4">
+<li class="lvl-10">用下划线表示主属姓名</li>
+</ul>
+</li>
+<li class="lvl-6">联系: 菱形 (用无向边连接各有关实体型，同时在无向边旁标上联系的类型)。联系也可有属性。
+<ul class="lvl-4">
+<li class="lvl-10">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-006.png"
+                         alt="课程笔记配图" width="300"
+                 >
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>在阅读 E-R 模型时，只有同时关注 <em> 实体 A</em>、<em>实体 B</em>、<em>实体 A 与 B 之间的联系 </em> 三个值才有意义，仅关注一个实体和一个关系是没有意义的。（如仅关注上图中的“供应商”和“供应”是揣摩不出含义的）</p>
+<h3 id="7-3-3- 扩展的 E-R 模型">7.3.3 扩展的 E-R 模型</h3>
+<h4 id="ISA- 联系">ISA 联系</h4>
+<p>有的实体型是某个实体型的子类型，这种父类 - 子类联系称为 ISA 联系，表示“is a”语义。用△表示。</p>
+<h5 id="ISA 联系的性质">ISA 联系的性质</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>子类继承了父类的所有属性</p>
+</li>
+<li class="lvl-2">
+<p>子类也可以有自己的属性。</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-007.png"
+                         alt="课程笔记配图" width="300"
+                 >
+<h5 id="分类属性">分类属性</h5>
+<p>分类属性是父实体型的一个属性；根据分类属性的值把父实体型中的实体分派到子实体型中</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-008.png"
+                         alt="课程笔记配图" width="400"
+                 >
+<h6 id="不相交约束与可重叠约束">不相交约束与可重叠约束</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>不相交约束 (X)</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">父实体不能同时属于多个子类，最多只能属于一个子类实体集。</li>
+<li class="lvl-6">用 ISA 联系符号三角形的一个叉号“X&quot; 来表示。</li>
+<li class="lvl-6">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-009.png"
+                         alt="课程笔记配图"
+                 >
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>可重叠约束:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">父实体可同时属于多个子类。</li>
+<li class="lvl-6">子类符号中没有叉号表示是可重叠的。</li>
+</ul>
+</li>
+</ul>
+<h6 id="完备性约束">完备性约束</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>完全特化 (双线):</strong> 父实体必须是某个子类实体。</p>
+</li>
+<li class="lvl-2">
+<p><strong>部分特化 (单线):</strong> 父实体不必是子类实体。</p>
+</li>
+<li class="lvl-2">
+<p>完全特化用父类到子类的双线连接来表示</p>
+</li>
+<li class="lvl-2">
+<p>部分特化用父类到子类的单线连接来表示</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-010.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="基数约束">基数约束</h4>
+<p>基数约束表示一个 <strong> 实体在联系中出现的最少和最多次数</strong>，常用 <code>min..max</code> 形式表示，要求满足 0 ≤ min ≤ max。</p>
+<p>常见写法示例：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>0..1</code>：可选参与，最多一次</p>
+</li>
+<li class="lvl-2">
+<p><code>1..1</code>：强制参与，且仅一次</p>
+</li>
+<li class="lvl-2">
+<p><code>0..*</code>：可选参与，可多次</p>
+</li>
+<li class="lvl-2">
+<p><code>1..*</code>：强制参与，可多次其中 * 表示无上限（无限次）</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-011.png"
+                         alt="课程笔记配图"
+                 >
+<p>这是书上的例子。但是用数值 3、20、30 等来表示基数约束中确定的最少或最多次数并不常见，<strong>数字的位置也不正确</strong>（写反了）。接下来我们将给出常用的规范表示.</p>
+<h5 id="基数约束的意义">基数约束的意义</h5>
+<h6 id="1- 参与约束（Participation-Constraint）">1. 参与约束（Participation Constraint）</h6>
+<p>根据 最小值 min 的取值，分为：</p>
+<table>
+<thead>
+<tr>
+<th><strong>最小值（min）</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>非强制参与</td>
+<td>实体可参与联系，也可不参与（Optional）</td>
+</tr>
+<tr>
+<td>1</td>
+<td>强制参与</td>
+<td>每个实体必须至少参与一次该联系（Mandatory）</td>
+</tr>
+</tbody>
+</table>
+<h6 id="2- 参与次数（Participation-Count）">2. 参与次数（Participation Count）</h6>
+<p>根据 最大值 max 的取值，分为：</p>
+<table>
+<thead>
+<tr>
+<th><strong>最大值（max）</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>单值参与</td>
+<td>每个实体在联系中最多出现一次（Single）</td>
+</tr>
+<tr>
+<td>*</td>
+<td>多值参与</td>
+<td>每个实体可以多次出现在联系中（Multiple）</td>
+</tr>
+</tbody>
+</table>
+<h5 id="基数约束的表示">基数约束的表示</h5>
+<p>实体 <strong>E</strong> 在联系 <strong>R</strong> 中的基数约束可被表示为 <strong>card(E, R)</strong>，可以用一个数对 <strong>min..max</strong> 来表示。</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-012.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="基数约束示例">基数约束示例</h5>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-013.png"
+                         alt="课程笔记配图"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-014.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="函数关系与基数约束">函数关系与基数约束</h5>
+<p>以二元联系为例，可以根据实体型在联系中的‘最大参与基数 max’的取值来确定联系上的‘函数关系’。</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-015.png"
+                         alt="课程笔记配图"
+                 >
+<p>联系上的‘基数约束’ 包含‘函数关系’ 约束，并具有比函数关系更多的语义信息。</p>
+<p>一对一、多对多、一对多的基数约束实例：</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-016.png"
+                         alt="课程笔记配图"
+                 >
+<p>可以通过基数约束来描述原本语义不太好描述的“函数关系”。</p>
+<p>例如：对于普通的商品销售来说，使用‘函数关系’或者‘基数约束’区别不大（如下图所示）</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-017.png"
+                         alt="课程笔记配图"
+                 >
+<p>如果被销售的是一件具体的商品（如汽车，房子等），使用‘函数关系’则可能存在语义歧义问题。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在使用‘函数关系’时，在语义理解上可能产生歧义！</p>
+</li>
+<li class="lvl-2">
+<p>如果使用‘基数约束’，那么可以很清楚地描述。如新车销售：一辆车在 order 联系中最多只能出现一次 (即只能销售一次)</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-018.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="Part-of- 联系">Part-of 联系</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Part-of 联系:</strong> 描述一个实体型是另一个实体型的一部分。</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>非独占联系:</strong> 整体破坏，部分仍可存在 (用 <em> 非强制参与 </em> 联系表示)。</li>
+<li class="lvl-6"><strong>独占联系:</strong> 整体破坏，部分不能存在 (用 <em> 弱实体 </em> 类型和 <em> 识别联系 </em> 表示)。</li>
+</ul>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-019.png"
+                         alt="课程笔记配图" width="400"
+                 >
+<h5 id="弱实体型和识别联系">弱实体型和识别联系</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>弱实体型:</strong> 其存在依赖于其他实体型的存在。用双矩形表示。</p>
+<ul class="lvl-2">
+<li class="lvl-6">否则成为强实体型</li>
+<li class="lvl-6">此外，还使用指向识别联系的箭头来表示弱实体型</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>识别联系:</strong> 标识弱实体的联系。用双菱形表示。</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-020.png"
+                         alt="课程笔记配图" width="400"
+                 >
+<p>还款依赖与贷款，如果贷款不存在，则还款也没有意义。因此还款是弱实体型，识别联系即为还贷</p>
+<h4 id="属性的划分">属性的划分</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><em>根据属性在区分不同实体中的作用来划分</em></p>
+<ol>
+<li class="lvl-7"><strong>标识符</strong>（Identifier）
+<ul class="lvl-4">
+<li class="lvl-10">在关系数据库中，又被称为‘关键字’(key)、键、码、候选关键字(candidate key)、候选键、候选码</li>
+</ul>
+</li>
+<li class="lvl-7"><strong>描述符</strong>（Descriptor）
+<ul class="lvl-4">
+<li class="lvl-10">除标识符之外的其他属性都被称为描述符</li>
+</ul>
+</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p><em>根据属性域的定义来划分</em><br>
+3. <strong>单值属性</strong>（single-valued attribute）<br>
+- 属性只能取定义域内的一个值（可以是一个原子值，<mark>也可以是一个组合值</mark>）<br>
+4. <strong>组合属性</strong>（a composite attribute）<br>
+- 由一组简单属性组成，用来共同描述一个属性<br>
+5. <strong>多值属性</strong>（a multi-valued attribute）<br>
+- 对于一个实体实例，可以取多个值</p>
+</li>
+</ul>
+<p>在一个实体集中，可能存在 <strong> 多个 identifier</strong>，只能从中选择一个作为 <strong>primary identifier</strong> 并用<em> 下划线 </em> 在 ER 图中将其标识出来。</p>
+<p>实例：</p>
+<p>组合属性 student_name：</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-021.png"
+                         alt="课程笔记配图"
+                 >
+<p>多值属性 hobbies：</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-022.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="多值属性的表示方法">多值属性的表示方法</h5>
+<p><em>方法一</em>：用实体型与属性之间的‘双线段’来表示多值属性（即上面的示例</p>
+<p><em>方法二</em>：使用属性基数表示（即下一个知识点）</p>
+<h4 id="属性基数">属性基数</h4>
+<p>属性的基数约束可以用 (x, y) 表示，其中：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>x 表示 <strong> 最小值 </strong>（属性值是否<strong> 必须存在</strong>）</p>
+</li>
+<li class="lvl-2">
+<p>y 表示 <strong> 最大值 </strong>（属性值是否<strong> 可以有多个</strong>）</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>表达式</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(0, ?)</strong></td>
+<td>x = 0 表示该属性 <strong> 可以为空 </strong>，即某个实体<strong> 可以没有该属性的值</strong>（可选属性）</td>
+</tr>
+<tr>
+<td><strong>(1, ?)</strong></td>
+<td>x = 1 表示该属性 <strong> 不允许为空 </strong>，即<strong> 每个实体必须有该属性的值</strong>（必选属性）</td>
+</tr>
+<tr>
+<td><strong>(?, 1)</strong></td>
+<td>y = 1 表示该属性是 <strong> 单值属性 </strong>，即每个实体<strong> 至多只能有一个该属性的值</strong>（如姓名）</td>
+</tr>
+<tr>
+<td><strong>(?, *)</strong></td>
+<td>y = * 表示该属性是 <strong> 多值属性 </strong>，即每个实体<strong> 可以有多个该属性的值</strong>（如电话号码、邮箱</td>
+</tr>
+</tbody>
+</table>
+<p>示例：</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-023.png"
+                         alt="课程笔记配图"
+                 >
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>每一位‘学生’必须有且仅有唯一的一个学号 sid 和一个姓名 student_name</p>
+</li>
+<li class="lvl-2">
+<p>每一个 student_name 必须包含一个 lname 和一个 fname，可以没有或者包含一个 midinitial。</p>
+</li>
+</ul>
+<p>示例 2：</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-024.png"
+                         alt="课程笔记配图"
+                 >
+<p>当有了属性基数约束后，就不需要再用 ‘双线段’ 来表示多值属性了。</p>
+<h4 id="E-R- 模型的设计">E-R 模型的设计</h4>
+<p>E-R 模型的设计任务</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>标识系统中的 实体 、属性 与 联系</p>
+</li>
+<li class="lvl-2">
+<p>E-R 图表示</p>
+</li>
+</ul>
+<p>E-R 模型的设计选择</p>
+<p>对于现实世界中的某个概念，我们应该将它抽象为：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>实体 or 属性 ？</p>
+</li>
+<li class="lvl-2">
+<p>实体 or 联系 ？</p>
+</li>
+<li class="lvl-2">
+<p>二元联系 or 三（多）元联系 ？</p>
+</li>
+<li class="lvl-2">
+<p>联系的函数关系 ？</p>
+<ul class="lvl-2">
+<li class="lvl-6">基于现实世界中的语义约束来定义</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>属性的依附对象：实体 or 联系 ？</p>
+<ul class="lvl-2">
+<li class="lvl-6">实体 (集) 中的属性
+<ul class="lvl-4">
+<li class="lvl-10">是该实体的内在特征，不会因为某些联系的出现而产生改变或消亡</li>
+</ul>
+</li>
+<li class="lvl-6">联系上的属性
+<ul class="lvl-4">
+<li class="lvl-10">用于描述因联系的发生而需要记录、存储下来的信息</li>
+<li class="lvl-10">其值会随着联系的产生而出现，也会随着联系的消亡而消亡</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="实体 -or- 属性？">实体 or 属性？</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><em>实体</em>：需要进一步多方面的描述信息</p>
+</li>
+<li class="lvl-2">
+<p><em>属性</em>：单一的描述值（非结构化的单值信息）</p>
+</li>
+</ul>
+<p>现实世界中的某个概念, 究竟是被抽象为 ER 模型中的一个‘实体’，还是某个实体上的一个‘属性’，取决于其取值情况。</p>
+<p>例如：学生的身份证号码</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果用户只需要访问学生的身份证号码，那么可以将‘身份证号码’作为‘学生’实体的一个属性</p>
+</li>
+<li class="lvl-2">
+<p>如果还需要访问身份证相关的其他信息，如签发机关、有效期限等，则必须将与身份证相关的身份证号码、签发机关、有效期限等信息聚合成一个‘身份证’实体，再通过‘学生’和‘身份证’之间的联系来建立人和身份证之间的拥有关系。</p>
+</li>
+</ul>
+<h5 id="实体 -or- 联系？">实体 or 联系？</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><em>实体</em>：可以独立存在的持久对象。这些对象可以是有形的（如人、物体等），也可以是无形或抽象的（如组织机构、地理位置等）</p>
+</li>
+<li class="lvl-2">
+<p><em>联系 </em>：因为某种需要或某件事情的发生而产生的信息，<mark> 通常与现实世界中的多个对象有关</mark></p>
+</li>
+</ul>
+<p>有些时候，现实世界中的某些事件 (Event) 也可以被抽象为模型中的<br>
+‘实体’概念，例如：商品销售</p>
+<ol>
+<li class="lvl-3">
+<p>如果是实体店的商品零售，那么可以用商品、顾客、销售商等之间的二元或多元联系来表示</p>
+</li>
+<li class="lvl-3">
+<p>如果是大宗商品或者网络销售，买卖双方之间通常都会签订销售合同或订单(Order)，那么也可以将合同或订单抽象为‘实体’，再通过订单实体与顾客、商品、销售商等实体之间的若干个二元联系来建立买卖双方的供销关系。</p>
+</li>
+</ol>
+<h5 id="二元联系 -or- 三（多）元联系 -？">二元联系 or 三（多）元联系 ？</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>取决于一个联系的语义描述需要，以及因此而涉及到的实体的个数</p>
+</li>
+<li class="lvl-2">
+<p>在三 (多) 元联系中，在下述情况下也可以考虑采用若干个二元联系来实现：“用户只需要使用它们之间的两两联系，且不会出现二义性（歧义性）”</p>
+</li>
+<li class="lvl-2">
+<p>或者，直接将联系抽象为‘实体’，再在该‘联系实体’与其他实体之间建立若干个二元联系</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-025.png"
+                         alt="课程笔记配图"
+                 >
+<h3 id="7-3-4- 概念结构设计方法与步骤">7.3.4 概念结构设计方法与步骤</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>设计方法:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>自顶向下:</strong> 先定义全局框架，再逐步细化。</li>
+<li class="lvl-6"><strong>自底向上:</strong> 先定义各局部应用，再集成。</li>
+<li class="lvl-6"><strong>逐步扩张:</strong> 从核心概念结构向外扩充。</li>
+<li class="lvl-6"><strong>混合策略:</strong> 常用自顶向下需求分析，自底向上设计概念结构。</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>实体与属性的划分原则:</strong></p>
+<ol>
+<li class="lvl-7">属性必须是不可分的原子数据项，不能再有需要描述的性质。</li>
+<li class="lvl-7">属性不能与其他实体具有联系。</li>
+</ol>
+<ul class="lvl-2">
+<li class="lvl-7">能作为属性的尽量作为属性，以简化 E-R 图。</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>E-R 图的集成 (自底向上时):</strong></p>
+<ol>
+<li class="lvl-8"><strong>合并 E-R 图，解决冲突:</strong>
+<ul class="lvl-4">
+<li class="lvl-10"><strong>属性冲突:</strong> 属性域 (类型、范围、单位) 不同。</li>
+<li class="lvl-10"><strong>命名冲突:</strong> 同名异义，异名同义 (实体、联系、属性名)。</li>
+<li class="lvl-10"><strong>结构冲突:</strong> 同一对象抽象不同 (实体 vs 属性)，实体属性不完全相同，联系类型不同。</li>
+</ul>
+</li>
+<li class="lvl-8"><strong>修改和重构初步 E-R 图，消除冗余:</strong>
+<ul class="lvl-4">
+<li class="lvl-10">冗余数据: 可由基本数据导出。</li>
+<li class="lvl-10">冗余联系: 可由其他联系导出。</li>
+<li class="lvl-10">用分析方法或规范化理论辅助消除。注意：并非所有冗余都必须消除，有时为效率保留。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>课程讲义 PDF 未随本文转载。</p>
+</blockquote>
+<h2 id="7-4- 逻辑结构设计">7.4 逻辑结构设计</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>任务:</strong> 将前一阶段设计得到的概念数据模型 (EE-R 模型) 转换成用户所选择的数据库管理系统 (DBMS) 支持的逻辑数据模型。</p>
+<ul class="lvl-2">
+<li class="lvl-6">由于在概念设计阶段选择的是 EE-R 模型，而目前最流行的是关系数据库系统，因此，数据库的逻辑设计的基本任务就是：
+<ul class="lvl-4">
+<li class="lvl-10">将 EE-R 模型转换成等价的关系数据库模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>转换内容:</strong> E-R 图的实体、属性、联系 -&gt; 关系模式；模型优化；设计用户子模式。</p>
+</li>
+</ul>
+<h3 id="E-R 图向关系模型的转换原则">E-R 图向关系模型的转换原则</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>实体型:</strong> 一个实体型转换为一个关系模式 (属性 -&gt; 列, 码 -&gt; 主码)。</p>
+<ul class="lvl-2">
+<li class="lvl-6">例：实体型 学生(学号, 姓名, 性别) → 关系模式 学生(学号, 姓名, 性别)，主码为 学号。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>1:1 联系:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">可转为一个独立关系模式 (属性含两端实体码 + 联系属性，两端码均为候选码)。
+<ul class="lvl-4">
+<li class="lvl-10">例：学生(学号) 与 宿舍(宿舍号) 之间有 1:1 联系 入住(入住时间)，
+<ul class="lvl-6">
+<li class="lvl-14">可建关系 入住(学号, 宿舍号, 入住时间)，学号 和 宿舍号 为候选码。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-6">或与任一端实体关系模式合并 (在其属性中加入另一端码 + 联系属性)。
+<ul class="lvl-4">
+<li class="lvl-10">例：将 宿舍号 和 入住时间 加入 学生 → 学生(学号, 姓名, 性别, 宿舍号, 入住时间)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>1:n 联系:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>可转为一个独立关系模式 (属性含两端实体码 + 联系属性，n 端实体码为新关系码)。例：教师(工号) 与 课程(课程号) 之间有 1:n 联系 教授(学期)，可建关系 教授(课程号, 工号, 学期)，主码为 课程号。</p>
+</li>
+<li class="lvl-6">
+<p>或与 n 端实体关系模式合并 (在 n 端属性中加入 1 端码 + 联系属性，减少关系数)。例：将 工号 和 学期 加入 课程 → 课程(课程号, 名称, 学分, 工号, 学期)。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>m:n 联系:</strong> 转换为一个独立关系模式 (属性含两端实体码 + 联系属性，两端实体码组合为新关系码)。</p>
+<ul class="lvl-2">
+<li class="lvl-6">例：学生(学号) 与 课程(课程号) 之间有 m:n 联系 选修(成绩)，</li>
+<li class="lvl-6">建关系 选修(学号, 课程号, 成绩)，主码为 (学号, 课程号)。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>多元联系 (三个以上实体):</strong> 转换为一个关系模式 (属性含各实体码 + 联系属性，各实体码组合为新关系码)。</p>
+<ul class="lvl-2">
+<li class="lvl-6">例：学生(学号)、课程(课程号)、教师(工号) 三者的多元联系 考试(时间, 地点)，</li>
+<li class="lvl-6">建关系 考试(学号, 课程号, 工号, 时间, 地点)，主码为 (学号, 课程号, 工号)。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>相同码的关系模式可合并:</strong> 减少关系个数。</p>
+<ul class="lvl-2">
+<li class="lvl-6">例：两个关系 学生基本信息(学号, 姓名, 性别) 与 学生联系方式(学号, 电话)，可合并为</li>
+<li class="lvl-6">学生(学号, 姓名, 性别, 电话)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="逻辑结构设计的基本方法">逻辑结构设计的基本方法</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>每个‘<strong>实体集</strong>’被转换成一个关系</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-026.png"
+                         alt="课程笔记配图" width="300"
+                 >
+</li>
+<li class="lvl-6">关系及其属性的命名采用原实体集及其属性的名称</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>每个‘<strong>联系</strong>’通常也被转换成一个关系</p>
+<ul class="lvl-2">
+<li class="lvl-6">联系名 -&gt; 关系名，该关系模式中的属性由两部分组成：
+<ul class="lvl-4">
+<li class="lvl-10">联系自身所具有的属性</li>
+<li class="lvl-10">与该联系相关的实体集的标识属性</li>
+</ul>
+</li>
+<li class="lvl-6">来自于相关实体集的标识属性也是相关实体集转换得到的关系模式的主码，因此它们也是联系转换得到的关系模式中的外码</li>
+</ul>
+</li>
+</ul>
+<h4 id="1- 命名与属性域的处理">1. 命名与属性域的处理</h4>
+<p>关系及属性的命名</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>尽量采用在 EE-R 模型中原有的名称</p>
+</li>
+<li class="lvl-2">
+<p>可以重新命名，但要避免命名的冲突现象</p>
+<ul class="lvl-2">
+<li class="lvl-6">在同一个数据库模式中，关系名具有唯一性</li>
+<li class="lvl-6">在同一个关系模式中，属性名具有唯一性属性域的定义</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>根据 DBMS 的选型进行必要的数据类型转换</p>
+</li>
+</ul>
+<blockquote>
+<p>[!note] 规则 1：实体集到关系的转换<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-027.png"
+                         alt="课程笔记配图"
+                 ></p>
+</blockquote>
+<h4 id="2- 非原子属性的处理">2. 非原子属性的处理</h4>
+<ol>
+<li class="lvl-3">
+<p>组合属性 (composite attribute)</p>
+</li>
+<li class="lvl-3">
+<p>多值属性 (multi-valued attribute)</p>
+</li>
+</ol>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>多值属性的例子：学生实体</p>
+</li>
+</ul>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-028.png"
+                         alt="课程笔记配图"
+                 >
+<h5 id="多值属性的处理">多值属性的处理</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>方法一</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">关系模式不变，但原有关系的一个元组将被纵向展开成多个元组（如下表所示学生关系一，满足 1NF 的要求）</li>
+<li class="lvl-6">在上述转换过程中，虽然实体集 (或关系模式) 中的属性没有增加，但转换得到的关系模式的码由原实体集的主标识符属性和该多值属性联合构成（红色的属性名集合）。</li>
+<li class="lvl-6">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-029.png"
+                         alt="课程笔记配图" width="300"
+                 >
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>方法二</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">每一个多值属性，都将被分解出去，和原实体集的主标识符属性联合起来单独组成一个新的‘选课’关系。</li>
+<li class="lvl-6">‘选课’关系的码由原实体集的主标识符属性和该多值属性联合构成。</li>
+<li class="lvl-6">其他属性按照规则 1 转换成如下所示的‘学生’关系二。</li>
+<li class="lvl-6">
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-030.png"
+                         alt="课程笔记配图" width="400"
+                 >
+</li>
+</ul>
+</li>
+</ul>
+<p><mark>‘学生’关系一只能满足 2NF、不满足 3NF，经过关系规范化设计后也将被转换成右边的‘学生’关系二和‘选课’关系。</mark></p>
+<blockquote>
+<p>[!note] 规则 2：多值属性向关系的转换<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-031.png"
+                         alt="课程笔记配图"
+                 ></p>
+</blockquote>
+<h5 id="组合属性的转换方法">组合属性的转换方法</h5>
+<p>将组合属性横向展开成多个属性（参见前面的转换规则 1）</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-032.png"
+                         alt="课程笔记配图"
+                 >
+<h3 id="3- 联系的转换">3. 联系的转换</h3>
+<p>一般情况下，一个联系可以被转换成一个关系。</p>
+<p>但是在有些情况下, 联系也可被归并到相关联的实体集所对应的关系模式中去，即将联系与某个 (或几个) 相关联的实体集共同转换成一个关系模式。</p>
+<p>下面以两个实体集之间的二元联系为例，介绍在不同情况下其逻辑设计的方法。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>两个实体集之间的二元联系，可以根据该联系的函数关系，以及每个实体参与该联系的参与方式将其转换成 1、2 或 3 个关系模式</p>
+</li>
+<li class="lvl-2">
+<p>根据实体在联系中的最小参与基数，可以将参与方式分为</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>min_card(E, R) = 1</strong>
+<ul class="lvl-4">
+<li class="lvl-10">称实体 E 在联系 R 中是‘强制参与’(mandatory participation)，又被称为是‘全参与’</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>min_card(E, R) = 0</strong>
+<ul class="lvl-4">
+<li class="lvl-10">称实体 E 在联系 R 中是‘可选参与’(optional participation)，又被称为是‘非全参与’</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="实体集与联系的‘全参与’与‘非全参与’">实体集与联系的‘全参与’与‘非全参与’</h4>
+<p>在实体与联系之间的‘参与基数’中，包含着一对一、一对多、多对多等‘函数关系’，后面将综合考虑‘函数关系’和‘参与基数’来定义联系到关系的转换规则。</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-033.png"
+                         alt="课程笔记配图"
+                 >
+<h4 id="联系的转换">联系的转换</h4>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-034.png"
+                         alt="课程笔记配图" width="400"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-035.png"
+                         alt="课程笔记配图" width="400"
+                 >
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-036.png"
+                         alt="课程笔记配图" width="400"
+                 >
+<blockquote>
+<p>[!note] 规则 3：“一对一” 二元联系的转换<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-037.png"
+                         alt="课程笔记配图"
+                 ><br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-038.png"
+                         alt="课程笔记配图"
+                 ><br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-039.png"
+                         alt="课程笔记配图"
+                 ></p>
+</blockquote>
+<blockquote>
+<p>[!note] 规则 4：“一对多” 二元联系的转换<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-040.png"
+                         alt="课程笔记配图"
+                 ><br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-041.png"
+                         alt="课程笔记配图"
+                 ></p>
+</blockquote>
+<blockquote>
+<p>[!note] 规则 5：“一对多” 二元联系的转换<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-042.png"
+                         alt="课程笔记配图"
+                 ></p>
+</blockquote>
+<blockquote>
+<p>[!note] 规则 6：多个实体集之间的多元联系<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-043.png"
+                         alt="课程笔记配图"
+                 ></p>
+</blockquote>
+<blockquote>
+<p>[!note] 规则 7：单个实体集内部的联系<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-044.png"
+                         alt="课程笔记配图"
+                 ><br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-045.png"
+                         alt="课程笔记配图"
+                 ><br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-046.png"
+                         alt="课程笔记配图"
+                 ><br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-047.png"
+                         alt="课程笔记配图"
+                 ></p>
+</blockquote>
+<h3 id="4．ISA 联系的转换">4．ISA 联系的转换</h3>
+<p>假设超实体集 S 与其两个子实体集 E1 和 E2 构成如下图所示的继承关系。</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-048.png"
+                         alt="课程笔记配图" width="200"
+                 >
+<p>其中：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>实体集 S 的属性有($k,A_1,A_2,…,A_n$)，k 是其标识属性</p>
+</li>
+<li class="lvl-2">
+<p>实体集 E1 的属性有($B_{11},B_{12},…, B{1i}$)</p>
+</li>
+<li class="lvl-2">
+<p>实体集 E2 的属性有($B_{21},B_{22},…,B_{2j}$)</p>
+</li>
+</ul>
+<p>有三种不同的转换方式可供选择，可分别转换为：1 个关系、2 个关系、3 个关系</p>
+<blockquote>
+<p>[!note] ISA 联系的转换<br>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-049.png"
+                         alt="课程笔记配图"
+                 ></p>
+</blockquote>
+<p>假设不考虑在职研究生</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>师生员工与学生、教师、职工之间是一个不相交完全特化的 ISA 联系</p>
+</li>
+<li class="lvl-2">
+<p>可以采用前述的方式 2，实现向关系的转换</p>
+</li>
+</ul>
+<p>除此之外，其他的 ISA 联系，都采用方式 1 来实现向关系的转换</p>
+<img    
+                       lazyload
+                       alt="image"
+                       data-src="/hexo-blog/images/data-management/ch07/image-050.png"
+                         alt="课程笔记配图"
+                 >
+<h3 id="5- 规范化">5. 规范化</h3>
+<p>对转换得到的关系模式进行关系规范化设计，确保所有关系模式至少满足第三范式(3NF)</p>
+<h3 id="6．关系数据库管理系统（DBMS）">6．关系数据库管理系统（DBMS）</h3>
+<p>为满足数据库系统在性能、存储空间等方面的要求及其它限制条件所做的模式调整与修改。包括：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>逆规范化</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">将多个相关表合并为一个大表，减少 JOIN，提高系统性能</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>关系的分割</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">调整每个关系的大小，提高在单个关系上的数据存取效率。</li>
+<li class="lvl-6">常用分割方法：
+<ul class="lvl-4">
+<li class="lvl-10"><strong>水平分割</strong>
+<ul class="lvl-6">
+<li class="lvl-14">将一个关系的元组集合划分为若干个不相交的子集，每个子集对应一个子关系模式；</li>
+</ul>
+</li>
+<li class="lvl-10"><strong>垂直分割</strong>
+<ul class="lvl-6">
+<li class="lvl-14">将一个关系模式纵向分解成若干个子关系模式。（不同于规范化设计中的模式分解）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>尽量使用快照</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>快照</strong>(snapshot)：<code>create snapshot &lt;snapshot-name&gt; as &lt;select-statement&gt;;</code>
+<ul class="lvl-4">
+<li class="lvl-10">通过创建‘快照’，可以用一条 select 查询语句来为数据库中的某张表、或者为某个数据查询请求的执行结果创建一个不可修改的、持久化的数据备份。</li>
+<li class="lvl-10">在执行 create snapshot 命令时，DBMS 将执行对应的查询语句<code>&lt;select-statement&gt;</code>，并将查询执行结果以‘表’的形式持久存储在数据库中。</li>
+<li class="lvl-10">在实际应用中，应用程序可以通过访问快照直接使用保存在数据库中的查询结果，不必再去执行对应的查询命令，有效提高了应用访问效率。特别适合于业绩统计、库存盘点、实时计费等应用场景。</li>
+</ul>
+</li>
+<li class="lvl-6"><em>快照的维护</em>：DBMS 提供了两种快照结果的更新方式
+<ul class="lvl-4">
+<li class="lvl-10">由 DBMS 周期性地自动刷新快照的结果数据</li>
+<li class="lvl-10">由用户通过执行快照刷新命令来手工刷新快照的结果数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="7- 约束条件的设置">7. 约束条件的设置</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>完整性约束</p>
+</li>
+<li class="lvl-2">
+<p>安全性约束</p>
+</li>
+<li class="lvl-2">
+<p>数据类型约束</p>
+</li>
+<li class="lvl-2">
+<p>数据量的约束</p>
+</li>
+<li class="lvl-2">
+<p>重新定义每个表的候选键、主码及外码</p>
+</li>
+</ul>
+<h3 id="8- 关系视图的设计">8. 关系视图的设计</h3>
+<p>在关系模式基础上所设计的直接面向操作用户的视图，即用户的‘外模式’，它可以根据用户的需求随时定义或重新定义，一般 RDBMS 均通过‘视图’(view)来提供关系视图的功能。</p>
+<p>关系视图的作用</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>提供数据的逻辑独立性</p>
+</li>
+<li class="lvl-2">
+<p>能满足不同用户的不同数据需求</p>
+</li>
+<li class="lvl-2">
+<p>提供一定的数据安全、保密功能</p>
+</li>
+<li class="lvl-2">
+<p><strong>数据模型的优化 (以关系模型为例):</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>规范化理论指导:</strong>
+<ul class="lvl-4">
+<li class="lvl-10">写出各关系模式内部属性间数据依赖，进行规范化 (消除部分 / 传递函数依赖等)。</li>
+<li class="lvl-10">写出不同关系模式间数据依赖，进行极小化处理，消除冗余联系。</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>权衡:</strong> 并非规范化程度越高越好。高规范化可能增加连接操作，影响效率。若关系主要用于查询，某些更新异常可能不重要。需平衡响应时间和潜在问题。</li>
+<li class="lvl-6"><strong>关系模式的分解:</strong> 提高操作效率和空间利用率。
+<ul class="lvl-4">
+<li class="lvl-10"><strong>水平分解:</strong> 将元组集划分子集 (如常用数据分离)。</li>
+<li class="lvl-10"><strong>垂直分解:</strong> 将属性集划分子集 (如常用属性分离)。需保证无损连接和保持函数依赖。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>设计用户子模式 (视图):</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>使用更符合用户习惯的别名。</strong></li>
+<li class="lvl-6"><strong>针对不同用户定义不同视图，保证安全性。</strong></li>
+<li class="lvl-6"><strong>简化用户对系统的使用 (将复杂查询定义为视图)。</strong></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>数据库管理系统适应性转换:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6">根据所选用 DBMS 的具体功能和限制，对一般数据模型进行调整。对关系模型通常简单。</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-5- 物理结构设计">7.5 物理结构设计</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>定义:</strong> 为逻辑数据模型选取最适合应用要求的物理结构 (存储结构与存取方法)。依赖于选定的 DBMS。</p>
+</li>
+<li class="lvl-2">
+<p><strong>步骤:</strong></p>
+<ol>
+<li class="lvl-7">确定数据库的物理结构 (主要指存取方法和存储结构)。</li>
+<li class="lvl-7">对物理结构进行评价 (时间、空间效率)。不满足则重设或修改。</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p><strong>物理设计内容与方法:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>准备工作:</strong> 了解应用环境、事务分析 (查询 / 更新内容、频率、性能要求)、DBMS 内部特征 (存取方法、存储结构)。</li>
+<li class="lvl-6"><strong>内容:</strong> 为关系模式选择存取方法；设计关系、索引等数据库文件的物理存储结构。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>关系模式存取方法选择:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>B+ 树索引:</strong>
+<ul class="lvl-4">
+<li class="lvl-10">对经常在查询条件、聚集函数参数、连接条件中出现的属性 (列或组合列) 建立索引。</li>
+<li class="lvl-10">考虑是否唯一索引。索引过多会增加开销。</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>Hash 索引:</strong>
+<ul class="lvl-4">
+<li class="lvl-10">属性主要出现在等值连接或等值比较选择中。</li>
+<li class="lvl-10">关系大小可预知且不变，或 DBMS 提供动态 Hash。</li>
+</ul>
+</li>
+<li class="lvl-6"><strong>聚簇 (Clustering):</strong>
+<ul class="lvl-4">
+<li class="lvl-10">将聚簇码 (属性 / 属性组) 上具有相同值的元组集中存放在连续物理块中。</li>
+<li class="lvl-10"><strong>用途:</strong> 大大提高按聚簇码查询的效率。</li>
+<li class="lvl-12"><strong>选择:</strong> 单个关系或常连接的多个关系 (预连接)。</li>
+<li class="lvl-12"><strong>设计候选聚簇:</strong> 考虑连接操作、相等比较、高重复值属性。</li>
+<li class="lvl-12"><strong>检查候选聚簇:</strong> 移除全表扫描、更新远多于连接、重复出现的关系。</li>
+<li class="lvl-12"><strong>局限性:</strong> 只提高特定应用性能，建立维护开销大。适用于聚簇码访问是主要应用，尤其含 ORDER BY, GROUP BY 等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>确定数据库的存储结构:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8"><strong>数据存放位置:</strong>
+<ul class="lvl-4">
+<li class="lvl-12">考虑因素: 硬件环境、应用需求 (存取时间、空间利用率、维护代价 - 常需权衡)。</li>
+<li class="lvl-12">原则: 易变与稳定部分分开；经常存取与低频存取部分分开。</li>
+<li class="lvl-12">例如: 大表分磁盘存放，日志与数据对象分磁盘。</li>
+</ul>
+</li>
+<li class="lvl-8"><strong>确定系统配置:</strong>
+<ul class="lvl-4">
+<li class="lvl-12">DBMS 提供的存储分配参数 (用户数、打开对象数、内存、缓冲区、块大小、装填因子、时间片、锁数等)。</li>
+<li class="lvl-12">根据应用环境调整，初步设定后根据实际运行情况再调整。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>评价物理结构:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8">定量估算各种方案的存储空间、存取时间、维护代价。</li>
+<li class="lvl-8">权衡比较，选择较优方案。</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-6- 数据库的实施和维护">7.6 数据库的实施和维护</h2>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p><strong>数据的载入和应用程序的调试:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8">数据装载方法: 人工或计算机辅助。</li>
+<li class="lvl-8">应用程序设计与数据设计并行，数据入库同时调试应用。</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>数据库试运行:</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8">联合调试。主要工作:
+<ul class="lvl-4">
+<li class="lvl-12"><strong>功能测试:</strong> 测试应用程序各项功能。</li>
+<li class="lvl-12"><strong>性能测试:</strong> 测量系统性能指标，分析是否符合设计目标。不符则返回物理或逻辑设计调整。</li>
+</ul>
+</li>
+<li class="lvl-8"><strong>注意事项:</strong>
+<ul class="lvl-4">
+<li class="lvl-12"><strong>数据的分期入库:</strong> 先小批量调试，合格后再大批量。</li>
+<li class="lvl-12"><strong>数据库的转储和恢复:</strong> 试运行阶段系统不稳定，需做好备份恢复。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p><strong>数据库的运行和维护 (主要由 DBA 完成):</strong></p>
+<ul class="lvl-2">
+<li class="lvl-8"><strong>数据库的转储和恢复:</strong> 定期备份数据库和日志文件，故障时恢复。</li>
+<li class="lvl-8"><strong>数据库的安全性、完整性控制:</strong> 根据用户需求和环境变化，定义和修改权限及约束。</li>
+<li class="lvl-8"><strong>数据库性能的监督、分析和改进:</strong> 利用监测工具获取参数，分析并调整以优化性能。</li>
+<li class="lvl-8"><strong>数据库的重组织:</strong>
+<ul class="lvl-4">
+<li class="lvl-12"><strong>原因:</strong> 记录增删改导致物理存储变坏，性能下降。</li>
+<li class="lvl-12"><strong>目标:</strong> 提高性能。</li>
+<li class="lvl-12"><strong>工作:</strong> 按原设计重排存储、回收垃圾、减少指针链。<strong>不改变逻辑和物理结构。</strong></li>
+<li class="lvl-12">DBMS 通常提供相应工具。</li>
+</ul>
+</li>
+<li class="lvl-8"><strong>数据库的重构造:</strong>
+<ul class="lvl-4">
+<li class="lvl-12"><strong>原因:</strong> 应用环境变化导致原有设计不满足新需求。</li>
+<li class="lvl-12"><strong>工作:</strong> 调整数据库模式和内模式 (增删数据项 / 表，改类型 / 容量，增删索引等)。</li>
+<li class="lvl-12"><strong>程度有限:</strong> 若变化太大，可能需重新设计整个系统。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                SQL 教程 | 7. 数据库设计
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2025/10/16/sql 教程/sql7-数据库设计/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">He Junze</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2025-10-16 14:47</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%95%99%E7%A8%8B/">系统性教程</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/hexo-blog/tags/SQL/">SQL</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    
+
+<div class="reward-author-container border-box flex-center">
+    <div class="reward-btn border-box flex-center tooltip tooltip-img"
+            data-tooltip-img-url="/images/buymeacoffee.jpg"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -6px;"
+    >
+        <i class="fa-solid fa-gift"></i>&nbsp;REWARD AUTHOR
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/hexo-blog/2025/10/23/sql%20%E6%95%99%E7%A8%8B/sql8-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/"
+                                   title="SQL 教程 | 8. 数据库编程"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 8. 数据库编程</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/hexo-blog/2025/10/09/sql%20%E6%95%99%E7%A8%8B/sql6-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E7%90%86%E8%AE%BA/"
+                                   title="SQL 教程 | 6. 关系数据理论"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">SQL 教程 | 6. 关系数据理论</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="twikoo-container">
+        <div id="twikoo-comment"></div>
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/twikoo@1.6.40/dist/twikoo.all.min.js?1795612674934"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script data-pjax
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initTwikoo = () => {
+            if (window?.twikoo) {
+              twikoo.init({
+                el: '#twikoo-comment',
+                envId: 'https://hejunze.netlify.app/.netlify/functions/twikoo',
+                region: '',
+                lang: 'en,zh-CN,default' || 'zh-CN'
+              })
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initTwikoo()
+              }, 1000)
+            }
+          }
+
+          if ('true' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initTwikoo()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initTwikoo)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E6%A6%82%E8%BF%B0"><span class="nav-text">7.1 数据库设计概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-1-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">7.1.1 数据库设计的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-2-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="nav-text">7.1.2 数据库设计方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-3-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-text">7.1.3 数据库设计的基本步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-text">7.2 需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-text">7.2.1 需求分析的任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%20-2"><span class="nav-text">7.2 需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E7%9A%84%E4%BB%BB%E5%8A%A1%20-2"><span class="nav-text">7.2.1 需求分析的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-2-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">7.2.2 需求分析的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-3-%20%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8"><span class="nav-text">7.2.3 数据字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%20%E6%A6%82%E5%BF%B5%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">7.3 概念结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-1-%20%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">7.3.1 概念模型的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-E-R%20%E6%A8%A1%E5%9E%8B%20-%20%E5%AE%9E%E4%BD%93%20-%20%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B"><span class="nav-text">7.3.2 E-R 模型 (实体 - 关系模型)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E4%B8%8E%E8%81%94%E7%B3%BB"><span class="nav-text">实体与联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E7%B3%BB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">联系的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E7%B3%BB%E7%9A%84%E5%BA%A6"><span class="nav-text">联系的度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-R-%20%E5%9B%BE"><span class="nav-text">E-R 图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-3-%20%E6%89%A9%E5%B1%95%E7%9A%84%20E-R%20%E6%A8%A1%E5%9E%8B"><span class="nav-text">7.3.3 扩展的 E-R 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ISA-%20%E8%81%94%E7%B3%BB"><span class="nav-text">ISA 联系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ISA%20%E8%81%94%E7%B3%BB%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-text">ISA 联系的性质</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E5%B1%9E%E6%80%A7"><span class="nav-text">分类属性</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%8D%E7%9B%B8%E4%BA%A4%E7%BA%A6%E6%9D%9F%E4%B8%8E%E5%8F%AF%E9%87%8D%E5%8F%A0%E7%BA%A6%E6%9D%9F"><span class="nav-text">不相交约束与可重叠约束</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%8C%E5%A4%87%E6%80%A7%E7%BA%A6%E6%9D%9F"><span class="nav-text">完备性约束</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F"><span class="nav-text">基数约束</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-text">基数约束的意义</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%20%E5%8F%82%E4%B8%8E%E7%BA%A6%E6%9D%9F%EF%BC%88Participation-Constraint%EF%BC%89"><span class="nav-text">1. 参与约束（Participation Constraint）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%20%E5%8F%82%E4%B8%8E%E6%AC%A1%E6%95%B0%EF%BC%88Participation-Count%EF%BC%89"><span class="nav-text">2. 参与次数（Participation Count）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">基数约束的表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F%E7%A4%BA%E4%BE%8B"><span class="nav-text">基数约束示例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%85%B3%E7%B3%BB%E4%B8%8E%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F"><span class="nav-text">函数关系与基数约束</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Part-of-%20%E8%81%94%E7%B3%BB"><span class="nav-text">Part-of 联系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%B1%E5%AE%9E%E4%BD%93%E5%9E%8B%E5%92%8C%E8%AF%86%E5%88%AB%E8%81%94%E7%B3%BB"><span class="nav-text">弱实体型和识别联系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E7%9A%84%E5%88%92%E5%88%86"><span class="nav-text">属性的划分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E5%80%BC%E5%B1%9E%E6%80%A7%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">多值属性的表示方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%9F%BA%E6%95%B0"><span class="nav-text">属性基数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-R-%20%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">E-R 模型的设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%20-or-%20%E5%B1%9E%E6%80%A7%EF%BC%9F"><span class="nav-text">实体 or 属性？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%20-or-%20%E8%81%94%E7%B3%BB%EF%BC%9F"><span class="nav-text">实体 or 联系？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E8%81%94%E7%B3%BB%20-or-%20%E4%B8%89%EF%BC%88%E5%A4%9A%EF%BC%89%E5%85%83%E8%81%94%E7%B3%BB%20-%EF%BC%9F"><span class="nav-text">二元联系 or 三（多）元联系 ？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-4-%20%E6%A6%82%E5%BF%B5%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E4%B8%8E%E6%AD%A5%E9%AA%A4"><span class="nav-text">7.3.4 概念结构设计方法与步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-%20%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">7.4 逻辑结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#E-R%20%E5%9B%BE%E5%90%91%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%8E%9F%E5%88%99"><span class="nav-text">E-R 图向关系模型的转换原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95"><span class="nav-text">逻辑结构设计的基本方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%20%E5%91%BD%E5%90%8D%E4%B8%8E%E5%B1%9E%E6%80%A7%E5%9F%9F%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">1. 命名与属性域的处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%20%E9%9D%9E%E5%8E%9F%E5%AD%90%E5%B1%9E%E6%80%A7%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">2. 非原子属性的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E5%80%BC%E5%B1%9E%E6%80%A7%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">多值属性的处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E5%B1%9E%E6%80%A7%E7%9A%84%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95"><span class="nav-text">组合属性的转换方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%20%E8%81%94%E7%B3%BB%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-text">3. 联系的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E9%9B%86%E4%B8%8E%E8%81%94%E7%B3%BB%E7%9A%84%E2%80%98%E5%85%A8%E5%8F%82%E4%B8%8E%E2%80%99%E4%B8%8E%E2%80%98%E9%9D%9E%E5%85%A8%E5%8F%82%E4%B8%8E%E2%80%99"><span class="nav-text">实体集与联系的‘全参与’与‘非全参与’</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E7%B3%BB%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-text">联系的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8EISA%20%E8%81%94%E7%B3%BB%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-text">4．ISA 联系的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%20%E8%A7%84%E8%8C%83%E5%8C%96"><span class="nav-text">5. 规范化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%EF%BC%8E%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88DBMS%EF%BC%89"><span class="nav-text">6．关系数据库管理系统（DBMS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%20%E7%BA%A6%E6%9D%9F%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-text">7. 约束条件的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%20%E5%85%B3%E7%B3%BB%E8%A7%86%E5%9B%BE%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">8. 关系视图的设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-%20%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">7.5 物理结构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-6-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%9E%E6%96%BD%E5%92%8C%E7%BB%B4%E6%8A%A4"><span class="nav-text">7.6 数据库的实施和维护</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2024</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/hexo-blog/">He Junze</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://www.aliyun.com/">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="Alibaba Cloud"><img src="/hexo-blog/images/brands/aliyun.png"></span>
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">104.9k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn"
+                        >
+                            豫ICP备2024101982号-1
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E6%A6%82%E8%BF%B0"><span class="nav-text">7.1 数据库设计概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-1-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">7.1.1 数据库设计的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-2-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="nav-text">7.1.2 数据库设计方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-3-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-text">7.1.3 数据库设计的基本步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-text">7.2 需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-text">7.2.1 需求分析的任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%20-2"><span class="nav-text">7.2 需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E7%9A%84%E4%BB%BB%E5%8A%A1%20-2"><span class="nav-text">7.2.1 需求分析的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-2-%20%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">7.2.2 需求分析的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-3-%20%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8"><span class="nav-text">7.2.3 数据字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%20%E6%A6%82%E5%BF%B5%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">7.3 概念结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-1-%20%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">7.3.1 概念模型的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-E-R%20%E6%A8%A1%E5%9E%8B%20-%20%E5%AE%9E%E4%BD%93%20-%20%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B"><span class="nav-text">7.3.2 E-R 模型 (实体 - 关系模型)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E4%B8%8E%E8%81%94%E7%B3%BB"><span class="nav-text">实体与联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E7%B3%BB%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">联系的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E7%B3%BB%E7%9A%84%E5%BA%A6"><span class="nav-text">联系的度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-R-%20%E5%9B%BE"><span class="nav-text">E-R 图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-3-%20%E6%89%A9%E5%B1%95%E7%9A%84%20E-R%20%E6%A8%A1%E5%9E%8B"><span class="nav-text">7.3.3 扩展的 E-R 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ISA-%20%E8%81%94%E7%B3%BB"><span class="nav-text">ISA 联系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ISA%20%E8%81%94%E7%B3%BB%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-text">ISA 联系的性质</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E5%B1%9E%E6%80%A7"><span class="nav-text">分类属性</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%8D%E7%9B%B8%E4%BA%A4%E7%BA%A6%E6%9D%9F%E4%B8%8E%E5%8F%AF%E9%87%8D%E5%8F%A0%E7%BA%A6%E6%9D%9F"><span class="nav-text">不相交约束与可重叠约束</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%8C%E5%A4%87%E6%80%A7%E7%BA%A6%E6%9D%9F"><span class="nav-text">完备性约束</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F"><span class="nav-text">基数约束</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-text">基数约束的意义</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%20%E5%8F%82%E4%B8%8E%E7%BA%A6%E6%9D%9F%EF%BC%88Participation-Constraint%EF%BC%89"><span class="nav-text">1. 参与约束（Participation Constraint）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%20%E5%8F%82%E4%B8%8E%E6%AC%A1%E6%95%B0%EF%BC%88Participation-Count%EF%BC%89"><span class="nav-text">2. 参与次数（Participation Count）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">基数约束的表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F%E7%A4%BA%E4%BE%8B"><span class="nav-text">基数约束示例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%85%B3%E7%B3%BB%E4%B8%8E%E5%9F%BA%E6%95%B0%E7%BA%A6%E6%9D%9F"><span class="nav-text">函数关系与基数约束</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Part-of-%20%E8%81%94%E7%B3%BB"><span class="nav-text">Part-of 联系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%B1%E5%AE%9E%E4%BD%93%E5%9E%8B%E5%92%8C%E8%AF%86%E5%88%AB%E8%81%94%E7%B3%BB"><span class="nav-text">弱实体型和识别联系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E7%9A%84%E5%88%92%E5%88%86"><span class="nav-text">属性的划分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E5%80%BC%E5%B1%9E%E6%80%A7%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">多值属性的表示方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%9F%BA%E6%95%B0"><span class="nav-text">属性基数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-R-%20%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">E-R 模型的设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%20-or-%20%E5%B1%9E%E6%80%A7%EF%BC%9F"><span class="nav-text">实体 or 属性？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%20-or-%20%E8%81%94%E7%B3%BB%EF%BC%9F"><span class="nav-text">实体 or 联系？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E8%81%94%E7%B3%BB%20-or-%20%E4%B8%89%EF%BC%88%E5%A4%9A%EF%BC%89%E5%85%83%E8%81%94%E7%B3%BB%20-%EF%BC%9F"><span class="nav-text">二元联系 or 三（多）元联系 ？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-4-%20%E6%A6%82%E5%BF%B5%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E4%B8%8E%E6%AD%A5%E9%AA%A4"><span class="nav-text">7.3.4 概念结构设计方法与步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-%20%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">7.4 逻辑结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#E-R%20%E5%9B%BE%E5%90%91%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%8E%9F%E5%88%99"><span class="nav-text">E-R 图向关系模型的转换原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95"><span class="nav-text">逻辑结构设计的基本方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%20%E5%91%BD%E5%90%8D%E4%B8%8E%E5%B1%9E%E6%80%A7%E5%9F%9F%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">1. 命名与属性域的处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%20%E9%9D%9E%E5%8E%9F%E5%AD%90%E5%B1%9E%E6%80%A7%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">2. 非原子属性的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E5%80%BC%E5%B1%9E%E6%80%A7%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">多值属性的处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E5%B1%9E%E6%80%A7%E7%9A%84%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95"><span class="nav-text">组合属性的转换方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%20%E8%81%94%E7%B3%BB%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-text">3. 联系的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E9%9B%86%E4%B8%8E%E8%81%94%E7%B3%BB%E7%9A%84%E2%80%98%E5%85%A8%E5%8F%82%E4%B8%8E%E2%80%99%E4%B8%8E%E2%80%98%E9%9D%9E%E5%85%A8%E5%8F%82%E4%B8%8E%E2%80%99"><span class="nav-text">实体集与联系的‘全参与’与‘非全参与’</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E7%B3%BB%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-text">联系的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8EISA%20%E8%81%94%E7%B3%BB%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-text">4．ISA 联系的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%20%E8%A7%84%E8%8C%83%E5%8C%96"><span class="nav-text">5. 规范化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%EF%BC%8E%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88DBMS%EF%BC%89"><span class="nav-text">6．关系数据库管理系统（DBMS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%20%E7%BA%A6%E6%9D%9F%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-text">7. 约束条件的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%20%E5%85%B3%E7%B3%BB%E8%A7%86%E5%9B%BE%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">8. 关系视图的设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-%20%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">7.5 物理结构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-6-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%9E%E6%96%BD%E5%92%8C%E7%BB%B4%E6%8A%A4"><span class="nav-text">7.6 数据库的实施和维护</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/hexo-blog/js/utils.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/header-shrink.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/back2top.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/toggle-theme.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/code-block.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/main.js?1795612674934"></script>
+
+<script src="/hexo-blog/js/libs/anime.min.js?1795612674934"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/hexo-blog/js/local-search.js?1795612674934"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/hexo-blog/js/lazyload.js?1795612674934"></script>
+
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/hexo-blog/js/post/post-helper.js?1795612674934"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/hexo-blog/js/post/toc.js?1795612674934"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/hexo-blog/js/post/copyright-info.js?1795612674934"></script>
+
+        
+
+        <!-- share -->
+        
+            
+<script src="/hexo-blog/js/post/share.js?1795612674934"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/hexo-blog/js/libs/pjax.min.js?1795612674934"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+            
+<script class="custom-inject-js" src="/hexo-blog/js/custom-1.js?1795612674934" data-pjax></script>
+
+        
+    
+
+</body>
+</html>
